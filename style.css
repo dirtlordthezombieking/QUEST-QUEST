@@ -1,7 +1,29 @@
 body
 {
+	height:100vh;
+	align-items:center;
 }
 .cover
 {
 	opacity:0.5;
+	animation:60s linear infinite fade;
+}
+@keyframes fade
+{
+	0%
+	{
+		background-color:#081000;
+	}
+	25%
+	{
+		background-color:#081010;
+	}
+	50%
+	{
+		background-color:#080010;
+	}
+	100%
+	{
+		background-color:#081000;
+	}
 }
