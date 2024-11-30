@@ -24,8 +24,8 @@ const loaders=
 	async loadMusic(src)
 	{
 		//----
-	}
-	unload(src)
+	},
+	async unload(src)
 	{
 		//----
 	}
