@@ -1,6 +1,6 @@
 body
 {
-	background-image:repeating-conic-gradnt(from 0 at 0% 0%, #1010000 0, #101010 10deg, #100010 20deg, #100000 30deg, #101000 40deg);
+	background-image:repeating-conic-gradnt(from 0 at 0% 0%, #101000 0, #101010 10deg, #100010 20deg, #100000 30deg, #101000 40deg);
 	height:100vh;
 	align-items:center;
 }
