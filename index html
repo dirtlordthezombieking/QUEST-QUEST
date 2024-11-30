@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>rock p(A)per sc(I)ssors</title>
+		<link rel="stylesheet" href="style/main.css"/>
+	</head>
+	<body>
+		<div class="cover">
+		</div>
+		<script src="JavaScript/main.js"></script>
+	</body>
+</html>
