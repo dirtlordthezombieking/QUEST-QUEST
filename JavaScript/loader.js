@@ -25,4 +25,8 @@ const loaders=
 	{
 		//----
 	}
+	unload(src)
+	{
+		//----
+	}
 };
