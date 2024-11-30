@@ -12,8 +12,10 @@ body
 	with:100%;
 	height:100%;
 	animation:30s linear infinite fade;
+	align-items:center;
 	padding:0; 
 	margin:0;
+	font-size:150%;
 }
 @keyframes fade
 {
