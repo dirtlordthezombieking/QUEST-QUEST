@@ -8,5 +8,6 @@ main()
 	tex.x+=0.5*sin((pos*3.0)+(u_time*0.4));
 	tex.y+=sin((pos*5.0)+(u_time*0.6));
 	tex.z+=sin((pos*2.0)+(u_time*1.0));
+	tex.w=min(tex.w,(u_time*2)+(pos/5.0)-12)
 	gl_FragColor=tex;
 }
