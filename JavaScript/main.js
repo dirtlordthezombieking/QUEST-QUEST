@@ -1,4 +1,11 @@
-function Game()
+const game=
 {
-}
-const game=new Game();
+	started:false,
+	start()
+	{
+		if(started)
+		{
+			return;
+		}
+	}
+};
