@@ -17,6 +17,12 @@ body
 	margin:0;
 	font-size:150%;
 }
+.start
+{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
 @keyframes fade
 {
 	0%
