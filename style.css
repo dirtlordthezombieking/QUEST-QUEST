@@ -1,6 +1,6 @@
 body
 {
-	background-image:repeating-conic-gradient(from 0 at 0% 0%, #110 0, #111 10deg, #101 20deg, #100 30deg, #110 40deg);
+	background-image:repeating-conic-gradient(from 0 at 0% 0%, #101000 0, #101010 10deg, #100010 20deg, #100000 30deg, #101000 40deg);
 	height:100vh;
 	align-items:center;
 	padding:0; 
@@ -11,7 +11,7 @@ body
 	opacity:0.5;
 	with:100%;
 	height:100%;
-	animation:60s linear infinite fade;
+	animation:30s linear infinite fade;
 	padding:0; 
 	margin:0;
 }
