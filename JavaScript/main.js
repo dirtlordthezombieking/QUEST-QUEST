@@ -21,6 +21,7 @@ const game=
 			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 			loader.load("assets/graphics/misc/quest quest.png","image");
+			document.getElementById("log").append(loader.items["assets/graphics/misc/quest quest.png"].image.value);
 		}
 		catch(e)
 		{
