@@ -23,6 +23,8 @@ body
 	margin-left:auto;
 	margin-right:auto;
 	font-size:200%;
+	text-shadow:0 0 4px #000810;
+	color:#008040;
 }
 @keyframes fade
 {
