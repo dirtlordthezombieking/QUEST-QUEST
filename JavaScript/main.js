@@ -5,11 +5,11 @@ const game=
 	{
 		try
 		{
-		if(started)
+		if(this.started)
 		{
 			return;
 		}
-		started=true;
+		this.started=true;
 		this.canvas=document.querySelector("#canvas");
 		this.gl=this.canvas.getContext("webgl",{premultipliedAlpha:false});
 		this.canvas.width=this.canvas.clientWidth;
