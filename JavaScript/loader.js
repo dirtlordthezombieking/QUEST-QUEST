@@ -103,9 +103,11 @@ const loader=
 		let loaded=false;
 		image.onload=function()
 		{
+			game.log.inform("image onload");
 			try
 			{
 				loader.items[src].image={value:image,count:1};
+				game.log.inform("image loaded");
 			}
 			catch(e)
 			{
