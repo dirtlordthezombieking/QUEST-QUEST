@@ -45,7 +45,7 @@ const loader=
 		{
 			loader.items[src]={count:1};
 		}
-		//await
+		await loadString("asset/data"+src)
 	},
 	async loadString(src)
 	{
