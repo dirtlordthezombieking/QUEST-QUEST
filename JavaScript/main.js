@@ -23,7 +23,25 @@ const game=
 		}
 		catch(e)
 		{
-			document.getElementById("start").innerHTML=e.message;
+			game.log.error(e.message);
+		}
+	},
+	log:
+	{
+		error(msg)
+		{
+			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<br/><p style=\"color:FF0000\">"+msg+"</p>"
+		}
+		warn(msg)
+		{
+			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<br/><p style=\"color:FFFF00\">"+msg+"</p>"
+		}
+		inform(msg)
+		{
+			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<br/><p style=\"color:00FF00\">"+msg+"</p>"
 		}
 	}
 };
+game.log.inform("inform");
+game.log.warn("warn");
+game.log.error("error");
