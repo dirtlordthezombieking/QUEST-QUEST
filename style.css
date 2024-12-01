@@ -25,6 +25,7 @@ body
 	font-size:200%;
 	text-shadow:0 0 4px #000810;
 	color:#008040;
+	animation:2s linear infinite flash;
 }
 @keyframes fade
 {
@@ -43,5 +44,24 @@ body
 	100%
 	{
 		background-color:#081000;
+	}
+}
+@keyframes flash
+{
+	0%
+	{
+		color:#000810;
+	}
+	49.99%
+	{
+		color:#000810;
+	}
+	50%
+	{
+		color:#001080;
+	}
+	100%
+	{
+		color:#001080;
 	}
 }
