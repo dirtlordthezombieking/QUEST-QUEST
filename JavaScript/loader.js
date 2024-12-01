@@ -1,10 +1,22 @@
-const loaders=
+const loader=
 {
 	items:{},
 	queue:0,
-	async load(src)
+	loaded()
 	{
-		//----
+		return loader.queue<=0;
+	},
+	load(src,type)
+	{
+		loader.queue++;
+		if(type=="image")
+		{
+			loader.loadImage(src);
+		}
+		else
+		{
+			loader.queue--;
+		}
 	},
 	async loadString(src)
 	{
@@ -16,23 +28,32 @@ const loaders=
 	},
 	async loadImage(src)
 	{
-		queue
+		if(src in loader.items)
+		{
+			if("image" in (loader.items[src]))
+			{
+				loader.items[src].image.count++;
+				return;
+			}
+			loader.items[src].count++;
+		}
+		else
+		{
+			loader.items[src]={count:1};
+		}
 		let image=new Image();
 		image.src=src;
 		image.onload=function()
 		{
 			try
 			{
-				if(!(src in items))
-				{
-					items[src]={type:"image",count:0,value:image};
-				}
-				items[src].count++;
+				loader.items[src].image={value:image,count:1};
 			}
 			catch(e)
 			{
-				game.log.error("error loading "+src+": "e.message);
+				game.log.error("error loading "+src+": "+e.message);
 			}
+			loader.queue--;
 		};
 	},
 	async loadSound(src)
@@ -43,8 +64,23 @@ const loaders=
 	{
 		//----
 	},
-	async unload(src)
+	unload(src,type)
 	{
-		items[src].count--;
+		if(src in loader.items)
+		{
+			if(type in (loader.items[src]))
+			{
+				loader.items[src].count--;
+				loader.items[src][type].count--;
+				if(loader.items[src][type].count<=0)
+				{
+					delete loader.items[src][type];
+					if(loader.items[src].count<=0)
+					{
+						delete loader.items[src];
+					}
+				}
+			}
+		}
 	}
 };
