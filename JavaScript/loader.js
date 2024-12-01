@@ -114,7 +114,7 @@ const loader=
 			loader.queue--;
 			loaded=true;
 		};
-		while(!loaded){}
+		await utils.untiCondition(_ =>loaded==true){}
 		game.log.inform("image end");
 	},
 	async loadSound(src)
