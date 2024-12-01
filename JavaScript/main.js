@@ -7,5 +7,16 @@ const game=
 		{
 			return;
 		}
+		started=true;
+		this.canvas=document.querySelector("#canvas");
+		this.gl=this.canvas.getContext("webgl",{premultipliedAlpha:false});
+		this.canvas.width=this.canvas.clientWidth;
+		this.canvas.height=this.canvas.clientHeight;
+		this.gl.enable(this.gl.CULL_FACE);
+		this.gl.enable(this.gl.BLEND);
+		this.gl.blendFunc(this.gl.SRC_ALPHA,this.gl.ONE_MINUS_SRC_ALPHA);
+		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
+		this.gl.clearColor(0,0,0,1);
+		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 	}
 };
