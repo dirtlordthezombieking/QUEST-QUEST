@@ -8,7 +8,7 @@ body
 }
 .cover
 {
-	opacity:0.5;
+	opacity:1.0;
 	with:100%;
 	height:100%;
 	animation:30s linear infinite fade;
@@ -28,23 +28,29 @@ body
 	animation:2s linear infinite flash;
 	background-color:rgba(16,32,32,64);
 }
+.canvas
+{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
 @keyframes fade
 {
 	0%
 	{
-		background-color:#081000;
+		background-color:rgba(8,16,0,128);
 	}
 	25%
 	{
-		background-color:#081010;
+		background-color:rgba(8,16,16,128);
 	}
 	50%
 	{
-		background-color:#080010;
+		background-color:rgba(8,0,16,128);
 	}
 	100%
 	{
-		background-color:#081000;
+		background-color:rgba(8,16,0,128);
 	}
 }
 @keyframes flash
