@@ -13,14 +13,70 @@ const loader=
 		{
 			loader.loadImage(src);
 		}
+		else if(type=="string")
+		{
+			loader.loadString(src);
+		}
+		else if(type=="shader")
+		{
+			loader.loadShader(src);
+		}
+		else if(type=="sprite")
+		{
+			loader.loadSprite(src);
+		}
 		else
 		{
 			loader.queue--;
 		}
 	},
+	async loadSprite(src)
+	{
+		if(src in loader.items)
+		{
+			if("sprite" in (loader.items[src]))
+			{
+				loader.items[src].sprite.count++;
+				return;
+			}
+			loader.items[src].count++;
+		}
+		else
+		{
+			loader.items[src]={count:1};
+		}
+		await
+	}
 	async loadString(src)
 	{
-		//----
+		if(src in loader.items)
+		{
+			if("string" in (loader.items[src]))
+			{
+				loader.items[src].string.count++;
+				return;
+			}
+			loader.items[src].count++;
+		}
+		else
+		{
+			loader.items[src]={count:1};
+		}
+		const url="https://dirtlordthezombieking.github.io/QUEST-QUEST/"+src;
+		try
+		{
+			const response=await fetch(url);
+			if(!response.ok)
+			{
+				throw new Error("Error: "+response.status);
+			}
+			const text=await response.text();
+			loader.items[src].string={value:text,count:1};
+		}
+		catch (e)
+		{
+			game.log.error("Error loading string \""+src+"\": "+e.message);
+		}
 	},
 	async loadShader(src)
 	{
@@ -28,6 +84,7 @@ const loader=
 	},
 	async loadImage(src)
 	{
+		game.log.inform("image start");
 		if(src in loader.items)
 		{
 			if("image" in (loader.items[src]))
@@ -43,6 +100,7 @@ const loader=
 		}
 		let image=new Image();
 		image.src=src;
+		const loaded=false;
 		image.onload=function()
 		{
 			try
@@ -51,10 +109,13 @@ const loader=
 			}
 			catch(e)
 			{
-				game.log.error("error loading "+src+": "+e.message);
+				game.log.error("error loading image \""+src+"\": "+e.message);
 			}
 			loader.queue--;
+			loaded=true;
 		};
+		while(!loaded){}
+		game.log.inform("image end");
 	},
 	async loadSound(src)
 	{

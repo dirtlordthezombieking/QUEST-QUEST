@@ -5,20 +5,10 @@ const game=
 	{
 		try
 		{
-			if(loader.items["assets/graphics/misc/quest quest.png"])
+			if(this.started)
 			{
-				if(loader.items["assets/graphics/misc/quest quest.png"].image)
-				{
-					if(loader.items["assets/graphics/misc/quest quest.png"].image.value)
-					{
-						document.getElementById("log").append(loader.items["assets/graphics/misc/quest quest.png"].image.value);
-					}
-				}
+				return;
 			}
-		if(this.started)
-		{
-			return;
-		}
 			this.started=true;
 			this.canvas=document.querySelector("#canvas");
 			this.gl=this.canvas.getContext("webgl",{premultipliedAlpha:false});
@@ -30,6 +20,7 @@ const game=
 			this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
 			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);
+			game.log.inform("image load");
 			loader.load("assets/graphics/misc/quest quest.png","image");
 		}
 		catch(e)
