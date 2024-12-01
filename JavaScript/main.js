@@ -5,9 +5,15 @@ const game=
 	{
 		try
 		{
-			if(loader.items["assets/graphics/misc/quest quest.png"].image.value)
+			if(loader.items["assets/graphics/misc/quest quest.png"])
 			{
-				document.getElementById("log").append(loader.items["assets/graphics/misc/quest quest.png"].image.value);
+				if(loader.items["assets/graphics/misc/quest quest.png"].image)
+				{
+					if(loader.items["assets/graphics/misc/quest quest.png"].image.value)
+					{
+						document.getElementById("log").append(loader.items["assets/graphics/misc/quest quest.png"].image.value);
+					}
+				}
 			}
 		if(this.started)
 		{
