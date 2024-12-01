@@ -3,6 +3,8 @@ const game=
 	started:false,
 	start()
 	{
+		try
+		{
 		if(started)
 		{
 			return;
@@ -18,5 +20,10 @@ const game=
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
 		this.gl.clearColor(0,0,0,1);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
+		}
+		catch(e)
+		{
+			document.getElementById("start").innerHTML=e.message;
+		}
 	}
 };
