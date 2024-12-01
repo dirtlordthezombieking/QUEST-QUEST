@@ -45,8 +45,8 @@ const loader=
 		{
 			loader.items[src]={count:1};
 		}
-		await
-	}
+		//await
+	},
 	async loadString(src)
 	{
 		if(src in loader.items)
@@ -100,7 +100,7 @@ const loader=
 		}
 		let image=new Image();
 		image.src=src;
-		const loaded=false;
+		let loaded=false;
 		image.onload=function()
 		{
 			try
