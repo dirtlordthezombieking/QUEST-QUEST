@@ -26,6 +26,7 @@ body
 	text-shadow:0 0 4px #000810;
 	color:#008040;
 	animation:2s linear infinite flash;
+	background-color:rgba(16,32,32,64);
 }
 @keyframes fade
 {
