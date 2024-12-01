@@ -30,15 +30,15 @@ const game=
 	{
 		error(msg)
 		{
-			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<br/><p style=\"color:#FF0000\">"+msg+"</p>";
+			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#FF0000\">"+msg+"</p>";
 		},
 		warn(msg)
 		{
-			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<br/><p style=\"color:#FFFF00\">"+msg+"</p>";
+			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#FFFF00\">"+msg+"</p>";
 		},
 		inform(msg)
 		{
-			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<br/><p style=\"color:#00FF00\">"+msg+"</p>";
+			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#00FF00\">"+msg+"</p>";
 		}
 	}
 };
