@@ -84,7 +84,6 @@ const loader=
 	},
 	async loadImage(src)
 	{
-		game.log.inform("image start");
 		if(src in loader.items)
 		{
 			if("image" in (loader.items[src]))
@@ -103,11 +102,9 @@ const loader=
 		let loaded=false;
 		image.onload=function()
 		{
-			game.log.inform("image onload");
 			try
 			{
 				loader.items[src].image={value:image,count:1};
-				game.log.inform("image loaded");
 			}
 			catch(e)
 			{
@@ -117,7 +114,6 @@ const loader=
 			loaded=true;
 		};
 		await utils.untilCondition(_ => loaded==true);
-		game.log.inform("image end");
 	},
 	async loadSound(src)
 	{
