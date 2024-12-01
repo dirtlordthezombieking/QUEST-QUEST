@@ -84,6 +84,7 @@ const loader=
 	},
 	async loadImage(src)
 	{
+		game.log.inform("image start");
 		if(src in loader.items)
 		{
 			if("image" in (loader.items[src]))
@@ -114,6 +115,7 @@ const loader=
 			loaded=true;
 		};
 		while(!loaded){}
+		game.log.inform("image end");
 	},
 	async loadSound(src)
 	{
