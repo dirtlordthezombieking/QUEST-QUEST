@@ -6,12 +6,12 @@ const utils=
 		const check = resolve => {
 			if(condition())
 			{
-				game.log.inform("resolve");
+				//game.log.inform("resolve");
 				resolve();
 			}
 			else
 			{
-				game.log.inform("don't resolve");
+				//game.log.inform("don't resolve");
 				setTimeout(_ => check(resolve),100);
 			}
 		};
