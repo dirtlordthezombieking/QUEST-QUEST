@@ -65,13 +65,17 @@ const loader=
 				n[1][0][0],n[0][1][0],n[1][0][1],n[0][1][1],
 				n[1][0][0],n[1][1][0],n[1][0][1],n[1][1][1]
 			];
-			out ind=
+			out.ind=
 			[
 				0,1,2,
 				2,3,1
 			];
+			
 			out.indBuff=game.gl.createBuffer();
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
+			game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(out.ind),
+    gl.STATIC_DRAW
+);
 		}
 		catch (e)
 		{
