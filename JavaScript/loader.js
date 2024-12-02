@@ -80,7 +80,7 @@ const loader=
 			out.texLoc=game.gl.getUniformLocation(out.shader,"u_tex");
 			out.tex=game.gl.createTexture();
 			game.gl.bindTexture(game.gl.TEXTURE_2D,out.tex);
-			game.gl.
+			game.gl.texParameteri(game.gl.TEXTURE_2D,
 			out.unforms=[];
 			for(const uniform of data.uniforms)
 			{
