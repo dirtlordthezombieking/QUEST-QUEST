@@ -100,7 +100,8 @@ const loader=
 				game.gl.bindBuffer(game.gl.ARRAY_BUFFER,out.vertBuff);
 				game.gl.enableVertexAttribArray(out.loc);
 				game.gl.vertexAttribPointer(out.loc,4,game.gl.FLOAT,false,0,0);
-				
+				game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
+				game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 			}
 			
 		}
