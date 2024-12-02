@@ -97,8 +97,8 @@ const loader=
 					un.size=1;
 					un.get=function()
 					{
-						(return performance.now()-game.startTime)%(Math.PI*10000);
-					};
+						return (performance.now()-game.startTime)%(Math.PI*2500);
+					};//1250&2500&500
 				}
 				else
 				{
