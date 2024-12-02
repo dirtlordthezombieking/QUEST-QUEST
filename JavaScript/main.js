@@ -11,6 +11,7 @@ const game=
 			{
 				return;
 			}
+			document.getElementById("start").style.display="none";
 			game.started=true;
 			game.canvas=document.querySelector("#canvas");
 			game.gl=game.canvas.getContext("webgl",{premultipliedAlpha:false});
@@ -34,12 +35,10 @@ const game=
 	},
 	draw(t)
 	{
-		//game.log.inform("frame");
-		//game.errframes++;
+		let d=t-game.frameTime;
+		game.frameTime=performance.now();
 		try
 		{
-			let d=t-game.frameTime;
-			game.frameTime=performance.now();
 			game.gl.clearColor(0,0,0,1);
 			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
 			if(game.loaded)
@@ -50,7 +49,6 @@ const game=
 			{
 				if(loader.loaded())
 				{
-					game.log.inform("loaded");
 					game.title=loader.items["misc/title.json"].sprite.value;
 					game.loaded=true;
 				}
