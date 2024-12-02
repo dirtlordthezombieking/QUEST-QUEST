@@ -1,6 +1,7 @@
 const game=
 {
 	started:false,
+	loaded:false,
 	start()
 	{
 		game.startTime=performance.now();
@@ -22,10 +23,54 @@ const game=
 			game.gl.clearColor(0,0,0,1);
 			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
 			loader.load("misc/title.json","sprite");
+			game.frameTime=performance.now();
+			requestAnimationFrame(function(ts){game.draw(ts);});
 		}
 		catch(e)
 		{
 			game.log.error(e.message);
+		}
+	},
+	draw(t)
+	{
+		let d=t-game.frameTime;
+		game.frameTime=performance.now();
+		try
+		{
+			if(game.loaded)
+			{
+				game.title.draw();
+			}
+			else
+			{
+				if(loader.loaded())
+				{
+					game.title=loader.items["misc/title.json"].sprite.value;
+					game.loaded=true;
+				}
+			}
+			game.errframes=0;
+		}
+		catch(e)
+		{
+			game.errframes++;
+			game.log.error("error:\n"+e.message);
+		}
+		try
+		{
+			if(this.errframes>30)
+			{
+				game.log.error("Too many consecutive draw errors, stopping render loop.");
+			}
+			else
+			{
+				requestAnimationFrame(function(ts){game.draw(ts);});
+			}
+		}
+		catch(e)
+		{
+			game.errframes++;
+			game.log.error("error:\n"+e.message);
 		}
 	},
 	log:
