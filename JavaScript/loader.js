@@ -54,9 +54,9 @@ const loader=
 			const out={};
 			loader.queue++;
 			await loader.loadShader(data.shader);
-			out.shader=JSON.parse(loader.items[data shader].shader.value);
-			await loader.loadImage(data.shader);
-			out.shader=JSON.parse(loader.items[data shader].shader.value);
+			out.shader=loader.items[data.shader].shader.value;
+			await loader.loadImage(data.image);
+			out.image=loader.items[data.image].image.value;
 			
 		catch (e)
 		{
