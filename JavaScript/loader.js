@@ -69,7 +69,7 @@ const loader=
 			[
 				0,1,2,
 				2,3,1
-			]
+			];
 		catch (e)
 		{
 			game.log.error("Error loading sprite \""+src+"\": "+e.message);
