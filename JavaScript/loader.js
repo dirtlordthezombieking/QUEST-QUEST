@@ -115,7 +115,7 @@ const loader=
 				{
 					if(un.size==1)
 					{
-						game.gl.uniform1f(un.loc,in.get());
+						game.gl.uniform1f(un.loc,un.get());
 					}
 				}
 				game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
