@@ -235,6 +235,7 @@ const loader=
 		{
 			game.log.error("Error loading image \""+src+"\": "+e.message);
 		}
+		game.log.inform("loaded image: assets/graphics/"+src);
 		loader.queue--;
 	},
 	async loadSound(src)
