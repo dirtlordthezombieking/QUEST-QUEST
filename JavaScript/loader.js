@@ -70,7 +70,9 @@ const loader=
 				0,1,2,
 				2,3,1
 			];
-			
+			out.vertBuff=game.gl.createBuffer();
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,out.vertBuff);
+			game.gl.bufferData(game.gl.ARRAY_BUFFER,new Uint16Array(out.vert),game.gl.STATIC_DRAW);
 			out.indBuff=game.gl.createBuffer();
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
 			game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(out.ind),game.gl.STATIC_DRAW);
