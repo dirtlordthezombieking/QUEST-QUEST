@@ -95,7 +95,10 @@ const loader=
 				if(uniform.value=="TIME")
 				{
 					un.size=1;
-					un.get=function(){return performance.now()-game.startTime;};
+					un.get=function()
+					{
+						(return performance.now()-game.startTime)%(Math.PI*10000);
+					};
 				}
 				else
 				{
