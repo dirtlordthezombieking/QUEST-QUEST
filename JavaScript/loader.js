@@ -48,7 +48,9 @@ const loader=
 		try
 		{
 			await loadString("asset/data/visual/"+src);
-			const data=items["asset/data/visual/"+src].string value
+			const data=JSON.parse(items["asset/data/visual/"+src].string.value);
+			const out={};
+			out["shader"]=
 	},
 	async loadString(src)
 	{
