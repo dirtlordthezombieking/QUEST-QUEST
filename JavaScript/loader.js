@@ -45,7 +45,10 @@ const loader=
 		{
 			loader.items[src]={count:1};
 		}
-		await loadString("asset/data"+src)
+		try
+		{
+			await loadString("asset/data/visual/"+src);
+			const data=items["asset/data/visual/"+src].string value
 	},
 	async loadString(src)
 	{
@@ -80,7 +83,30 @@ const loader=
 	},
 	async loadShader(src)
 	{
-		//----
+		if(src in loader.items)
+		{
+			if("shader" in (loader.items[src]))
+			{
+				loader.items[src].shader.count++;
+				return;
+			}
+			loader.items[src].count++;
+		}
+		else
+		{
+			loader.items[src]={count:1};
+		}
+		try
+		{
+			await loadString("asset/data/shaders/"+src+"/vertex.glsl");
+			const vertex=items["asset/data/shaders/"+src+"/vertex.glsl"].string.value;
+			await loadString("asset/data/shaders/"+src+"/fragment.glsl");
+			const fragment=items["asset/data/shaders/"+src+"/fragment.glsl"].string.value;
+		}
+		catch (e)
+		{
+			game.log.error("Error loading shader \""+src+"\": "+e.message);
+		}
 	},
 	async loadImage(src)
 	{
