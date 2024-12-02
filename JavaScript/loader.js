@@ -102,7 +102,8 @@ const loader=
 			const vertex=items["asset/data/shaders/"+src+"/vertex.glsl"].string.value;
 			await loadString("asset/data/shaders/"+src+"/fragment.glsl");
 			const fragment=items["asset/data/shaders/"+src+"/fragment.glsl"].string.value;
-			let prog=glItems.createShaderProgram(vertex,fragment,src)
+			let prog=glItems.createShaderProgram(vertex,fragment,src);
+			loader.items[src].shader={value:prog,count:1};
 		}
 		catch (e)
 		{
