@@ -3,6 +3,7 @@ const game=
 	started:false,
 	start()
 	{
+		this.startTime=
 		try
 		{
 			if(this.started)
