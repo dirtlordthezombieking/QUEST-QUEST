@@ -77,6 +77,9 @@ const loader=
 			out.indBuff=game.gl.createBuffer();
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
 			game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(out.ind),game.gl.STATIC_DRAW);
+			out.texLoc=game.gl.getUniformLocation(out.shader,"u_tex");
+			out.tex=game.gl.createTexture();
+			game.gl.bindTexture(
 			out.unforms=[];
 			for(const uniform of data.uniforms)
 			{
