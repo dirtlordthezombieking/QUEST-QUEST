@@ -84,7 +84,7 @@ const loader=
 				if(uniform.value=="TIME")
 				{
 					un.size=1;
-					un.
+					un.get=
 				}
 			}
 		}
