@@ -82,8 +82,8 @@ const loader=
 			game.gl.bindTexture(game.gl.TEXTURE_2D,out.tex);
 			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
 			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.,game.gl.);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.,game.gl.);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.,game.gl.NEAREST);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.,game.gl.NEAREST);
 			out.unforms=[];
 			for(const uniform of data.uniforms)
 			{
