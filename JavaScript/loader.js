@@ -79,7 +79,13 @@ const loader=
 			out.unforms=[];
 			for(const uniform of data.uniforms)
 			{
-				
+				const un={};
+				un.id=uniform.id;
+				if(uniform.value=="TIME")
+				{
+					un.size=1;
+					un.
+				}
 			}
 		}
 		catch (e)
