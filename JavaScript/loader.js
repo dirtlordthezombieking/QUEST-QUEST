@@ -80,8 +80,8 @@ const loader=
 			out.texLoc=game.gl.getUniformLocation(out.shader,"u_tex");
 			out.tex=game.gl.createTexture();
 			game.gl.bindTexture(game.gl.TEXTURE_2D,out.tex);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
 			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.,game.gl.);
 			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.,game.gl.);
 			out.unforms=[];
