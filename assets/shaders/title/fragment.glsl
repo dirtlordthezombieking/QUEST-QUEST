@@ -11,5 +11,6 @@ void main()
 	tex.z+=sin((pos*2.0)+(u_time*1.0));
 	tex.w=min(tex.w,(u_time*2.0)+(pos/5.0)-12.0);
 	tex.w=1.0;
+	tex=vec4(1.0,1.0,1.0,1.0);
 	gl_FragColor=tex;
 }
