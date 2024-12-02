@@ -25,7 +25,7 @@ const game=
 			loader.load("misc/title.json","sprite");
 			game.frameTime=performance.now();
 			let tis=game;
-			//requestAnimationFrame(function(ts){tis.draw(ts);});
+			requestAnimationFrame(function(ts){tis.draw(ts);});
 		}
 		catch(e)
 		{
