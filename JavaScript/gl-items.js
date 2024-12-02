@@ -1,6 +1,6 @@
 const glItems=
 {
-	creatShader(type,source)
+	createShader(type,source)
 	{
 		let shader=game.gl.createShader(type);
 		game.gl.shaderSource(shader,source);
