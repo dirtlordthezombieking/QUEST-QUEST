@@ -111,6 +111,13 @@ const loader=
 				game.gl.bindBuffer(game.gl.ARRAY_BUFFER,out.vertBuff);
 				game.gl.enableVertexAttribArray(out.loc);
 				game.gl.vertexAttribPointer(out.loc,4,game.gl.FLOAT,false,0,0);
+				for(un of out.unforms)
+				{
+					if(un.size==1)
+					{
+						game.gl.uniform1f(un.loc,in.get());
+					}
+				}
 				game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
 				game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 			};
