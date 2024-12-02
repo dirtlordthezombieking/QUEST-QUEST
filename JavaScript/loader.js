@@ -71,6 +71,8 @@ const loader=
 				2,3,1
 			];
 			out.indBuff=game.gl.createBuffer();
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
+		}
 		catch (e)
 		{
 			game.log.error("Error loading sprite \""+src+"\": "+e.message);
