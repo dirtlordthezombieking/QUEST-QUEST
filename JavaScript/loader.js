@@ -222,6 +222,7 @@ const loader=
 				loaded=true;
 			};
 			await utils.untilCondition(_ => loaded==true);
+		}
 		catch (e)
 		{
 			game.log.error("Error loading image \""+src+"\": "+e.message);
