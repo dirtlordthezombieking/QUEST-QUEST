@@ -86,7 +86,17 @@ const loader=
 					un.size=1;
 					un.get=function(){return performance.now()-game.startTime;};
 				}
+				else
+				{
+					un.size=0;
+				}
+				out.unforms.push(un);
 			}
+			out.draw=function()
+			{
+				out.
+			}
+			
 		}
 		catch (e)
 		{
