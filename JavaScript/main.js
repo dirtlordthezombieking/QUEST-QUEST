@@ -27,10 +27,27 @@ const game=
 			game.frameTime=performance.now();
 			let tis=game;
 			requestAnimationFrame(function(ts){tis.draw(ts);});
+			document.onkeydown=game.keyDown;
+			document.onkeyup=game.keyUp;
 		}
 		catch(e)
 		{
 			game.log.error(e.message);
+		}
+	},
+	keyDown(e)
+	{
+		switch(e.code)
+		{
+		}
+	},
+	keyUp(e)
+	{
+		switch(e.code)
+		{
+			Case "KeyF":
+				game.canvas.requestFullscreen();
+				break;
 		}
 	},
 	draw(t)
