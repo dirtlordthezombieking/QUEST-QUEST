@@ -55,6 +55,7 @@ const loader=
 			loader.queue++;
 			await loader.loadShader(data.shader);
 			out.shader=loader.items[data.shader].shader.value;
+			loader.queue++;
 			await loader.loadImage(data.image);
 			out.image=loader.items[data.image].image.value;
 			const n=data.box;
@@ -196,6 +197,7 @@ const loader=
 	},
 	async loadImage(src)
 	{
+		game.log.inform("loading image: assets/graphics/"+src);
 		if(src in loader.items)
 		{
 			if("image" in (loader.items[src]))
