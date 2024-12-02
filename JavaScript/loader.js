@@ -1,3 +1,4 @@
+const loop1=Math.PI*5000;
 const loader=
 {
 	items:{},
@@ -97,7 +98,12 @@ const loader=
 					un.size=1;
 					un.get=function()
 					{
-						return (performance.now()-game.startTime)%(Math.PI*2500);
+						let r=performance.now();
+						if(r<loop1)
+						{
+							return r;
+						}
+						return loop1+((r-game.startTime)%loop1);
 					};//1250&2500&500
 				}
 				else
