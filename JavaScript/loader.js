@@ -98,12 +98,12 @@ const loader=
 					un.size=1;
 					un.get=function()
 					{
-						let r=performance.now();
+						let r=performance.now()-game.startTime;
 						if(r<loop1)
 						{
 							return r;
 						}
-						return loop1+((r-game.startTime)%loop1);
+						return loop1+(r%loop1);
 					};//1250&2500&500
 				}
 				else
