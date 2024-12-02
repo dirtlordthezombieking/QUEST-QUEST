@@ -122,6 +122,7 @@ const loader=
 				game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
 				game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 			};
+			loader.items[src].sprite={value:out,count:1};
 		}
 		catch (e)
 		{
