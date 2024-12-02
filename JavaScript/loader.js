@@ -37,6 +37,7 @@ const loader=
 			if("sprite" in (loader.items[src]))
 			{
 				loader.items[src].sprite.count++;
+				loader.queue--;
 				return;
 			}
 			loader.items[src].count++;
@@ -47,10 +48,21 @@ const loader=
 		}
 		try
 		{
-			await loadString("asset/data/visual/"+src);
-			const data=JSON.parse(items["asset/data/visual/"+src].string.value);
+			loader.queue++;
+			await loader.loadString("assets/data/visual/"+src);
+			const data=JSON.parse(loader.items["assets/data/visual/"+src].string.value);
 			const out={};
-			out["shader"]=
+			loader.queue++;
+			await loader.loadShader(data.shader);
+			out.shader=JSON.parse(loader.items[data shader].shader.value);
+			await loader.loadImage(data.shader);
+			out.shader=JSON.parse(loader.items[data shader].shader.value);
+			
+		catch (e)
+		{
+			game.log.error("Error loading sprite \""+src+"\": "+e.message);
+		}
+		loader.queue--;
 	},
 	async loadString(src)
 	{
@@ -59,6 +71,7 @@ const loader=
 			if("string" in (loader.items[src]))
 			{
 				loader.items[src].string.count++;
+				loader.queue--;
 				return;
 			}
 			loader.items[src].count++;
@@ -82,6 +95,7 @@ const loader=
 		{
 			game.log.error("Error loading string \""+src+"\": "+e.message);
 		}
+		loader.queue--;
 	},
 	async loadShader(src)
 	{
@@ -90,6 +104,7 @@ const loader=
 			if("shader" in (loader.items[src]))
 			{
 				loader.items[src].shader.count++;
+				loader.queue--;
 				return;
 			}
 			loader.items[src].count++;
@@ -100,10 +115,12 @@ const loader=
 		}
 		try
 		{
-			await loadString("asset/data/shaders/"+src+"/vertex.glsl");
-			const vertex=items["asset/data/shaders/"+src+"/vertex.glsl"].string.value;
-			await loadString("asset/data/shaders/"+src+"/fragment.glsl");
-			const fragment=items["asset/data/shaders/"+src+"/fragment.glsl"].string.value;
+			loader.queue++;
+			await loader.loadString("assets/data/shaders/"+src+"/vertex.glsl");
+			const vertex=loader.items["assets/data/shaders/"+src+"/vertex.glsl"].string.value;
+			loader.queue++;
+			await loader.loadString("assets/data/shaders/"+src+"/fragment.glsl");
+			const fragment=loader.items["assets/data/shaders/"+src+"/fragment.glsl"].string.value;
 			let prog=glItems.createShaderProgram(vertex,fragment,src);
 			loader.items[src].shader={value:prog,count:1};
 		}
@@ -111,6 +128,7 @@ const loader=
 		{
 			game.log.error("Error loading shader \""+src+"\": "+e.message);
 		}
+		loader.queue--;
 	},
 	async loadImage(src)
 	{
@@ -119,6 +137,7 @@ const loader=
 			if("image" in (loader.items[src]))
 			{
 				loader.items[src].image.count++;
+				loader.queue--;
 				return;
 			}
 			loader.items[src].count++;
@@ -127,23 +146,29 @@ const loader=
 		{
 			loader.items[src]={count:1};
 		}
-		let image=new Image();
-		image.src=src;
-		let loaded=false;
-		image.onload=function()
+		try
 		{
-			try
+			let image=new Image();
+			image.src="assets/graphics/"+src;
+			let loaded=false;
+			image.onload=function()
 			{
-				loader.items[src].image={value:image,count:1};
-			}
-			catch(e)
-			{
-				game.log.error("error loading image \""+src+"\": "+e.message);
-			}
-			loader.queue--;
-			loaded=true;
-		};
-		await utils.untilCondition(_ => loaded==true);
+				try
+				{
+					loader.items[src].image={value:image,count:1};
+				}
+				catch(e)
+				{
+					game.log.error("error loading image \""+src+"\": "+e.message);
+				}
+				loaded=true;
+			};
+			await utils.untilCondition(_ => loaded==true);
+		catch (e)
+		{
+			game.log.error("Error loading image \""+src+"\": "+e.message);
+		}
+		loader.queue--;
 	},
 	async loadSound(src)
 	{
