@@ -58,6 +58,7 @@ const loader=
 			await loader.loadImage(data.image);
 			out.image=loader.items[data.image].image.value;
 			const n=data.box;
+			out.loc=game.gl.getAttribLocation(out.shader,"a_data");
 			out.vert=
 			[
 				n[0][0][0],n[0][1][0],n[0][0][1],n[0][1][1],
@@ -81,6 +82,7 @@ const loader=
 			{
 				const un={};
 				un.id=uniform.id;
+				un.loc=game.gl.getUniformLocation(out.shader,un.id);
 				if(uniform.value=="TIME")
 				{
 					un.size=1;
@@ -94,7 +96,11 @@ const loader=
 			}
 			out.draw=function()
 			{
-				out.
+				game.gl.useProgram(out.shader);
+				game.gl.bindBuffer(game.gl.ARRAY_BUFFER,out.vertBuff);
+				game.gl.enableVertexAttribArray(out.loc);
+				game.gl.vertexAttribPointer(out.loc,4,game.gl.FLOAT,false,0,0);
+				
 			}
 			
 		}
