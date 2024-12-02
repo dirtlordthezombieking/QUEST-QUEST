@@ -11,7 +11,7 @@ const glItems=
 			return shader;
 		}
 		game.gl.deleteShader(shader);
-		throw new Error("Shader failed:\n"+gl.getShaderInfoLog(shader)+"\nIn:\n"+source);
+		throw new Error("Shader failed:\n"+game.gl.getShaderInfoLog(shader)+"\nIn:\n"+source);
 	},
 	createShaderProgram(vertexCode,fragmentCode,src)
 	{
@@ -21,7 +21,7 @@ const glItems=
 		game.gl.attachShader(program,vertexShader);
 		game.gl.attachShader(program,fragmentShader);
 		game.gl.linkProgram(program);
-		let success=gl.getProgramParameter(program,game.gl.LINK_STATUS);
+		let success=game.gl.getProgramParameter(program,game.gl.LINK_STATUS);
 		if(success)
 		{
 			return program;
@@ -30,4 +30,4 @@ const glItems=
 		game.gl.deleteProgram(program);
 		throw new Error("shader \""+src+"\" failed to compile:\n"+s);
 	}
-}
+};
