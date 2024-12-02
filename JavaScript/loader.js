@@ -70,6 +70,7 @@ const loader=
 				0,1,2,
 				2,3,1
 			];
+			out.indBuff=game.gl.createBuffer();
 		catch (e)
 		{
 			game.log.error("Error loading sprite \""+src+"\": "+e.message);
