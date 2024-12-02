@@ -33,10 +33,12 @@ const game=
 	},
 	draw(t)
 	{
-		let d=t-game.frameTime;
-		game.frameTime=performance.now();
+		game.log.inform("frame");
+		game.errframes++;
 		try
 		{
+			let d=t-game.frameTime;
+			game.frameTime=performance.now();
 			if(game.loaded)
 			{
 				game.title.draw();
@@ -49,7 +51,7 @@ const game=
 					game.loaded=true;
 				}
 			}
-			game.errframes=0;
+			//game.errframes=0;
 		}
 		catch(e)
 		{
@@ -58,7 +60,7 @@ const game=
 		}
 		try
 		{
-			if(this.errframes>30)
+			if(game.errframes>30)
 			{
 				game.log.error("Too many consecutive draw errors, stopping render loop.");
 			}
