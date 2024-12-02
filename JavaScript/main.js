@@ -24,7 +24,8 @@ const game=
 			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
 			loader.load("misc/title.json","sprite");
 			game.frameTime=performance.now();
-			requestAnimationFrame(function(ts){game.draw(ts);});
+			let tis=game;
+			requestAnimationFrame(function(ts){tis.draw(ts);});
 		}
 		catch(e)
 		{
@@ -66,7 +67,8 @@ const game=
 			}
 			else
 			{
-				requestAnimationFrame(function(ts){game.draw(ts);});
+				let tis=game;
+				requestAnimationFrame(function(ts){tis.draw(ts);});
 			}
 		}
 		catch(e)
