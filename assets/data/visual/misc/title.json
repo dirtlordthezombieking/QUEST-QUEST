@@ -1,5 +1,5 @@
 {
-	"image":"misc/title",
+	"image":"misc/quest quest.png",
 	"shader":"title",
 	"box":[[[-256.0,0.0],[64.0,0.0]],[[256.0,1.0],[192.0,1.0]]],
 	"uniforms":[{"id":"u_time","value":"TIME"}]
