@@ -69,7 +69,7 @@ const loader=
 			];
 			out.ind=
 			[
-				0,1,2,
+				0,2,1,
 				2,3,1
 			];
 			out.vertBuff=game.gl.createBuffer();
