@@ -180,11 +180,11 @@ const loader=
 		try
 		{
 			loader.queue++;
-			await loader.loadString("assets/data/shaders/"+src+"/vertex.glsl");
-			const vertex=loader.items["assets/data/shaders/"+src+"/vertex.glsl"].string.value;
+			await loader.loadString("assets/shaders/"+src+"/vertex.glsl");
+			const vertex=loader.items["assets/shaders/"+src+"/vertex.glsl"].string.value;
 			loader.queue++;
-			await loader.loadString("assets/data/shaders/"+src+"/fragment.glsl");
-			const fragment=loader.items["assets/data/shaders/"+src+"/fragment.glsl"].string.value;
+			await loader.loadString("assets/shaders/"+src+"/fragment.glsl");
+			const fragment=loader.items["assets/shaders/"+src+"/fragment.glsl"].string.value;
 			let prog=glItems.createShaderProgram(vertex,fragment,src);
 			loader.items[src].shader={value:prog,count:1};
 		}
