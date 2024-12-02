@@ -34,8 +34,8 @@ const game=
 	},
 	draw(t)
 	{
-		game.log.inform("frame");
-		game.errframes++;
+		//game.log.inform("frame");
+		//game.errframes++;
 		try
 		{
 			let d=t-game.frameTime;
