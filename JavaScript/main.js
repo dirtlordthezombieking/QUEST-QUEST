@@ -40,6 +40,8 @@ const game=
 		{
 			let d=t-game.frameTime;
 			game.frameTime=performance.now();
+			game.gl.clearColor(0,0,0,1);
+			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
 			if(game.loaded)
 			{
 				game.title.draw();
@@ -48,11 +50,12 @@ const game=
 			{
 				if(loader.loaded())
 				{
+					game.log.inform("loaded");
 					game.title=loader.items["misc/title.json"].sprite.value;
 					game.loaded=true;
 				}
 			}
-			//game.errframes=0;
+			game.errframes=0;
 		}
 		catch(e)
 		{
