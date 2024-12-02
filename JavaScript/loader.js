@@ -57,7 +57,19 @@ const loader=
 			out.shader=loader.items[data.shader].shader.value;
 			await loader.loadImage(data.image);
 			out.image=loader.items[data.image].image.value;
-			
+			const n=data.box;
+			out.vert=
+			[
+				n[0][0][0],n[0][1][0],n[0][0][1],n[0][1][1],
+				n[0][0][0],n[1][1][0],n[0][0][1],n[1][1][1],
+				n[1][0][0],n[0][1][0],n[1][0][1],n[0][1][1],
+				n[1][0][0],n[1][1][0],n[1][0][1],n[1][1][1]
+			];
+			out ind=
+			[
+				0,1,2,
+				2,3,1
+			]
 		catch (e)
 		{
 			game.log.error("Error loading sprite \""+src+"\": "+e.message);
