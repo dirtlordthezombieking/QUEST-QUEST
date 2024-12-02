@@ -108,7 +108,7 @@ const loader=
 				game.gl.useProgram(out.shader);
 				game.gl.uniform1i(out.texLoc,0);
 				game.gl.activeTexture(game.gl.TEXTURE0);
-				game.glbindTexture(game.gl.TEXTURE_2D,out.texture);
+				game.gl.bindTexture(game.gl.TEXTURE_2D,out.texture);
 				game.gl.bindBuffer(game.gl.ARRAY_BUFFER,out.vertBuff);
 				game.gl.enableVertexAttribArray(out.loc);
 				game.gl.vertexAttribPointer(out.loc,4,game.gl.FLOAT,false,0,0);
