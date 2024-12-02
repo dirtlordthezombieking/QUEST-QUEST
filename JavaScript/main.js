@@ -11,6 +11,7 @@ const game=
 			{
 				return;
 			}
+			document.getElementById("start").style.display="none";
 			game.started=true;
 			game.canvas=document.querySelector("#canvas");
 			game.gl=game.canvas.getContext("webgl",{premultipliedAlpha:false});
