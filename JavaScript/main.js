@@ -3,24 +3,24 @@ const game=
 	started:false,
 	start()
 	{
-		this.startTime=
+		game.startTime=performance.now();
 		try
 		{
-			if(this.started)
+			if(game.started)
 			{
 				return;
 			}
-			this.started=true;
-			this.canvas=document.querySelector("#canvas");
-			this.gl=this.canvas.getContext("webgl",{premultipliedAlpha:false});
-			this.canvas.width=this.canvas.clientWidth;
-			this.canvas.height=this.canvas.clientHeight;
-			this.gl.enable(this.gl.CULL_FACE);
-			this.gl.enable(this.gl.BLEND);
-			this.gl.blendFunc(this.gl.SRC_ALPHA,this.gl.ONE_MINUS_SRC_ALPHA);
-			this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
-			this.gl.clearColor(0,0,0,1);
-			this.gl.clear(this.gl.COLOR_BUFFER_BIT);
+			game.started=true;
+			game.canvas=document.querySelector("#canvas");
+			game.gl=game.canvas.getContext("webgl",{premultipliedAlpha:false});
+			game.canvas.width=game.canvas.clientWidth;
+			game.canvas.height=game.canvas.clientHeight;
+			game.gl.enable(this.gl.CULL_FACE);
+			game.gl.enable(this.gl.BLEND);
+			game.gl.blendFunc(game.gl.SRC_ALPHA,game.gl.ONE_MINUS_SRC_ALPHA);
+			game.gl.viewport(0,0,game.gl.canvas.width,game.gl.canvas.height);
+			game.gl.clearColor(0,0,0,1);
+			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
 			loader.load("misc/title.json","sprite");
 		}
 		catch(e)
