@@ -93,9 +93,9 @@ const loader=
 				const un={};
 				un.id=uniform.id;
 				un.loc=game.gl.getUniformLocation(out.shader,un.id);
-				if(uniform.value=="TIME")
+				if(uniform.type=="TIME")
 				{
-					un.size=1;
+					un.size=-1;
 					un.get=function()
 					{
 						let r=performance.now()-game.startTime;
@@ -105,6 +105,11 @@ const loader=
 						}
 						return loop1+(r%loop1);
 					};//1250&2500&500
+				}
+				else if(uniform.type=="3 fixed")
+				{
+					un.size=3;
+					un.value=uniform.value;
 				}
 				else
 				{
@@ -123,9 +128,13 @@ const loader=
 				game.gl.vertexAttribPointer(out.loc,4,game.gl.FLOAT,false,0,0);
 				for(un of out.unforms)
 				{
-					if(un.size==1)
+					if(un.size==-1)
 					{
 						game.gl.uniform1f(un.loc,un.get());
+					}
+					else if(un.size==3)
+					{
+						game.gl.uniform3f(un.loc,un.value[0],un.value[1],un.value[2]);
 					}
 				}
 				game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
