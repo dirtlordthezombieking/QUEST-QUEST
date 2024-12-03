@@ -29,6 +29,7 @@ const game=
 			requestAnimationFrame(function(ts){tis.draw(ts);});
 			document.onkeydown=game.keyDown;
 			document.onkeyup=game.keyUp;
+			game.canvas.requestFullscreen();
 		}
 		catch(e)
 		{
@@ -37,17 +38,28 @@ const game=
 	},
 	keyDown(e)
 	{
+		if(document.fullscreenElement!=game.canvas)
+		{
+			return;
+		}
 		switch(e.code)
 		{
+			//----
 		}
 	},
 	keyUp(e)
 	{
+		if(document.fullscreenElement!=game.canvas)
+		{
+			if(e.code=="KeyF")
+			{
+				game.canvas.requestFullscreen();
+			}
+			return;
+		}
 		switch(e.code)
 		{
-			case "KeyF":
-				game.canvas.requestFullscreen();
-				break;
+			//----
 		}
 	},
 	draw(t)
