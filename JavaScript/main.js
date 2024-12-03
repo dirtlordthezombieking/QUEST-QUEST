@@ -45,7 +45,7 @@ const game=
 	{
 		switch(e.code)
 		{
-			Case "KeyF":
+			case "KeyF":
 				game.canvas.requestFullscreen();
 				break;
 		}
