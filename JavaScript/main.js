@@ -24,6 +24,7 @@ const game=
 			game.gl.clearColor(0,0,0,1);
 			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
 			loader.load("misc/title.json","sprite");
+			loader.load("misc/press f.json","sprite");
 			game.frameTime=performance.now();
 			let tis=game;
 			requestAnimationFrame(function(ts){tis.draw(ts);});
@@ -76,12 +77,17 @@ const game=
 				{
 					game.title.draw();
 				}
+				else
+				{
+					game.pressF.draw();
+				}
 			}
 			else
 			{
 				if(loader.loaded())
 				{
 					game.title=loader.items["misc/title.json"].sprite.value;
+					game.pressF=loader.items["misc/press f.json"].sprite.value;
 					game.loaded=true;
 				}
 			}

@@ -1,0 +1,6 @@
+{
+	"image":"misc/PRESS F.png",
+	"shader":"text",
+	"box":[[[-256.0,0.0],[-6464.0,0.0]],[[256.0,1.0],[64.0,1.0]]],
+	"uniforms":[{"id":"u_colour","type":"3 fixed","value":[43,43,35]}]
+}
