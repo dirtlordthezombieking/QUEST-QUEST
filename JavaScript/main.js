@@ -60,7 +60,10 @@ const game=
 			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
 			if(game.loaded)
 			{
-				game.title.draw();
+				if(document.fullscreenElement==game.canvas)
+				{
+					game.title.draw();
+				}
 			}
 			else
 			{
