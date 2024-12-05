@@ -23,10 +23,17 @@ const game=
 			game.gl.viewport(0,0,game.gl.canvas.width,game.gl.canvas.height);
 			game.gl.clearColor(0,0,0,1);
 			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
-			loader.load("misc/title.json","sprite");
-			loader.load("misc/press f.json","sprite");
-			loader.load("misc/PRESS SPAC.json","sprite");
-			loader.load("misc/E TO START.json","sprite");
+			//loader.load("misc/title.json","sprite");
+			//loader.load("misc/press f.json","sprite");
+			//loader.load("misc/PRESS SPAC.json","sprite");
+			//loader.load("misc/E TO START.json","sprite");
+			loader.loadMulti(
+			[
+				["misc/title.json","sprite"],
+				["misc/press f.json","sprite"],
+				["misc/PRESS SPAC.json","sprite"],
+				["misc/E TO START.json","sprite"]
+			]);
 			game.frameTime=performance.now();
 			let tis=game;
 			requestAnimationFrame(function(ts){tis.draw(ts);});
