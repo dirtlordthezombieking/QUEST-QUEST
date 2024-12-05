@@ -7,6 +7,13 @@ const loader=
 	{
 		return loader.queue<=0;
 	},
+	async loadMulti(toLoad)
+	{
+		for(item of toLoad)
+		{
+			await loader.subLoad(item[0],item[1]);
+		}
+	},
 	load(src,type)
 	{
 		if(src in loader.items)
