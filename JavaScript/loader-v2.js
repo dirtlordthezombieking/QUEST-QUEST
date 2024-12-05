@@ -49,6 +49,7 @@ const loader=
 		{
 			if(type in (loader.items[src]))
 			{
+				await utils.untilCondition(_ => value in loader.items[src][type]);
 				return;
 			}
 		}
