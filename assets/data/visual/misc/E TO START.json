@@ -2,5 +2,5 @@
 	"image":"misc/PRESS SPACE TO START.png",
 	"shader":"text",
 	"box":[[[0.0,0.0],[-144.0,0.0]],[[256.0,1.0],[-112.0,0.5]]],
-	"uniforms":[{"id":"u_colour","type":"3 fixed","value":[107,142,255]}]
+	"uniforms":[{"id":"u_colour","type":"3 fixed","value":[107,142,34]}]
 }
