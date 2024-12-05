@@ -20,6 +20,7 @@ const loader=
 		{
 			loader.items[src]={};
 		}
+		loader.items[src][type]={};
 		loader.queue++;
 		if(type=="image")
 		{
@@ -55,6 +56,7 @@ const loader=
 		{
 			loader.items[src]={};
 		}
+		loader.items[src][type]={};
 		loader.queue++;
 		if(type=="image")
 		{
