@@ -52,39 +52,46 @@ const loader=
 	},
 	async subLoad(src,type)
 	{
-		if(src in loader.items)
+		try
 		{
-			if(type in (loader.items[src]))
+			if(src in loader.items)
 			{
-				await utils.untilCondition(_ => (value in loader.items[src][type]));
-				return;
+				if(type in (loader.items[src]))
+				{
+					await utils.untilCondition(_ => (value in loader.items[src][type]));
+					return;
+				}
+			}
+			else
+			{
+				loader.items[src]={};
+			}
+			loader.items[src][type]={};
+			loader.queue++;
+			if(type=="image")
+			{
+				await loader.loadImage(src);
+			}
+			else if(type=="string")
+			{
+				await loader.loadString(src);
+			}
+			else if(type=="shader")
+			{
+				await loader.loadShader(src);
+			}
+				else if(type=="sprite")
+			{
+					await loader.loadSprite(src);
+			}
+			else
+			{
+				loader.queue--;
 			}
 		}
-		else
+		catch (e)
 		{
-			loader.items[src]={};
-		}
-		loader.items[src][type]={};
-		loader.queue++;
-		if(type=="image")
-		{
-			await loader.loadImage(src);
-		}
-		else if(type=="string")
-		{
-			await loader.loadString(src);
-		}
-		else if(type=="shader")
-		{
-			await loader.loadShader(src);
-		}
-		else if(type=="sprite")
-		{
-			await loader.loadSprite(src);
-		}
-		else
-		{
-			loader.queue--;
+			game.log.error("Error initializing load of "+type+" \""+src+"\": "+e.message);
 		}
 	},
 	async loadSprite(src)
