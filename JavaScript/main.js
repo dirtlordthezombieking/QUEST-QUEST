@@ -25,6 +25,8 @@ const game=
 			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
 			loader.load("misc/title.json","sprite");
 			loader.load("misc/press f.json","sprite");
+			loader.load("misc/PRESS SPAC.json","sprite");
+			loader.load("misc/E TO START.json","sprite");
 			game.frameTime=performance.now();
 			let tis=game;
 			requestAnimationFrame(function(ts){tis.draw(ts);});
@@ -76,6 +78,8 @@ const game=
 				if(document.fullscreenElement==game.canvas)
 				{
 					game.title.draw();
+					game.pressSpac.draw();
+					game.eToStart.draw();
 				}
 				else
 				{
@@ -88,6 +92,8 @@ const game=
 				{
 					game.title=loader.items["misc/title.json"].sprite.value;
 					game.pressF=loader.items["misc/press f.json"].sprite.value;
+					game.pressSpac=loader.items["misc/PRESS SPAC.json"].sprite.value;
+					game.eToStart=loader.items["misc/E TO START.json"].sprite.value;
 					game.loaded=true;
 				}
 			}
