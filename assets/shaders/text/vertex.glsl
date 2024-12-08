@@ -1,7 +1,7 @@
 attribute vec4 a_data;
 varying vec2 v_uv;
 uniform vec2 u_pos;
-uniform vect u_texOff;
+uniform vec2 u_texOff;
 void main()
 {
 	v_uv=a_data.zw+u_texOff;
