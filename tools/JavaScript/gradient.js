@@ -14,13 +14,14 @@ function generate()
 			const x2=value(x);
 			const y2=value(y);
 			const off=((y*64)+x)*4;
-			const r=(221-(3*y))
-			const g=221-(3*x);
-			const b=
+			const r=limit(128+(3*y2)+(-3*x2));
+			const g=limit(128+(3*x2));
+			const b=limit(128+(-3*y2)+(-3*x2));
 			pixels[off]=r;
 			pixels[off+1]=g;
 			pixels[off+2]=b;
 			pixels[off+3]=255;
+			ctx.putImageData(id,0,0);
 		}
 	}
 	const url=canvas.toDataURL();
@@ -36,4 +37,16 @@ function value(val)
 		return val-32;
 	}
 	return val-31;
+}
+function limit(val)
+{
+	if(val<0)
+	{
+		return 0;
+	}
+	if(val>255)
+	{
+		return 255;
+	}
+	return val:
 }
