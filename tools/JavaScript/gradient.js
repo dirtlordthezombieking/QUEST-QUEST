@@ -13,6 +13,10 @@ function generate()
 		{
 			const off=((y*64)+x)*4;
 			const g=
+			pixels[off]=r;
+			pixels[off+1]=g;
+			pixels[off+2]=b;
+			pixels[off+3]=255;
 		}
 	}
 	const url=canvas.toDataURL();
