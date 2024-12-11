@@ -3,7 +3,7 @@ function generate()
 	const canvas=document.createElement("canvas");
 	canvas.width=64;
 	canvas.height=64;
-	const ctx=canvas.getContext('2d');
+	const ctx=canvas.getContext("2d");
 	ctx.clearRect(0,0,64,64);
 	const id=ctx.getImageData(0,0,64,64);
 	const pixels=id.data;
@@ -32,7 +32,7 @@ function generate()
 }
 function value(val)
 {
-	if+val>31)
+	if(val>31)
 	{
 		return val-32;
 	}
@@ -48,5 +48,5 @@ function limit(val)
 	{
 		return 255;
 	}
-	return val:
+	return val;
 }
