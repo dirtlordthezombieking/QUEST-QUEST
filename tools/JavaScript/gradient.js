@@ -11,6 +11,8 @@ function generate()
 	{
 		for(let y=0;y<64;y++)
 		{
+			const x2=value(x);
+			const y2=value(y);
 			const off=((y*64)+x)*4;
 			const r=(221-(3*y))
 			const g=221-(3*x);
@@ -26,4 +28,12 @@ function generate()
 	a.download='gradient.png';
 	a.href=url;
 	a.textContent='Download PNG';
+}
+function value(val)
+{
+	if+val>31)
+	{
+		return val-32;
+	}
+	return val-31;
 }
