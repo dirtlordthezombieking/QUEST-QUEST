@@ -36,7 +36,7 @@ function generate()
 			const y2=value(y);
 			const off=((y*64)+x)*4;
 			const r=limit(128+(-3*y2)+(-3*x2));
-			const g=limit(128+(3*x2));
+			const g=limit(128+(3*abs(x2)));
 			const b=limit(128+(3*y2)+(-3*x2));
 			pixels[off]=r;
 			pixels[off+1]=g;
