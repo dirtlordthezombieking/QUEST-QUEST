@@ -23,6 +23,7 @@ function generate()
 	const canvas=document.createElement("canvas");
 	canvas.width=64;
 	canvas.height=64;
+	document.body.append(canvas);
 	const ctx=canvas.getContext("2d");
 	ctx.clearRect(0,0,64,64);
 	const id=ctx.getImageData(0,0,64,64);
@@ -34,9 +35,9 @@ function generate()
 			const x2=value(x);
 			const y2=value(y);
 			const off=((y*64)+x)*4;
-			const r=limit(128+(3*y2)+(-3*x2));
+			const r=limit(128+(-3*y2)+(-3*x2));
 			const g=limit(128+(3*x2));
-			const b=limit(128+(-3*y2)+(-3*x2));
+			const b=limit(128+(3*y2)+(-3*x2));
 			pixels[off]=r;
 			pixels[off+1]=g;
 			pixels[off+2]=b;
