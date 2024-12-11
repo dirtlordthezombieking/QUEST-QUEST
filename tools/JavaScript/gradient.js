@@ -12,7 +12,7 @@ function generate()
 		for(let y=0;y<64;y++)
 		{
 			const off=((y*64)+x)*4;
-			const r=
+			const r=(221-(3*y))
 			const g=221-(3*x);
 			const b=
 			pixels[off]=r;
