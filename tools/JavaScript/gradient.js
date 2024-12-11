@@ -1,3 +1,23 @@
+function value(val)
+{
+	if(val>31)
+	{
+		return val-32;
+	}
+	return val-31;
+}
+function limit(val)
+{
+	if(val<0)
+	{
+		return 0;
+	}
+	if(val>255)
+	{
+		return 255;
+	}
+	return val;
+}
 function generate()
 {
 	const canvas=document.createElement("canvas");
@@ -25,28 +45,8 @@ function generate()
 		}
 	}
 	const url=canvas.toDataURL();
-	const a=document.createElement('a');
-	a.download='gradient.png';
+	const a=document.createElement("a");
+	a.download="gradient.png";
 	a.href=url;
-	a.textContent='Download PNG';
-}
-function value(val)
-{
-	if(val>31)
-	{
-		return val-32;
-	}
-	return val-31;
-}
-function limit(val)
-{
-	if(val<0)
-	{
-		return 0;
-	}
-	if(val>255)
-	{
-		return 255;
-	}
-	return val;
+	a.textContent="Download PNG";
 }
