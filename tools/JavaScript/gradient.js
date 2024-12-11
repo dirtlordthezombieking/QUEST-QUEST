@@ -49,4 +49,5 @@ function generate()
 	a.download="gradient.png";
 	a.href=url;
 	a.textContent="Download PNG";
+	document.body.append(a);
 }
