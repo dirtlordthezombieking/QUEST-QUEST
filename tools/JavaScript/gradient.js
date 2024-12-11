@@ -11,7 +11,8 @@ function generate()
 	{
 		for(let y=0;y<64;y++)
 		{
-			
+			const off=((y*64)+x)*4;
+			const g=
 		}
 	}
 	const url=canvas.toDataURL();
