@@ -5,8 +5,8 @@ uniform float u_time;
 void main()
 {
 	float time=u_time*0.064;
-	float r=texture2D(u_tex,v_uv+vec2(time,time)).x;
-	float g=texture2D(u_tex,v_uv).y;
-	float b=texture2D(u_tex,v_uv+vec2(time,-time)).z;
+	float r=texture2D(u_tex,mod(v_uv+vec2(time,time),1.0)).x;
+	float g=texture2D(u_tex,mod(v_uv,1.0)).y;
+	float b=texture2D(u_tex,mod(v_uv+vec2(time,-time),1.0)).z;
 	gl_FragColor=vec4(r,g,b,1.0);
 }
