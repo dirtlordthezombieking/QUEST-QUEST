@@ -94,10 +94,11 @@ const game=
 			{
 				if(loader.loaded())
 				{
-					game.title=loader.items["misc/title.json"].sprite.value;
-					game.pressF=loader.items["misc/press f.json"].sprite.value;
-					game.pressSpac=loader.items["misc/PRESS SPAC.json"].sprite.value;
-					game.eToStart=loader.items["misc/E TO START.json"].sprite.value;
+					game.screen.retrieve();
+					//game.title=loader.items["misc/title.json"].sprite.value;
+					//game.pressF=loader.items["misc/press f.json"].sprite.value;
+					//game.pressSpac=loader.items["misc/PRESS SPAC.json"].sprite.value;
+					//game.eToStart=loader.items["misc/E TO START.json"].sprite.value;
 					game.loaded=true;
 				}
 			}
