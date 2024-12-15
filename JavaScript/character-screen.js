@@ -14,7 +14,10 @@ const characterScreen=
 	},
 	retrieve()
 	{
-		game.backShade=loader.items["UI/background.png"].image.value;
+		//BACKGROUND
+		characterScreen.backShade=loader.items["UI/background.png"].image.value;
+		characterScreen.backPosLoc=game.gl.getAttribLocation(characterScreen.backShade,"a_pos");
+		characterScreen.backPosLoc=game.gl.getAttribLocation(characterScreen.backShade,"a_pos");
 	},
 	keyDown(k)
 	{
