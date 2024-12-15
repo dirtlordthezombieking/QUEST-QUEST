@@ -152,18 +152,18 @@ const game=
 	{
 		error(msg)
 		{
-			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#FF0000\">--E--"+msg+"</p>";
+			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#FF0000\">--🚫-- "+msg+"</p>";
 		},
 		warn(msg)
 		{
-			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#FFFF00\">--W--"+msg+"</p>";
+			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#FFFF00\">--⚠️-- "+msg+"</p>";
 		},
 		inform(msg)
 		{
-			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#00FF00\">--I--"+msg+"</p>";
+			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#00FF00\">--✅-- "+msg+"</p>";
 		}
 	}
 };
-//game.log.inform("inform");
-//game.log.warn("warn");
-//game.log.error("error");
+game.log.inform("Inform");
+game.log.warn("Warn");
+game.log.error("Error");
