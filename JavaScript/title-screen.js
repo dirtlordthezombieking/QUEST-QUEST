@@ -13,7 +13,9 @@ const titleScreen=
 	},
 	draw(d)
 	{
-		//----
+		game.title.draw();
+		game.pressSpac.draw();
+		game.eToStart.draw();
 	},
 	keyDown(k)
 	{
