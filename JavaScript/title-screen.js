@@ -27,14 +27,14 @@ const titleScreen=
 	},
 	keyDown(k)
 	{
-		if(key=="Space")
+		if(k=="Space")
 		{
 			titleScreen.spaceTime=0;
 		}
 	},
 	keyUp(k)
 	{
-		if(key=="Space"&&titleScreen.spaceTime<=1000.0)
+		if(k=="Space"&&titleScreen.spaceTime<=1000.0)
 		{
 			game.setScreen(characterScreen);
 		}
