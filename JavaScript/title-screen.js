@@ -1,8 +1,8 @@
 const titleScreen=
 {
+	spaceTime:0,
 	load()
 	{
-		
 		loader.loadMulti(
 		[
 			["misc/title.json","sprite"],
@@ -13,6 +13,7 @@ const titleScreen=
 	},
 	draw(d)
 	{
+		titleScreen.spaceTime+=d;
 		titleScreen.title.draw();
 		titleScreen.pressSpac.draw();
 		titleScreen.eToStart.draw();
