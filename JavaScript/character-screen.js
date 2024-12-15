@@ -36,8 +36,9 @@ const characterScreen=
 				0,2,1,
 				2,3,1
 			]
-		),game.gl.STATIC_DRAW);
-		game.gl.bindTexture(game.gl.TEXTURE_2D,out.tex);
+		),game.gl.STATIC_DRAW);    
+		characterScreen.backTex=game.gl.createTexture();
+		game.gl.bindTexture(game.gl.TEXTURE_2D,characterScreen.backTex);
 		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
 		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
 		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MIN_FILTER,game.gl.NEAREST);
