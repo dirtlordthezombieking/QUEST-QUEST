@@ -101,7 +101,7 @@ const game=
 			{
 				if(document.fullscreenElement==game.canvas)
 				{
-					game.screen.draw(d);
+					game.screen.draw(d,t);
 					//game.title.draw();
 					//game.pressSpac.draw();
 					//game.eToStart.draw();

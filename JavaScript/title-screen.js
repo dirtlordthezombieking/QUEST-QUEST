@@ -12,7 +12,7 @@ const titleScreen=
 			["basic","shader"]
 		]);
 	},
-	draw(d)
+	draw(d,t)
 	{
 		titleScreen.spaceTime+=d;
 		titleScreen.title.draw();
