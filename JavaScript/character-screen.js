@@ -14,7 +14,7 @@ const characterScreen=
 	},
 	retrieve()
 	{
-		//----
+		game.backShade=loader.items["UI/background.png"].image.value;
 	},
 	keyDown(k)
 	{
