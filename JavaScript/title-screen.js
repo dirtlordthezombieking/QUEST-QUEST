@@ -29,7 +29,7 @@ const titleScreen=
 	{
 		//----
 	},
-	keyaup(k)
+	keyUp(k)
 	{
 		//----
 	}
