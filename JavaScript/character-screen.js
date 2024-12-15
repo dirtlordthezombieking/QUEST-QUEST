@@ -17,8 +17,8 @@ const characterScreen=
 		//BACKGROUND
 		characterScreen.backShade=loader.items["UI/background.png"].image.value;
 		characterScreen.backPosLoc=game.gl.getAttribLocation(characterScreen.backShade,"a_pos");
-		characterScreen.backTexLoc=game.gl.getAttribLocation(characterScreen.backShade,"u_tex");
-		characterScreen.backTimeLoc=game.gl.getAttribLocation(characterScreen.backShade,"u_time");
+		characterScreen.backTexLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_tex");
+		characterScreen.backTimeLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_time");
 	},
 	keyDown(k)
 	{
