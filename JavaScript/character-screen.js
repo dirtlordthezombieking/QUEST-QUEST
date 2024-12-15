@@ -19,19 +19,24 @@ const characterScreen=
 		characterScreen.backPosLoc=game.gl.getAttribLocation(characterScreen.backShade,"a_pos");
 		characterScreen.backTexLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_tex");
 		characterScreen .backTimeLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_time");
-		characterScreen.vertBuff=game.gl.createBuffer();
-		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterScreen.vertBuff);
+		characterScreen.backVertBuff=game.gl.createBuffer();
+		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterScreen.backVertBuff);
 		game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
 				[
 					-1,-1,
 					-1, 1,
-					 1,-1
+					 1,-1,
 					 1, 1
 				]
 		),game.gl.STATIC_DRAW);
-                        out.indBuff=game.gl.createBuffer();
-                        game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
-                        game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(out.ind),game.gl.STATIC_DRAW);
+		characterScreen.indBuff=game.gl.createBuffer();
+		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,characterScreen.indBuff);
+		game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(
+			[
+				
+				
+			]
+		),game.gl.STATIC_DRAW);
 	},
 	keyDown(k)
 	{
