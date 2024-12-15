@@ -10,14 +10,16 @@ const characterScreen=
 	},
 	draw(d,t)
 	{
-		game.gl.useProgram(out.shader);
-game.gl.uniform1i(out.texLoc,0);
-game.gl.activeTexture(game.gl.TEXTURE0);
-game.gl.bindTexture(game.gl.TEXTURE_2D,out.tex);
-game.gl.bindBuffer(game.gl.ARRAY_BUFFER,out.vertBuff);
-game.gl.enableVertexAttribArray(out.lo
-game.gl.vertexAttribPointer(out.loc,4,game.gl.FLOAT,false,0,0);
-game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
+		//BACKGROUND
+		game.gl.useProgram(characterScreen.backShade);
+		game.gl.uniform1i(characterScreen.backTexLoc,0);
+		game.gl.activeTexture(game.gl.TEXTURE0);
+		game.gl.bindTexture(game.gl.TEXTURE_2D,characterScreen.backTex);
+		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterScreen.backVertBuff);
+		game.gl.enableVertexAttribArray(characterScreen.backPosLoc);
+		game.gl.vertexAttribPointer(out.loc,4,game.gl.FLOAT,false,0,0);
+
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,characterScreen.indBuff);
 game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 	},
 	retrieve()
