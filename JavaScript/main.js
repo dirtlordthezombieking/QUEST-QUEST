@@ -27,13 +27,15 @@ const game=
 			//loader.load("misc/press f.json","sprite");
 			//loader.load("misc/PRESS SPAC.json","sprite");
 			//loader.load("misc/E TO START.json","sprite");
-			loader.loadMulti(
-			[
-				["misc/title.json","sprite"],
-				["misc/press f.json","sprite"],
-				["misc/PRESS SPAC.json","sprite"],
-				["misc/E TO START.json","sprite"]
-			]);
+			game.screen=titleScreen;
+			game.screen.load((
+			//loader.loadMulti(
+			//[
+				//["misc/title.json","sprite"],
+				//["misc/press f.json","sprite"],
+				//["misc/PRESS SPAC.json","sprite"],
+				//["misc/E TO START.json","sprite"]
+			//]);
 			game.frameTime=performance.now();
 			let tis=game;
 			requestAnimationFrame(function(ts){tis.draw(ts);});
@@ -52,10 +54,7 @@ const game=
 		{
 			return;
 		}
-		switch(e.code)
-		{
-			//----
-		}
+		game.screen.keyDown(e.code);
 	},
 	keyUp(e)
 	{
@@ -67,10 +66,7 @@ const game=
 			}
 			return;
 		}
-		switch(e.code)
-		{
-			//----
-		}
+		game.screen.keyUp(e.code);
 	},
 	draw(t)
 	{
