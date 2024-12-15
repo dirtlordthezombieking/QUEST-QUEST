@@ -80,9 +80,10 @@ const game=
 			{
 				if(document.fullscreenElement==game.canvas)
 				{
-					game.title.draw();
-					game.pressSpac.draw();
-					game.eToStart.draw();
+					game.screen.draw(d);
+					//game.title.draw();
+					//game.pressSpac.draw();
+					//game.eToStart.draw();
 				}
 				else
 				{
