@@ -160,10 +160,10 @@ const game=
 		},
 		inform(msg)
 		{
-			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#00FF00\">--✅-- "+msg+"</p>";
+			document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"<p style=\"color:#FFFFFF\">--❕-- "+msg+"</p>";
 		}
 	}
 };
-game.log.inform("Inform");
-game.log.warn("Warn");
-game.log.error("Error");
+//game.log.inform("Inform");
+//game.log.warn("Warn");
+//game.log.error("Error");
