@@ -4,10 +4,11 @@ const characterScreen=
 	{
 		loader.loadMulti(
 		[
-			["slide","shader"]
+			["slide","shader"],
+			["ui/
 		]);
 	},
-	draw(d)
+	draw(d,t)
 	{
 		//----
 	},
