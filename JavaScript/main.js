@@ -55,7 +55,7 @@ const game=
 		game.screen=s;
 		game.screen.load();
 	},
-	keyDown(e)
+	keyDown(ev)
 	{
 		if(document.fullscreenElement!=game.canvas)
 		{
@@ -63,18 +63,18 @@ const game=
 		}
 		try
 		{
-			game.screen.keyDown(e.code);
+			game.screen.keyDown(ev.code);
 		}
 		catch(e)
 		{
 			game.log.error("error:\n"+e.message);
 		}
 	},
-	keyUp(e)
+	keyUp(ev)
 	{
 		if(document.fullscreenElement!=game.canvas)
 		{
-			if(e.code=="KeyF")
+			if(ev.code=="KeyF")
 			{
 				game.canvas.requestFullscreen();
 			}
@@ -82,7 +82,7 @@ const game=
 		}
 		try
 		{
-			game.screen.keyUp(e.code);
+			game.screen.keyUp(ev.code);
 		}
 		catch(e)
 		{
