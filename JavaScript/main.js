@@ -27,8 +27,9 @@ const game=
 			//loader.load("misc/press f.json","sprite");
 			//loader.load("misc/PRESS SPAC.json","sprite");
 			//loader.load("misc/E TO START.json","sprite");
-			game.screen=titleScreen;
-			game.screen.load((
+			game.setScreen(titleScreen);
+			//game.screen=titleScreen;
+			//game.screen.load();
 			//loader.loadMulti(
 			//[
 				//["misc/title.json","sprite"],
@@ -47,6 +48,12 @@ const game=
 		{
 			game.log.error(e.message);
 		}
+	},
+	setScreen(s)
+	{
+		game.loaded=false;
+		game.screen=s;
+		game.screen.load();
 	},
 	keyDown(e)
 	{
