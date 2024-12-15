@@ -61,7 +61,14 @@ const game=
 		{
 			return;
 		}
-		game.screen.keyDown(e.code);
+		try
+		{
+			game.screen.keyDown(e.code);
+		}
+		catch(e)
+		{
+			game.log.error("error:\n"+e.message);
+		}
 	},
 	keyUp(e)
 	{
@@ -73,7 +80,14 @@ const game=
 			}
 			return;
 		}
-		game.screen.keyUp(e.code);
+		try
+		{
+			game.screen.keyUp(e.code);
+		}
+		catch(e)
+		{
+			game.log.error("error:\n"+e.message);
+		}
 	},
 	draw(t)
 	{
