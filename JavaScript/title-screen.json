@@ -1,0 +1,19 @@
+const titleScreen=
+{
+	load()
+	{
+		//----
+	},
+	draw(d)
+	{
+		//----
+	},
+	keyDown(k)
+	{
+		//----
+	},
+	keyaup(k)
+	{
+		//----
+	}
+};
