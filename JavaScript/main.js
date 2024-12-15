@@ -27,13 +27,16 @@ const game=
 			//loader.load("misc/press f.json","sprite");
 			//loader.load("misc/PRESS SPAC.json","sprite");
 			//loader.load("misc/E TO START.json","sprite");
-			loader.loadMulti(
-			[
-				["misc/title.json","sprite"],
-				["misc/press f.json","sprite"],
-				["misc/PRESS SPAC.json","sprite"],
-				["misc/E TO START.json","sprite"]
-			]);
+			game.setScreen(titleScreen);
+			//game.screen=titleScreen;
+			//game.screen.load();
+			//loader.loadMulti(
+			//[
+				//["misc/title.json","sprite"],
+				//["misc/press f.json","sprite"],
+				//["misc/PRESS SPAC.json","sprite"],
+				//["misc/E TO START.json","sprite"]
+			//]);
 			game.frameTime=performance.now();
 			let tis=game;
 			requestAnimationFrame(function(ts){tis.draw(ts);});
@@ -46,30 +49,44 @@ const game=
 			game.log.error(e.message);
 		}
 	},
-	keyDown(e)
+	setScreen(s)
+	{
+		game.loaded=false;
+		game.screen=s;
+		game.screen.load();
+	},
+	keyDown(ev)
 	{
 		if(document.fullscreenElement!=game.canvas)
 		{
 			return;
 		}
-		switch(e.code)
+		try
 		{
-			//----
+			game.screen.keyDown(ev.code);
+		}
+		catch(e)
+		{
+			game.log.error("error:\n"+e.message);
 		}
 	},
-	keyUp(e)
+	keyUp(ev)
 	{
 		if(document.fullscreenElement!=game.canvas)
 		{
-			if(e.code=="KeyF")
+			if(ev.code=="KeyF")
 			{
 				game.canvas.requestFullscreen();
 			}
 			return;
 		}
-		switch(e.code)
+		try
 		{
-			//----
+			game.screen.keyUp(ev.code);
+		}
+		catch(e)
+		{
+			game.log.error("error:\n"+e.message);
 		}
 	},
 	draw(t)
@@ -84,9 +101,10 @@ const game=
 			{
 				if(document.fullscreenElement==game.canvas)
 				{
-					game.title.draw();
-					game.pressSpac.draw();
-					game.eToStart.draw();
+					game.screen.draw(d);
+					//game.title.draw();
+					//game.pressSpac.draw();
+					//game.eToStart.draw();
 				}
 				else
 				{
@@ -97,10 +115,11 @@ const game=
 			{
 				if(loader.loaded())
 				{
-					game.title=loader.items["misc/title.json"].sprite.value;
-					game.pressF=loader.items["misc/press f.json"].sprite.value;
-					game.pressSpac=loader.items["misc/PRESS SPAC.json"].sprite.value;
-					game.eToStart=loader.items["misc/E TO START.json"].sprite.value;
+					game.screen.retrieve();
+					//game.title=loader.items["misc/title.json"].sprite.value;
+					//game.pressF=loader.items["misc/press f.json"].sprite.value;
+					//game.pressSpac=loader.items["misc/PRESS SPAC.json"].sprite.value;
+					//game.eToStart=loader.items["misc/E TO START.json"].sprite.value;
 					game.loaded=true;
 				}
 			}
