@@ -15,7 +15,7 @@ const characterScreen=
 	retrieve()
 	{
 		//BACKGROUND
-		characterScreen.backShade=loader.items["UI/background.png"].image.value;
+		characterScreen.backShade=loader.items["UI/background.png"].shader.value;
 		characterScreen.backPosLoc=game.gl.getAttribLocation(characterScreen.backShade,"a_pos");
 		characterScreen.backTexLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_tex");
 		characterScreen .backTimeLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_time");
@@ -37,6 +37,12 @@ const characterScreen=
 				2,3,1
 			]
 		),game.gl.STATIC_DRAW);
+		game.gl.bindTexture(game.gl.TEXTURE_2D,out.tex);
+		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
+		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
+		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MIN_FILTER,game.gl.NEAREST);
+		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MAG_FILTER,game.gl.NEAREST);
+		game.gl.texImage2D(game.gl.TEXTURE_2D,0,game.gl.RGBA,game.gl.RGBA,game.gl.UNSIGNED_BYTE,out.image);
 	},
 	keyDown(k)
 	{
