@@ -5,7 +5,7 @@ const characterScreen=
 		loader.loadMulti(
 		[
 			["slide","shader"],
-			["ui/
+			["UI/background.png","image"]
 		]);
 	},
 	draw(d,t)
