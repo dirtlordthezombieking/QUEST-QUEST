@@ -17,9 +17,9 @@ const characterScreen=
 		game.gl.bindTexture(game.gl.TEXTURE_2D,characterScreen.backTex);
 		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterScreen.backVertBuff);
 		game.gl.enableVertexAttribArray(characterScreen.backPosLoc);
-		game.gl.vertexAttribPointer(characterScreen.backPosLoc,4,game.gl.FLOAT,false,0,0);
-
-			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,characterScreen.indBuff);
+		game.gl.vertexAttribPointer(characterScreen.backPosLoc,2,game.gl.FLOAT,false,0,0);
+		game.gl.uniform1f(characterScreen.backTimeLoc,t);
+		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,characterScreen.indBuff);
 game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 	},
 	retrieve()
@@ -28,7 +28,7 @@ game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 		characterScreen.backShade=loader.items.slide.shader.value;
 		characterScreen.backPosLoc=game.gl.getAttribLocation(characterScreen.backShade,"a_pos");
 		characterScreen.backTexLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_tex");
-		characterScreen .backTimeLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_time");
+		characterScreen.backTimeLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_time");
 		characterScreen.backVertBuff=game.gl.createBuffer();
 		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterScreen.backVertBuff);
 		game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
