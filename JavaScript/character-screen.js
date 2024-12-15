@@ -33,8 +33,8 @@ const characterScreen=
 		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,characterScreen.indBuff);
 		game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(
 			[
-				
-				
+				0,2,1,
+				2,3,1
 			]
 		),game.gl.STATIC_DRAW);
 	},
