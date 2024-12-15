@@ -17,6 +17,10 @@ const titleScreen=
 		game.pressSpac.draw();
 		game.eToStart.draw();
 	},
+	retrieve()
+	{
+		//----
+	},
 	keyDown(k)
 	{
 		//----
