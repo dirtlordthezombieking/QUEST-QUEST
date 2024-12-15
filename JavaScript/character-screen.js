@@ -4,7 +4,7 @@ const characterScreen=
 	{
 		loader.loadMulti(
 		[
-			//----
+			["slide","shader"]
 		]);
 	},
 	draw(d)
