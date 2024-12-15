@@ -1,0 +1,26 @@
+const characterScreen=
+{
+	load()
+	{
+		loader.loadMulti(
+		[
+			//----
+		]);
+	},
+	draw(d)
+	{
+		//----
+	},
+	retrieve()
+	{
+		//----
+	},
+	keyDown(k)
+	{
+		//----
+	},
+	keyUp(k)
+	{
+		//----
+	}
+};
