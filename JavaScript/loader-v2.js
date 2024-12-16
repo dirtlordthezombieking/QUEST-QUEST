@@ -3,16 +3,25 @@ const loader=
 {
 	items:{},
 	queue:0,
+	queueCount:0,
+	queueStep:0,
 	loaded()
 	{
 		return loader.queue<=0;
 	},
 	async loadMulti(toLoad)
 	{
+		loader.queueCount=toLoad.length;
+		loader.queueStep=0;
 		for(let item of toLoad)
 		{
+			loader.queueStep++;
 			await loader.subLoad(item[0],item[1]);
 		}
+	},
+	getPercentage()
+	{
+		return loader.queueStep/loader.queueCount;
 	},
 	load(src,type)
 	{

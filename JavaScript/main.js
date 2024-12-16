@@ -118,10 +118,12 @@ const game=
 				{
 					game.load={};
 					game.load.shader=loader.items.basic.shader.value;
+					game.load.barShader=loader.items.loading.shader.value;
 					game.load.loc=game.gl.getAttribLocation(game.load.shader,"a_data");
+					game.load.barLoc=game.gl.getAttribLocation(game.load.barShader,"a_pos");
 					game.load.texLoc=game.gl.getUniformLocation(game.load.shader,"u_tex");
 					game.load.offLoc=game.gl.getUniformLocation(game.load.shader,"u_pos");
-					game.load.shader=loader.items.basic.shader.value;
+					game.load.perLoc=game.gl.getUniformLocation(game.load.barShader,"u_per");
 					game.load.tex=loader.items["misc/load.png"].texture.value;
 					game.load.vertBuff=game.gl.createBuffer();
 					game.gl.bindBuffer(game.gl.ARRAY_BUFFER,game.load.vertBuff);
@@ -133,6 +135,16 @@ const game=
 							 64, 64,1,0
 						]
 					),game.gl.STATIC_DRAW);
+					game.load.barBuff=game.gl.createBuffer();
+					game.gl.bindBuffer(game.gl.ARRAY_BUFFER,game.load.barBuff);
+					game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
+						[
+							0,  -1,
+							0,-0.9,
+							1,  -1,
+							1,-0.9
+						]
+					),game.gl.STATIC_DRAW);
 					game.load.draw=function()
 					{
 						game.gl.useProgram(game.load.shader);
@@ -141,6 +153,13 @@ const game=
 						game.gl.uniform2f(game.load.offLoc,0,0);
 						game.gl.enableVertexAttribArray(game.load.loc);
 						game.gl.vertexAttribPointer(game.load.loc,4,game.gl.FLOAT,false,0,0);
+						game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+						game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+						game.gl.useProgram(game.load.barShader);
+						game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.barBuff);
+						game.gl.uniform1f(game.load.offLoc,loader.getPercentage());
+						game.gl.enableVertexAttribArray(game.load.barLoc);
+						game.gl.vertexAttribPointer(game.load.barLoc,2,game.gl.FLOAT,false,0,0);
 						game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 						game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 					};
