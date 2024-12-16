@@ -11,6 +11,10 @@ const titleScreen=
 			["misc/E TO START.json","sprite"],
 			["basic","shader"]
 		]);
+		this.test1="t1 ";
+		this.test2="t2 ";
+		let test3=new Test();
+		game.log.inform(this.test1+this.test2+test3.test1+test3.test2+test3.ret());
 	},
 	draw(d,t)
 	{
@@ -38,6 +42,15 @@ const titleScreen=
 		if(k=="Space"&&titleScreen.spaceTime<=1000.0)
 		{
 			game.setScreen(characterScreen);
+		}
+	},
+	Test()
+	{
+		this.test1="1 ";
+		this.test2="2 ";
+		this.ret=function()
+		{
+			return this.test1+this.test1+titleScreen.test1+titleScreen.test1;
 		}
 	}
 };
