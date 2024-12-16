@@ -12,7 +12,7 @@ const characterScreen=
 	{
 		//BACKGROUND
 		game.gl.useProgram(characterScreen.backShade);
-		game.gl.uniform1i(characterScreen.backTexLoc,0);
+		game.setTexture(characterScreen.backTexLoc,0);
 		game.gl.activeTexture(game.gl.TEXTURE0);
 		game.gl.bindTexture(game.gl.TEXTURE_2D,characterScreen.backTex);
 		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterScreen.backVertBuff);
