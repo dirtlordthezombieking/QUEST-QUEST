@@ -62,5 +62,13 @@ const characterScreen=
 	keyUp(k)
 	{
 		//----
+	},
+	createElement(x,y,w,h)
+	{
+		ret={}
+		ret.shader=loader.items.basic.shader.value
+		ret.dataLoc=game.gl.getAttribLocation(ret.shader,"a_data")
+		ret.
+		ret.offLoc=
 	}
 };
