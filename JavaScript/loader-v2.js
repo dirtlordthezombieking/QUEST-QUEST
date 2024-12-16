@@ -122,7 +122,7 @@ const loader=
 			game.log.error("Error loading texture \""+src+"\": "+e.message);
 		}
 		loader.queue--;
-	}
+	},
 	async loadSprite(src)
 	{
 		try
