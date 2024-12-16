@@ -5,7 +5,33 @@ const characterScreen=
 		loader.loadMulti(
 		[
 			["slide","shader"],
-			["UI/background.png","texture"]
+			["UI/arrows_big.png","texture"],
+			["UI/arrows_small.png","texture"],
+			["UI/background.png","texture"],
+			["UI/hex_input.png","texture"],
+			["UI/select_slider.png","texture"],
+			["UI/sellect_slider_bar.png","texture"],
+			["UI/sellect_text.png","texture"],
+			["UI/sellect_text_big.png","texture"],
+			["UI/slider_bar.png","texture"],
+			["UI/text/character creation/body_type.png","texture"],
+			["UI/text/character creation/detail_colour.png","texture"],
+			["UI/text/character creation/detail_style.png","texture"],
+			["UI/text/character creation/hair_colour.png","texture"],
+			["UI/text/character creation/hair_style.png","texture"],
+			["UI/text/character creation/pants_colour.png","texture"],
+			["UI/text/character creation/shirt_colour.png","texture"],
+			["UI/text/character creation/shoe_colour.png","texture"],
+			["UI/text/character creation/skin_tone.png","texture"],
+			["UI/text/character creation/race/beastfolk.png","texture"],
+			["UI/text/character creation/race/demon.png","texture"],
+			["UI/text/character creation/race/dwarf.png","texture"],
+			["UI/text/character creation/race/elf.png","texture"],
+			["UI/text/character creation/race/fishfolk.png","texture"],
+			["UI/text/character creation/race/goblin.png","texture"],
+			["UI/text/character creation/race/human.png","texture"],
+			["UI/text/character creation/race/nephilim.png","texture"],
+			["UI/text/character creation/race/vampire.png","texture"]
 		]);
 	},
 	draw(d,t)
