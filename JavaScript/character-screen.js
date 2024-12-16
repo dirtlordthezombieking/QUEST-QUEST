@@ -44,7 +44,7 @@ const characterScreen=
 				0,2,1,
 				2,3,1
 			]
-		),game.gl.STATIC_DRAW);    
+		),game.gl.STATIC_DRAW);
 		characterScreen.backTex=loader.items["UI/background.png"].texture.value;
 	},
 	keyDown(k)
