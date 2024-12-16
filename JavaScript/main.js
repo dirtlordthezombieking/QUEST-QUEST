@@ -119,7 +119,7 @@ const game=
 					game.load={};
 					game.load.shader=loader.items.basic.shader.value;
 					game.load.loc=game.gl.getAttribLocation(game.load.shader,"a_data");
-					game.load.TexLoc=game.gl.getUniformLocation(game.load.shader,"u_tex");
+					game.load.texLoc=game.gl.getUniformLocation(game.load.shader,"u_tex");
 					game.load.shader=loader.items.basic.shader.value;
 					game.load.tex=loader.items["misc/load.png"].texture.value;
 					game.load.vertBuff=game.gl.createBuffer();
@@ -134,7 +134,7 @@ const game=
 					),game.gl.STATIC_DRAW);
 					ret.draw=function()
 					{
-						game.setTexture(game.load.TexLoc,game.load.tex,0);
+						game.setTexture(game.load.texLoc,game.load.tex,0);
 						game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
 						game.gl.enableVertexAttribArray(game.load.loc);
 						game.gl.vertexAttribPointer(game.load.loc,4,game.gl.FLOAT,false,0,0);
