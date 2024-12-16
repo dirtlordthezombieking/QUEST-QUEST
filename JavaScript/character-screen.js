@@ -123,7 +123,7 @@ const characterScreen=
 		characterScreen.races=[];
 		for(const r of races)
 		{
-			characterScreen.races=characterScreen.createTextElement(-256,192,512,64,loader.items[r].texture.value);
+			characterScreen.races.push(characterScreen.createTextElement(-256,192,512,64,loader.items[r].texture.value));
 		}
 		characterScreen.highlightBig=characterScreen.createElement(-256,160,512,128,loader.items["UI/text_highlight_big.png"].texture.value);
 	},
