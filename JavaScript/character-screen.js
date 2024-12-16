@@ -120,14 +120,14 @@ const characterScreen=
 			"UI/text/character creation/race/vampire.png"
 		];
 		characterScreen.race=Math.floor(Math.random()*9);
-		game.log.inform(""+characterScreen.race)
+		//game.log.inform(""+characterScreen.race)
 		characterScreen.races=[];
 		for(const r of races)
 		{
-			game.log.inform(r);
+			//game.log.inform(r);
 			characterScreen.races.push(characterScreen.createTextElement(-256,192,512,64,loader.items[r].texture.value));
 		}
-		game.log.inform(races[characterScreen.race])
+		//game.log.inform(races[characterScreen.race])
 		characterScreen.highlightBig=characterScreen.createElement(-256,160,512,128,loader.items["UI/text_highlight_big.png"].texture.value);
 	},
 	keyDown(k)
