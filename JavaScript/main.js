@@ -136,6 +136,7 @@ const game=
 					{
 						game.setTexture(game.load.texLoc,game.load.tex,0);
 						game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
+						game.gl.uniform2f(characterScreen.basicOffLoc,0,0);
 						game.gl.enableVertexAttribArray(game.load.loc);
 						game.gl.vertexAttribPointer(game.load.loc,4,game.gl.FLOAT,false,0,0);
 						game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
