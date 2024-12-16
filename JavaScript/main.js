@@ -135,6 +135,7 @@ const game=
 					),game.gl.STATIC_DRAW);
 					game.load.draw=function()
 					{
+						game.gl.useProgram(game.load.shader);
 						game.setTexture(game.load.texLoc,game.load.tex,0);
 						game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
 						game.gl.uniform2f(game.load.offLoc,0,0);
