@@ -89,6 +89,12 @@ const game=
 			game.log.error("error:\n"+e.message);
 		}
 	},
+	setTexture(loc,tex,pos)
+	{
+		game.gl.uniform1i(loc,pos);
+		game.gl.activeTexture(game.gl.TEXTURE0+pos);
+		game.gl.bindTexture(game.gl.TEXTURE_2D,tex);
+	},
 	draw(t)
 	{
 		let d=t-game.frameTime;
