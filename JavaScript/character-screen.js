@@ -105,7 +105,7 @@ const characterScreen=
 		{
 			characterScreen.labels.push([characterScreen.createTextElement(t[1],t[2],64,64,loader.items[t[0]].texture.value),t[1],t[2]]);
 		}
-		characterScreen.highlight=characterScreen.createElement(0,0,64,64,loader.items["UI/text_highlight.png"].texture.value)
+		characterScreen.highlight=characterScreen.createElement(0,0,64,64,loader.items["UI/text_highlight.png"].texture.value);
 		const races=
 		[
 			"UI/text/character creation/race/beastfolk.png",
@@ -124,7 +124,7 @@ const characterScreen=
 		{
 			characterScreen.races=characterScreen.createElement(-256,192,512,64,loader.items[r[0]].texture.value);
 		}
-		characterScreen.highlightBig=characterScreen.createElement(-256,160,512,128,loader.items["UI/text_highlight_big.png"].texture.value)
+		characterScreen.highlightBig=characterScreen.createElement(-256,160,512,128,loader.items["UI/text_highlight_big.png"].texture.value);
 	},
 	keyDown(k)
 	{
