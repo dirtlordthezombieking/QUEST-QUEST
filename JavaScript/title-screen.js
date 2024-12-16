@@ -44,7 +44,7 @@ const titleScreen=
 			game.setScreen(characterScreen);
 		}
 	},
-	Test()
+	test()
 	{
 		ret={}
 		ret.test1="1 ";
