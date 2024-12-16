@@ -60,26 +60,54 @@ const characterScreen=
 	{
 		ret={}
 		ret.shader=loader.items.basic.shader.value;
-		rt.tex=tex;
+		ret.tex=tex;
 		ret.vertBuff=game.gl.createBuffer();
 		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,ret.vertBuff);
 		game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
 				[
-					x  ,y  ,
-					x  ,y+h,
-					x+w,y  ,
-					x+w,y+h
+					x  ,y  ,0,1,
+					x  ,y+h,0,0,
+					x+w,y  ,1,1,
+					x+w,y+h,1,0
 				]
 		),game.gl.STATIC_DRAW);
-		ret.draw=function()
+		ret.draw=function(xPos,yPos)
 		{
-		game.setTexture(characterScreen.basicDataLoc,this.tex,0);
-		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterScreen.backVertBuff);
-		game.gl.enableVertexAttribArray(characterScreen.backPosLoc);
-		game.gl.vertexAttribPointer(characterScreen.backPosLoc,2,game.gl.FLOAT,false,0,0);
-		game.gl.uniform1f(characterScreen.backTimeLoc,t%5000);
-		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,characterScreen.indBuff);
-		game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+			game.setTexture(characterScreen.basicTexLoc,this.tex,0);
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
+			game.gl.enableVertexAttribArray(characterScreen.basicDataLoc);
+			game.gl.vertexAttribPointer(characterScreen.basicDataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterScreen.basicOffLoc,xPos,yPos);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 		}
+		return ret;
 	},
+	createTextElement(x,y,w,h,tex)
+	{
+		ret={}
+		ret.shader=loader.items.basic.shader.value;
+		ret.tex=tex;
+		ret.vertBuff=game.gl.createBuffer();
+		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,ret.vertBuff);
+		game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
+				[
+					x  ,y  ,0,1,
+					x  ,y+h,0,0,
+					x+w,y  ,1,1,
+					x+w,y+h,1,0
+				]
+		),game.gl.STATIC_DRAW);
+		ret.draw=function(xPos,yPos)
+		{
+			game.setTexture(characterScreen.textTexLoc,this.tex,0);
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
+			game.gl.enableVertexAttribArray(characterScreen.textDataLoc);
+			game.gl.vertexAttribPointer(characterScreen.textDataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform3f(characterScreen.textColLoc,0.25,0.5,1.0);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+		}
+		return ret;
+	}
 };
