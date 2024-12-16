@@ -109,13 +109,22 @@ const game=
 					game.pressF.draw();
 				}
 			}
-			else
+			else if(loader.loaded())
 			{
-				if(loader.loaded())
+				game.screen.retrieve();
+				game.loaded=true;
+				game.startTime=performance.now();
+				if(!game.load)
 				{
-					game.screen.retrieve();
-					game.loaded=true;
+					game.load=
+					{
+						
+					}
 				}
+			}
+			else if(game.load)
+			{
+				game.load.draw();
 			}
 			game.errframes=0;
 		}
