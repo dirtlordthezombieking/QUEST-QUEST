@@ -157,7 +157,7 @@ const game=
 						game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 						game.gl.useProgram(game.load.barShader);
 						game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.barBuff);
-						game.gl.uniform1f(game.load.offLoc,loader.getPercentage());
+						game.gl.uniform1f(game.load.perLoc,loader.getPercentage());
 						game.gl.enableVertexAttribArray(game.load.barLoc);
 						game.gl.vertexAttribPointer(game.load.barLoc,2,game.gl.FLOAT,false,0,0);
 						game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
