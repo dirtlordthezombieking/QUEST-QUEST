@@ -5,7 +5,7 @@ const characterScreen=
 		loader.loadMulti(
 		[
 			["slide","shader"],
-			["UI/background.png","image"]
+			["UI/background.png","texture"]
 		]);
 	},
 	draw(d,t)
@@ -47,13 +47,7 @@ const characterScreen=
 				2,3,1
 			]
 		),game.gl.STATIC_DRAW);    
-		characterScreen.backTex=game.gl.createTexture();
-		game.gl.bindTexture(game.gl.TEXTURE_2D,characterScreen.backTex);
-		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
-		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
-		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MIN_FILTER,game.gl.NEAREST);
-		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MAG_FILTER,game.gl.NEAREST);
-		game.gl.texImage2D(game.gl.TEXTURE_2D,0,game.gl.RGBA,game.gl.RGBA,game.gl.UNSIGNED_BYTE,loader.items["UI/background.png"].image.value);
+		characterScreen.backTex=loader.items["UI/background.png"].texture.value;
 	},
 	keyDown(k)
 	{
@@ -71,14 +65,4 @@ const characterScreen=
 		ret.texLoc=game.gl.getUniformLocation(ret.shader,"u_tex");
 		ret.offLoc=game.gl.getUniformLocation(ret.shader,"u_
 	},
-	creatTexture(src)
-	{
-		ret=game.gl.createTexture();
-		game.gl.bindTexture(game.gl.TEXTURE_2D,ret);
-		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
-		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
-		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MIN_FILTER,game.gl.NEAREST);
-		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MAG_FILTER,game.gl.NEAREST);
-		game.gl.texImage2D(game.gl.TEXTURE_2D,0,game.gl.RGBA,game.gl.RGBA,game.gl.UNSIGNED_BYTE,src);
-	}
 };
