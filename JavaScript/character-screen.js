@@ -25,6 +25,7 @@ const characterScreen=
 			["UI/sellect_slider_bar.png","texture"],
 			["UI/sellect_text.png","texture"],
 			["UI/sellect_text_big.png","texture"],
+			["UI/sellect_text_highlight.png","texture"],
 			["UI/slider_bar.png","texture"],
 			["UI/text/character creation/body_type.png","texture"],
 			["UI/text/character creation/detail_colour.png","texture"],
@@ -58,11 +59,16 @@ const characterScreen=
 		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 		game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 		//LABELS
+		game.gl.useProgram(characterScreen.basicShade);
+		for(const l of characterScreen.labels)
+		{
+			characterScreen.highlight.draw(l[1],l[2]);
+		}
 		game.gl.useProgram(characterScreen.textShade);
 		game.gl.uniform3f(characterScreen.textColLoc,63.75,127.5,255);
 		for(const l of characterScreen.labels)
 		{
-			l.draw();
+			l[0].draw();
 		}
 	},
 	retrieve()
@@ -95,8 +101,9 @@ const characterScreen=
 		characterScreen.labels=[];
 		for(const t of characterScreen.texts)
 		{
-			characterScreen.labels.push(characterScreen.createTextElement(t[1],t[2],64,64,loader.items[t[0]].texture.value));
+			characterScreen.labels.push([characterScreen.createTextElement(t[1],t[2],64,64,loader.items[t[0]].texture.value),t[1],t[2]]);
 		}
+		characterScreen.highlight=createElement(0,0,64,64,loader.items["UI/sellect_text_highlight.png"].texture.value)
 	},
 	keyDown(k)
 	{
