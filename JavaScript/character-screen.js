@@ -15,6 +15,7 @@ const characterScreen=
 			["UI/sellect_text_big.png","texture"],
 			["UI/slider_bar.png","texture"],
 			["UI/text_highlight.png","texture"],
+			["UI/text_highlight_big.png","texture"],
 			["UI/text/character creation/body_type.png","texture"],
 			["UI/text/character creation/detail_colour.png","texture"],
 			["UI/text/character creation/detail_style.png","texture"],
