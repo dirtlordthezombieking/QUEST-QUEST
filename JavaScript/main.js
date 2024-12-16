@@ -132,7 +132,7 @@ const game=
 							 64, 64,1,0
 						]
 					),game.gl.STATIC_DRAW);
-					ret.draw=function()
+					game.load.draw=function()
 					{
 						game.setTexture(game.load.texLoc,game.load.tex,0);
 						game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
