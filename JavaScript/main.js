@@ -140,7 +140,7 @@ const game=
 						game.gl.vertexAttribPointer(game.load.loc,4,game.gl.FLOAT,false,0,0);
 						game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 						game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
-		};
+					};
 				}
 			}
 			else if(game.load)
