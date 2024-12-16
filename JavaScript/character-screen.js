@@ -66,9 +66,9 @@ const characterScreen=
 	createElement(x,y,w,h)
 	{
 		ret={}
-		ret.shader=loader.items.basic.shader.value
-		ret.dataLoc=game.gl.getAttribLocation(ret.shader,"a_data")
-		ret.
-		ret.offLoc=
+		ret.shader=loader.items.basic.shader.value;
+		ret.dataLoc=game.gl.getAttribLocation(ret.shader,"a_data");
+		ret.texLoc=game.gl.getUniformLocation(ret.shader,"u_tex");
+		ret.offLoc=game.gl.getUniformLocation(ret.shader,"u_
 	}
 };
