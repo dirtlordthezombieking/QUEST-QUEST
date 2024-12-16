@@ -53,7 +53,7 @@ const characterScreen=
 		{
 			characterScreen.highlight.draw(l[1],l[2]);
 		}
-		characterScreen.highlight_big.draw();
+		characterScreen.highlightBig.draw();
 		game.gl.useProgram(characterScreen.textShade);
 		game.gl.uniform3f(characterScreen.textColLoc,255,255,255);
 		for(const l of characterScreen.labels)
