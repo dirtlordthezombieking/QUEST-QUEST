@@ -9,7 +9,7 @@ const loader=
 	},
 	async loadMulti(toLoad)
 	{
-		for(item of toLoad)
+		for(let item of toLoad)
 		{
 			await loader.subLoad(item[0],item[1]);
 		}
@@ -102,7 +102,7 @@ const loader=
 			game.log.error("Error initializing load of "+type+" \""+src+"\": "+e.message);
 		}
 	},
-	function loadTexture(src)
+	async loadTexture(src)
 	{
 		try
 		{
