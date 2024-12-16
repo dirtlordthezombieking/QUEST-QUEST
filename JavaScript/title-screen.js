@@ -11,10 +11,6 @@ const titleScreen=
 			["misc/E TO START.json","sprite"],
 			["basic","shader"]
 		]);
-		this.test1="t1 ";
-		this.test2="t2 ";
-		let test3=titleScreen.test();
-		game.log.inform(this.test1+this.test2+test3.test1+test3.test2+test3.ret());
 	},
 	draw(d,t)
 	{
@@ -43,16 +39,5 @@ const titleScreen=
 		{
 			game.setScreen(characterScreen);
 		}
-	},
-	test()
-	{
-		ret={}
-		ret.test1="1 ";
-		ret.test2="2 ";
-		ret.ret=function()
-		{
-			return this.test1+this.test1+titleScreen.test1+titleScreen.test1;
-		}
-		return ret;
 	}
 };
