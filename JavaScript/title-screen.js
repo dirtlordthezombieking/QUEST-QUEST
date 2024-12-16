@@ -13,7 +13,7 @@ const titleScreen=
 		]);
 		this.test1="t1 ";
 		this.test2="t2 ";
-		let test3=new Test();
+		let test3=new titleScreen.Test();
 		game.log.inform(this.test1+this.test2+test3.test1+test3.test2+test3.ret());
 	},
 	draw(d,t)
