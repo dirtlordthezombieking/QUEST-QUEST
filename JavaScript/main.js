@@ -118,7 +118,7 @@ const game=
 				{
 					game.load={};
 					game.load.shader=loader.items.basic.shader.value;
-					game.load.tex=;
+					game.load.tex=loader.items["misc/load.png"].texture.value;
 					game.load.TexLoc=;
 					game.load.vertBuff=game.gl.createBuffer();
 					game.gl.bindBuffer(game.gl.ARRAY_BUFFER,ret.vertBuff);
