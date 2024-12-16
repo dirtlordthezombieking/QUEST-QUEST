@@ -115,7 +115,7 @@ const loader=
 			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MIN_FILTER,game.gl.NEAREST);
 			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MAG_FILTER,game.gl.NEAREST);
 			game.gl.texImage2D(game.gl.TEXTURE_2D,0,game.gl.RGBA,game.gl.RGBA,game.gl.UNSIGNED_BYTE,image);
-			loader.items[src].texture.value=image;
+			loader.items[src].texture.value=ret;
 		}
 		catch (e)
 		{
