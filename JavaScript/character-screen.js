@@ -70,5 +70,15 @@ const characterScreen=
 		ret.dataLoc=game.gl.getAttribLocation(ret.shader,"a_data");
 		ret.texLoc=game.gl.getUniformLocation(ret.shader,"u_tex");
 		ret.offLoc=game.gl.getUniformLocation(ret.shader,"u_
+	},
+	creatTexture(src)
+	{
+		ret=game.gl.createTexture();
+		game.gl.bindTexture(game.gl.TEXTURE_2D,ret);
+		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
+		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
+		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MIN_FILTER,game.gl.NEAREST);
+		game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MAG_FILTER,game.gl.NEAREST);
+		game.gl.texImage2D(game.gl.TEXTURE_2D,0,game.gl.RGBA,game.gl.RGBA,game.gl.UNSIGNED_BYTE,src);
 	}
 };
