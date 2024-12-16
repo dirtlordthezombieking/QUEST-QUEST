@@ -1,17 +1,5 @@
 const characterScreen=
 {
-	texts:
-	[
-		["UI/text/character creation/body_type.png"    , 288,-268],
-		["UI/text/character creation/detail_colour.png",-384, -68],
-		["UI/text/character creation/detail_style.png" ,-352,-244],
-		["UI/text/character creation/hair_colour.png"  ,-384,  68],
-		["UI/text/character creation/hair_style.png"   ,-352,-204],
-		["UI/text/character creation/pants_colour.png" , 256,   4],
-		["UI/text/character creation/shirt_colour.png" , 256, 140],
-		["UI/text/character creation/shoe_colour.png"  , 256,-132],
-		["UI/text/character creation/skin_tone.png"    ,-352, 140]
-	],
 	load()
 	{
 		loader.loadMulti(
@@ -64,12 +52,14 @@ const characterScreen=
 		{
 			characterScreen.highlight.draw(l[1],l[2]);
 		}
+		characterScreen.highlight_big.draw();
 		game.gl.useProgram(characterScreen.textShade);
 		game.gl.uniform3f(characterScreen.textColLoc,255,255,255);
 		for(const l of characterScreen.labels)
 		{
 			l[0].draw();
 		}
+		characterScreen.race[characterScreen.races].draw();
 	},
 	retrieve()
 	{
@@ -98,12 +88,43 @@ const characterScreen=
 		characterScreen.textDataLoc=game.gl.getAttribLocation(characterScreen.textShade,"a_data");
 		characterScreen.textTexLoc=game.gl.getUniformLocation(characterScreen.textShade,"u_tex");
 		characterScreen.textColLoc=game.gl.getUniformLocation(characterScreen.textShade,"u_colour");
+		const texts=
+		[
+			["UI/text/character creation/body_type.png"    , 288,-268],
+			["UI/text/character creation/detail_colour.png",-384, -68],
+			["UI/text/character creation/detail_style.png" ,-352,-244],
+			["UI/text/character creation/hair_colour.png"  ,-384,  68],
+			["UI/text/character creation/hair_style.png"   ,-352,-204],
+			["UI/text/character creation/pants_colour.png" , 256,   4],
+			["UI/text/character creation/shirt_colour.png" , 256, 140],
+			["UI/text/character creation/shoe_colour.png"  , 256,-132],
+			["UI/text/character creation/skin_tone.png"    ,-352, 140]
+		];
 		characterScreen.labels=[];
-		for(const t of characterScreen.texts)
+		for(const t of texts)
 		{
 			characterScreen.labels.push([characterScreen.createTextElement(t[1],t[2],64,64,loader.items[t[0]].texture.value),t[1],t[2]]);
 		}
 		characterScreen.highlight=characterScreen.createElement(0,0,64,64,loader.items["UI/text_highlight.png"].texture.value)
+		const races=
+		[
+			"UI/text/character creation/race/beastfolk.png",
+			"UI/text/character creation/race/demon.png",
+			"UI/text/character creation/race/dwarf.png",
+			"UI/text/character creation/race/elf.png",
+			"UI/text/character creation/race/fishfolk.png",
+			"UI/text/character creation/race/goblin.png",
+			"UI/text/character creation/race/human.png",
+			"UI/text/character creation/race/nephilim.png",
+			"UI/text/character creation/race/vampire.png"
+		];
+		characterScreen.race=Math.floor(Math.random()*9);
+		characterScreen.races=[];
+		for(const r of races)
+		{
+			characterScreen.races=characterScreen.createElement(-256,192,512,64,loader.items[r[0]].texture.value;
+		}
+			characterScreen.highlight_big=characterScreen.createElement(-256,160,512,128,loader.items["UI/text_highlight_big.png"].texture.value)
 	},
 	keyDown(k)
 	{
