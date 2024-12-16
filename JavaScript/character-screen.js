@@ -60,7 +60,7 @@ const characterScreen=
 		{
 			l[0].draw();
 		}
-		characterScreen.race[characterScreen.races].draw();
+		characterScreen.races[characterScreen.race].draw();
 	},
 	retrieve()
 	{
