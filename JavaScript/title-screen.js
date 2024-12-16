@@ -53,6 +53,6 @@ const titleScreen=
 		{
 			return this.test1+this.test1+titleScreen.test1+titleScreen.test1;
 		}
-		return ret();
+		return ret;
 	}
 };
