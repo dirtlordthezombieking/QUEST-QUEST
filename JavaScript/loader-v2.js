@@ -141,17 +141,9 @@ const loader=
 				n[1][0][0],n[0][1][0],n[1][0][1],1-n[0][1][1],
 				n[1][0][0],n[1][1][0],n[1][0][1],1-n[1][1][1]
 			];
-			out.ind=
-			[
-				0,2,1,
-				2,3,1
-			];
 			out.vertBuff=game.gl.createBuffer();
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,out.vertBuff);
 			game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(out.vert),game.gl.STATIC_DRAW);
-			out.indBuff=game.gl.createBuffer();
-			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
-			game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(out.ind),game.gl.STATIC_DRAW);
 			out.texLoc=game.gl.getUniformLocation(out.shader,"u_tex");
 			await loader.subLoad(data.image,"texture");
 			out.tex=loader.items[data.image].texture.value;
@@ -205,7 +197,7 @@ const loader=
 						game.gl.uniform3f(un.loc,un.value[0],un.value[1],un.value[2]);
 					}
 				}
-				game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
+				game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 				game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 			};
 			loader.items[src].sprite.value=out;
