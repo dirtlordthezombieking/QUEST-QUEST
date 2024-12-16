@@ -118,16 +118,18 @@ const game=
 				{
 					game.load={};
 					game.load.shader=loader.items.basic.shader.value;
+					game.load.loc=game.gl.getAttribLocation(game.load.shader,"a_data");
+					game.load.TexLoc=game.gl.getUniformLocation(game.load.shader,"u_tex");
+					game.load.shader=loader.items.basic.shader.value;
 					game.load.tex=loader.items["misc/load.png"].texture.value;
-					game.load.TexLoc=;
 					game.load.vertBuff=game.gl.createBuffer();
 					game.gl.bindBuffer(game.gl.ARRAY_BUFFER,ret.vertBuff);
 					game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
 						[
-							x  ,y  ,0,1,
-							x  ,y+h,0,0,
-							x+w,y  ,1,1,
-							x+w,y+h,1,0
+							-64,-64,0,1,
+							-64, 64,0,0,
+							 64,-64,1,1,
+							 64, 64,1,0
 						]
 					),game.gl.STATIC_DRAW);
 					ret.draw=function()
