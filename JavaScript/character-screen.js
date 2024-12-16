@@ -2,15 +2,15 @@ const characterScreen=
 {
 	texts:
 	[
-		["UI/text/character creation/body_type.png"    , 288,],
-		["UI/text/character creation/detail_colour.png",-384,],
-		["UI/text/character creation/detail_style.png" ,-352,],
-		["UI/text/character creation/hair_colour.png"  ,-384,],
-		["UI/text/character creation/hair_style.png"   ,-352,],
-		["UI/text/character creation/pants_colour.png" , 256,],
-		["UI/text/character creation/shirt_colour.png" , 256,],
-		["UI/text/character creation/shoe_colour.png"  , 256,],
-		["UI/text/character creation/skin_tone.png"    ,-352,],
+		["UI/text/character creation/body_type.png"    , 288,-268],
+		["UI/text/character creation/detail_colour.png",-384, -68],
+		["UI/text/character creation/detail_style.png" ,-352,-244],
+		["UI/text/character creation/hair_colour.png"  ,-384,  68],
+		["UI/text/character creation/hair_style.png"   ,-352,-204],
+		["UI/text/character creation/pants_colour.png" , 256,   4],
+		["UI/text/character creation/shirt_colour.png" , 256, 140],
+		["UI/text/character creation/shoe_colour.png"  , 256,-132],
+		["UI/text/character creation/skin_tone.png"    ,-352, 140],
 	]
 	load()
 	{
@@ -57,6 +57,13 @@ const characterScreen=
 		game.gl.uniform1f(characterScreen.backTimeLoc,t%5000);
 		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 		game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+		//LABELS
+		game.gl.useProgram(characterScreen.textShade);
+		game.gl.uniform3f(characterScreen.textColLoc,0.25,0.5,1.0);
+		for(const l of characterScreen.labels)
+		{
+			l.draw();
+		}
 	},
 	retrieve()
 	{
@@ -85,6 +92,11 @@ const characterScreen=
 		characterScreen.textDataLoc=game.gl.getAttribLocation(characterScreen.textShade,"a_data");
 		characterScreen.textTexLoc=game.gl.getUniformLocation(characterScreen.textShade,"u_tex");
 		characterScreen.textColLoc=game.gl.getUniformLocation(characterScreen.textShade,"u_colour");
+		characterScreen.labels=[]
+		for(const t of characterScreen.texts)
+		{
+			characterScreen.labels.push(characterScreen.createTextElement(t[1],t[2],64,64,loader.items[t[0]].texture.value);
+		}
 	},
 	keyDown(k)
 	{
@@ -136,13 +148,12 @@ const characterScreen=
 					x+w,y+h,1,0
 				]
 		),game.gl.STATIC_DRAW);
-		ret.draw=function(xPos,yPos)
+		ret.draw=function()
 		{
 			game.setTexture(characterScreen.textTexLoc,this.tex,0);
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
 			game.gl.enableVertexAttribArray(characterScreen.textDataLoc);
 			game.gl.vertexAttribPointer(characterScreen.textDataLoc,4,game.gl.FLOAT,false,0,0);
-			game.gl.uniform3f(characterScreen.textColLoc,0.25,0.5,1.0);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 		};
