@@ -84,7 +84,7 @@ const characterScreen=
 	},
 	createElement(x,y,w,h,tex)
 	{
-		ret={}
+		const ret={}
 		ret.shader=loader.items.basic.shader.value;
 		ret.tex=tex;
 		ret.vertBuff=game.gl.createBuffer();
@@ -111,7 +111,7 @@ const characterScreen=
 	},
 	createTextElement(x,y,w,h,tex)
 	{
-		ret={}
+		const ret={}
 		ret.shader=loader.items.basic.shader.value;
 		ret.tex=tex;
 		ret.vertBuff=game.gl.createBuffer();
