@@ -59,7 +59,7 @@ const characterScreen=
 		game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 		//LABELS
 		game.gl.useProgram(characterScreen.textShade);
-		game.gl.uniform3f(characterScreen.textColLoc,0.25,0.5,1.0);
+		game.gl.uniform3f(characterScreen.textColLoc,1.0,1.0,1.0);
 		for(const l of characterScreen.labels)
 		{
 			l.draw();
