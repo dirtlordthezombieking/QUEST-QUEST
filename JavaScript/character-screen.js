@@ -10,8 +10,8 @@ const characterScreen=
 		["UI/text/character creation/pants_colour.png" , 256,   4],
 		["UI/text/character creation/shirt_colour.png" , 256, 140],
 		["UI/text/character creation/shoe_colour.png"  , 256,-132],
-		["UI/text/character creation/skin_tone.png"    ,-352, 140],
-	]
+		["UI/text/character creation/skin_tone.png"    ,-352, 140]
+	],
 	load()
 	{
 		loader.loadMulti(
@@ -92,7 +92,7 @@ const characterScreen=
 		characterScreen.textDataLoc=game.gl.getAttribLocation(characterScreen.textShade,"a_data");
 		characterScreen.textTexLoc=game.gl.getUniformLocation(characterScreen.textShade,"u_tex");
 		characterScreen.textColLoc=game.gl.getUniformLocation(characterScreen.textShade,"u_colour");
-		characterScreen.labels=[]
+		characterScreen.labels=[];
 		for(const t of characterScreen.texts)
 		{
 			characterScreen.labels.push(characterScreen.createTextElement(t[1],t[2],64,64,loader.items[t[0]].texture.value);
