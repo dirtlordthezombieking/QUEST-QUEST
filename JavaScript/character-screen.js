@@ -53,7 +53,7 @@ const characterScreen=
 		{
 			characterScreen.highlight.draw(l[1],l[2]);
 		}
-		characterScreen.highlightBig.draw();
+		characterScreen.highlightBig.draw(0,0);
 		game.gl.useProgram(characterScreen.textShade);
 		game.gl.uniform3f(characterScreen.textColLoc,255,255,255);
 		for(const l of characterScreen.labels)
@@ -123,7 +123,7 @@ const characterScreen=
 		characterScreen.races=[];
 		for(const r of races)
 		{
-			characterScreen.races=characterScreen.createElement(-256,192,512,64,loader.items[r].texture.value);
+			characterScreen.races=characterScreen.createTextElement(-256,192,512,64,loader.items[r].texture.value);
 		}
 		characterScreen.highlightBig=characterScreen.createElement(-256,160,512,128,loader.items["UI/text_highlight_big.png"].texture.value);
 	},
