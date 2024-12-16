@@ -109,13 +109,43 @@ const game=
 					game.pressF.draw();
 				}
 			}
-			else
+			else if(loader.loaded())
 			{
-				if(loader.loaded())
+				game.screen.retrieve();
+				game.loaded=true;
+				game.startTime=performance.now();
+				if(!game.load)
 				{
-					game.screen.retrieve();
-					game.loaded=true;
+					game.load={};
+					game.load.shader=loader.items.basic.shader.value;
+					game.load.loc=game.gl.getAttribLocation(game.load.shader,"a_data");
+					game.load.texLoc=game.gl.getUniformLocation(game.load.shader,"u_tex");
+					game.load.shader=loader.items.basic.shader.value;
+					game.load.tex=loader.items["misc/load.png"].texture.value;
+					game.load.vertBuff=game.gl.createBuffer();
+					game.gl.bindBuffer(game.gl.ARRAY_BUFFER,ret.vertBuff);
+					game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
+						[
+							-64,-64,0,1,
+							-64, 64,0,0,
+							 64,-64,1,1,
+							 64, 64,1,0
+						]
+					),game.gl.STATIC_DRAW);
+					ret.draw=function()
+					{
+						game.setTexture(game.load.texLoc,game.load.tex,0);
+						game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
+						game.gl.enableVertexAttribArray(game.load.loc);
+						game.gl.vertexAttribPointer(game.load.loc,4,game.gl.FLOAT,false,0,0);
+						game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+						game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+					};
 				}
+			}
+			else if(game.load)
+			{
+				game.load.draw();
 			}
 			game.errframes=0;
 		}

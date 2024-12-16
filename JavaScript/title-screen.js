@@ -9,7 +9,8 @@ const titleScreen=
 			["misc/press f.json","sprite"],
 			["misc/PRESS SPAC.json","sprite"],
 			["misc/E TO START.json","sprite"],
-			["basic","shader"]
+			["basic","shader"],
+			["misc/load.png","texture"]
 		]);
 	},
 	draw(d,t)
