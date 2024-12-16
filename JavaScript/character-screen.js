@@ -17,7 +17,7 @@ const characterScreen=
 		game.gl.enableVertexAttribArray(characterScreen.backPosLoc);
 		game.gl.vertexAttribPointer(characterScreen.backPosLoc,2,game.gl.FLOAT,false,0,0);
 		game.gl.uniform1f(characterScreen.backTimeLoc,t%5000);
-		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,characterScreen.indBuff);
+		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 		game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 	},
 	retrieve()
@@ -36,14 +36,6 @@ const characterScreen=
 					 1,-1,
 					 1, 1
 				]
-		),game.gl.STATIC_DRAW);
-		characterScreen.indBuff=game.gl.createBuffer();
-		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,characterScreen.indBuff);
-		game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(
-			[
-				0,2,1,
-				2,3,1
-			]
 		),game.gl.STATIC_DRAW);
 		characterScreen.backTex=loader.items["UI/background.png"].texture.value;
 		//UI
