@@ -186,7 +186,7 @@ const loader=
 				game.gl.bindBuffer(game.gl.ARRAY_BUFFER,out.vertBuff);
 				game.gl.enableVertexAttribArray(out.loc);
 				game.gl.vertexAttribPointer(out.loc,4,game.gl.FLOAT,false,0,0);
-				for(un of out.unforms)
+				for(let un of out.unforms)
 				{
 					if(un.size==-1)
 					{
