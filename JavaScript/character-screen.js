@@ -106,7 +106,7 @@ const characterScreen=
 			game.gl.uniform2f(characterScreen.basicOffLoc,xPos,yPos);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
-		}
+		};
 		return ret;
 	},
 	createTextElement(x,y,w,h,tex)
@@ -133,7 +133,7 @@ const characterScreen=
 			game.gl.uniform3f(characterScreen.textColLoc,0.25,0.5,1.0);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
-		}
+		};
 		return ret;
 	}
 };
