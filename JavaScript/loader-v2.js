@@ -127,15 +127,11 @@ const loader=
 	{
 		try
 		{
-			//game.log.inform(src+"|1");
 			await loader.subLoad("assets/data/visual/"+src,"string");
 			const data=JSON.parse(loader.items["assets/data/visual/"+src].string.value);
 			const out={};
-			//game.log.inform(src+"|2");
 			await loader.subLoad(data.shader,"shader");
 			out.shader=loader.items[data.shader].shader.value;
-			//game.log.inform(src+"|3");
-			//game.log.inform(src+"|4");
 			const n=data.box;
 			out.loc=game.gl.getAttribLocation(out.shader,"a_data");
 			out.vert=
