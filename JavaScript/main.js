@@ -15,6 +15,14 @@ const game=
 			game.started=true;
 			game.canvas=document.querySelector("#canvas");
 			game.gl=game.canvas.getContext("webgl",{premultipliedAlpha:false});
+			game.indS=game.gl.createBuffer();
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+			game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(
+				[
+					0,2,1,
+					2,3,1
+				]
+			),game.gl.STATIC_DRAW);
 			game.canvas.width=game.canvas.clientWidth;
 			game.canvas.height=game.canvas.clientHeight;
 			game.gl.enable(this.gl.CULL_FACE);
@@ -23,20 +31,7 @@ const game=
 			game.gl.viewport(0,0,game.gl.canvas.width,game.gl.canvas.height);
 			game.gl.clearColor(0,0,0,1);
 			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
-			//loader.load("misc/title.json","sprite");
-			//loader.load("misc/press f.json","sprite");
-			//loader.load("misc/PRESS SPAC.json","sprite");
-			//loader.load("misc/E TO START.json","sprite");
 			game.setScreen(titleScreen);
-			//game.screen=titleScreen;
-			//game.screen.load();
-			//loader.loadMulti(
-			//[
-				//["misc/title.json","sprite"],
-				//["misc/press f.json","sprite"],
-				//["misc/PRESS SPAC.json","sprite"],
-				//["misc/E TO START.json","sprite"]
-			//]);
 			game.frameTime=performance.now();
 			let tis=game;
 			requestAnimationFrame(function(ts){tis.draw(ts);});
@@ -89,6 +84,12 @@ const game=
 			game.log.error("error:\n"+e.message);
 		}
 	},
+	setTexture(loc,tex,pos)
+	{
+		game.gl.uniform1i(loc,pos);
+		game.gl.activeTexture(game.gl.TEXTURE0+pos);
+		game.gl.bindTexture(game.gl.TEXTURE_2D,tex);
+	},
 	draw(t)
 	{
 		let d=t-game.frameTime;
@@ -102,9 +103,6 @@ const game=
 				if(document.fullscreenElement==game.canvas)
 				{
 					game.screen.draw(d,t);
-					//game.title.draw();
-					//game.pressSpac.draw();
-					//game.eToStart.draw();
 				}
 				else
 				{
@@ -116,10 +114,6 @@ const game=
 				if(loader.loaded())
 				{
 					game.screen.retrieve();
-					//game.title=loader.items["misc/title.json"].sprite.value;
-					//game.pressF=loader.items["misc/press f.json"].sprite.value;
-					//game.pressSpac=loader.items["misc/PRESS SPAC.json"].sprite.value;
-					//game.eToStart=loader.items["misc/E TO START.json"].sprite.value;
 					game.loaded=true;
 				}
 			}
@@ -164,6 +158,3 @@ const game=
 		}
 	}
 };
-//game.log.inform("Inform");
-//game.log.warn("Warn");
-//game.log.error("Error");

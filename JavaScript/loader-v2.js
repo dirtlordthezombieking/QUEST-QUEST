@@ -9,7 +9,7 @@ const loader=
 	},
 	async loadMulti(toLoad)
 	{
-		for(item of toLoad)
+		for(let item of toLoad)
 		{
 			await loader.subLoad(item[0],item[1]);
 		}
@@ -44,6 +44,10 @@ const loader=
 		else if(type=="sprite")
 		{
 			loader.loadSprite(src);
+		}
+		else if(type=="texture")
+		{
+			loader.loadTexture(src);
 		}
 		else
 		{
@@ -80,9 +84,13 @@ const loader=
 			{
 				await loader.loadShader(src);
 			}
-				else if(type=="sprite")
+			else if(type=="sprite")
 			{
-					await loader.loadSprite(src);
+				await loader.loadSprite(src);
+			}
+			else if(type=="texture")
+			{
+				await loader.loadTexture(src);
 			}
 			else
 			{
@@ -94,21 +102,36 @@ const loader=
 			game.log.error("Error initializing load of "+type+" \""+src+"\": "+e.message);
 		}
 	},
+	async loadTexture(src)
+	{
+		try
+		{
+			await loader.subLoad(src,"image");
+			image=loader.items[src].image.value;
+			ret=game.gl.createTexture();
+			game.gl.bindTexture(game.gl.TEXTURE_2D,ret);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MIN_FILTER,game.gl.NEAREST);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MAG_FILTER,game.gl.NEAREST);
+			game.gl.texImage2D(game.gl.TEXTURE_2D,0,game.gl.RGBA,game.gl.RGBA,game.gl.UNSIGNED_BYTE,image);
+			loader.items[src].texture.value=ret;
+		}
+		catch (e)
+		{
+			game.log.error("Error loading texture \""+src+"\": "+e.message);
+		}
+		loader.queue--;
+	},
 	async loadSprite(src)
 	{
 		try
 		{
-			//game.log.inform(src+"|1");
 			await loader.subLoad("assets/data/visual/"+src,"string");
 			const data=JSON.parse(loader.items["assets/data/visual/"+src].string.value);
 			const out={};
-			//game.log.inform(src+"|2");
 			await loader.subLoad(data.shader,"shader");
 			out.shader=loader.items[data.shader].shader.value;
-			//game.log.inform(src+"|3");
-			await loader.subLoad(data.image,"image");
-			out.image=loader.items[data.image].image.value;
-			//game.log.inform(src+"|4");
 			const n=data.box;
 			out.loc=game.gl.getAttribLocation(out.shader,"a_data");
 			out.vert=
@@ -118,25 +141,12 @@ const loader=
 				n[1][0][0],n[0][1][0],n[1][0][1],1-n[0][1][1],
 				n[1][0][0],n[1][1][0],n[1][0][1],1-n[1][1][1]
 			];
-			out.ind=
-			[
-				0,2,1,
-				2,3,1
-			];
 			out.vertBuff=game.gl.createBuffer();
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,out.vertBuff);
 			game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(out.vert),game.gl.STATIC_DRAW);
-			out.indBuff=game.gl.createBuffer();
-			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
-			game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(out.ind),game.gl.STATIC_DRAW);
 			out.texLoc=game.gl.getUniformLocation(out.shader,"u_tex");
-			out.tex=game.gl.createTexture();
-			game.gl.bindTexture(game.gl.TEXTURE_2D,out.tex);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MIN_FILTER,game.gl.NEAREST);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MAG_FILTER,game.gl.NEAREST);
-			game.gl.texImage2D(game.gl.TEXTURE_2D,0,game.gl.RGBA,game.gl.RGBA,game.gl.UNSIGNED_BYTE,out.image);
+			await loader.subLoad(data.image,"texture");
+			out.tex=loader.items[data.image].texture.value;
 			out.unforms=[];
 			for(const uniform of data.uniforms)
 			{
@@ -176,7 +186,7 @@ const loader=
 				game.gl.bindBuffer(game.gl.ARRAY_BUFFER,out.vertBuff);
 				game.gl.enableVertexAttribArray(out.loc);
 				game.gl.vertexAttribPointer(out.loc,4,game.gl.FLOAT,false,0,0);
-				for(un of out.unforms)
+				for(let un of out.unforms)
 				{
 					if(un.size==-1)
 					{
@@ -187,7 +197,7 @@ const loader=
 						game.gl.uniform3f(un.loc,un.value[0],un.value[1],un.value[2]);
 					}
 				}
-				game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
+				game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 				game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 			};
 			loader.items[src].sprite.value=out;
