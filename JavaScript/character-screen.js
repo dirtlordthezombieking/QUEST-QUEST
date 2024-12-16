@@ -95,7 +95,7 @@ const characterScreen=
 		characterScreen.labels=[];
 		for(const t of characterScreen.texts)
 		{
-			characterScreen.labels.push(characterScreen.createTextElement(t[1],t[2],64,64,loader.items[t[0]].texture.value);
+			characterScreen.labels.push(characterScreen.createTextElement(t[1],t[2],64,64,loader.items[t[0]].texture.value));
 		}
 	},
 	keyDown(k)
