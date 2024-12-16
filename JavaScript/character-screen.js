@@ -2,14 +2,14 @@ const characterScreen=
 {
 	texts:
 	[
-		["UI/text/character creation/body_type.png"    , 340,],
+		["UI/text/character creation/body_type.png"    , 288,],
 		["UI/text/character creation/detail_colour.png",-384,],
 		["UI/text/character creation/detail_style.png" ,-352,],
 		["UI/text/character creation/hair_colour.png"  ,-384,],
 		["UI/text/character creation/hair_style.png"   ,-352,],
-		["UI/text/character creation/pants_colour.png" , 308,],
-		["UI/text/character creation/shirt_colour.png" , 308,],
-		["UI/text/character creation/shoe_colour.png"  , 308,],
+		["UI/text/character creation/pants_colour.png" , 256,],
+		["UI/text/character creation/shirt_colour.png" , 256,],
+		["UI/text/character creation/shoe_colour.png"  , 256,],
 		["UI/text/character creation/skin_tone.png"    ,-352,],
 	]
 	load()
