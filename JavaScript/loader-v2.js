@@ -45,6 +45,10 @@ const loader=
 		{
 			loader.loadSprite(src);
 		}
+		else if(type=="texture")
+		{
+			loader.loadTexture(src);
+		}
 		else
 		{
 			loader.queue--;
@@ -80,9 +84,13 @@ const loader=
 			{
 				await loader.loadShader(src);
 			}
-				else if(type=="sprite")
+			else if(type=="sprite")
 			{
-					await loader.loadSprite(src);
+				await loader.loadSprite(src);
+			}
+			else if(type=="texture")
+			{
+				await loader.loadTexture(src);
 			}
 			else
 			{
@@ -94,6 +102,27 @@ const loader=
 			game.log.error("Error initializing load of "+type+" \""+src+"\": "+e.message);
 		}
 	},
+	function loadTexture(src)
+	{
+		try
+		{
+			await loader.subLoad(src,"image");
+			image=loader.items[src].image.value;
+			ret=game.gl.createTexture();
+			game.gl.bindTexture(game.gl.TEXTURE_2D,ret);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MIN_FILTER,game.gl.NEAREST);
+			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MAG_FILTER,game.gl.NEAREST);
+			game.gl.texImage2D(game.gl.TEXTURE_2D,0,game.gl.RGBA,game.gl.RGBA,game.gl.UNSIGNED_BYTE,image);
+			loader.items[src].texture.value=image;
+		}
+		catch (e)
+		{
+			game.log.error("Error loading texture \""+src+"\": "+e.message);
+		}
+		loader.queue--;
+	}
 	async loadSprite(src)
 	{
 		try
@@ -106,8 +135,6 @@ const loader=
 			await loader.subLoad(data.shader,"shader");
 			out.shader=loader.items[data.shader].shader.value;
 			//game.log.inform(src+"|3");
-			await loader.subLoad(data.image,"image");
-			out.image=loader.items[data.image].image.value;
 			//game.log.inform(src+"|4");
 			const n=data.box;
 			out.loc=game.gl.getAttribLocation(out.shader,"a_data");
@@ -130,13 +157,8 @@ const loader=
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,out.indBuff);
 			game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(out.ind),game.gl.STATIC_DRAW);
 			out.texLoc=game.gl.getUniformLocation(out.shader,"u_tex");
-			out.tex=game.gl.createTexture();
-			game.gl.bindTexture(game.gl.TEXTURE_2D,out.tex);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MIN_FILTER,game.gl.NEAREST);
-			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_MAG_FILTER,game.gl.NEAREST);
-			game.gl.texImage2D(game.gl.TEXTURE_2D,0,game.gl.RGBA,game.gl.RGBA,game.gl.UNSIGNED_BYTE,out.image);
+			await loader.subLoad(data.image,"texture");
+			out.tex=loader.items[data.image].texture.value;
 			out.unforms=[];
 			for(const uniform of data.uniforms)
 			{
