@@ -116,10 +116,29 @@ const game=
 				game.startTime=performance.now();
 				if(!game.load)
 				{
-					game.load=
+					game.load={};
+					game.load.shader=loader.items.basic.shader.value;
+					game.load.tex=;
+					game.load.TexLoc=;
+					game.load.vertBuff=game.gl.createBuffer();
+					game.gl.bindBuffer(game.gl.ARRAY_BUFFER,ret.vertBuff);
+					game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
+						[
+							x  ,y  ,0,1,
+							x  ,y+h,0,0,
+							x+w,y  ,1,1,
+							x+w,y+h,1,0
+						]
+					),game.gl.STATIC_DRAW);
+					ret.draw=function()
 					{
-						
-					}
+						game.setTexture(game.load.TexLoc,game.load.tex,0);
+						game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
+						game.gl.enableVertexAttribArray(game.load.loc);
+						game.gl.vertexAttribPointer(game.load.loc,4,game.gl.FLOAT,false,0,0);
+						game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+						game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+		};
 				}
 			}
 			else if(game.load)
