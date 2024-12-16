@@ -103,7 +103,7 @@ const characterScreen=
 		{
 			characterScreen.labels.push([characterScreen.createTextElement(t[1],t[2],64,64,loader.items[t[0]].texture.value),t[1],t[2]]);
 		}
-		characterScreen.highlight=createElement(0,0,64,64,loader.items["UI/sellect_text_highlight.png"].texture.value)
+		characterScreen.highlight=characterScreen.createElement(0,0,64,64,loader.items["UI/text_highlight.png"].texture.value)
 	},
 	keyDown(k)
 	{
