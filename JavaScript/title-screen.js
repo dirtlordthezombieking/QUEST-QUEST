@@ -13,7 +13,7 @@ const titleScreen=
 		]);
 		this.test1="t1 ";
 		this.test2="t2 ";
-		let test3=new titleScreen.Test();
+		let test3titleScreen.test();
 		game.log.inform(this.test1+this.test2+test3.test1+test3.test2+test3.ret());
 	},
 	draw(d,t)
@@ -46,11 +46,13 @@ const titleScreen=
 	},
 	Test()
 	{
-		this.test1="1 ";
-		this.test2="2 ";
-		this.ret=function()
+		ret={}
+		ret.test1="1 ";
+		ret.test2="2 ";
+		ret.ret=function()
 		{
 			return this.test1+this.test1+titleScreen.test1+titleScreen.test1;
 		}
+		return ret();
 	}
 };
