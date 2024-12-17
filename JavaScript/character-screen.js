@@ -1,5 +1,76 @@
 const characterScreen=
 {
+	item:0,
+	time:0,
+	choice:0,
+	settings=
+	[
+		{
+			change(a)
+			{
+				characterScreen.race=(characterScreen.race+a)%9;
+			}
+		}
+	],
+	settingVars:[0],
+	settingsOpts:
+	[
+		[
+			settings:[0],
+			texts:[0,1,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,1,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,1,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,2,3,4,5,6,7,8,9],
+			elements:[0]
+		]
+	]
+	keys:
+	{
+		NumpadAdd:[false,0],
+		NumpadSubtract:[false,0],
+		ArrowUp:[false,0],
+		ArrowLeft:[false,0],
+		ArrowRight:[false,0],
+		ArrowDown:[false,0],
+		Enter:[false,0],
+	},
 	load()
 	{
 		loader.loadMulti(
@@ -16,16 +87,18 @@ const characterScreen=
 			["UI/slider_bar.png","texture"],
 			["UI/text_highlight.png","texture"],
 			["UI/text_highlight_big.png","texture"],
+
 			["UI/text/character creation/body_type.png","texture"],
 			["UI/text/character creation/detail_colour.png","texture"],
 			["UI/text/character creation/detail_style.png","texture"],
 			["UI/text/character creation/eye_colour.png","texture"],
-			["UI/text/character creation/hair_colour.png","texture"],
+			["UI/text/character Creation/hair_colour.png","texture"],
 			["UI/text/character creation/hair_style.png","texture"],
 			["UI/text/character creation/pants_colour.png","texture"],
 			["UI/text/character creation/shirt_colour.png","texture"],
 			["UI/text/character creation/shoe_colour.png","texture"],
 			["UI/text/character creation/skin_tone.png","texture"],
+
 			["UI/text/character creation/race/beastfolk.png","texture"],
 			["UI/text/character creation/race/demon.png","texture"],
 			["UI/text/character creation/race/dwarf.png","texture"],
@@ -39,6 +112,7 @@ const characterScreen=
 	},
 	draw(d,t)
 	{
+		characterScreen.time=t;
 		//BACKGROUND
 		game.gl.useProgram(characterScreen.backShade);
 		game.setTexture(characterScreen.backTexLoc,characterScreen.backTex,0);
@@ -50,15 +124,25 @@ const characterScreen=
 		game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 		//LABELS
 		game.gl.useProgram(characterScreen.basicShade);
-		for(const l of characterScreen.labels)
+		//for(const l of characterScreen.labels)
+		//{
+			//characterScreen.highlight.draw(l[1],l[2]);
+		//}
+		for(const n ofcharacterScreen.settingsOpts[characterScreen.race].texts)
 		{
+			let l=characterScreen.labels[n]
 			characterScreen.highlight.draw(l[1],l[2]);
 		}
 		characterScreen.highlightBig.draw(0,0);
 		game.gl.useProgram(characterScreen.textShade);
 		game.gl.uniform3f(characterScreen.textColLoc,255,255,255);
-		for(const l of characterScreen.labels)
+		//for(const l of characterScreen.labels)
+		//{
+			//l[0].draw();
+		//}
+		for(const n ofcharacterScreen.settingsOpts[characterScreen.race].texts)
 		{
+			let l=characterScreen.labels[n]
 			l[0].draw();
 		}
 		characterScreen.races[characterScreen.race].draw();
@@ -134,11 +218,23 @@ const characterScreen=
 	},
 	keyDown(k)
 	{
-		//----
+		characterScreen[k]=[true,characterScreen.time];
 	},
 	keyUp(k)
 	{
-		//----
+		characterScreen[k][0]=false;
+		if(characterScreen.time-characterScreen[k][1]<=1000)
+		{
+			switch(k)
+			{
+				case "ArrowLeft":
+					characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(-1);
+					break;
+				case "ArrowRight":
+					characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(1);
+					break;
+			}
+		}
 	},
 	createElement(x,y,w,h,tex)
 	{
@@ -153,6 +249,33 @@ const characterScreen=
 					x  ,y+h,0,0,
 					x+w,y  ,1,1,
 					x+w,y+h,1,0
+				]
+		),game.gl.STATIC_DRAW);
+		ret.draw=function(xPos,yPos)
+		{
+			game.setTexture(characterScreen.basicTexLoc,this.tex,0);
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
+			game.gl.enableVertexAttribArray(characterScreen.basicDataLoc);
+			game.gl.vertexAttribPointer(characterScreen.basicDataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterScreen.basicOffLoc,xPos,yPos);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+		};
+		return ret;
+	},
+	createRegionElement(x,y,w,h,uvx,uvy,uvw,uvh,tex)
+	{
+		const ret={};
+		ret.shader=loader.items.basic.shader.value;
+		ret.tex=tex;
+		ret.vertBuff=game.gl.createBuffer();
+		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,ret.vertBuff);
+		game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
+				[
+					x  ,y  ,uvx    ,uvy+uvh,
+					x  ,y+h,uvx    ,uvy    ,
+					x+w,y  ,uvx+uvw,uvy+uvh,
+					x+w,y+h,uvx+uvw,uvy
 				]
 		),game.gl.STATIC_DRAW);
 		ret.draw=function(xPos,yPos)
