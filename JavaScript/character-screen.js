@@ -85,6 +85,7 @@ const characterScreen=
 			["UI/arrows_big.png","texture"],
 			["UI/arrows_small.png","texture"],
 			["UI/background.png","texture"],
+			["UI/hex.png","texture"],
 			["UI/hex_input.png","texture"],
 			["UI/select_slider.png","texture"],
 			["UI/sellect_slider_bar.png","texture"],
@@ -94,6 +95,7 @@ const characterScreen=
 			["UI/slider_bar.png","texture"],
 			["UI/text_highlight.png","texture"],
 			["UI/text_highlight_big.png","texture"],
+			["UI/text_highlight_hex.png","texture"],
 
 			["UI/text/character creation/body_type.png","texture"],
 			["UI/text/character creation/detail_colour.png","texture"],
