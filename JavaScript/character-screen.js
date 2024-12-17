@@ -229,23 +229,23 @@ const characterScreen=
 		{
 			characterScreen.selectors[0].item.draw(0,0);
 		}
-		characterscreen.slider={}
-		characterscreen.slider.bar=characterScreen.createElement(0,0,128,32,loader.items["UI/slider_bar.png"].texture.value);
-		characterscreen.slider.handle=characterScreen.createElement(0,0,32,32,loader.items["UI/slider.png"].texture.value);
-		characterscreen.slider.draw=function(x,y,p)
+		characterScreen.slider={};
+		characterScreen.slider.bar=characterScreen.createElement(0,0,128,32,loader.items["UI/slider_bar.png"].texture.value);
+		characterScreen.slider.handle=characterScreen.createElement(0,0,32,32,loader.items["UI/slider.png"].texture.value);
+		characterScreen .slider.draw=function(x,y,p)
 		{
-			characterscreen.slider.bar.draw(x,y);
-			characterscreen.slider.handle.draw(x+(p*96),y);
-		}
+			characterScreen.slider.bar.draw(x,y);
+			characterScreen.slider.handle.draw(x+(p*96),y);
+		};
 		//elements
-		characterscreen.skinTone=Math.random*130;
-		characterscreen.elementDraws=
+		characterScreen.skinTone=Math.random*130;
+		characterScreen.elementDraws=
 		[
 			function()
 			{
-				characterscreen.slider.draw(0,108,characterscreen.skinTone/130);
+				characterScreen.slider.draw(0,108,characterscreen.skinTone/130);
 			}
-		]
+		];
 	},
 	keyDown(k)
 	{
