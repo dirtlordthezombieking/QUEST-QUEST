@@ -86,7 +86,7 @@ const characterScreen=
 			["UI/sellect_text_big.png","texture"],
 			["UI/slider_bar.png","texture"],
 			["UI/text_highlight.png","texture"],
-			["UI/text_highlight_big.png","texture"],
+			["UI/text_highlight_big_v2.png","texture"],
 
 			["UI/text/character creation/body_type.png","texture"],
 			["UI/text/character creation/detail_colour.png","texture"],
@@ -218,7 +218,7 @@ const characterScreen=
 		characterScreen.highlightBig=characterScreen.createElement(-256,160,512,128,loader.items["UI/text_highlight_big.png"].texture.value);
 		characterScreen.selectors=[];
 		characterScreen.selectors[0]={}
-		characterScreen.selectors[0].item=characterScreen.createElement(-256,192,512,64,loader.items["UI/sellect_text_big.png"].texture.value);
+		characterScreen.selectors[0].item=characterScreen.createElement(-256,160,512,128,loader.items["UI/sellect_text_big_v2.png"].texture.value);
 		characterScreen.selectors[0].draw=function()
 		{
 			characterScreen.selectors[0].item.draw(0,0)
