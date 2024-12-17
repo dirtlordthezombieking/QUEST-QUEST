@@ -275,14 +275,21 @@ const characterScreen=
 	},
 	keyDown(k)
 	{
-		game.log.inform(k);
+		//game.log.inform(k);
+		if(characterScreen.keys[k])
+		{
+			if(characterScreen.keys[k][0])
+			{
+				return;
+			}
+		}
 		characterScreen.keys[k]=[true,characterScreen.time];
 	},
 	keyUp(k)
 	{
 		characterScreen.keys[k][0]=false;
-		game.log.inform(""+(characterScreen.time-characterScreen.keys[k][1])+"|"+characterScreen.time+"|"+characterScreen.keys[k][1]);
-		if((characterScreen.time-characterScreen.keys[k][1])<=100)
+		//game.log.inform(""+(characterScreen.time-characterScreen.keys[k][1])+"|"+characterScreen.time+"|"+characterScreen.keys[k][1]);
+		if((characterScreen.time-characterScreen.keys[k][1])<=1000)
 		{
 			switch(k)
 			{
