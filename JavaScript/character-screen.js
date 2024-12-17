@@ -275,6 +275,7 @@ const characterScreen=
 	},
 	keyDown(k)
 	{
+		game.log.inform(k);
 		characterScreen.keys[k]=[true,characterScreen.time];
 	},
 	keyUp(k)
