@@ -280,7 +280,7 @@ const characterScreen=
 	keyUp(k)
 	{
 		characterScreen.keys[k][0]=false;
-		if(characterScreen.time-characterScreen.keys[k][1]<=1000)
+		if(characterScreen.time-characterScreen.keys[k][1]<=100)
 		{
 			switch(k)
 			{
