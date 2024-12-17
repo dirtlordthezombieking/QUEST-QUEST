@@ -1,4 +1,4 @@
-}const characterScreen=
+const characterScreen=
 {
 	item:0,
 	time:0,
@@ -54,12 +54,12 @@
 			settings:[0],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0]
-		],
-		[
+		},
+		{
 			settings:[0],
 			texts:[0,2,3,4,5,6,7,8,9],
 			elements:[0]
-		]
+		}
 	]
 	keys:
 	{
