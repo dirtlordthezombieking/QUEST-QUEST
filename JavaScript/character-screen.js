@@ -84,6 +84,7 @@ const characterScreen=
 			["UI/sellect_slider_bar.png","texture"],
 			["UI/sellect_text.png","texture"],
 			["UI/sellect_text_big_v2.png","texture"],
+			["UI/slider.png","texture"],
 			["UI/slider_bar.png","texture"],
 			["UI/text_highlight.png","texture"],
 			["UI/text_highlight_big.png","texture"],
@@ -135,6 +136,11 @@ const characterScreen=
 		}
 		characterScreen.highlightBig.draw(0,0);
 		characterScreen.selectors[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].draw();
+		//----
+		for(const n of characterScreen.settingsOpts[characterScreen.race].elements)
+		{
+			characterScreen.elementDraws[n]();
+		}
 		game.gl.useProgram(characterScreen.textShade);
 		game.gl.uniform3f(characterScreen.textColLoc,255,255,255);
 		//for(const l of characterScreen.labels)
@@ -217,12 +223,29 @@ const characterScreen=
 		//game.log.inform(races[characterScreen.race])
 		characterScreen.highlightBig=characterScreen.createElement(-256,160,512,128,loader.items["UI/text_highlight_big.png"].texture.value);
 		characterScreen.selectors=[];
-		characterScreen.selectors[0]={}
+		characterScreen.selectors[0]={};
 		characterScreen.selectors[0].item=characterScreen.createElement(-256,160,512,128,loader.items["UI/sellect_text_big_v2.png"].texture.value);
 		characterScreen.selectors[0].draw=function()
 		{
-			characterScreen.selectors[0].item.draw(0,0)
-		}
+			characterScreen.selectors[0].item.draw(0,0);
+		};
+		characterScreen.slider={};
+		characterScreen.slider.bar=characterScreen.createElement(0,0,128,32,loader.items["UI/slider_bar.png"].texture.value);
+		characterScreen.slider.handle=characterScreen.createElement(0,0,32,32,loader.items["UI/slider.png"].texture.value);
+		characterScreen.slider.draw=function(x,y,p)
+		{
+			characterScreen.slider.bar.draw(x,y);
+			characterScreen.slider.handle.draw(x+(p*96),y);
+		};
+		//elements
+		characterScreen.skinTone=Math.random*130;
+		characterScreen.elementDraws=
+		[
+			function()
+			{
+				characterScreen.slider.draw(0,108,characterScreen.skinTone/130);
+			}
+		];
 	},
 	keyDown(k)
 	{
