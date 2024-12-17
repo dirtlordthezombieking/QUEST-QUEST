@@ -3,7 +3,7 @@ const characterScreen=
 	item:0,
 	time:0,
 	choice:0,
-	settings=
+	settings:
 	[
 		{
 			change(a)
@@ -15,52 +15,52 @@ const characterScreen=
 	settingVars:[0],
 	settingsOpts:
 	[
-		[
+		{
 			settings:[0],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0]
-		],
-		[
+		},
+		{
 			settings:[0],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0]
-		],
-		[
+		},
+		{
 			settings:[0],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
-		],
-		[
+		},
+		{
 			settings:[0],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
-		],
-		[
+		},
+		{
 			settings:[0],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
-		],
-		[
+		},
+		{
 			settings:[0],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
-		],
-		[
+		},
+		{
 			settings:[0],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
-		],
-		[
+		},
+		{
 			settings:[0],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0]
-		],
-		[
+		},
+		{
 			settings:[0],
 			texts:[0,2,3,4,5,6,7,8,9],
 			elements:[0]
-		]
-	]
+		}
+	],
 	keys:
 	{
 		NumpadAdd:[false,0],
@@ -69,7 +69,7 @@ const characterScreen=
 		ArrowLeft:[false,0],
 		ArrowRight:[false,0],
 		ArrowDown:[false,0],
-		Enter:[false,0],
+		Enter:[false,0]
 	},
 	load()
 	{
@@ -128,9 +128,9 @@ const characterScreen=
 		//{
 			//characterScreen.highlight.draw(l[1],l[2]);
 		//}
-		for(const n ofcharacterScreen.settingsOpts[characterScreen.race].texts)
+		for(const n of characterScreen.settingsOpts[characterScreen.race].texts)
 		{
-			let l=characterScreen.labels[n]
+			let l=characterScreen.labels[n];
 			characterScreen.highlight.draw(l[1],l[2]);
 		}
 		characterScreen.highlightBig.draw(0,0);
@@ -140,9 +140,9 @@ const characterScreen=
 		//{
 			//l[0].draw();
 		//}
-		for(const n ofcharacterScreen.settingsOpts[characterScreen.race].texts)
+		for(const n of characterScreen.settingsOpts[characterScreen.race].texts)
 		{
-			let l=characterScreen.labels[n]
+			let l=characterScreen.labels[n];
 			l[0].draw();
 		}
 		characterScreen.races[characterScreen.race].draw();
