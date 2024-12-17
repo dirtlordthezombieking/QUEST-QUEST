@@ -238,7 +238,7 @@ const characterScreen=
 			characterScreen.slider.handle.draw(x+(p*96),y);
 		};
 		//elements
-		characterScreen.skinTone=Math.random*130;
+		characterScreen.skinTone=Math.random()*130;
 		characterScreen.elementDraws=
 		[
 			function()
