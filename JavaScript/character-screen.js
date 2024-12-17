@@ -8,7 +8,7 @@ const characterScreen=
 		{
 			change(a)
 			{
-				characterScreen.race=(characterScreen.race+a)%9;
+				characterScreen.race=Math.floor((characterScreen.race+a)%9);
 			}
 		},
 		{
@@ -120,6 +120,14 @@ const characterScreen=
 	draw(d,t)
 	{
 		characterScreen.time=t;
+		if(characterScreen.keys.ArrowLeft[0]&&(t-characterScreen.keys.ArrowLeft[1])>1000)
+		{
+			characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(d/-50);
+		}
+		if(characterScreen.keys.ArrowRight[0]&&(t-characterScreen.keys.ArrowRight[1])>1000)
+		{
+			characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(d/50);
+		}
 		//BACKGROUND
 		game.gl.useProgram(characterScreen.backShade);
 		game.setTexture(characterScreen.backTexLoc,characterScreen.backTex,0);
