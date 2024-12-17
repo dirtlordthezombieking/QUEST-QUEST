@@ -221,8 +221,10 @@ const characterScreen=
 		characterScreen.selectors[0].item=characterScreen.createElement(-256,160,512,128,loader.items["UI/sellect_text_big_v2.png"].texture.value);
 		characterScreen.selectors[0].draw=function()
 		{
-			characterScreen.selectors[0].item.draw(0,0)
+			characterScreen.selectors[0].item.draw(0,0);
 		}
+		characterscreen.slider={}
+		characterscreen.slider.bar=characterScreen.createElement(0,0,64,32,loader.items["UI/sellect_text_big_v2.png"].texture.value);
 	},
 	keyDown(k)
 	{
