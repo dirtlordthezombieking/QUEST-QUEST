@@ -57,12 +57,12 @@ const characterScreen=
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,2,3,4,5,6,7,8,9],
 			elements:[0]
 		}
@@ -281,6 +281,12 @@ const characterScreen=
 					break;
 				case "ArrowRight":
 					characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(1);
+					break;
+				case "ArrowUp":
+					characterScreen.choice=(characterScreen.choice-1)%(characterScreen.settingsOpts[characterScreen.race].settings.length)
+					break;
+				case "ArrowDown":
+					characterScreen.choice=(characterScreen.choice+1)%(characterScreen.settingsOpts[characterScreen.race].settings.length)
 					break;
 			}
 		}
