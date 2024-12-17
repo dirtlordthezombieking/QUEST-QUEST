@@ -83,10 +83,10 @@ const characterScreen=
 			["UI/select_slider.png","texture"],
 			["UI/sellect_slider_bar.png","texture"],
 			["UI/sellect_text.png","texture"],
-			["UI/sellect_text_big.png","texture"],
+			["UI/sellect_text_big_v2.png","texture"],
 			["UI/slider_bar.png","texture"],
 			["UI/text_highlight.png","texture"],
-			["UI/text_highlight_big_v2.png","texture"],
+			["UI/text_highlight_big.png","texture"],
 
 			["UI/text/character creation/body_type.png","texture"],
 			["UI/text/character creation/detail_colour.png","texture"],
