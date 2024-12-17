@@ -139,7 +139,7 @@ const characterScreen=
 		//----
 		for(const n of characterScreen.settingsOpts[characterScreen.race].elements)
 		{
-			characterscreen.elementDraws[n]();
+			characterScreen.elementDraws[n]();
 		}
 		game.gl.useProgram(characterScreen.textShade);
 		game.gl.uniform3f(characterScreen.textColLoc,255,255,255);
