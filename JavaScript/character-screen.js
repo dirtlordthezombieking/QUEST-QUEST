@@ -10,53 +10,59 @@ const characterScreen=
 			{
 				characterScreen.race=(characterScreen.race+a)%9;
 			}
+		},
+		{
+			change(a)
+			{
+				characterScreen.skinTone=(characterScreen.skinTone+a)%130;
+			}
 		}
 	],
-	settingVars:[0],
+	settingVars:[0,1],
 	settingsOpts:
 	[
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,2,3,4,5,6,7,8,9],
 			elements:[0]
 		}
@@ -229,6 +235,11 @@ const characterScreen=
 		{
 			characterScreen.selectors[0].item.draw(0,0);
 		};
+		characterScreen.selectors[1]={};
+		characterScreen.selectors[1].draw=function 
+		{
+			characterScreen.slider.drawSel(-384,120,characterScreen.skinTone/130);
+		}
 		characterScreen.slider={};
 		characterScreen.slider.bar=characterScreen.createElement(0,0,128,32,loader.items["UI/slider_bar.png"].texture.value);
 		characterScreen.slider.handle=characterScreen.createElement(0,0,32,32,loader.items["UI/slider.png"].texture.value);
@@ -236,6 +247,13 @@ const characterScreen=
 		{
 			characterScreen.slider.bar.draw(x,y);
 			characterScreen.slider.handle.draw(x+(p*96),y);
+		};
+		characterScreen.slider.barSel=characterScreen.createElement(0,0,128,32,loader.items["UI/sellect_slider_bar.png"].texture.value);
+		characterScreen.slider.handleSel=characterScreen.createElement(0,0,32,32,loader.items["UI/select_slider.png"].texture.value);
+		characterScreen.slider.drawSel=function(x,y,p)
+		{
+			characterScreen.slider.barSel.draw(x,y);
+			characterScreen.slider.handleSel.draw(x+(p*96),y);
 		};
 		//elements
 		characterScreen.skinTone=Math.random()*130;
@@ -263,6 +281,12 @@ const characterScreen=
 					break;
 				case "ArrowRight":
 					characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(1);
+					break;
+				case "ArrowUp":
+					characterScreen.choice=(characterScreen.choice-1)%(characterScreen.settingsOpts[characterScreen.race].settings.length)
+					break;
+				case "ArrowDown":
+					characterScreen.choice=(characterScreen.choice+1)%(characterScreen.settingsOpts[characterScreen.race].settings.length)
 					break;
 			}
 		}
