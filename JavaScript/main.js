@@ -2,6 +2,7 @@ const game=
 {
 	started:false,
 	loaded:false,
+	logSet:true,
 	start()
 	{
 		game.startTime=performance.now();
@@ -12,6 +13,7 @@ const game=
 				return;
 			}
 			document.getElementById("start").style.display="none";
+			game.logVis=document.getElementById("log").style.display;
 			game.started=true;
 			game.canvas=document.querySelector("#canvas");
 			game.gl=game.canvas.getContext("webgl",{premultipliedAlpha:false});
@@ -103,10 +105,20 @@ const game=
 				if(document.fullscreenElement==game.canvas)
 				{
 					game.screen.draw(d,t);
+					if(game.logSet)
+					{
+						document.getElementById("log").style.display="none";
+						game.logSet=false;
+					}
 				}
 				else
 				{
 					game.pressF.draw();
+					if(!game.logSet)
+					{
+						document.getElementById("log").style.display=game.logVis;
+						game.logSet=true;
+					}
 				}
 			}
 			else if(loader.loaded())
