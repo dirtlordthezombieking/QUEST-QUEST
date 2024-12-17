@@ -1,5 +1,17 @@
 const characterScreen=
 {
+	item:0,
+	time:0,
+	keys:
+	{
+		NumpadAdd:[false,0],
+		NumpadSubtract:[false,0],
+		ArrowUp:[false,0],
+		ArrowLeft:[false,0],
+		ArrowRight:[false,0],
+		ArrowDown:[false,0],
+		Enter:[false,0],
+	},
 	load()
 	{
 		loader.loadMulti(
@@ -134,7 +146,7 @@ const characterScreen=
 	},
 	keyDown(k)
 	{
-		//----
+		switch
 	},
 	keyUp(k)
 	{
@@ -153,6 +165,33 @@ const characterScreen=
 					x  ,y+h,0,0,
 					x+w,y  ,1,1,
 					x+w,y+h,1,0
+				]
+		),game.gl.STATIC_DRAW);
+		ret.draw=function(xPos,yPos)
+		{
+			game.setTexture(characterScreen.basicTexLoc,this.tex,0);
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
+			game.gl.enableVertexAttribArray(characterScreen.basicDataLoc);
+			game.gl.vertexAttribPointer(characterScreen.basicDataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterScreen.basicOffLoc,xPos,yPos);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+		};
+		return ret;
+	},
+	createRegionElement(x,y,w,h,uvx,uvy,uvw,uvh,tex)
+	{
+		const ret={};
+		ret.shader=loader.items.basic.shader.value;
+		ret.tex=tex;
+		ret.vertBuff=game.gl.createBuffer();
+		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,ret.vertBuff);
+		game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
+				[
+					x  ,y  ,uvx    ,uvy+uvh,
+					x  ,y+h,uvx    ,uvy    ,
+					x+w,y  ,uvx+uvw,uvy+uvh,
+					x+w,y+h,uvx+uvw,uvy
 				]
 		),game.gl.STATIC_DRAW);
 		ret.draw=function(xPos,yPos)
