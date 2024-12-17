@@ -15,7 +15,7 @@ const loader=
 		loader.queueStep=0;
 		for(let item of toLoad)
 		{
-			game.log.inform(item[0]);
+			//game.log.inform(item[0]);
 			loader.queueStep++;
 			await loader.subLoad(item[0],item[1]);
 		}
