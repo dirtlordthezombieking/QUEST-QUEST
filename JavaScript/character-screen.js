@@ -223,16 +223,16 @@ const characterScreen=
 		//game.log.inform(races[characterScreen.race])
 		characterScreen.highlightBig=characterScreen.createElement(-256,160,512,128,loader.items["UI/text_highlight_big.png"].texture.value);
 		characterScreen.selectors=[];
-		characterScreen.selectors[0]={}
+		characterScreen.selectors[0]={};
 		characterScreen.selectors[0].item=characterScreen.createElement(-256,160,512,128,loader.items["UI/sellect_text_big_v2.png"].texture.value);
 		characterScreen.selectors[0].draw=function()
 		{
 			characterScreen.selectors[0].item.draw(0,0);
-		}
+		};
 		characterScreen.slider={};
 		characterScreen.slider.bar=characterScreen.createElement(0,0,128,32,loader.items["UI/slider_bar.png"].texture.value);
 		characterScreen.slider.handle=characterScreen.createElement(0,0,32,32,loader.items["UI/slider.png"].texture.value);
-		characterScreen .slider.draw=function(x,y,p)
+		characterScreen.slider.draw=function(x,y,p)
 		{
 			characterScreen.slider.bar.draw(x,y);
 			characterScreen.slider.handle.draw(x+(p*96),y);
@@ -243,7 +243,7 @@ const characterScreen=
 		[
 			function()
 			{
-				characterScreen.slider.draw(0,108,characterscreen.skinTone/130);
+				characterScreen.slider.draw(0,108,characterScreen.skinTone/130);
 			}
 		];
 	},
