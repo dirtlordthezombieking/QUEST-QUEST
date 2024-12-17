@@ -3,7 +3,7 @@ const characterScreen=
 	item:0,
 	time:0,
 	choice:0,
-	settings=
+	settings:
 	[
 		{
 			change(a)
@@ -130,7 +130,7 @@ const characterScreen=
 		//}
 		for(const n of characterScreen.settingsOpts[characterScreen.race].texts)
 		{
-			let l=characterScreen.labels[n]
+			let l=characterScreen.labels[n];
 			characterScreen.highlight.draw(l[1],l[2]);
 		}
 		characterScreen.highlightBig.draw(0,0);
@@ -142,7 +142,7 @@ const characterScreen=
 		//}
 		for(const n of characterScreen.settingsOpts[characterScreen.race].texts)
 		{
-			let l=characterScreen.labels[n]
+			let l=characterScreen.labels[n];
 			l[0].draw();
 		}
 		characterScreen.races[characterScreen.race].draw();
