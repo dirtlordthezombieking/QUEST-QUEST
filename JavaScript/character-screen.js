@@ -236,10 +236,10 @@ const characterScreen=
 			characterScreen.selectors[0].item.draw(0,0);
 		};
 		characterScreen.selectors[1]={};
-		characterScreen.selectors[1].draw=function 
+		characterScreen.selectors[1].draw=function()
 		{
 			characterScreen.slider.drawSel(-384,120,characterScreen.skinTone/130);
-		}
+		};
 		characterScreen.slider={};
 		characterScreen.slider.bar=characterScreen.createElement(0,0,128,32,loader.items["UI/slider_bar.png"].texture.value);
 		characterScreen.slider.handle=characterScreen.createElement(0,0,32,32,loader.items["UI/slider.png"].texture.value);
@@ -283,10 +283,10 @@ const characterScreen=
 					characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(1);
 					break;
 				case "ArrowUp":
-					characterScreen.choice=(characterScreen.choice-1)%(characterScreen.settingsOpts[characterScreen.race].settings.length)
+					characterScreen.choice=(characterScreen.choice-1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
 					break;
 				case "ArrowDown":
-					characterScreen.choice=(characterScreen.choice+1)%(characterScreen.settingsOpts[characterScreen.race].settings.length)
+					characterScreen.choice=(characterScreen.choice+1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
 					break;
 			}
 		}
