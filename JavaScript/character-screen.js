@@ -92,7 +92,7 @@ const characterScreen=
 			["UI/text/character creation/detail_colour.png","texture"],
 			["UI/text/character creation/detail_style.png","texture"],
 			["UI/text/character creation/eye_colour.png","texture"],
-			["UI/text/character Creation/hair_colour.png","texture"],
+			["UI/text/character creation/hair_colour.png","texture"],
 			["UI/text/character creation/hair_style.png","texture"],
 			["UI/text/character creation/pants_colour.png","texture"],
 			["UI/text/character creation/shirt_colour.png","texture"],
