@@ -243,7 +243,7 @@ const characterScreen=
 		[
 			function()
 			{
-				characterScreen.slider.draw(0,108,characterScreen.skinTone/130);
+				characterScreen.slider.draw(-384,108,characterScreen.skinTone/130);
 			}
 		];
 	},
