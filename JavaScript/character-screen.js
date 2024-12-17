@@ -60,7 +60,7 @@ const characterScreen=
 			texts:[0,2,3,4,5,6,7,8,9],
 			elements:[0]
 		}
-	]
+	],
 	keys:
 	{
 		NumpadAdd:[false,0],
@@ -69,7 +69,7 @@ const characterScreen=
 		ArrowLeft:[false,0],
 		ArrowRight:[false,0],
 		ArrowDown:[false,0],
-		Enter:[false,0],
+		Enter:[false,0]
 	},
 	load()
 	{
