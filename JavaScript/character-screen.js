@@ -128,7 +128,7 @@ const characterScreen=
 		//{
 			//characterScreen.highlight.draw(l[1],l[2]);
 		//}
-		for(const n ofcharacterScreen.settingsOpts[characterScreen.race].texts)
+		for(const n of characterScreen.settingsOpts[characterScreen.race].texts)
 		{
 			let l=characterScreen.labels[n]
 			characterScreen.highlight.draw(l[1],l[2]);
@@ -140,7 +140,7 @@ const characterScreen=
 		//{
 			//l[0].draw();
 		//}
-		for(const n ofcharacterScreen.settingsOpts[characterScreen.race].texts)
+		for(const n of characterScreen.settingsOpts[characterScreen.race].texts)
 		{
 			let l=characterScreen.labels[n]
 			l[0].draw();
