@@ -10,43 +10,49 @@ const characterScreen=
 			{
 				characterScreen.race=(characterScreen.race+a)%9;
 			}
+		},
+		{
+			change(a)
+			{
+				characterScreen.skinTone=(characterScreen.skinTone+a)%130;
+			}
 		}
 	],
-	settingVars:[0],
+	settingVars:[0,1],
 	settingsOpts:
 	[
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
 		},
 		{
-			settings:[0],
+			settings:[0,1],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0]
 		},
@@ -236,6 +242,13 @@ const characterScreen=
 		{
 			characterScreen.slider.bar.draw(x,y);
 			characterScreen.slider.handle.draw(x+(p*96),y);
+		};
+		characterScreen.slider.barSel=characterScreen.createElement(0,0,128,32,loader.items["UI/sellect_slider_bar.png"].texture.value);
+		characterScreen.slider.handleSek=characterScreen.createElement(0,0,32,32,loader.items["UI/sellect_slider.png"].texture.value);
+		characterScreen.slider.drawSel=function(x,y,p)
+		{
+			characterScreen.slider.barSel.draw(x,y);
+			characterScreen.slider.handleSel.draw(x+(p*96),y);
 		};
 		//elements
 		characterScreen.skinTone=Math.random()*130;
