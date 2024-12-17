@@ -2,6 +2,65 @@ const characterScreen=
 {
 	item:0,
 	time:0,
+	choice:0,
+	settings=
+	[
+		{
+			change(a)
+			{
+				characterScreen.race=(characterScreen.race+a)%9;
+			}
+		}
+	],
+	settingVars:[0],
+	settingsOpts:
+	[
+		[
+			settings:[0],
+			texts:[0,1,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,1,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,1,3,4,5,6,7,8,9],
+			elements:[0]
+		],
+		[
+			settings:[0],
+			texts:[0,2,3,4,5,6,7,8,9],
+			elements:[0]
+		]
+	]
 	keys:
 	{
 		NumpadAdd:[false,0],
@@ -28,16 +87,18 @@ const characterScreen=
 			["UI/slider_bar.png","texture"],
 			["UI/text_highlight.png","texture"],
 			["UI/text_highlight_big.png","texture"],
+
 			["UI/text/character creation/body_type.png","texture"],
 			["UI/text/character creation/detail_colour.png","texture"],
 			["UI/text/character creation/detail_style.png","texture"],
 			["UI/text/character creation/eye_colour.png","texture"],
-			["UI/text/character creation/hair_colour.png","texture"],
+			["UI/text/character Creation/hair_colour.png","texture"],
 			["UI/text/character creation/hair_style.png","texture"],
 			["UI/text/character creation/pants_colour.png","texture"],
 			["UI/text/character creation/shirt_colour.png","texture"],
 			["UI/text/character creation/shoe_colour.png","texture"],
 			["UI/text/character creation/skin_tone.png","texture"],
+
 			["UI/text/character creation/race/beastfolk.png","texture"],
 			["UI/text/character creation/race/demon.png","texture"],
 			["UI/text/character creation/race/dwarf.png","texture"],
@@ -51,6 +112,7 @@ const characterScreen=
 	},
 	draw(d,t)
 	{
+		characterScreen.time=t;
 		//BACKGROUND
 		game.gl.useProgram(characterScreen.backShade);
 		game.setTexture(characterScreen.backTexLoc,characterScreen.backTex,0);
@@ -146,11 +208,23 @@ const characterScreen=
 	},
 	keyDown(k)
 	{
-		switch
+		characterScreen[k]=[true,characterScreen.time];
 	},
 	keyUp(k)
 	{
-		//----
+		characterScreen[k][0]=false;
+		if(characterScreen.time-characterScreen[k][1]<=1000)
+		{
+			switch(k)
+			{
+				case "ArrowLeft":
+					characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(-1);
+					break;
+				case "ArrowRight":
+					characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(1);
+					break;
+			}
+		}
 	},
 	createElement(x,y,w,h,tex)
 	{
