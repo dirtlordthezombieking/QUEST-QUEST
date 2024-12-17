@@ -98,6 +98,11 @@ const game=
 		game.frameTime=performance.now();
 		try
 		{
+			if((document.fullscreenElement!=game.canvas)&&(!game.logSet))
+			{
+				document.getElementById("log").style.display=game.logVis;
+				game.logSet=true;
+			}
 			game.gl.clearColor(0,0,0,1);
 			game.gl.clear(game.gl.COLOR_BUFFER_BIT);
 			if(game.loaded)
