@@ -134,6 +134,7 @@ const characterScreen=
 			characterScreen.highlight.draw(l[1],l[2]);
 		}
 		characterScreen.highlightBig.draw(0,0);
+		characterScreen.selectors[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].draw();
 		game.gl.useProgram(characterScreen.textShade);
 		game.gl.uniform3f(characterScreen.textColLoc,255,255,255);
 		//for(const l of characterScreen.labels)
@@ -215,6 +216,13 @@ const characterScreen=
 		}
 		//game.log.inform(races[characterScreen.race])
 		characterScreen.highlightBig=characterScreen.createElement(-256,160,512,128,loader.items["UI/text_highlight_big.png"].texture.value);
+		characterScreen.selectors=[];
+		characterScreen.selectors[0]={}
+		characterScreen.selectors[0].item=characterScreen.createElement(-256,192,512,64,loader.items["UI/sellect_text_big.png"].texture.value);
+		characterScreen.selectors[0].draw=function()
+		{
+			characterScreen.selectors[0].item.draw(0,0)
+		}
 	},
 	keyDown(k)
 	{
