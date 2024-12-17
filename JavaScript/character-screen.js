@@ -235,6 +235,11 @@ const characterScreen=
 		{
 			characterScreen.selectors[0].item.draw(0,0);
 		};
+		characterScreen.selectors[1]={};
+		characterScreen.selectors[1].draw=function 
+		{
+			characterScreen.slider.drawSel(-384,120,characterScreen.skinTone/130);
+		}
 		characterScreen.slider={};
 		characterScreen.slider.bar=characterScreen.createElement(0,0,128,32,loader.items["UI/slider_bar.png"].texture.value);
 		characterScreen.slider.handle=characterScreen.createElement(0,0,32,32,loader.items["UI/slider.png"].texture.value);
@@ -244,7 +249,7 @@ const characterScreen=
 			characterScreen.slider.handle.draw(x+(p*96),y);
 		};
 		characterScreen.slider.barSel=characterScreen.createElement(0,0,128,32,loader.items["UI/sellect_slider_bar.png"].texture.value);
-		characterScreen.slider.handleSek=characterScreen.createElement(0,0,32,32,loader.items["UI/sellect_slider.png"].texture.value);
+		characterScreen.slider.handleSel=characterScreen.createElement(0,0,32,32,loader.items["UI/select_slider.png"].texture.value);
 		characterScreen.slider.drawSel=function(x,y,p)
 		{
 			characterScreen.slider.barSel.draw(x,y);
