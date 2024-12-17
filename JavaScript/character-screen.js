@@ -84,6 +84,7 @@ const characterScreen=
 			["UI/sellect_slider_bar.png","texture"],
 			["UI/sellect_text.png","texture"],
 			["UI/sellect_text_big_v2.png","texture"],
+			["UI/slider.png","texture"],
 			["UI/slider_bar.png","texture"],
 			["UI/text_highlight.png","texture"],
 			["UI/text_highlight_big.png","texture"],
@@ -135,6 +136,11 @@ const characterScreen=
 		}
 		characterScreen.highlightBig.draw(0,0);
 		characterScreen.selectors[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].draw();
+		//----
+		for(const n of characterScreen.settingsOpts[characterScreen.race].elements)
+		{
+			characterscreen.elementDraws[n]();
+		}
 		game.gl.useProgram(characterScreen.textShade);
 		game.gl.uniform3f(characterScreen.textColLoc,255,255,255);
 		//for(const l of characterScreen.labels)
@@ -224,7 +230,22 @@ const characterScreen=
 			characterScreen.selectors[0].item.draw(0,0);
 		}
 		characterscreen.slider={}
-		characterscreen.slider.bar=characterScreen.createElement(0,0,64,32,loader.items["UI/sellect_text_big_v2.png"].texture.value);
+		characterscreen.slider.bar=characterScreen.createElement(0,0,128,32,loader.items["UI/slider_bar.png"].texture.value);
+		characterscreen.slider.handle=characterScreen.createElement(0,0,32,32,loader.items["UI/slider.png"].texture.value);
+		characterscreen.slider.draw=function(x,y,p)
+		{
+			characterscreen.slider.bar.draw(x,y);
+			characterscreen.slider.handle.draw(x+(p*96),y);
+		}
+		//elements
+		characterscreen.skinTone=Math.random*130;
+		characterscreen.elementDraws=
+		[
+			function()
+			{
+				characterscreen.slider.draw(0,108,characterscreen.skinTone/130);
+			}
+		]
 	},
 	keyDown(k)
 	{
