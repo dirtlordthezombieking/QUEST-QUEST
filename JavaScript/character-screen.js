@@ -8,13 +8,13 @@ const characterScreen=
 		{
 			change(a)
 			{
-				characterScreen.race=Math.floor((characterScreen.race+a)%9);
+				//characterScreen.race=Math.floor((characterScreen.race+a)%9);
 			}
 		},
 		{
 			change(a)
 			{
-				characterScreen.skinTone=(characterScreen.skinTone+a)%130;
+				//characterScreen.skinTone=(characterScreen.skinTone+a)%130;
 			}
 		}
 	],
