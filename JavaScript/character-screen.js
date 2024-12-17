@@ -275,12 +275,12 @@ const characterScreen=
 	},
 	keyDown(k)
 	{
-		characterScreen[k]=[true,characterScreen.time];
+		characterScreen.keys[k]=[true,characterScreen.time];
 	},
 	keyUp(k)
 	{
-		characterScreen[k][0]=false;
-		if(characterScreen.time-characterScreen[k][1]<=1)
+		characterScreen.keys[k][0]=false;
+		if(characterScreen.time-characterScreen.keys[k][1]<=1000)
 		{
 			switch(k)
 			{
