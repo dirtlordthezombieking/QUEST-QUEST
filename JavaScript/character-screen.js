@@ -277,7 +277,7 @@ const characterScreen=
 	},
 	keyDown(k)
 	{
-		//game.log.inform(k);
+		game.log.inform(k);
 		if(characterScreen.keys[k])
 		{
 			if(characterScreen.keys[k][0])
