@@ -4,18 +4,34 @@ const characterScreen=
 	time:0,
 	choice:0,
 	settings:
+	hexPart:0,
 	[
 		{
 			change(a)
 			{
 				characterScreen.race=Math.floor((characterScreen.race+a)%9);
-			}
+			},
+			plus(){},
+			minus(){}
 		},
 		{
 			change(a)
 			{
 				characterScreen.skinTone=(characterScreen.skinTone+a)%130;
-			}
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.hexPart=Math.floor((characterScreen.hexPart+a)%6);
+			},
+			plus()
+			{
+				
+			},
+			minus(){}
 		}
 	],
 	settingVars:[0,1],
@@ -75,6 +91,8 @@ const characterScreen=
 		ArrowLeft:[false,0],
 		ArrowRight:[false,0],
 		ArrowDown:[false,0],
+		ShiftLeft:[false,0],
+		ShiftRight:[false,0],
 		Enter:[false,0]
 	},
 	load()
@@ -274,10 +292,20 @@ const characterScreen=
 				characterScreen.slider.draw(-384,120,characterScreen.skinTone/130);
 			}
 		];
+		characterScreen.hexInput={};
+		characterScreen.hexInput.chars=[];
+		for(let i=0;i<16;i++)
+		{
+			let x=i%4;
+			let y=Math.floor(i/4);
+			characterScreen.hexInput.chars.push(createRegionElement(0,0,8,16,x,y,8,16,loader.items["UI/hex.png"].texture.value);
+		}
+		characterScreen.char={};
+		characterScreen.char.hairColour=[Math.random()*255,Math.random()*255,Math.random()*255];
 	},
 	keyDown(k)
 	{
-		game.log.inform(k);
+		//game.log.inform(k);
 		if(characterScreen.keys[k])
 		{
 			if(characterScreen.keys[k][0])
@@ -290,6 +318,7 @@ const characterScreen=
 	keyUp(k)
 	{
 		characterScreen.keys[k][0]=false;
+		let shift=characterScreen.keys.ShiftRight[0]||characterScreen.keys.ShiftLeft[0];
 		//game.log.inform(""+(characterScreen.time-characterScreen.keys[k][1])+"|"+characterScreen.time+"|"+characterScreen.keys[k][1]);
 		if((characterScreen.time-characterScreen.keys[k][1])<=1000)
 		{
@@ -302,10 +331,30 @@ const characterScreen=
 					characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(1);
 					break;
 				case "ArrowUp":
-					characterScreen.choice=(characterScreen.choice-1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
+					if(shift)
+					{
+						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].plus();
+					}
+					else
+					{
+						characterScreen.choice=(characterScreen.choice-1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
+					{
 					break;
 				case "ArrowDown":
-					characterScreen.choice=(characterScreen.choice+1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
+					if(shift)
+					{
+						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].minus();
+					}
+					else
+					{
+						characterScreen.choice=(characterScreen.choice+1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
+					{
+					break;
+				case "NumpadAdd":
+						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].plus();
+					break;
+				case "NumpadSubtract":
+						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].minus();
 					break;
 			}
 		}
