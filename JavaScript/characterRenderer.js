@@ -180,7 +180,6 @@ const characterRenderer=
 			game.gl.uniform2f(characterRenderer.posLoc,x,y);
 			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
-
 //body
 			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin[0])
 		}
