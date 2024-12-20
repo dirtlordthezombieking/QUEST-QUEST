@@ -401,10 +401,10 @@ const characterScreen=
 		{
 			let x=i%4;
 			let y=Math.floor(i/4);
-			characterScreen.hexInput.chars.push(characterScreen.createRegionElement(0,0,8,16,x,y,8,16,loader.items["UI/hex.png"].texture.value);
+			characterScreen.hexInput.chars.push(characterScreen.createRegionElement(0,0,8,16,x,y,8,16,loader.items["UI/hex.png"].texture.value));
 		}
-		characterScreen.hexInput.sel=createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value;
-		characterScreen.hexInput.highlight=createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value;
+		characterScreen.hexInput.sel=createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
+		characterScreen.hexInput.highlight=createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
 		characterScreen.hexInput.draw=function(x,y)
 		{
 			characterScreen.hexInput.highlight.draw(x,y);
