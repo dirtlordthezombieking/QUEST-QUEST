@@ -1,5 +1,6 @@
 //const loader={};
 //const game={};
+//const utils={};
 //function Float32Array(){}
 const characterScreen=
 {
@@ -423,19 +424,19 @@ const characterScreen=
 		};
 		characterScreen.hexInput.drawHex=function(x,y,v)
 		{
-			characterScreen.hexInput.chars[Math.floor(v[0]/16)].draw(x+8,y+8);
-			characterScreen.hexInput.chars[Math.floor(v[0]%16)].draw(x+16,y+8);
-			characterScreen.hexInput.chars[Math.floor(v[1]/16)].draw(x+24,y+8);
-			characterScreen.hexInput.chars[Math.floor(v[1]%16)].draw(x+32,y+8);
-			characterScreen.hexInput.chars[Math.floor(v[2]/16)].draw(x+40,y+8);
-			characterScreen.hexInput.chars[Math.floor(v[2]%16)].draw(x+48,y+8);
+			characterScreen.hexInput.chars[Math.floor(v[0]/16)].draw(x+8,y);
+			characterScreen.hexInput.chars[Math.floor(v[0]%16)].draw(x+16,y);
+			characterScreen.hexInput.chars[Math.floor(v[1]/16)].draw(x+24,y);
+			characterScreen.hexInput.chars[Math.floor(v[1]%16)].draw(x+32,y);
+			characterScreen.hexInput.chars[Math.floor(v[2]/16)].draw(x+40,y);
+			characterScreen.hexInput.chars[Math.floor(v[2]%16)].draw(x+48,y);
 		};
 		characterScreen.char={};
 		characterScreen.char.hairColour=[Math.random()*255,Math.random()*255,Math.random()*255];
 		characterScreen.selectors[2]={};
 		characterScreen.selectors[2].draw=function()
 		{
-			characterScreen.hexInput.drawSel(-384,68);
+			characterScreen.hexInput.drawSel(-384,92);
 		};
 		characterScreen.drawHex=[];
 		characterScreen.drawHex[0]=function()
@@ -444,7 +445,7 @@ const characterScreen=
 		};
 		characterScreen.elementDraws[1]=function()
 		{
-			characterScreen.hexInput.draw(-320,92);
+			characterScreen.hexInput.draw(-320,84);
 		};
 		characterScreen.arrows=
 		{
