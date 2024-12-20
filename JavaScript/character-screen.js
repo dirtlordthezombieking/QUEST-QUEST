@@ -148,6 +148,7 @@ const characterScreen=
 	},
 	draw(d,t)
 	{
+		characterScreen.char.race=characterScreen.race
 		characterScreen.time=t;
 		if(characterScreen.keys.ArrowLeft[0]&&(t-characterScreen.keys.ArrowLeft[1])>1000)
 		{
