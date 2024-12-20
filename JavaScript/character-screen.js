@@ -29,7 +29,7 @@ const characterScreen=
 			},
 			plus()
 			{
-				switch(hexPart)
+				switch(characterScreen.hexPart)
 				{
 					case 0:
 						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]+16)
@@ -53,7 +53,7 @@ const characterScreen=
 			},
 			minus()
 			{
-				switch(hexPart)
+				switch(characterScreen.hexPart)
 				{
 					case 0:
 						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]-16)
