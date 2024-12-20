@@ -51,112 +51,116 @@ const characterRenderer=
 	},
 	retrieve()
 	{
-			["character"].shader.vale;
-			characterRenderer.graphics=
+		["character"].shader.vale;
+		characterRenderer.graphics=
+		{
+			detail:
 			{
-				detail:
+				beastfolk:
 				{
-					beastfolk:
-					{
-						fur:
-						[
-							loader.items["sprite/detail/beastfolk/fur/001.png"].texture.value
-						],
-						skin:
-						[
-							loader.items["sprite/detail/beastfolk/skin/001.png"].texture.value
-						]
-					},
-					demon:
-					{
-						horns:
-						[
-							loader.items["sprite/detail/demons/horns/001.png"].texture.value
-						]
-					},
-					fishfolk:
-					{
-						back:
-						[
-							loader.items["sprite/detail/fishfolk/back/00.png"].texture.value,
-							loader.items["sprite/detail/fishfolk/back/01.png"].texture.value,
-							loader.items["sprite/detail/fishfolk/back/10.png"].texture.value,
-							loader.items["sprite/detail/fishfolk/back/11.png"].texture.value
-						]
-					},
-					nephilim:
-					{
-						halo:
-						[
-							loader.items.["sprite/detail/nephilim/halo/001.png" ].texture.value
-						]
-					},
-					vampire:
-					{
-						fangs:
-						[
-							loader.items["sprite/detail/vampire/fangs/001.png"].texture.value,
-							loader.items["sprite/detail/vampire/fangs/002.png"].texture.value
-						]
-					}
-				},
-				ears:
-				[
-					loader.items["sprite/ears/default.png"].texture.value,
-					loader.items["sprite/ears/none.png"].texture.value,
-					loader.items["sprite/ears/pointy.png"].texture.value
-				],
-				eyebrows:
-				[
-					loader.items["sprite/eyebrows/normal.png"].texture.value,
-					loader.items["sprite/eyebrows/thick.png"].texture.value
-				],
-				eyes:
-				{
-					base:
+					fur:
 					[
-						loader.items["sprite/eyes/base/001.png"].texture.value;
+						loader.items["sprite/detail/beastfolk/fur/001.png"].texture.value
 					],
-					iris:
+					skin:
 					[
-						loader.items["sprite/eyes/iris/001.png"].texture.value;
+						loader.items["sprite/detail/beastfolk/skin/001.png"].texture.value
 					]
 				},
-				hair:
+				demon:
+				{
+					horns:
+					[
+						loader.items["sprite/detail/demons/horns/001.png"].texture.value
+					]
+				},
+				fishfolk:
 				{
 					back:
 					[
-						loader.items["sprite/hair/001.png"].texture.value;
-						loader.items["sprite/hair/002.png"].texture.value;
-					],
-					front:
-					[
-						loader.items["sprite/hair/front/001.png"].texture.value;
-						loader.items["sprite/hair/front/002.png"].texture.value;
+						loader.items["sprite/detail/fishfolk/back/00.png"].texture.value,
+						loader.items["sprite/detail/fishfolk/back/01.png"].texture.value,
+						loader.items["sprite/detail/fishfolk/back/10.png"].texture.value,
+						loader.items["sprite/detail/fishfolk/back/11.png"].texture.value
 					]
 				},
-				pants:
+				nephilim:
+				{
+					halo:
+					[
+						loader.items.["sprite/detail/nephilim/halo/001.png" ].texture.value
+					]
+				},
+				vampire:
+				{
+					fangs:
+					[
+						loader.items["sprite/detail/vampire/fangs/001.png"].texture.value,
+						loader.items["sprite/detail/vampire/fangs/002.png"].texture.value
+					]
+				}
+			},
+			ears:
+			[
+				loader.items["sprite/ears/default.png"].texture.value,
+				loader.items["sprite/ears/none.png"].texture.value,
+				loader.items["sprite/ears/pointy.png"].texture.value
+			],
+			eyebrows:
+			[
+				loader.items["sprite/eyebrows/normal.png"].texture.value,
+				loader.items["sprite/eyebrows/thick.png"].texture.value
+			],
+			eyes:
+			{
+				base:
 				[
-					loader.items["sprite/pants/basic.png"].texture.value;
+					loader.items["sprite/eyes/base/001.png"].texture.value;
 				],
-				shirt:
+				iris:
 				[
-					loader.items["sprite/shirt/001/00.png"].texture.value;
-					loader.items["sprite/shirt/001/01.png"].texture.value;
-					loader.items["sprite/shirt/001/10.png"].texture.value;
-					loader.items["sprite/shirt/001/11.png"].texture.value;
-				],
-				shoes:
-				[
-					loader.items["sprite/shoes/basic"].texture.value;
-				],
-				body:
-				[
-					loader.items["sprite/00.png"].texture.value;
-					loader.items["sprite/01.png"].texture.value;
-					loader.items["sprite/10.png"].texture.value;
-					loader.items["sprite/11.png"].texture.value;
+					loader.items["sprite/eyes/iris/001.png"].texture.value;
 				]
+			},
+			hair:
+			{
+				back:
+				[
+					loader.items["sprite/hair/001.png"].texture.value;
+					loader.items["sprite/hair/002.png"].texture.value;
+				],
+				front:
+				[
+					loader.items["sprite/hair/front/001.png"].texture.value;
+					loader.items["sprite/hair/front/002.png"].texture.value;
+				]
+			},
+			pants:
+			[
+				loader.items["sprite/pants/basic.png"].texture.value;
+			],
+			shirt:
+			[
+				loader.items["sprite/shirt/001/00.png"].texture.value;
+				loader.items["sprite/shirt/001/01.png"].texture.value;
+				loader.items["sprite/shirt/001/10.png"].texture.value;
+				loader.items["sprite/shirt/001/11.png"].texture.value;
+			],
+			shoes:
+			[
+				loader.items["sprite/shoes/basic"].texture.value;
+			],
+			body:
+			[
+				loader.items["sprite/00.png"].texture.value;
+				loader.items["sprite/01.png"].texture.value;
+				loader.items["sprite/10.png"].texture.value;
+				loader.items["sprite/11.png"].texture.value;
+			]
+		}
+		characterRenderer.methods[0]=function(data,x,y,dir,frame)
+		{
+			
 		}
 	},
 	draw(data,x,y,dir,frame)
