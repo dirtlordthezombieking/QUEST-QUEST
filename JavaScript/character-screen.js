@@ -411,11 +411,11 @@ const characterScreen=
 		characterScreen.hexInput.draw=function(x,y)
 		{
 			characterScreen.hexInput.highlight.draw(x,y);
-		}
+		};
 		characterScreen.hexInput.drawSel=function(x,y)
 		{
 			characterScreen.hexInput.sel.draw(x,y);
-		}
+		};
 		characterScreen.hexInput.drawHex=function(x,y,v)
 		{
 			characterScreen.hexInput.chars[Math.floor(v[0]/16)].draw(x+8,y+8,8,16);
@@ -424,7 +424,7 @@ const characterScreen=
 			characterScreen.hexInput.chars[Math.floor(v[1]%16)].draw(x+32,y+8,8,16);
 			characterScreen.hexInput.chars[Math.floor(v[2]/16)].draw(x+40,y+8,8,16);
 			characterScreen.hexInput.chars[Math.floor(v[2]%16)].draw(x+48,y+8,8,16);
-		}
+		};
 		characterScreen.char={};
 		characterScreen.char.hairColour=[Math.random()*255,Math.random()*255,Math.random()*255];
 		characterScreen.selectors[2]={};
@@ -432,14 +432,14 @@ const characterScreen=
 		{
 			characterScreen.hexInput.drawSel(0,68);
 		};
-		characterScreen.drawHex=[]
+		characterScreen.drawHex=[];
 		characterScreen.drawHex[0]=function()
 		{
-			characterScreen.hexInput.drawHex(64,68,characterScreen.char.hairColour)
+			characterScreen.hexInput.drawHex(64,68,characterScreen.char.hairColour);
 		};
 		characterScreen.elementDraws[1]=function()
 		{
-			characterScreen.hexInput.draw(64,68)
+			characterScreen.hexInput.draw(64,68);
 		};
 		characterScreen.arrows=
 		{
@@ -450,7 +450,7 @@ const characterScreen=
 				characterScreen.arrows.back.draw(0,0);
 				characterScreen.arrows.back.forward(0,0);
 			}
-		}
+		};
 	},
 	keyDown(k)
 	{
