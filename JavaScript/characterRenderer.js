@@ -182,13 +182,25 @@ const characterRenderer=
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 
 //body
-			game.setTexture(characterRenderer.texLoc,characterRenderer.graphics.body[data.bodyType],0);
-			game.gl.uniform3f(characterRenderer.colLoc,data.skin[0],data.skin[1],data.skin[2]);
-			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
-		}
+		characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin[0])
 	},
 	draw(data,x,y,dir,frame)
 	{
 		methods[data.race].draw(data,x,y,dir/4,dirs[frame]);
+	},
+	drawPart(texture,colour)
+	{
+			game.setTexture(characterRenderer.texLoc,texture,0);
+			game.gl.uniform3f(characterRenderer.colLoc,colour[0],colour[1]colour[2]);
+			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 	}
 };
+//beastfolk
+//demon
+//dwarf
+//elf
+//fishfolk
+//goblin
+//human
+//nephilim
+//vampire
