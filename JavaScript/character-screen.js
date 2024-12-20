@@ -32,22 +32,22 @@ const characterScreen=
 				switch(characterScreen.hexPart)
 				{
 					case 0:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]+16)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]+16);
 						break;
 					case 1:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]+1)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]+1);
 						break;
 					case 2:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]+16)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]+16);
 						break;
 					case 3:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]+1)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]+1);
 						break;
 					case 4:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]+16)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]+16);
 						break;
 					case 5:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]+1)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]+1);
 						break;
 				}
 			},
@@ -56,22 +56,22 @@ const characterScreen=
 				switch(characterScreen.hexPart)
 				{
 					case 0:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]-16)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]-16);
 						break;
 					case 1:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]-1)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]-1);
 						break;
 					case 2:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]-16)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]-16);
 						break;
 					case 3:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]-1)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]-1);
 						break;
 					case 4:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]-16)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]-16);
 						break;
 					case 5:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]-1)
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]-1);
 						break;
 				}
 			}
