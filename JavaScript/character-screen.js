@@ -325,6 +325,7 @@ const characterScreen=
 		characterScreen.textDataLoc=game.gl.getAttribLocation(characterScreen.textShade,"a_data");
 		characterScreen.textTexLoc=game.gl.getUniformLocation(characterScreen.textShade,"u_tex");
 		characterScreen.textColLoc=game.gl.getUniformLocation(characterScreen.textShade,"u_colour");
+		characterScreen.textOffLoc=game.gl.getUniformLocation(characterScreen.textShade,"u_pos");
 		const texts=
 		[
 			["UI/text/character creation/body_type.png"    , 288,-268],
@@ -408,7 +409,7 @@ const characterScreen=
 		{
 			let x=(i%4)*0.25;
 			let y=(Math.floor(i/4))*0.25;
-			characterScreen.hexInput.chars.push(characterScreen.createRegionElement(0,0,8,16,x,y,0.25,0.25,loader.items["UI/hex.png"].texture.value));
+			characterScreen.hexInput.chars.push(characterScreen.createRegionTextElement(0,0,8,16,x,y,0.25,0.25,loader.items["UI/hex.png"].texture.value));
 		}
 		characterScreen.hexInput.sel=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
 		characterScreen.hexInput.highlight=characterScreen.createElement(0,0,64,32,loader.items["UI/text_highlight_hex.png"].texture.value);
@@ -418,9 +419,7 @@ const characterScreen=
 		};
 		characterScreen.hexInput.drawSel=function(x,y)
 		{
-			game.log.inform("2");
 			characterScreen.hexInput.sel.draw(x,y);
-			game.log.inform("3");
 		};
 		characterScreen.hexInput.drawHex=function(x,y,v)
 		{
@@ -436,7 +435,6 @@ const characterScreen=
 		characterScreen.selectors[2]={};
 		characterScreen.selectors[2].draw=function()
 		{
-			game.log.inform("1");
 			characterScreen.hexInput.drawSel(-384,68);
 		};
 		characterScreen.drawHex=[];
@@ -564,6 +562,33 @@ const characterScreen=
 			game.gl.enableVertexAttribArray(characterScreen.basicDataLoc);
 			game.gl.vertexAttribPointer(characterScreen.basicDataLoc,4,game.gl.FLOAT,false,0,0);
 			game.gl.uniform2f(characterScreen.basicOffLoc,xPos,yPos);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+		};
+		return ret;
+	},
+	createRegionTextElement(x,y,w,h,uvx,uvy,uvw,uvh,tex)
+	{
+		const ret={};
+		ret.shader=loader.items.basic.shader.value;
+		ret.tex=tex;
+		ret.vertBuff=game.gl.createBuffer();
+		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,ret.vertBuff);
+		game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
+				[
+					x  ,y  ,uvx    ,uvy+uvh,
+					x  ,y+h,uvx    ,uvy    ,
+					x+w,y  ,uvx+uvw,uvy+uvh,
+					x+w,y+h,uvx+uvw,uvy
+				]
+		),game.gl.STATIC_DRAW);
+		ret.draw=function(xPos,yPos)
+		{
+			game.setTexture(characterScreen.textTexLoc,this.tex,0);
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
+			game.gl.enableVertexAttribArray(characterScreen.textDataLoc);
+			game.gl.vertexAttribPointer(characterScreen.textDataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterScreen.textOffLoc,xPos,yPos);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 		};
