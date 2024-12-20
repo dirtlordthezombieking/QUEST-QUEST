@@ -69,6 +69,11 @@ const game=
 	},
 	keyUp(ev)
 	{
+		if(ev.code=="KeyL")
+		{
+			document.getElementById("log").style.display=game.logVis;
+			game.logSet=true;
+		}
 		if(document.fullscreenElement!=game.canvas)
 		{
 			if(ev.code=="KeyF")
