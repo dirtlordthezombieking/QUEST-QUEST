@@ -57,6 +57,15 @@ const characterRenderer=
                 characterRenderer.posLoc=game.gl.getUniformLocation(characterRenderer.shader,"u_pos");
                 characterRenderer.colLoc=game.gl.getUniformLocation(characterRenderer.shader,"u_col");
                 characterRenderer.offLoc=game.gl.getUniformLocation(characterRenderer.shader,"u_texOff");
+		ret.vertBuff=game.gl.createBuffer();
+		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,ret.vertBuff);
+		game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
+		[
+			 0, 0,0.00,0.25,
+			 0,64,0.00,0.00,
+			64, 0,0.25,0.25,
+			64,64,0.25,0.00
+		]
 		characterRenderer.graphics=
 		{
 			detail:
