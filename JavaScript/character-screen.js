@@ -150,9 +150,9 @@ const characterScreen=
 	{
 		characterScreen.char.race=characterScreen.race
 		let s=characterScreen.skinTone-30;
-		if(s<10)
+		if(s<10.0)
 		{
-			characterScreen.char.skin=[]
+			characterScreen.char.skin=[(u1+30)*]
 		}
 		characterScreen.time=t;
 		if(characterScreen.keys.ArrowLeft[0]&&(t-characterScreen.keys.ArrowLeft[1])>1000)
