@@ -1,6 +1,6 @@
 //const loader={};
 //const game={};
-//function Float32Array(){};
+//function Float32Array(){}
 const characterScreen=
 {
 	item:0,
@@ -194,7 +194,7 @@ const characterScreen=
 	},
 	draw(d,t)
 	{
-		characterScreen.char.race=characterScreen.race
+		characterScreen.char.race=characterScreen.race;
 		let s=characterScreen.skinTone-30;
 		if(s<10.0)
 		{
@@ -203,7 +203,7 @@ const characterScreen=
 				characterScreen.skinTone*3.2,
 				characterScreen.skinTone*2.125,
 				characterScreen.skinTone*0.9
-			]
+			];
 		}
     else if(s<90.0)
 		{
@@ -233,7 +233,7 @@ const characterScreen=
 					(-3.68333*s)+
 					53.3594
 				)
-			]
+			];
 		}
     else
 		{
@@ -242,7 +242,7 @@ const characterScreen=
 				255,
 				(s*3.6)-105,
 				(s*8.3)-575
-			]
+			];
 		}
 		characterScreen.time=t;
 		if(characterScreen.keys.ArrowLeft[0]&&(t-characterScreen.keys.ArrowLeft[1])>1000)
