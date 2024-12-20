@@ -1,20 +1,82 @@
+//const loader={};
+//const game={};
+//function Float32Array(){}
 const characterScreen=
 {
 	item:0,
 	time:0,
 	choice:0,
+	hexPart:0,
 	settings:
 	[
 		{
 			change(a)
 			{
 				characterScreen.race=Math.floor((characterScreen.race+a)%9);
-			}
+			},
+			plus(){},
+			minus(){}
 		},
 		{
 			change(a)
 			{
 				characterScreen.skinTone=(characterScreen.skinTone+a)%130;
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.hexPart=Math.floor((characterScreen.hexPart+a)%6);
+			},
+			plus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]+16);
+						break;
+					case 1:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]+1);
+						break;
+					case 2:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]+16);
+						break;
+					case 3:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]+1);
+						break;
+					case 4:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]+16);
+						break;
+					case 5:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]+1);
+						break;
+				}
+			},
+			minus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]-16);
+						break;
+					case 1:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]-1);
+						break;
+					case 2:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]-16);
+						break;
+					case 3:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]-1);
+						break;
+					case 4:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]-16);
+						break;
+					case 5:
+						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]-1);
+						break;
+				}
 			}
 		}
 	],
@@ -22,49 +84,58 @@ const characterScreen=
 	settingsOpts:
 	[
 		{
-			settings:[0,1],
+			settings:[0,1,2],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0]
+			elements:[0,1],
+			hex:[0]
 		},
 		{
-			settings:[0,1],
+			settings:[0,1,2],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0]
+			elements:[0,1],
+			hex:[0]
 		},
 		{
-			settings:[0,1],
+			settings:[0,1,2],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0]
+			elements:[0,1],
+			hex:[0]
 		},
 		{
-			settings:[0,1],
+			settings:[0,1,2],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0]
+			elements:[0,1],
+			hex:[0]
 		},
 		{
-			settings:[0,1],
+			settings:[0,1,2],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0]
+			elements:[0,1],
+			hex:[0]
 		},
 		{
-			settings:[0,1],
+			settings:[0,1,2],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0]
+			elements:[0,1],
+			hex:[0]
 		},
 		{
-			settings:[0,1],
+			settings:[0,1,2],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0]
+			elements:[0,1],
+			hex:[0]
 		},
 		{
-			settings:[0,1],
+			settings:[0,1,2],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0]
+			elements:[0,1],
+			hex:[0]
 		},
 		{
-			settings:[0,1],
+			settings:[0,1,2],
 			texts:[0,2,3,4,5,6,7,8,9],
-			elements:[0]
+			elements:[0,1],
+			hex:[0]
 		}
 	],
 	keys:
@@ -75,6 +146,8 @@ const characterScreen=
 		ArrowLeft:[false,0],
 		ArrowRight:[false,0],
 		ArrowDown:[false,0],
+		ShiftLeft:[false,0],
+		ShiftRight:[false,0],
 		Enter:[false,0]
 	},
 	load()
@@ -121,6 +194,56 @@ const characterScreen=
 	},
 	draw(d,t)
 	{
+		characterScreen.char.race=characterScreen.race;
+		let s=characterScreen.skinTone-30;
+		if(s<10.0)
+		{
+			characterScreen.char.skin=
+			[
+				characterScreen.skinTone*3.2,
+				characterScreen.skinTone*2.125,
+				characterScreen.skinTone*0.9
+			];
+		}
+    else if(s<90.0)
+		{
+			let s2=s*s;
+			let s3=s2*s;
+			let s4=s3*s;
+			characterScreen.char.skin=
+			[
+				(
+					(-0.00000963541666666*s4)+
+					(0.0233333*s3)+
+					(-0.211615*s2)+
+					(9.36667*s)+
+					53.2578
+				),
+				(
+					(0.00000625*s4)+
+					(-0.00110417*s3)+
+					(0.049375*s2)+
+					(1.66042*s)+
+					64.5
+				),
+				(
+					(0.0000192708*s4)+
+					(-0.00366667*s3)+
+					(0.229479*s2)+
+					(-3.68333*s)+
+					53.3594
+				)
+			];
+		}
+    else
+		{
+			characterScreen.char.skin=
+			[
+				255,
+				(s*3.6)-105,
+				(s*8.3)-575
+			];
+		}
 		characterScreen.time=t;
 		if(characterScreen.keys.ArrowLeft[0]&&(t-characterScreen.keys.ArrowLeft[1])>1000)
 		{
@@ -151,6 +274,7 @@ const characterScreen=
 			characterScreen.highlight.draw(l[1],l[2]);
 		}
 		characterScreen.highlightBig.draw(0,0);
+		characterScreen.arrows.draw();
 		characterScreen.selectors[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].draw();
 		//----
 		for(const n of characterScreen.settingsOpts[characterScreen.race].elements)
@@ -167,6 +291,10 @@ const characterScreen=
 		{
 			let l=characterScreen.labels[n];
 			l[0].draw();
+		}
+		for(const n of characterScreen.settingsOpts[characterScreen.race].hex)
+		{
+			characterScreen.drawHex[n]();
 		}
 		characterScreen.races[characterScreen.race].draw();
 	},
@@ -274,10 +402,63 @@ const characterScreen=
 				characterScreen.slider.draw(-384,120,characterScreen.skinTone/130);
 			}
 		];
+		characterScreen.hexInput={};
+		characterScreen.hexInput.chars=[];
+		for(let i=0;i<16;i++)
+		{
+			let x=i%4;
+			let y=Math.floor(i/4);
+			characterScreen.hexInput.chars.push(characterScreen.createRegionElement(0,0,8,16,x,y,8,16,loader.items["UI/hex.png"].texture.value));
+		}
+		characterScreen.hexInput.sel=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
+		characterScreen.hexInput.highlight=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
+		characterScreen.hexInput.draw=function(x,y)
+		{
+			characterScreen.hexInput.highlight.draw(x,y);
+		};
+		characterScreen.hexInput.drawSel=function(x,y)
+		{
+			characterScreen.hexInput.sel.draw(x,y);
+		};
+		characterScreen.hexInput.drawHex=function(x,y,v)
+		{
+			characterScreen.hexInput.chars[Math.floor(v[0]/16)].draw(x+8,y+8,8,16);
+			characterScreen.hexInput.chars[Math.floor(v[0]%16)].draw(x+16,y+8,8,16);
+			characterScreen.hexInput.chars[Math.floor(v[1]/16)].draw(x+24,y+8,8,16);
+			characterScreen.hexInput.chars[Math.floor(v[1]%16)].draw(x+32,y+8,8,16);
+			characterScreen.hexInput.chars[Math.floor(v[2]/16)].draw(x+40,y+8,8,16);
+			characterScreen.hexInput.chars[Math.floor(v[2]%16)].draw(x+48,y+8,8,16);
+		};
+		characterScreen.char={};
+		characterScreen.char.hairColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.selectors[2]={};
+		characterScreen.selectors[2].draw=function()
+		{
+			characterScreen.hexInput.drawSel(0,68);
+		};
+		characterScreen.drawHex=[];
+		characterScreen.drawHex[0]=function()
+		{
+			characterScreen.hexInput.drawHex(64,68,characterScreen.char.hairColour);
+		};
+		characterScreen.elementDraws[1]=function()
+		{
+			characterScreen.hexInput.draw(64,68);
+		};
+		characterScreen.arrows=
+		{
+			back:characterScreen.createRegionElement(32,192,64,64,loader.items["UI/arrows_big.png"].texture.value),
+			forward:characterScreen.createRegionElement(288,192,64,64,loader.items["UI/arrows_big.png"].texture.value),
+			draw()
+			{
+				characterScreen.arrows.back.draw(0,0);
+				characterScreen.arrows.back.forward(0,0);
+			}
+		};
 	},
 	keyDown(k)
 	{
-		game.log.inform(k);
+		//game.log.inform(k);
 		if(characterScreen.keys[k])
 		{
 			if(characterScreen.keys[k][0])
@@ -290,6 +471,7 @@ const characterScreen=
 	keyUp(k)
 	{
 		characterScreen.keys[k][0]=false;
+		let shift=characterScreen.keys.ShiftRight[0]||characterScreen.keys.ShiftLeft[0];
 		//game.log.inform(""+(characterScreen.time-characterScreen.keys[k][1])+"|"+characterScreen.time+"|"+characterScreen.keys[k][1]);
 		if((characterScreen.time-characterScreen.keys[k][1])<=1000)
 		{
@@ -302,10 +484,30 @@ const characterScreen=
 					characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].change(1);
 					break;
 				case "ArrowUp":
-					characterScreen.choice=(characterScreen.choice-1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
+					if(shift)
+					{
+						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].plus();
+					}
+					else
+					{
+						characterScreen.choice=(characterScreen.choice-1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
+					}
 					break;
 				case "ArrowDown":
-					characterScreen.choice=(characterScreen.choice+1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
+					if(shift)
+					{
+						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].minus();
+					}
+					else
+					{
+						characterScreen.choice=(characterScreen.choice+1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
+					}
+					break;
+				case "NumpadAdd":
+						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].plus();
+					break;
+				case "NumpadSubtract":
+						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].minus();
 					break;
 			}
 		}
