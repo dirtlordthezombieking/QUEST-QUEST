@@ -160,6 +160,7 @@ const characterScreen=
 			["UI/arrows_small.png","texture"],
 			["UI/background.png","texture"],
 			["UI/hex.png","texture"],
+			["UI/hex_digit.png","texture"],
 			["UI/hex_input.png","texture"],
 			["UI/select_slider.png","texture"],
 			["UI/sellect_slider_bar.png","texture"],
