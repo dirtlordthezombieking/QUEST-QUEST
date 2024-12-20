@@ -207,7 +207,7 @@ const characterScreen=
 				characterScreen.skinTone*0.9
 			];
 		}
-    else if(s<90.0)
+		else if(s<90.0)
 		{
 			let s2=s*s;
 			let s3=s2*s;
@@ -237,7 +237,7 @@ const characterScreen=
 				)
 			];
 		}
-    else
+		else
 		{
 			characterScreen.char.skin=
 			[
@@ -437,6 +437,14 @@ const characterScreen=
 		};
 		characterScreen.char={};
 		characterScreen.char.hairColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.detailColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.shirtColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.pantsColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.shoeColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.eyeColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.hairStyle=Math.floor(Math.random()*2);
+		characterScreen.char.detailStyle=Math.floor(Math.random()*2);
+		characterScreen.char.bodyType=Math.floor(Math.random()*4);
 		characterScreen.selectors[2]={};
 		characterScreen.selectors[2].draw=function()
 		{
