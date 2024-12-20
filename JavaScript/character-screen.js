@@ -440,11 +440,11 @@ const characterScreen=
 		characterScreen.drawHex=[];
 		characterScreen.drawHex[0]=function()
 		{
-			characterScreen.hexInput.drawHex(-320,68,characterScreen.char.hairColour);
+			characterScreen.hexInput.drawHex(-320,76,characterScreen.char.hairColour);
 		};
 		characterScreen.elementDraws[1]=function()
 		{
-			characterScreen.hexInput.draw(-320,100);
+			characterScreen.hexInput.draw(-320,92);
 		};
 		characterScreen.arrows=
 		{
@@ -591,6 +591,7 @@ const characterScreen=
 			game.gl.uniform2f(characterScreen.textOffLoc,xPos,yPos);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+			game.gl.uniform2f(characterScreen.textOffLoc,0,0);
 		};
 		return ret;
 	},
