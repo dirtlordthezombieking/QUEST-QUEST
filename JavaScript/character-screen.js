@@ -424,7 +424,7 @@ const characterScreen=
 		characterScreen.hexInput.drawSel=function(x,y)
 		{
 			characterScreen.hexInput.sel.draw(x,y);
-			characterScreen.hexInput.sel.draw(x+72+(characterScreen.hexPart*8),y+8);
+			characterScreen.hexInput.digit.draw(x+72+(characterScreen.hexPart*8),y+8);
 		};
 		characterScreen.hexInput.drawHex=function(x,y,v)
 		{
