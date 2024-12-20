@@ -490,7 +490,7 @@ const characterScreen=
 					}
 					else
 					{
-						characterScreen.choice=utils.clamp((characterScreen.choice-1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length));
+						characterScreen.choice=utils.clamp((characterScreen.choice-1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length-1));
 					}
 					break;
 				case "ArrowDown":
@@ -500,7 +500,7 @@ const characterScreen=
 					}
 					else
 					{
-						characterScreen.choice=utils.clamp((characterScreen.choice+1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length));
+						characterScreen.choice=utils.clamp((characterScreen.choice+1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length-1));
 					}
 					break;
 				case "NumpadAdd":
