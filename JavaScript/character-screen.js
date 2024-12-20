@@ -80,7 +80,7 @@ const characterScreen=
 			}
 		}
 	],
-	settingVars:[0,1],
+	settingVars:[0,1,2],
 	settingsOpts:
 	[
 		{
