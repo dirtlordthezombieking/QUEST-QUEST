@@ -299,10 +299,11 @@ const characterScreen=
 			characterScreen.drawHex[n]();
 		}
 		characterScreen.races[characterScreen.race].draw();
-		characterRenderer.draw(characterScreen.char,-70,  8,0,(t%1000)/250);
-		characterRenderer.draw(characterScreen.char,  8,  8,1,(t%1000)/250);
-		characterRenderer.draw(characterScreen.char,-70,-70,2,(t%1000)/250);
-		characterRenderer.draw(characterScreen.char,  8,-70,3,(t%1000)/250);
+		game.gl.useProgram(characterRenderer.shader);
+		characterRenderer.draw(characterScreen.char,-70,  8,0,Math.floor((t%1000)/250));
+		characterRenderer.draw(characterScreen.char,  8,  8,1,Math.floor((t%1000)/250));
+		characterRenderer.draw(characterScreen.char,-70,-70,2,Math.floor((t%1000)/250));
+		characterRenderer.draw(characterScreen.char,  8,-70,3Math.floor(,(t%1000)/250));
 	},
 	retrieve()
 	{
