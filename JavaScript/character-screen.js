@@ -411,7 +411,7 @@ const characterScreen=
 			characterScreen.hexInput.chars.push(characterScreen.createRegionElement(0,0,8,16,x,y,0.25,0.25,loader.items["UI/hex.png"].texture.value));
 		}
 		characterScreen.hexInput.sel=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
-		characterScreen.hexInput.highlight=characterScreen.createElement(0,0,64,64,loader.items["UI/text_highlight_hex.png"].texture.value);
+		characterScreen.hexInput.highlight=characterScreen.createElement(0,0,64,32,loader.items["UI/text_highlight_hex.png"].texture.value);
 		characterScreen.hexInput.draw=function(x,y)
 		{
 			characterScreen.hexInput.highlight.draw(x,y);
@@ -422,12 +422,12 @@ const characterScreen=
 		};
 		characterScreen.hexInput.drawHex=function(x,y,v)
 		{
-			characterScreen.hexInput.chars[Math.floor(v[0]/16)].draw(x+8,y+8,8,16);
-			characterScreen.hexInput.chars[Math.floor(v[0]%16)].draw(x+16,y+8,8,16);
-			characterScreen.hexInput.chars[Math.floor(v[1]/16)].draw(x+24,y+8,8,16);
-			characterScreen.hexInput.chars[Math.floor(v[1]%16)].draw(x+32,y+8,8,16);
-			characterScreen.hexInput.chars[Math.floor(v[2]/16)].draw(x+40,y+8,8,16);
-			characterScreen.hexInput.chars[Math.floor(v[2]%16)].draw(x+48,y+8,8,16);
+			characterScreen.hexInput.chars[Math.floor(v[0]/16)].draw(x+8,y+8);
+			characterScreen.hexInput.chars[Math.floor(v[0]%16)].draw(x+16,y+8);
+			characterScreen.hexInput.chars[Math.floor(v[1]/16)].draw(x+24,y+8);
+			characterScreen.hexInput.chars[Math.floor(v[1]%16)].draw(x+32,y+8);
+			characterScreen.hexInput.chars[Math.floor(v[2]/16)].draw(x+40,y+8);
+			characterScreen.hexInput.chars[Math.floor(v[2]%16)].draw(x+48,y+8);
 		};
 		characterScreen.char={};
 		characterScreen.char.hairColour=[Math.random()*255,Math.random()*255,Math.random()*255];
@@ -443,7 +443,7 @@ const characterScreen=
 		};
 		characterScreen.elementDraws[1]=function()
 		{
-			characterScreen.hexInput.draw(-320,68);
+			characterScreen.hexInput.draw(-320,100);
 		};
 		characterScreen.arrows=
 		{
@@ -490,7 +490,7 @@ const characterScreen=
 					}
 					else
 					{
-						utis.clamp(characterScreen.choice=(characterScreen.choice-1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length));
+						characterScreen.choice=utils.clamp((characterScreen.choice-1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length));
 					}
 					break;
 				case "ArrowDown":
@@ -500,7 +500,7 @@ const characterScreen=
 					}
 					else
 					{
-						utis.clamp(characterScreen.choice=(characterScreen.choice+1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length));
+						characterScreen.choice=utils.clamp((characterScreen.choice+1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length));
 					}
 					break;
 				case "NumpadAdd":
