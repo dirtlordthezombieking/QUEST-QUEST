@@ -182,7 +182,8 @@ const characterRenderer=
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 
 //body
-		characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin[0])
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin[0])
+		}
 	},
 	draw(data,x,y,dir,frame)
 	{
