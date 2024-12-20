@@ -1,3 +1,6 @@
+//const loader={};
+//const game={};
+//function Float32Array(){};
 const characterScreen=
 {
 	item:0,
