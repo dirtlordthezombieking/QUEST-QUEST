@@ -425,9 +425,9 @@ const characterScreen=
 		characterScreen.char={};
 		characterScreen.char.hairColour=[Math.random()*255,Math.random()*255,Math.random()*255];
 		characterScreen.selectors[2]={};
-		characterScreen.selectors[2].draw=function
+		characterScreen.selectors[2].draw=function()
 		{
-			characterScreen.hexInput.drawSel(0,68)
+			characterScreen.hexInput.drawSel(0,68);
 		};
 		characterScreen.drawHex=[]
 		characterScreen.drawHex[0]=function()
