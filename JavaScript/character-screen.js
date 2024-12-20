@@ -12,7 +12,7 @@ const characterScreen=
 		{
 			change(a)
 			{
-				characterScreen.race=Math.floor((characterScreen.race+a)%9);
+				characterScreen.race=Math.floor(utils.properMod((characterScreen.race+a),9));
 			},
 			plus(){},
 			minus(){}
@@ -20,7 +20,7 @@ const characterScreen=
 		{
 			change(a)
 			{
-				characterScreen.skinTone=(characterScreen.skinTone+a)%130;
+				characterScreen.skinTone=utils.properMod((characterScreen.skinTone+a),130);
 			},
 			plus(){},
 			minus(){}
@@ -28,7 +28,7 @@ const characterScreen=
 		{
 			change(a)
 			{
-				characterScreen.hexPart=Math.floor((characterScreen.hexPart+a)%6);
+				characterScreen.hexPart=Math.floor(utils.properMod((characterScreen.hexPart+a),6));
 			},
 			plus()
 			{
