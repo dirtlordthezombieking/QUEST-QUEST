@@ -501,6 +501,7 @@ const characterScreen=
 					else
 					{
 						characterScreen.choice=utils.clamp((characterScreen.choice+1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length-1));
+						game.log.inform(""+characterScreen.choice);
 					}
 					break;
 				case "NumpadAdd":
