@@ -35,22 +35,22 @@ const characterScreen=
 				switch(characterScreen.hexPart)
 				{
 					case 0:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]+16);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[0]+16),0,255);
 						break;
 					case 1:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]+1);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[0]+1),0,255);
 						break;
 					case 2:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]+16);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[1]+16),0,255);
 						break;
 					case 3:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]+1);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[1]+1),0,255);
 						break;
 					case 4:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]+16);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[2]+16),0,255);
 						break;
 					case 5:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]+1);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[2]+1),0,255);
 						break;
 				}
 			},
@@ -59,22 +59,22 @@ const characterScreen=
 				switch(characterScreen.hexPart)
 				{
 					case 0:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]-16);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[0]-16),0,255);
 						break;
 					case 1:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[0]-1);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[0]-1),0,255);
 						break;
 					case 2:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]-16);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[1]-16),0,255);
 						break;
 					case 3:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[1]-1);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[1]-1),0,255);
 						break;
 					case 4:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]-16);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[2]-16),0,255);
 						break;
 					case 5:
-						characterScreen.char.hairColour[0]=Math.floor(characterScreen.char.hairColour[2]-1);
+						characterScreen.char.hairColour[0]=utils.clamp(Math.floor(characterScreen.char.hairColour[2]-1),0,255);
 						break;
 				}
 			}
@@ -406,9 +406,9 @@ const characterScreen=
 		characterScreen.hexInput.chars=[];
 		for(let i=0;i<16;i++)
 		{
-			let x=i%4;
-			let y=Math.floor(i/4);
-			characterScreen.hexInput.chars.push(characterScreen.createRegionElement(0,0,8,16,x,y,8,16,loader.items["UI/hex.png"].texture.value));
+			let x=(i%4)*0.25;
+			let y=(Math.floor(i/4))*0.25;
+			characterScreen.hexInput.chars.push(characterScreen.createRegionElement(0,0,8,16,x,y,0.25,0.25,loader.items["UI/hex.png"].texture.value));
 		}
 		characterScreen.hexInput.sel=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
 		characterScreen.hexInput.highlight=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
@@ -434,16 +434,16 @@ const characterScreen=
 		characterScreen.selectors[2]={};
 		characterScreen.selectors[2].draw=function()
 		{
-			characterScreen.hexInput.drawSel(0,68);
+			characterScreen.hexInput.drawSel(-384,68);
 		};
 		characterScreen.drawHex=[];
 		characterScreen.drawHex[0]=function()
 		{
-			characterScreen.hexInput.drawHex(64,68,characterScreen.char.hairColour);
+			characterScreen.hexInput.drawHex(-320,68,characterScreen.char.hairColour);
 		};
 		characterScreen.elementDraws[1]=function()
 		{
-			characterScreen.hexInput.draw(64,68);
+			characterScreen.hexInput.draw(-320,68);
 		};
 		characterScreen.arrows=
 		{
