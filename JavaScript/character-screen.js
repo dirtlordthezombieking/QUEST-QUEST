@@ -152,16 +152,51 @@ const characterScreen=
 		let s=characterScreen.skinTone-30;
 		if(s<10.0)
 		{
-			characterScreen.char.skin=[characterScreen.skinTone*3.2,characterScreen.skinTone*2.125,characterScreen.skinTone*0.9]
+			characterScreen.char.skin=
+			[
+				characterScreen.skinTone*3.2,
+				characterScreen.skinTone*2.125,
+				characterScreen.skinTone*0.9
+			]
 		}
     else if(s<10.0)
 		{
-			
-			characterScreen.char.skin=[(u1+30)*3.2,(u1+30)*2.125,(u1+30)*0.9]
+			let s2=s*s;
+			let s3=s2*s;
+			let s4=s3*s;
+			characterScreen.char.skin=
+			[
+				(
+					(*s4)+
+					(*s3)+
+					(*s2)+
+					(*s)+
+					
+				),
+				(
+					(*s4)+
+					(*s3)+
+					(*s2)+
+					(*s)+
+					
+				),
+				(
+					(*s4)+
+					(*s3)+
+					(*s2)+
+					(*s)+
+					
+				)
+			]
 		}
     else
 		{
-			characterScreen.char.skin=[255,(s*3.6)-105,(s*8.3)-575]
+			characterScreen.char.skin=
+			[
+				255,
+				(s*3.6)-105,
+				(s*8.3)-575
+			]
 		}
 		characterScreen.time=t;
 		if(characterScreen.keys.ArrowLeft[0]&&(t-characterScreen.keys.ArrowLeft[1])>1000)
