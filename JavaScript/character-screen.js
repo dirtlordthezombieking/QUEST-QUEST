@@ -484,7 +484,7 @@ const characterScreen=
 					else
 					{
 						characterScreen.choice=(characterScreen.choice-1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
-					{
+					}
 					break;
 				case "ArrowDown":
 					if(shift)
@@ -494,7 +494,7 @@ const characterScreen=
 					else
 					{
 						characterScreen.choice=(characterScreen.choice+1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
-					{
+					}
 					break;
 				case "NumpadAdd":
 						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].plus();
