@@ -161,7 +161,7 @@ const characterScreen=
 		}
     else
 		{
-			characterScreen.char.skin=[255,(s*3.6)-105,(s*)]
+			characterScreen.char.skin=[255,(s*3.6)-105,(s*8.3)-575]
 		}
 		characterScreen.time=t;
 		if(characterScreen.keys.ArrowLeft[0]&&(t-characterScreen.keys.ArrowLeft[1])>1000)
