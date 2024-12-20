@@ -19,7 +19,7 @@ const utils=
 		let ret=n%b;
 		if(ret<0)
 		{
-			ret=b-ret;
+			ret+=b;
 		}
 		return ret;
 	},
