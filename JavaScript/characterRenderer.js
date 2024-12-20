@@ -1,17 +1,20 @@
 const characterRenderer=
 {
 	methods=[],
+	dirs=[0,0.25,0,0.5,0.75]
 	load()
 	{
-		loader.loadMulti
-		(
-		)
+		loader.loadMulti(
+		[
+			["character","shader"],
+			["character/
+		]);
 	},
 	retrieve()
 	{
 	},
-	draw(data,dir,frame)
+	draw(data,x,y,dir,frame)
 	{
-		methods[data.race].draw(data,dir,frame);
+		methods[data.race].draw(data,x,y,dir/4,dirs[frame]);
 	}
 };
