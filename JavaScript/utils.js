@@ -13,5 +13,14 @@ const utils=
 			}
 		};
 		return new Promise(check);
+	},
+	properMod(n,b)
+	{
+		let ret=n%b;
+		if(ret<0)
+		{
+			ret=b-ret;
+		}
+		return ret;
 	}
 };
