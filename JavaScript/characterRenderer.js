@@ -174,14 +174,17 @@ const characterRenderer=
 		}
 		characterRenderer.methods[0]=function(data,x,y,dir,frame)
 		{
-			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,this.vertBuff);
-			game.gl.enableVertexAttribArray(characterScreen.textDataLoc);
-			game.gl.vertexAttribPointer(characterScreen.textDataLoc,4,game.gl.FLOAT,false,0,0);
-			game.gl.uniform2f(characterScreen.textOffLoc,xPos,yPos);
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
+			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
+			game.gl.vertexAttribPointer(characterRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterRenderer.posLoc,x,y);
+			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
-			game.setTexture(characterRenderer.texLoc,this.tex,0);
+
+//body
+			game.setTexture(characterRenderer.texLoc,characterRenderer.graphics.body[data.bodyType],0);
+			game.gl.uniform3f(characterRenderer.colLoc,data.skin[0],data.skin[1],data.skin[2]);
 			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
-			game.gl.uniform2f(characterScreen.textOffLoc,0,0);
 		}
 	},
 	draw(data,x,y,dir,frame)
