@@ -411,7 +411,7 @@ const characterScreen=
 			characterScreen.hexInput.chars.push(characterScreen.createRegionElement(0,0,8,16,x,y,0.25,0.25,loader.items["UI/hex.png"].texture.value));
 		}
 		characterScreen.hexInput.sel=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
-		characterScreen.hexInput.highlight=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
+		characterScreen.hexInput.highlight=characterScreen.createElement(0,0,64,64,loader.items["UI/text_highlight_hex.png"].texture.value);
 		characterScreen.hexInput.draw=function(x,y)
 		{
 			characterScreen.hexInput.highlight.draw(x,y);
@@ -490,7 +490,7 @@ const characterScreen=
 					}
 					else
 					{
-						characterScreen.choice=(characterScreen.choice-1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
+						utis.clamp(characterScreen.choice=(characterScreen.choice-1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length));
 					}
 					break;
 				case "ArrowDown":
@@ -500,7 +500,7 @@ const characterScreen=
 					}
 					else
 					{
-						characterScreen.choice=(characterScreen.choice+1)%(characterScreen.settingsOpts[characterScreen.race].settings.length);
+						utis.clamp(characterScreen.choice=(characterScreen.choice+1),0,(characterScreen.settingsOpts[characterScreen.race].settings.length));
 					}
 					break;
 				case "NumpadAdd":
