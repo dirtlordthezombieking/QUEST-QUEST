@@ -292,6 +292,10 @@ const characterScreen=
 			let l=characterScreen.labels[n];
 			l[0].draw();
 		}
+		for(const n of characterScreen.settingsOpts[characterScreen.race].hex)
+		{
+			characterScreen.drawHex[n]();
+		}
 		characterScreen.races[characterScreen.race].draw();
 	},
 	retrieve()
