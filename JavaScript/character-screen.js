@@ -3,8 +3,8 @@ const characterScreen=
 	item:0,
 	time:0,
 	choice:0,
-	settings:
 	hexPart:0,
+	settings:
 	[
 		{
 			change(a)
