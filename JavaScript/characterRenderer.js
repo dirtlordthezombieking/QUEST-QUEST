@@ -65,7 +65,7 @@ const characterRenderer=
 			 0,64,0.00,0.00,
 			64, 0,0.25,0.25,
 			64,64,0.25,0.00
-		]
+		]),game.gl.STATIC_DRAW);
 		characterRenderer.graphics=
 		{
 			detail:
