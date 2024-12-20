@@ -415,6 +415,7 @@ const characterScreen=
 		characterScreen.hexInput.sel=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
 		characterScreen.hexInput.highlight=characterScreen.createElement(0,0,64,32,loader.items["UI/text_highlight_hex.png"].texture.value);
 		characterScreen.hexInput.visual=characterScreen.createElement(0,0,64,32,loader.items["UI/hex_input.png"].texture.value);
+		characterScreen.hexInput.digit=characterScreen.createElement(0,0,8,16,loader.items["UI/hex_digit.png"].texture.value);
 		characterScreen.hexInput.draw=function(x,y)
 		{
 			characterScreen.hexInput.highlight.draw(x,y);
@@ -423,6 +424,7 @@ const characterScreen=
 		characterScreen.hexInput.drawSel=function(x,y)
 		{
 			characterScreen.hexInput.sel.draw(x,y);
+			characterScreen.hexInput.sel.draw(x+72+(characterScreen.hexPart*8),y+8);
 		};
 		characterScreen.hexInput.drawHex=function(x,y,v)
 		{
