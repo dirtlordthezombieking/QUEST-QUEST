@@ -277,12 +277,11 @@ const characterScreen=
 		}
 		characterScreen.highlightBig.draw(0,0);
 		characterScreen.arrows.draw();
-		characterScreen.selectors[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].draw();
-		//----
 		for(const n of characterScreen.settingsOpts[characterScreen.race].elements)
 		{
 			characterScreen.elementDraws[n]();
 		}
+		characterScreen.selectors[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].draw();
 		game.gl.useProgram(characterScreen.textShade);
 		game.gl.uniform3f(characterScreen.textColLoc,255,255,255);
 		//for(const l of characterScreen.labels)
