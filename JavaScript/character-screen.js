@@ -149,6 +149,11 @@ const characterScreen=
 	draw(d,t)
 	{
 		characterScreen.char.race=characterScreen.race
+		let s=characterScreen.skinTone-30;
+		if(s<10)
+		{
+			characterScreen.char.skin=[]
+		}
 		characterScreen.time=t;
 		if(characterScreen.keys.ArrowLeft[0]&&(t-characterScreen.keys.ArrowLeft[1])>1000)
 		{
