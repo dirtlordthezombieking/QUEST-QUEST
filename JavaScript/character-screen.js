@@ -436,12 +436,12 @@ const characterScreen=
 		characterScreen.selectors[2]={};
 		characterScreen.selectors[2].draw=function()
 		{
-			characterScreen.hexInput.drawSel(-384,92);
+			characterScreen.hexInput.drawSel(-384,68);
 		};
 		characterScreen.drawHex=[];
 		characterScreen.drawHex[0]=function()
 		{
-			characterScreen.hexInput.drawHex(-320,76,characterScreen.char.hairColour);
+			characterScreen.hexInput.drawHex(-320,92,characterScreen.char.hairColour);
 		};
 		characterScreen.elementDraws[1]=function()
 		{
