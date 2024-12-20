@@ -271,6 +271,7 @@ const characterScreen=
 			characterScreen.highlight.draw(l[1],l[2]);
 		}
 		characterScreen.highlightBig.draw(0,0);
+		characterScreen.arrows.draw();
 		characterScreen.selectors[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].draw();
 		//----
 		for(const n of characterScreen.settingsOpts[characterScreen.race].elements)
@@ -439,9 +440,13 @@ const characterScreen=
 		};
 		characterScreen.arrows=
 		{
-			back:characterScreen.createRegionElement(32,256
-
-
+			back:characterScreen.createRegionElement(32,192,64,64,loader.items["UI/arrows_big.png"].texture.value),
+			forward:characterScreen.createRegionElement(288,192,64,64,loader.items["UI/arrows_big.png"].texture.value),
+			draw()
+			{
+				characterScreen.arrows.back.draw(0,0);
+				characterScreen.arrows.back.forward(0,0);
+			}
 		}
 	},
 	keyDown(k)
