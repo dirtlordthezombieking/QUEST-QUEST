@@ -673,11 +673,11 @@ const characterScreen=
 		{
 			characterScreen.hexInput.drawHex(-320,-44,characterScreen.char.detailColour);
 		};
-		characterScreen.elementDraws[4]=function()
+		characterScreen.elementDraws[5]=function()
 		{
 			characterScreen.hexInput.draw(-320,-52);
 		};
-		characterScreen.elementDraws[5]=function()
+		characterScreen.elementDraws[6]=function()
 		{
 			characterScreen.slider.draw(-384,-88,characterScreen.char.detailColour[0]/255);
 		};
@@ -686,7 +686,7 @@ const characterScreen=
 		{
 			characterScreen.slider.drawSel(-384,-88,characterScreen.char.detailColour[0]/255);
 		};
-		characterScreen.elementDraws[6]=function()
+		characterScreen.elementDraws[7]=function()
 		{
 			characterScreen.slider.draw(-384,-120,characterScreen.char.detailColour[1]/255);
 		};
@@ -695,7 +695,7 @@ const characterScreen=
 		{
 			characterScreen.slider.drawSel(-384,-120,characterScreen.char.detailColour[1]/255);
 		};
-		characterScreen.elementDraws[7]=function()
+		characterScreen.elementDraws[8]=function()
 		{
 			characterScreen.slider.draw(-384,-152,characterScreen.char.detailColour[2]/255);
 		};
