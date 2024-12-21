@@ -106,61 +106,61 @@ const characterScreen=
 			minus(){}
 		}
 	],
-	settingVars:[0,1,2,2,3,4],
+	settingVars:[0,1,2,3,4,5],
 	settingsOpts:
 	[
 		{
-			settings:[0,1,2,2,3,4],
+			settings:[0,1,2,3,4,5],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,2,3],
+			elements:[0,1,2,3,4],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2,2,3,4],
+			settings:[0,1,2,3,4,5],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,2,3],
+			elements:[0,1,2,3,4],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2,2,3,4],
+			settings:[0,1,2,3,4,5],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1],
+			elements:[0,1,2,3,4],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2,2,3,4],
+			settings:[0,1,2,3,4,5],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,2,3],
+			elements:[0,1,2,3,4],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2,2,3,4],
+			settings:[0,1,2,3,4,5],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,2,3],
+			elements:[0,1,2,3,4],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2,2,3,4],
+			settings:[0,1,2,3,4,5],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,2,3],
+			elements:[0,1,2,3,4],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2,2,3,4],
+			settings:[0,1,2,3,4,5],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,2,3],
+			elements:[0,1,2,3,4],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2,2,3,4],
+			settings:[0,1,2,3,4,5],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,2,3],
+			elements:[0,1,2,3,4],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2,2,3,4],
+			settings:[0,1,2,3,4,5],
 			texts:[0,2,3,4,5,6,7,8,9],
-			elements:[0,1,2,2,3],
+			elements:[0,1,2,3,4],
 			hex:[0]
 		}
 	],
@@ -560,30 +560,30 @@ const characterScreen=
 //hair sliders
 		characterScreen.elementDraws[2]=function()
 		{
-			characterScreen.slider.draw(0,48,characterScreen.char.hairColour[0]/255);
+			characterScreen.slider.draw(-384,48,characterScreen.char.hairColour[0]/255);
 		};
 		characterScreen.selectors[3]={};
 		characterScreen.selectors[3].draw=function()
 		{
-			characterScreen.slider.drawSel(0,48,characterScreen.char.hairColour[0]/255);
+			characterScreen.slider.drawSel(-384,48,characterScreen.char.hairColour[0]/255);
 		};
 		characterScreen.elementDraws[3]=function()
 		{
-			characterScreen.slider.draw(0,16,characterScreen.char.hairColour[1]/255);
+			characterScreen.slider.draw(-384,16,characterScreen.char.hairColour[1]/255);
 		};
 		characterScreen.selectors[4]={};
 		characterScreen.selectors[4].draw=function()
 		{
-			characterScreen.slider.drawSel(0,16,characterScreen.char.hairColour[1]/255);
+			characterScreen.slider.drawSel(-384,16,characterScreen.char.hairColour[1]/255);
 		};
 		characterScreen.elementDraws[4]=function()
 		{
-			characterScreen.slider.draw(0,-16,characterScreen.char.hairColour[2]/255);
+			characterScreen.slider.draw(-384,-16,characterScreen.char.hairColour[2]/255);
 		};
 		characterScreen.selectors[5]={};
 		characterScreen.selectors[5].draw=function()
 		{
-			characterScreen.slider.drawSel(0,-16,characterScreen.char.hairColour[2]/255);
+			characterScreen.slider.drawSel(-384,-16,characterScreen.char.hairColour[2]/255);
 		};
 	},
 	keyDown(k)
