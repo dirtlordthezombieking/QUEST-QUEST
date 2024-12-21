@@ -227,8 +227,8 @@ const characterScreen=
 		let st=characterScreen.skinTone;
 		if(characterScreen.race==4)
 		{
-			st2=st*0.5
-			s2=st2-30;
+			let st2=st*0.5;
+			let s2=st2-30;
 			if(s2<10.0)
 			{
 				characterScreen.char.skin2=
@@ -278,7 +278,7 @@ const characterScreen=
 				];
 			}
 			st=st2+65;
-			s=st-30
+			s=st-30;
 		}
 		if(s<10.0)
 		{
@@ -560,7 +560,7 @@ const characterScreen=
 //hair sliders
 		characterScreen.elementDraws[2]=function()
 		{
-			characterScreen.slider.draw(0,48characterScreen.char.hairColour[0]/255);
+			characterScreen.slider.draw(0,48,characterScreen.char.hairColour[0]/255);
 		};
 		characterScreen.selectors[3].draw=function()
 		{
