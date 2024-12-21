@@ -1184,12 +1184,12 @@ const characterScreen=
 		};
 		characterScreen.elementDraws[21]=function()
 		{
-			characterScreen.slider.draw(256,48,characterScreen.char.pantsColour[1]/255);
+			characterScreen.slider.draw(256,-48,characterScreen.char.pantsColour[1]/255);
 		};
 		characterScreen.selectors[22]={};
 		characterScreen.selectors[22].draw=function()
 		{
-			characterScreen.slider.drawSel(256,48,characterScreen.char.pantsColour[1]/255);
+			characterScreen.slider.drawSel(256,-48,characterScreen.char.pantsColour[1]/255);
 		};
 		characterScreen.elementDraws[22]=function()
 		{
