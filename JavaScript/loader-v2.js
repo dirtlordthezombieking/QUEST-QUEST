@@ -11,13 +11,18 @@ const loader=
 	},
 	async loadMulti(toLoad)
 	{
-		loader.queueCount=toLoad.length;
-		loader.queueStep=0;
+		loader.queueCount+=toLoad.length;
+		//loader.queueStep=0;
 		for(let item of toLoad)
 		{
 			//game.log.inform(item[0]);
 			loader.queueStep++;
 			await loader.subLoad(item[0],item[1]);
+		}
+		if(loader.queueCount==loader.queueStep)
+		{
+			loader.queueCount=0;
+			loader.queueStep=0;
 		}
 	},
 	getPercentage()
