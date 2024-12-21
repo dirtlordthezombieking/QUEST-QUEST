@@ -173,7 +173,7 @@ const characterRenderer=
 				loader.items["sprite/10.png"].texture.value,
 				loader.items["sprite/11.png"].texture.value
 			]
-		}
+		};
 //beastfolk
 		characterRenderer.methods[0]=function(data,x,y,dir,frame)
 		{
