@@ -278,6 +278,10 @@ const loader=
 				}
 				loaded=true;
 			};
+			image.onerror=function()
+			{
+				game.log.error("failed to load image: "+src);
+			};
 			await utils.untilCondition(_ => loaded==true);
 		}
 		catch (e)
