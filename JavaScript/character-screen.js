@@ -1195,8 +1195,8 @@ const characterScreen=
 		{
 			characterScreen.slider.draw(256,-80,characterScreen.char.pantsColour[2]/255);
 		};
-		characterScreen.selectors[22]={};
-		characterScreen.selectors[22].draw=function()
+		characterScreen.selectors[23]={};
+		characterScreen.selectors[23].draw=function()
 		{
 			characterScreen.slider.drawSel(256,-80,characterScreen.char.pantsColour[2]/255);
 		};
