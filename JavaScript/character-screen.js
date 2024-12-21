@@ -198,63 +198,388 @@ const characterScreen=
 			},
 			plus(){},
 			minus(){}
+		},
+//eye
+		{
+			change(a)
+			{
+				characterScreen.hexPart=Math.floor(utils.properMod((characterScreen.hexPart+a),6));
+			},
+			plus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.eyeColour[0]=utils.clamp(Math.floor(characterScreen.char.eyeColour[0]+16),0,255);
+						break;
+					case 1:
+						characterScreen.char.eyeColour[0]=utils.clamp(Math.floor(characterScreen.char.eyeColour[0]+1),0,255);
+						break;
+					case 2:
+						characterScreen.char.eyeColour[1]=utils.clamp(Math.floor(characterScreen.char.eyeColour[1]+16),0,255);
+						break;
+					case 3:
+						characterScreen.char.eyeColour[1]=utils.clamp(Math.floor(characterScreen.char.eyeColour[1]+1),0,255);
+						break;
+					case 4:
+						characterScreen.char.eyeColour[2]=utils.clamp(Math.floor(characterScreen.char.eyeColour[2]+16),0,255);
+						break;
+					case 5:
+						characterScreen.char.eyeColour[2]=utils.clamp(Math.floor(characterScreen.char.eyeColour[2]+1),0,255);
+						break;
+				}
+			},
+			minus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.eyeColour[0]=utils.clamp(Math.floor(characterScreen.char.eyeColour[0]-16),0,255);
+						break;
+					case 1:
+						characterScreen.char.eyeColour[0]=utils.clamp(Math.floor(characterScreen.char.eyeColour[0]-1),0,255);
+						break;
+					case 2:
+						characterScreen.char.eyeColour[1]=utils.clamp(Math.floor(characterScreen.char.eyeColour[1]-16),0,255);
+						break;
+					case 3:
+						characterScreen.char.eyeColour[1]=utils.clamp(Math.floor(characterScreen.char.eyeColour[1]-1),0,255);
+						break;
+					case 4:
+						characterScreen.char.eyeColour[2]=utils.clamp(Math.floor(characterScreen.char.eyeColour[2]-16),0,255);
+						break;
+					case 5:
+						characterScreen.char.eyeColour[2]=utils.clamp(Math.floor(characterScreen.char.eyeColour[2]-1),0,255);
+						break;
+				}
+			}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.eyeColour[0]=utils.clamp((characterScreen.char.eyeColour[0]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.eyeColour[1]=utils.clamp((characterScreen.char.eyeColour[1]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.eyeColour[2]=utils.clamp((characterScreen.char.eyeColour[2]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+//shirt
+		{
+			change(a)
+			{
+				characterScreen.hexPart=Math.floor(utils.properMod((characterScreen.hexPart+a),6));
+			},
+			plus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.shirtColour[0]=utils.clamp(Math.floor(characterScreen.char.shirtColour[0]+16),0,255);
+						break;
+					case 1:
+						characterScreen.char.shirtColour[0]=utils.clamp(Math.floor(characterScreen.char.shirtColour[0]+1),0,255);
+						break;
+					case 2:
+						characterScreen.char.shirtColour[1]=utils.clamp(Math.floor(characterScreen.char.shirtColour[1]+16),0,255);
+						break;
+					case 3:
+						characterScreen.char.shirtColour[1]=utils.clamp(Math.floor(characterScreen.char.shirtColour[1]+1),0,255);
+						break;
+					case 4:
+						characterScreen.char.shirtColour[2]=utils.clamp(Math.floor(characterScreen.char.shirtColour[2]+16),0,255);
+						break;
+					case 5:
+						characterScreen.char.shirtColour[2]=utils.clamp(Math.floor(characterScreen.char.shirtColour[2]+1),0,255);
+						break;
+				}
+			},
+			minus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.shirtColour[0]=utils.clamp(Math.floor(characterScreen.char.shirtColour[0]-16),0,255);
+						break;
+					case 1:
+						characterScreen.char.shirtColour[0]=utils.clamp(Math.floor(characterScreen.char.shirtColour[0]-1),0,255);
+						break;
+					case 2:
+						characterScreen.char.shirtColour[1]=utils.clamp(Math.floor(characterScreen.char.shirtColour[1]-16),0,255);
+						break;
+					case 3:
+						characterScreen.char.shirtColour[1]=utils.clamp(Math.floor(characterScreen.char.shirtColour[1]-1),0,255);
+						break;
+					case 4:
+						characterScreen.char.shirtColour[2]=utils.clamp(Math.floor(characterScreen.char.shirtColour[2]-16),0,255);
+						break;
+					case 5:
+						characterScreen.char.shirtColour[2]=utils.clamp(Math.floor(characterScreen.char.shirtColour[2]-1),0,255);
+						break;
+				}
+			}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.shirtColour[0]=utils.clamp((characterScreen.char.shirtColour[0]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.shirtColour[1]=utils.clamp((characterScreen.char.shirtColour[1]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.shirtColour[2]=utils.clamp((characterScreen.char.shirtColour[2]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+//pants
+		{
+			change(a)
+			{
+				characterScreen.hexPart=Math.floor(utils.properMod((characterScreen.hexPart+a),6));
+			},
+			plus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.pantsColour[0]=utils.clamp(Math.floor(characterScreen.char.pantsColour[0]+16),0,255);
+						break;
+					case 1:
+						characterScreen.char.pantsColour[0]=utils.clamp(Math.floor(characterScreen.char.pantsColour[0]+1),0,255);
+						break;
+					case 2:
+						characterScreen.char.pantsColour[1]=utils.clamp(Math.floor(characterScreen.char.pantsColour[1]+16),0,255);
+						break;
+					case 3:
+						characterScreen.char.pantsColour[1]=utils.clamp(Math.floor(characterScreen.char.pantsColour[1]+1),0,255);
+						break;
+					case 4:
+						characterScreen.char.pantsColour[2]=utils.clamp(Math.floor(characterScreen.char.pantsColour[2]+16),0,255);
+						break;
+					case 5:
+						characterScreen.char.pantsColour[2]=utils.clamp(Math.floor(characterScreen.char.pantsColour[2]+1),0,255);
+						break;
+				}
+			},
+			minus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.pantsColour[0]=utils.clamp(Math.floor(characterScreen.char.pantsColour[0]-16),0,255);
+						break;
+					case 1:
+						characterScreen.char.pantsColour[0]=utils.clamp(Math.floor(characterScreen.char.pantsColour[0]-1),0,255);
+						break;
+					case 2:
+						characterScreen.char.pantsColour[1]=utils.clamp(Math.floor(characterScreen.char.pantsColour[1]-16),0,255);
+						break;
+					case 3:
+						characterScreen.char.pantsColour[1]=utils.clamp(Math.floor(characterScreen.char.pantsColour[1]-1),0,255);
+						break;
+					case 4:
+						characterScreen.char.pantsColour[2]=utils.clamp(Math.floor(characterScreen.char.pantsColour[2]-16),0,255);
+						break;
+					case 5:
+						characterScreen.char.pantsColour[2]=utils.clamp(Math.floor(characterScreen.char.pantsColour[2]-1),0,255);
+						break;
+				}
+			}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.pantsColour[0]=utils.clamp((characterScreen.char.pantsColour[0]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.pantsColour[1]=utils.clamp((characterScreen.char.pantsColour[1]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.pantsColour[2]=utils.clamp((characterScreen.char.pantsColour[2]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+//shoes
+		{
+			change(a)
+			{
+				characterScreen.hexPart=Math.floor(utils.properMod((characterScreen.hexPart+a),6));
+			},
+			plus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.shoeColour[0]=utils.clamp(Math.floor(characterScreen.char.shoeColour[0]+16),0,255);
+						break;
+					case 1:
+						characterScreen.char.shoeColour[0]=utils.clamp(Math.floor(characterScreen.char.shoeColour[0]+1),0,255);
+						break;
+					case 2:
+						characterScreen.char.shoeColour[1]=utils.clamp(Math.floor(characterScreen.char.shoeColour[1]+16),0,255);
+						break;
+					case 3:
+						characterScreen.char.shoeColour[1]=utils.clamp(Math.floor(characterScreen.char.shoeColour[1]+1),0,255);
+						break;
+					case 4:
+						characterScreen.char.shoeColour[2]=utils.clamp(Math.floor(characterScreen.char.shoeColour[2]+16),0,255);
+						break;
+					case 5:
+						characterScreen.char.shoeColour[2]=utils.clamp(Math.floor(characterScreen.char.shoeColour[2]+1),0,255);
+						break;
+				}
+			},
+			minus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.shoeColour[0]=utils.clamp(Math.floor(characterScreen.char.shoeColour[0]-16),0,255);
+						break;
+					case 1:
+						characterScreen.char.shoeColour[0]=utils.clamp(Math.floor(characterScreen.char.shoeColour[0]-1),0,255);
+						break;
+					case 2:
+						characterScreen.char.shoeColour[1]=utils.clamp(Math.floor(characterScreen.char.shoeColour[1]-16),0,255);
+						break;
+					case 3:
+						characterScreen.char.shoeColour[1]=utils.clamp(Math.floor(characterScreen.char.shoeColour[1]-1),0,255);
+						break;
+					case 4:
+						characterScreen.char.shoeColour[2]=utils.clamp(Math.floor(characterScreen.char.shoeColour[2]-16),0,255);
+						break;
+					case 5:
+						characterScreen.char.shoeColour[2]=utils.clamp(Math.floor(characterScreen.char.shoeColour[2]-1),0,255);
+						break;
+				}
+			}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.shoeColour[0]=utils.clamp((characterScreen.char.shoeColour[0]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.shoeColour[1]=utils.clamp((characterScreen.char.shoeColour[1]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.shoeColour[2]=utils.clamp((characterScreen.char.shoeColour[2]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+//body
+		{
+			change(a)
+			{
+				characterScreen.char.bodyType=Math.floor(utils.properMod((characterScreen.char.bodyType+a),4));
+			},
+			plus(){},
+			minus(){}
 		}
 	],
-	settingVars:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,28],
+	settingVars:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],
 	settingsOpts:
 	[
 		{
-			settings:[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,28],
+			settings:[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28],
+			elements:[0,1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
 			hex:[0,1,2,3,4,5]
 		},
 		{
-			settings:[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,28],
+			settings:[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28],
+			elements:[0,1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
 			hex:[0,1,2,3,4,5]
 		},
 		{
-			settings:[0,1,2,3,4,5,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,28],
+			settings:[0,1,2,3,4,5,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28],
+			elements:[0,1,2,3,4,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
 			hex:[0,2,3,4,5]
 		},
 		{
-			settings:[0,1,2,3,4,5,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,28],
+			settings:[0,1,2,3,4,5,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28],
+			elements:[0,1,2,3,4,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
 			hex:[0,2,3,4,5]
 		},
 		{
-			settings:[0,1,2,3,4,5,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,28],
+			settings:[0,1,2,3,4,5,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28],
+			elements:[0,1,2,3,4,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
 			hex:[0,2,3,4,5]
 		},
 		{
-			settings:[0,1,2,3,4,5,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,28],
+			settings:[0,1,2,3,4,5,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28],
+			elements:[0,1,2,3,4,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
 			hex:[0,2,3,4,5]
 		},
 		{
-			settings:[0,1,2,3,4,5,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,28],
+			settings:[0,1,2,3,4,5,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28],
+			elements:[0,1,2,3,4,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
 			hex:[0,2,3,4,5]
 		},
 		{
-			settings:[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,28],
+			settings:[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28],
+			elements:[0,1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
 			hex:[0,1,2,3,4,5]
 		},
 		{
-			settings:[0,1,2,3,4,5,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,28],
+			settings:[0,1,2,3,4,5,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],
 			texts:[0,2,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28],
+			elements:[0,1,2,3,4,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],
 			hex:[0,2,3,4,5]
 		}
 	],
@@ -751,6 +1076,180 @@ const characterScreen=
 		characterScreen.elementDraws[10]=function()
 		{
 			characterScreen.style.draw(-384,-244);
+		};
+//eye
+		characterScreen.selectors[12]={};
+		characterScreen.selectors[12].draw=function()
+		{
+			characterScreen.hexInput.drawSel(-256,-268);
+		};
+		characterScreen.drawHex[2]=function()
+		{
+			characterScreen.hexInput.drawHex(-192,-216,characterScreen.char.eyeColour);
+		};
+		characterScreen.elementDraws[11]=function()
+		{
+			characterScreen.hexInput.draw(-192,-224);
+		};
+		characterScreen.elementDraws[12]=function()
+		{
+			characterScreen.slider.draw(-192,-256,characterScreen.char.eyeColour[0]/255);
+		};
+		characterScreen.selectors[13]={};
+		characterScreen.selectors[13].draw=function()
+		{
+			characterScreen.slider.drawSel(-192,-256,characterScreen.char.eyeColour[0]/255);
+		};
+		characterScreen.elementDraws[13]=function()
+		{
+			characterScreen.slider.draw(-64,-256,characterScreen.char.eyeColour[1]/255);
+		};
+		characterScreen.selectors[14]={};
+		characterScreen.selectors[14].draw=function()
+		{
+			characterScreen.slider.drawSel(-64,-256,characterScreen.char.eyeColour[1]/255);
+		};
+		characterScreen.elementDraws[14]=function()
+		{
+			characterScreen.slider.draw(64,-256,characterScreen.char.eyeColour[2]/255);
+		};
+		characterScreen.selectors[15]={};
+		characterScreen.selectors[15].draw=function()
+		{
+			characterScreen.slider.drawSel(64,-256,characterScreen.char.eyeColour[2]/255);
+		};
+//shirt
+		characterScreen.selectors[16]={};
+		characterScreen.selectors[16].draw=function()
+		{
+			characterScreen.hexInput.drawSel(256,-68);
+		};
+		characterScreen.drawHex[3]=function()
+		{
+			characterScreen.hexInput.drawHex(320,-44,characterScreen.char.shirtColour);
+		};
+		characterScreen.elementDraws[15]=function()
+		{
+			characterScreen.hexInput.draw(320,-52);
+		};
+		characterScreen.elementDraws[16]=function()
+		{
+			characterScreen.slider.draw(256,-88,characterScreen.char.shirtColour[0]/255);
+		};
+		characterScreen.selectors[17]={};
+		characterScreen.selectors[17].draw=function()
+		{
+			characterScreen.slider.drawSel(256,-88,characterScreen.char.shirtColour[0]/255);
+		};
+		characterScreen.elementDraws[17]=function()
+		{
+			characterScreen.slider.draw(256,-120,characterScreen.char.shirtColour[1]/255);
+		};
+		characterScreen.selectors[18]={};
+		characterScreen.selectors[18].draw=function()
+		{
+			characterScreen.slider.drawSel(256,-120,characterScreen.char.shirtColour[1]/255);
+		};
+		characterScreen.elementDraws[18]=function()
+		{
+			characterScreen.slider.draw(256,-152,characterScreen.char.shirtColour[2]/255);
+		};
+		characterScreen.selectors[19]={};
+		characterScreen.selectors[19].draw=function()
+		{
+			characterScreen.slider.drawSel(256,-152,characterScreen.char.shirtColour[2]/255);
+		};
+//pants
+		characterScreen.selectors[20]={};
+		characterScreen.selectors[20].draw=function()
+		{
+			characterScreen.hexInput.drawSel(256,-68);
+		};
+		characterScreen.drawHex[4]=function()
+		{
+			characterScreen.hexInput.drawHex(320,-44,characterScreen.char.pantsColour);
+		};
+		characterScreen.elementDraws[19]=function()
+		{
+			characterScreen.hexInput.draw(320,-52);
+		};
+		characterScreen.elementDraws[20]=function()
+		{
+			characterScreen.slider.draw(256,-88,characterScreen.char.pantsColour[0]/255);
+		};
+		characterScreen.selectors[21]={};
+		characterScreen.selectors[22].draw=function()
+		{
+			characterScreen.slider.drawSel(256,-88,characterScreen.char.pantsColour[0]/255);
+		};
+		characterScreen.elementDraws[21]=function()
+		{
+			characterScreen.slider.draw(256,-120,characterScreen.char.pantsColour[1]/255);
+		};
+		characterScreen.selectors[22]={};
+		characterScreen.selectors[22].draw=function()
+		{
+			characterScreen.slider.drawSel(256,-120,characterScreen.char.pantsColour[1]/255);
+		};
+		characterScreen.elementDraws[22]=function()
+		{
+			characterScreen.slider.draw(256,-152,characterScreen.char.pantsColour[2]/255);
+		};
+		characterScreen.selectors[22]={};
+		characterScreen.selectors[22].draw=function()
+		{
+			characterScreen.slider.drawSel(256,-152,characterScreen.char.pantsColour[2]/255);
+		};
+//shoe
+		characterScreen.selectors[24]={};
+		characterScreen.selectors[24].draw=function()
+		{
+			characterScreen.hexInput.drawSel(256,-68);
+		};
+		characterScreen.drawHex[5]=function()
+		{
+			characterScreen.hexInput.drawHex(320,-44,characterScreen.char.shoeColour);
+		};
+		characterScreen.elementDraws[23]=function()
+		{
+			characterScreen.hexInput.draw(320,-52);
+		};
+		characterScreen.elementDraws[24]=function()
+		{
+			characterScreen.slider.draw(256,-88,characterScreen.char.shoeColour[0]/255);
+		};
+		characterScreen.selectors[25]={};
+		characterScreen.selectors[25].draw=function()
+		{
+			characterScreen.slider.drawSel(256,-88,characterScreen.char.shoeColour[0]/255);
+		};
+		characterScreen.elementDraws[25]=function()
+		{
+			characterScreen.slider.draw(256,-120,characterScreen.char.shoeColour[1]/255);
+		};
+		characterScreen.selectors[26]={};
+		characterScreen.selectors[26].draw=function()
+		{
+			characterScreen.slider.drawSel(256,-120,characterScreen.char.shoeColour[1]/255);
+		};
+		characterScreen.elementDraws[26]=function()
+		{
+			characterScreen.slider.draw(256,-152,characterScreen.char.shoeColour[2]/255);
+		};
+		characterScreen.selectors[27]={};
+		characterScreen.selectors[27].draw=function()
+		{
+			characterScreen.slider.drawSel(256,-152,characterScreen.char.shoeColour[2]/255);
+		};
+//body
+		characterScreen.selectors[28]={};
+		characterScreen.selectors[28].draw=function()
+		{
+			characterScreen.style.drawSel(256,-272);
+		};
+		characterScreen.elementDraws[27]=function()
+		{
+			characterScreen.style.draw(256,-272);
 		};
 	},
 	keyDown(k)
