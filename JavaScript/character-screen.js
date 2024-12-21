@@ -104,64 +104,142 @@ const characterScreen=
 			},
 			plus(){},
 			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.hexPart=Math.floor(utils.properMod((characterScreen.hexPart+a),6));
+			},
+			plus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.detailColour[0]=utils.clamp(Math.floor(characterScreen.char.detailColour[0]+16),0,255);
+						break;
+					case 1:
+						characterScreen.char.detailColour[0]=utils.clamp(Math.floor(characterScreen.char.detailColour[0]+1),0,255);
+						break;
+					case 2:
+						characterScreen.char.detailColour[1]=utils.clamp(Math.floor(characterScreen.char.detailColour[1]+16),0,255);
+						break;
+					case 3:
+						characterScreen.char.detailColour[1]=utils.clamp(Math.floor(characterScreen.char.detailColour[1]+1),0,255);
+						break;
+					case 4:
+						characterScreen.char.detailColour[2]=utils.clamp(Math.floor(characterScreen.char.detailColour[2]+16),0,255);
+						break;
+					case 5:
+						characterScreen.char.detailColour[2]=utils.clamp(Math.floor(characterScreen.char.detailColour[2]+1),0,255);
+						break;
+				}
+			},
+			minus()
+			{
+				switch(characterScreen.hexPart)
+				{
+					case 0:
+						characterScreen.char.detailColour[0]=utils.clamp(Math.floor(characterScreen.char.detailColour[0]-16),0,255);
+						break;
+					case 1:
+						characterScreen.char.detailColour[0]=utils.clamp(Math.floor(characterScreen.char.detailColour[0]-1),0,255);
+						break;
+					case 2:
+						characterScreen.char.detailColour[1]=utils.clamp(Math.floor(characterScreen.char.detailColour[1]-16),0,255);
+						break;
+					case 3:
+						characterScreen.char.detailColour[1]=utils.clamp(Math.floor(characterScreen.char.detailColour[1]-1),0,255);
+						break;
+					case 4:
+						characterScreen.char.detailColour[2]=utils.clamp(Math.floor(characterScreen.char.detailColour[2]-16),0,255);
+						break;
+					case 5:
+						characterScreen.char.detailColour[2]=utils.clamp(Math.floor(characterScreen.char.detailColour[2]-1),0,255);
+						break;
+				}
+			}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.detailColour[0]=utils.clamp((characterScreen.char.detailColour[0]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.detailColour[1]=utils.clamp((characterScreen.char.detailColour[1]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.detailColour[2]=utils.clamp((characterScreen.char.detailColour[2]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
 		}
 	],
-	settingVars:[0,1,2,3,4,5],
+	settingVars:[0,1,2,3,4,5,6,7,8,9],
 	settingsOpts:
 	[
 		{
+			settings:[0,1,2,3,4,5,6,7,8,9],
+			texts:[0,1,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4,5,6,7,8],
+			hex:[0,1]
+		},
+		{
+			settings:[0,1,2,3,4,5,6,7,8,9],
+			texts:[0,1,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4,5,6,7,8],
+			hex:[0,1]
+		},
+		{
+			settings:[0,1,2,3,4,5],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4],
+			hex:[0]
+		},
+		{
+			settings:[0,1,2,3,4,5],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4],
+			hex:[0]
+		},
+		{
+			settings:[0,1,2,3,4,5],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4],
+			hex:[0]
+		},
+		{
+			settings:[0,1,2,3,4,5],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4],
+			hex:[0]
+		},
+		{
+			settings:[0,1,2,3,4,5],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4],
+			hex:[0]
+		},
+		{
 			settings:[0,1,2,3,4,5],
 			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0,1,2,3,4],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
+			settings:[0,1,2,3,4,5,6,7,8,9],
 			texts:[0,2,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
+			elements:[0,1,2,3,4,5,6,7,8],
+			hex:[0,1]
 		}
 	],
 	keys:
@@ -584,6 +662,47 @@ const characterScreen=
 		characterScreen.selectors[5].draw=function()
 		{
 			characterScreen.slider.drawSel(-384,-16,characterScreen.char.hairColour[2]/255);
+		};
+//detail
+		characterScreen.selectors[6]={};
+		characterScreen.selectors[6].draw=function()
+		{
+			characterScreen.hexInput.drawSel(-384,-68);
+		};
+		characterScreen.drawHex[1]=function()
+		{
+			characterScreen.hexInput.drawHex(-320,-44,characterScreen.char.detailColour);
+		};
+		characterScreen.elementDraws[4]=function()
+		{
+			characterScreen.hexInput.draw(-320,-52);
+		};
+		characterScreen.elementDraws[5]=function()
+		{
+			characterScreen.slider.draw(-384,-88,characterScreen.char.detailColour[0]/255);
+		};
+		characterScreen.selectors[7]={};
+		characterScreen.selectors[7].draw=function()
+		{
+			characterScreen.slider.drawSel(-384,-88,characterScreen.char.detailColour[0]/255);
+		};
+		characterScreen.elementDraws[6]=function()
+		{
+			characterScreen.slider.draw(-384,-120,characterScreen.char.detailColour[1]/255);
+		};
+		characterScreen.selectors[8]={};
+		characterScreen.selectors[8].draw=function()
+		{
+			characterScreen.slider.drawSel(-384,-120,characterScreen.char.detailColour[1]/255);
+		};
+		characterScreen.elementDraws[7]=function()
+		{
+			characterScreen.slider.draw(-384,-152,characterScreen.char.detailColour[2]/255);
+		};
+		characterScreen.selectors[9]={};
+		characterScreen.selectors[9].draw=function()
+		{
+			characterScreen.slider.drawSel(-384,-152,characterScreen.char.detailColour[2]/255);
 		};
 	},
 	keyDown(k)
