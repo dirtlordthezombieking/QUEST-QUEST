@@ -714,8 +714,8 @@ const characterScreen=
 		};
 //style
 		characterScreen.style={};
-		characterScreen.style.back=characterScreen.createRegionElement(0,0,64,64,0,0,0.5,1,loader.items["UI/arrows_small.png"].texture.value),
-		characterScreen.style.forward=characterScreen.createRegionElement(0,0,64,64,0.5,0,0.5,1,loader.items["UI/arrows_small.png"].texture.value),
+		characterScreen.style.back=characterScreen.createRegionElement(0,0,32,32,0,0,0.5,1,loader.items["UI/arrows_small.png"].texture.value),
+		characterScreen.style.forward=characterScreen.createRegionElement(0,0,32,32,0.5,0,0.5,1,loader.items["UI/arrows_small.png"].texture.value),
 		characterScreen.style.sel=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
 		characterScreen.style.draw=function(x,y)
 		{
@@ -729,11 +729,11 @@ const characterScreen=
 		characterScreen.selectors[10]={};
 		characterScreen.selectors[10].draw=function()
 		{
-			characterScreen.style.drawSel(0,-204);
+			characterScreen.style.drawSel(-384,-204);
 		};
 		characterScreen.elementDraws[9]=function()
 		{
-			characterScreen.style.draw(0,-204);
+			characterScreen.style.draw(-384,-204);
 		};
 	},
 	keyDown(k)
