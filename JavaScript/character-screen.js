@@ -1245,11 +1245,11 @@ const characterScreen=
 		characterScreen.selectors[28]={};
 		characterScreen.selectors[28].draw=function()
 		{
-			characterScreen.style.drawSel(256,-272);
+			characterScreen.style.drawSel(256,-268);
 		};
 		characterScreen.elementDraws[27]=function()
 		{
-			characterScreen.style.draw(256,-272);
+			characterScreen.style.draw(256,-268);
 		};
 	},
 	keyDown(k)
@@ -1304,6 +1304,9 @@ const characterScreen=
 					break;
 				case "NumpadSubtract":
 						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].minus();
+					break;
+				case "KeyE":
+					navigator.clipboard.writeText(JSON.stringify(characterScreen.char));
 					break;
 			}
 		}
