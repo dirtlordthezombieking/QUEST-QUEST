@@ -187,22 +187,22 @@ const characterRenderer=
 //hair_under
 			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
 //shoes
-				characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
+			characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
 //pants
-				characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
+			characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
 //shirt
-				characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
+			characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
 //eye
-				characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
 //iris
-				characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
 //eyebrows
-				characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
+			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
 //hair over
-				characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
+			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
 //detail
-				characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],data.detailColour);
-				characterRenderer.drawPart(6characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],[data.skin[0],data.skin[1]*0.9,data.skin[2]*0.9]);
+			characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],data.detailColour);
+			characterRenderer.drawPart(6characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],[data.skin[0],data.skin[1]*0.9,data.skin[2]*0.9]);
 		}
 	},
 	draw(data,x,y,dir,frame)
