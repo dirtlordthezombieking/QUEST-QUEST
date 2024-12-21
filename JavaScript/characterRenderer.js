@@ -13,7 +13,7 @@ const characterRenderer=
 
 			["sprite/detail/beastfolk/fur/001.png" ,"texture"],
 			["sprite/detail/beastfolk/skin/001.png","texture"],
-			["sprite/detail/demons/horns/001.png"  ,"texture"],
+			["sprite/detail/demon/horns/001.png"  ,"texture"],
 			["sprite/detail/fishfolk/back/00.png"  ,"texture"],
 			["sprite/detail/fishfolk/back/01.png"  ,"texture"],
 			["sprite/detail/fishfolk/back/10.png"  ,"texture"],
@@ -88,7 +88,7 @@ const characterRenderer=
 				{
 					horns:
 					[
-						loader.items["sprite/detail/demons/horns/001.png"].texture.value
+						loader.items["sprite/detail/demon/horns/001.png"].texture.value
 					]
 				},
 				fishfolk:
