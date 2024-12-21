@@ -557,6 +557,31 @@ const characterScreen=
 				characterScreen.arrows.forward.draw(0,0);
 			}
 		};
+//hair sliders
+		characterScreen.elementDraws[2]=function()
+		{
+			characterScreen.slider.draw(48,0,characterScreen.char.hairColour[0]/255);
+		};
+		characterScreen.selectors[3].draw=function()
+		{
+			characterScreen.slider.drawSel(48,0,characterScreen.char.hairColour[0]/255);
+		};
+		characterScreen.elementDraws[3]=function()
+		{
+			characterScreen.slider.draw(48,0,characterScreen.char.hairColour[1]/255);
+		};
+		characterScreen.selectors[4].draw=function()
+		{
+			characterScreen.slider.drawSel(48,0,characterScreen.char.hairColour[1]/255);
+		};
+		characterScreen.elementDraws[4]=function()
+		{
+			characterScreen.slider.draw(48,0,characterScreen.char.hairColour[2]/255);
+		};
+		characterScreen.selectors[5].draw=function()
+		{
+			characterScreen.slider.drawSel(48,0,characterScreen.char.hairColour[2]/255);
+		};
 	},
 	keyDown(k)
 	{
