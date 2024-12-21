@@ -22,7 +22,7 @@ const characterScreen=
 		{
 			change(a)
 			{
-				characterScreen.skinTone=utils.properMod((characterScreen.skinTone+a),130);
+				characterScreen.skinTone=utils.clamp((characterScreen.skinTone+a),0,130);
 			},
 			plus(){},
 			minus(){}
