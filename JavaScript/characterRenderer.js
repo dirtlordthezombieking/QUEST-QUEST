@@ -1,6 +1,6 @@
 const characterRenderer=
 {
-	methods'[],
+	methods:[],
 	dirs:[0,0.25,0,0.5,0.75],
 	load()
 	{
@@ -457,7 +457,7 @@ const characterRenderer=
 	},
 	draw(data,x,y,dir,frame)
 	{
-		characterRenderer.methods[data.race](data,x,y,dir/4,dirs[frame]);
+		characterRenderer.methods[data.race](data,x,y,frame/4,characterRenderer.dirs[dir]);
 	},
 	drawPart(texture,colour)
 	{
