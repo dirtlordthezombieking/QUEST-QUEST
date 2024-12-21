@@ -457,7 +457,7 @@ const characterRenderer=
 	},
 	draw(data,x,y,dir,frame)
 	{
-		methods[data.race].draw(data,x,y,dir/4,dirs[frame]);
+		characterRenderer.methods[data.race](data,x,y,dir/4,dirs[frame]);
 	},
 	drawPart(texture,colour)
 	{
