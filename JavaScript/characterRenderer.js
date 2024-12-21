@@ -13,7 +13,7 @@ const characterRenderer=
 
 			["sprite/detail/beastfolk/fur/001.png" ,"texture"],
 			["sprite/detail/beastfolk/skin/001.png","texture"],
-			["sprite/detail/demon/horns/001.png"  ,"texture"],
+			["sprite/detail/demon/horns/001.png"   ,"texture"],
 			["sprite/detail/fishfolk/back/00.png"  ,"texture"],
 			["sprite/detail/fishfolk/back/01.png"  ,"texture"],
 			["sprite/detail/fishfolk/back/10.png"  ,"texture"],
@@ -44,7 +44,7 @@ const characterRenderer=
 			["sprite/shirt/001/10.png"             ,"texture"],
 			["sprite/shirt/001/11.png"             ,"texture"],
 
-			["sprite/shoes/basic"                  ,"texture"],
+			["sprite/shoes/basic.png"              ,"texture"],
 
 			["sprite/00.png"                       ,"texture"],
 			["sprite/01.png"                       ,"texture"],
@@ -167,7 +167,7 @@ const characterRenderer=
 			],
 			shoes:
 			[
-				loader.items["sprite/shoes/basic"].texture.value
+				loader.items["sprite/shoes/basic.png"].texture.value
 			],
 			body:
 			[
