@@ -1306,7 +1306,7 @@ const characterScreen=
 						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].minus();
 					break;
 				case "KeyE":
-					navigator.clipboard.writeText(JSON.stringify(characterScreen.char));
+					navigator.clipboard.writeText(JSON.stringify(characterScreen.char,null,"\t"));
 					break;
 			}
 		}
