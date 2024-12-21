@@ -30,7 +30,7 @@ const characterRenderer=
 			["sprite/eyebrows/thick.png"           ,"texture"],
 
 			["sprite/eyes/base/001.png"            ,"texture"],
-			["sprite/eyes/base/001.png"            ,"texture"],
+			["sprite/eyes/iris/001.png"            ,"texture"],
 
 			["sprite/hair/001.png"                 ,"texture"],
 			["sprite/hair/002.png"                 ,"texture"],
