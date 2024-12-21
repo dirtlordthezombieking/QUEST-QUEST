@@ -1,6 +1,7 @@
 //const loader={};
 //const game={};
 //const utils={};
+//const characterRenderer={};
 //function Float32Array(){}
 const characterScreen=
 {
@@ -303,7 +304,7 @@ const characterScreen=
 		characterRenderer.draw(characterScreen.char,-70,  8,0,Math.floor((t%1000)/250));
 		characterRenderer.draw(characterScreen.char,  8,  8,1,Math.floor((t%1000)/250));
 		characterRenderer.draw(characterScreen.char,-70,-70,2,Math.floor((t%1000)/250));
-		characterRenderer.draw(characterScreen.char,  8,-70,3Math.floor(,(t%1000)/250));
+		characterRenderer.draw(characterScreen.char,  8,-70,3,Math.floor((t%1000)/250));
 	},
 	retrieve()
 	{
