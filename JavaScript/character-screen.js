@@ -186,6 +186,14 @@ const characterScreen=
 		{
 			change(a)
 			{
+				characterScreen.char.hairStyle=Math.floor(utils.properMod((characterScreen.char.hairStyle+a),2));
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
 				characterScreen.char.detailStyle=Math.floor(utils.properMod((characterScreen.char.detailStyle+a),2));
 			},
 			plus(){},
@@ -196,57 +204,57 @@ const characterScreen=
 	settingsOpts:
 	[
 		{
-			settings:[0,1,2,3,4,5,6,7,8,9],
+			settings:[0,1,2,3,4,5,6,7,8,9,10],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,5,6,7,8],
+			elements:[0,1,2,3,4,5,6,7,8,9],
 			hex:[0,1]
 		},
 		{
-			settings:[0,1,2,3,4,5,6,7,8,9],
+			settings0,1,2,3,4,5,6,7,8,9,10],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,5,6,7,8],
-			hex:[0,1]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
-			settings:[0,1,2,3,4,5,6,7,8,9],
-			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4,5,6,7,8],
+			elements:[0,1,2,3,4,5,6,7,8,9],
 			hex:[0,1]
 		},
 		{
 			settings:[0,1,2,3,4,5,10],
-			texts:[0,2,3,4,5,6,7,8,9],
+			texts:[0,3,4,5,6,7,8,9],
 			elements:[0,1,2,3,4,9],
+			hex:[0]
+		},
+		{
+			settings:[0,1,2,3,4,5,10],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4,9],
+			hex:[0]
+		},
+		{
+			settings:[0,1,2,3,4,5,10],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4,9],
+			hex:[0]
+		},
+		{
+			settings:[0,1,2,3,4,5,10],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4,9],
+			hex:[0]
+		},
+		{
+			settings:[0,1,2,3,4,5,10],
+			texts:[0,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4,9],
+			hex:[0]
+		},
+		{
+			settings:[0,1,2,3,4,5,6,7,8,9,10],
+			texts:[0,1,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4,5,6,7,8,9],
+			hex:[0,1]
+		},
+		{
+			settings:[0,1,2,3,4,5,10,11],
+			texts:[0,2,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4,9,10],
 			hex:[0]
 		}
 	],
@@ -734,6 +742,15 @@ const characterScreen=
 		characterScreen.elementDraws[9]=function()
 		{
 			characterScreen.style.draw(-384,-204);
+		};
+		characterScreen.selectors[11]={};
+		characterScreen.selectors[11].draw=function()
+		{
+			characterScreen.style.drawSel(-384,-256);
+		};
+		characterScreen.elementDraws[10]=function()
+		{
+			characterScreen.style.draw(-384,-256);
 		};
 	},
 	keyDown(k)
