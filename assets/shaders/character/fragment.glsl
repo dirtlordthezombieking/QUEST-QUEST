@@ -1,7 +1,7 @@
 precision mediump float;
 varying vec2 v_uv;
 uniform sampler2D u_tex;
-varying vec3 u_col;
+uniform vec3 u_col;
 void main()
 {
 	vec4 tex=texture2D(u_tex,v_uv);
