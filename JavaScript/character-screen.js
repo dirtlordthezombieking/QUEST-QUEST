@@ -1178,7 +1178,7 @@ const characterScreen=
 			characterScreen.slider.draw(256,-16,characterScreen.char.pantsColour[0]/255);
 		};
 		characterScreen.selectors[21]={};
-		characterScreen.selectors[22].draw=function()
+		characterScreen.selectors[21].draw=function()
 		{
 			characterScreen.slider.drawSel(256,-16,characterScreen.char.pantsColour[0]/255);
 		};
