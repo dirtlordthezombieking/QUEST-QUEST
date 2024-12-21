@@ -106,61 +106,61 @@ const characterScreen=
 			minus(){}
 		}
 	],
-	settingVars:[0,1,2],
+	settingVars:[0,1,2,2,3,4],
 	settingsOpts:
 	[
 		{
-			settings:[0,1,2],
+			settings:[0,1,2,2,3,4],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1],
+			elements:[0,1,2,2,3],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2],
+			settings:[0,1,2,2,3,4],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1],
+			elements:[0,1,2,2,3],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2],
+			settings:[0,1,2,2,3,4],
 			texts:[0,3,4,5,6,7,8,9],
 			elements:[0,1],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2],
+			settings:[0,1,2,2,3,4],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1],
+			elements:[0,1,2,2,3],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2],
+			settings:[0,1,2,2,3,4],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1],
+			elements:[0,1,2,2,3],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2],
+			settings:[0,1,2,2,3,4],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1],
+			elements:[0,1,2,2,3],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2],
+			settings:[0,1,2,2,3,4],
 			texts:[0,3,4,5,6,7,8,9],
-			elements:[0,1],
+			elements:[0,1,2,2,3],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2],
+			settings:[0,1,2,2,3,4],
 			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1],
+			elements:[0,1,2,2,3],
 			hex:[0]
 		},
 		{
-			settings:[0,1,2],
+			settings:[0,1,2,2,3,4],
 			texts:[0,2,3,4,5,6,7,8,9],
-			elements:[0,1],
+			elements:[0,1,2,2,3],
 			hex:[0]
 		}
 	],
