@@ -714,8 +714,8 @@ const characterScreen=
 		};
 //style
 		characterScreen.style={};
-		characterScreen.style.back=characterScreen.createRegionElement(-320,192,64,64,0,0,0.5,1,loader.items["UI/arrows_small.png"].texture.value),
-		characterScreen.style.forward=characterScreen.createRegionElement(288,192,64,64,0.5,0,1,0.5,loader.items["UI/arrows_small.png"].texture.value),
+		characterScreen.style.back=characterScreen.createRegionElement(0,0,64,64,0,0,0.5,1,loader.items["UI/arrows_small.png"].texture.value),
+		characterScreen.style.forward=characterScreen.createRegionElement(0,0,64,64,0.5,0,0.5,1,loader.items["UI/arrows_small.png"].texture.value),
 		characterScreen.style.sel=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
 		characterScreen.style.draw=function(x,y)
 		{
