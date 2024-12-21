@@ -562,6 +562,7 @@ const characterScreen=
 		{
 			characterScreen.slider.draw(0,48,characterScreen.char.hairColour[0]/255);
 		};
+		characterScreen.selectors[3]={};
 		characterScreen.selectors[3].draw=function()
 		{
 			characterScreen.slider.drawSel(0,48,characterScreen.char.hairColour[0]/255);
@@ -570,6 +571,7 @@ const characterScreen=
 		{
 			characterScreen.slider.draw(0,16,characterScreen.char.hairColour[1]/255);
 		};
+		characterScreen.selectors[4]={};
 		characterScreen.selectors[4].draw=function()
 		{
 			characterScreen.slider.drawSel(0,16,characterScreen.char.hairColour[1]/255);
@@ -578,6 +580,7 @@ const characterScreen=
 		{
 			characterScreen.slider.draw(0,-16,characterScreen.char.hairColour[2]/255);
 		};
+		characterScreen.selectors[5]={};
 		characterScreen.selectors[5].draw=function()
 		{
 			characterScreen.slider.drawSel(0,-16,characterScreen.char.hairColour[2]/255);
