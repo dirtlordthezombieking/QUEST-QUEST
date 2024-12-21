@@ -334,7 +334,7 @@ const characterRenderer=
 			characterRenderer.drawPart(characterRenderer.graphics.ears[0],data.skin);
 		};
 //goblin
-		characterRenderer.methods[3]=function(data,x,y,dir,frame)
+		characterRenderer.methods[5]=function(data,x,y,dir,frame)
 		{
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
 			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
@@ -364,7 +364,7 @@ const characterRenderer=
 			characterRenderer.drawPart(characterRenderer.graphics.ears[2],data.skin);
 		};
 //human
-		characterRenderer.methods[3]=function(data,x,y,dir,frame)
+		characterRenderer.methods[6]=function(data,x,y,dir,frame)
 		{
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
 			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
@@ -394,7 +394,7 @@ const characterRenderer=
 			characterRenderer.drawPart(characterRenderer.graphics.ears[0],data.skin);
 		};
 //nephilim
-		characterRenderer.methods[3]=function(data,x,y,dir,frame)
+		characterRenderer.methods[7]=function(data,x,y,dir,frame)
 		{
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
 			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
@@ -426,7 +426,7 @@ const characterRenderer=
 			characterRenderer.drawPart(characterRenderer.graphics.ears[0],data.skin);
 		};
 //vampire
-		characterRenderer.methods[3]=function(data,x,y,dir,frame)
+		characterRenderer.methods[8]=function(data,x,y,dir,frame)
 		{
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
 			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
@@ -455,12 +455,12 @@ const characterRenderer=
 //ears
 			characterRenderer.drawPart(characterRenderer.graphics.ears[2],data.skin);
 //details
-			characterRenderer.drawPart(characterRenderer.graphics.detail.vapire.fangs[data.detailStyle%2],[255,255,255]);
+			characterRenderer.drawPart(characterRenderer.graphics.detail.vampire.fangs[data.detailStyle%2],[255,255,255]);
 		};
 	},
 	draw(data,x,y,dir,frame)
 	{
-		//characterRenderer.methods[data.race](data,x,y,frame/4,characterRenderer.dirs[dir]);
+		characterRenderer.methods[data.race](data,x,y,frame/4,characterRenderer.dirs[dir]);
 	},
 	drawPart(texture,colour)
 	{
