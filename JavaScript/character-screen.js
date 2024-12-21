@@ -839,7 +839,7 @@ const characterScreen=
 			["UI/text/character creation/body_type.png"    , 288,-268],
 			["UI/text/character creation/detail_colour.png",-384, -68],
 			["UI/text/character creation/detail_style.png" ,-352,-244],
-			["UI/text/character creation/eye_colour.png"   ,-256,-256],
+			["UI/text/character creation/eye_colour.png"   ,-256,-240],
 			["UI/text/character creation/hair_colour.png"  ,-384,  68],
 			["UI/text/character creation/hair_style.png"   ,-352,-204],
 			["UI/text/character creation/pants_colour.png" , 256,   4],
@@ -1081,7 +1081,7 @@ const characterScreen=
 		characterScreen.selectors[12]={};
 		characterScreen.selectors[12].draw=function()
 		{
-			characterScreen.hexInput.drawSel(-256,-268);
+			characterScreen.hexInput.drawSel(-256,-240);
 		};
 		characterScreen.drawHex[2]=function()
 		{
@@ -1122,15 +1122,15 @@ const characterScreen=
 		characterScreen.selectors[16]={};
 		characterScreen.selectors[16].draw=function()
 		{
-			characterScreen.hexInput.drawSel(256,128);
+			characterScreen.hexInput.drawSel(256,140);
 		};
 		characterScreen.drawHex[3]=function()
 		{
-			characterScreen.hexInput.drawHex(320,152,characterScreen.char.shirtColour);
+			characterScreen.hexInput.drawHex(320,164,characterScreen.char.shirtColour);
 		};
 		characterScreen.elementDraws[15]=function()
 		{
-			characterScreen.hexInput.draw(320,144);
+			characterScreen.hexInput.draw(320,156);
 		};
 		characterScreen.elementDraws[16]=function()
 		{
@@ -1163,15 +1163,15 @@ const characterScreen=
 		characterScreen.selectors[20]={};
 		characterScreen.selectors[20].draw=function()
 		{
-			characterScreen.hexInput.drawSel(256,-8);
+			characterScreen.hexInput.drawSel(256,4);
 		};
 		characterScreen.drawHex[4]=function()
 		{
-			characterScreen.hexInput.drawHex(320,16,characterScreen.char.pantsColour);
+			characterScreen.hexInput.drawHex(320,28,characterScreen.char.pantsColour);
 		};
 		characterScreen.elementDraws[19]=function()
 		{
-			characterScreen.hexInput.draw(320,8);
+			characterScreen.hexInput.draw(320,20);
 		};
 		characterScreen.elementDraws[20]=function()
 		{
@@ -1204,15 +1204,15 @@ const characterScreen=
 		characterScreen.selectors[24]={};
 		characterScreen.selectors[24].draw=function()
 		{
-			characterScreen.hexInput.drawSel(256,-146);
+			characterScreen.hexInput.drawSel(256,-134);
 		};
 		characterScreen.drawHex[5]=function()
 		{
-			characterScreen.hexInput.drawHex(320,-120,characterScreen.char.shoeColour);
+			characterScreen.hexInput.drawHex(320,-108,characterScreen.char.shoeColour);
 		};
 		characterScreen.elementDraws[23]=function()
 		{
-			characterScreen.hexInput.draw(320,-128);
+			characterScreen.hexInput.draw(320,-116);
 		};
 		characterScreen.elementDraws[24]=function()
 		{
