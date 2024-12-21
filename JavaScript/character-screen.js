@@ -1122,124 +1122,124 @@ const characterScreen=
 		characterScreen.selectors[16]={};
 		characterScreen.selectors[16].draw=function()
 		{
-			characterScreen.hexInput.drawSel(256,-68);
+			characterScreen.hexInput.drawSel(256,128);
 		};
 		characterScreen.drawHex[3]=function()
 		{
-			characterScreen.hexInput.drawHex(320,-44,characterScreen.char.shirtColour);
+			characterScreen.hexInput.drawHex(320,152,characterScreen.char.shirtColour);
 		};
 		characterScreen.elementDraws[15]=function()
 		{
-			characterScreen.hexInput.draw(320,-52);
+			characterScreen.hexInput.draw(320,144);
 		};
 		characterScreen.elementDraws[16]=function()
 		{
-			characterScreen.slider.draw(256,-88,characterScreen.char.shirtColour[0]/255);
+			characterScreen.slider.draw(256,120,characterScreen.char.shirtColour[0]/255);
 		};
 		characterScreen.selectors[17]={};
 		characterScreen.selectors[17].draw=function()
 		{
-			characterScreen.slider.drawSel(256,-88,characterScreen.char.shirtColour[0]/255);
+			characterScreen.slider.drawSel(256,120,characterScreen.char.shirtColour[0]/255);
 		};
 		characterScreen.elementDraws[17]=function()
 		{
-			characterScreen.slider.draw(256,-120,characterScreen.char.shirtColour[1]/255);
+			characterScreen.slider.draw(256,88,characterScreen.char.shirtColour[1]/255);
 		};
 		characterScreen.selectors[18]={};
 		characterScreen.selectors[18].draw=function()
 		{
-			characterScreen.slider.drawSel(256,-120,characterScreen.char.shirtColour[1]/255);
+			characterScreen.slider.drawSel(256,88,characterScreen.char.shirtColour[1]/255);
 		};
 		characterScreen.elementDraws[18]=function()
 		{
-			characterScreen.slider.draw(256,-152,characterScreen.char.shirtColour[2]/255);
+			characterScreen.slider.draw(256,55,characterScreen.char.shirtColour[2]/255);
 		};
 		characterScreen.selectors[19]={};
 		characterScreen.selectors[19].draw=function()
 		{
-			characterScreen.slider.drawSel(256,-152,characterScreen.char.shirtColour[2]/255);
+			characterScreen.slider.drawSel(256,56,characterScreen.char.shirtColour[2]/255);
 		};
 //pants
 		characterScreen.selectors[20]={};
 		characterScreen.selectors[20].draw=function()
 		{
-			characterScreen.hexInput.drawSel(256,-68);
+			characterScreen.hexInput.drawSel(256,-8);
 		};
 		characterScreen.drawHex[4]=function()
 		{
-			characterScreen.hexInput.drawHex(320,-44,characterScreen.char.pantsColour);
+			characterScreen.hexInput.drawHex(320,16,characterScreen.char.pantsColour);
 		};
 		characterScreen.elementDraws[19]=function()
 		{
-			characterScreen.hexInput.draw(320,-52);
+			characterScreen.hexInput.draw(320,8);
 		};
 		characterScreen.elementDraws[20]=function()
 		{
-			characterScreen.slider.draw(256,-88,characterScreen.char.pantsColour[0]/255);
+			characterScreen.slider.draw(256,-16,characterScreen.char.pantsColour[0]/255);
 		};
 		characterScreen.selectors[21]={};
 		characterScreen.selectors[22].draw=function()
 		{
-			characterScreen.slider.drawSel(256,-88,characterScreen.char.pantsColour[0]/255);
+			characterScreen.slider.drawSel(256,-16,characterScreen.char.pantsColour[0]/255);
 		};
 		characterScreen.elementDraws[21]=function()
 		{
-			characterScreen.slider.draw(256,-120,characterScreen.char.pantsColour[1]/255);
+			characterScreen.slider.draw(256,48,characterScreen.char.pantsColour[1]/255);
 		};
 		characterScreen.selectors[22]={};
 		characterScreen.selectors[22].draw=function()
 		{
-			characterScreen.slider.drawSel(256,-120,characterScreen.char.pantsColour[1]/255);
+			characterScreen.slider.drawSel(256,48,characterScreen.char.pantsColour[1]/255);
 		};
 		characterScreen.elementDraws[22]=function()
 		{
-			characterScreen.slider.draw(256,-152,characterScreen.char.pantsColour[2]/255);
+			characterScreen.slider.draw(256,-80,characterScreen.char.pantsColour[2]/255);
 		};
 		characterScreen.selectors[22]={};
 		characterScreen.selectors[22].draw=function()
 		{
-			characterScreen.slider.drawSel(256,-152,characterScreen.char.pantsColour[2]/255);
+			characterScreen.slider.drawSel(256,-80,characterScreen.char.pantsColour[2]/255);
 		};
 //shoe
 		characterScreen.selectors[24]={};
 		characterScreen.selectors[24].draw=function()
 		{
-			characterScreen.hexInput.drawSel(256,-68);
+			characterScreen.hexInput.drawSel(256,-146);
 		};
 		characterScreen.drawHex[5]=function()
 		{
-			characterScreen.hexInput.drawHex(320,-44,characterScreen.char.shoeColour);
+			characterScreen.hexInput.drawHex(320,-120,characterScreen.char.shoeColour);
 		};
 		characterScreen.elementDraws[23]=function()
 		{
-			characterScreen.hexInput.draw(320,-52);
+			characterScreen.hexInput.draw(320,-128);
 		};
 		characterScreen.elementDraws[24]=function()
 		{
-			characterScreen.slider.draw(256,-88,characterScreen.char.shoeColour[0]/255);
+			characterScreen.slider.draw(256,-152,characterScreen.char.shoeColour[0]/255);
 		};
 		characterScreen.selectors[25]={};
 		characterScreen.selectors[25].draw=function()
 		{
-			characterScreen.slider.drawSel(256,-88,characterScreen.char.shoeColour[0]/255);
+			characterScreen.slider.drawSel(256,-152,characterScreen.char.shoeColour[0]/255);
 		};
 		characterScreen.elementDraws[25]=function()
 		{
-			characterScreen.slider.draw(256,-120,characterScreen.char.shoeColour[1]/255);
+			characterScreen.slider.draw(256,-184,characterScreen.char.shoeColour[1]/255);
 		};
 		characterScreen.selectors[26]={};
 		characterScreen.selectors[26].draw=function()
 		{
-			characterScreen.slider.drawSel(256,-120,characterScreen.char.shoeColour[1]/255);
+			characterScreen.slider.drawSel(256,-184,characterScreen.char.shoeColour[1]/255);
 		};
 		characterScreen.elementDraws[26]=function()
 		{
-			characterScreen.slider.draw(256,-152,characterScreen.char.shoeColour[2]/255);
+			characterScreen.slider.draw(256,-216,characterScreen.char.shoeColour[2]/255);
 		};
 		characterScreen.selectors[27]={};
 		characterScreen.selectors[27].draw=function()
 		{
-			characterScreen.slider.drawSel(256,-152,characterScreen.char.shoeColour[2]/255);
+			characterScreen.slider.drawSel(256,-216,characterScreen.char.shoeColour[2]/255);
 		};
 //body
 		characterScreen.selectors[28]={};
