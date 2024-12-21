@@ -174,6 +174,7 @@ const characterRenderer=
 				loader.items["sprite/11.png"].texture.value;
 			]
 		}
+//beastfolk
 		characterRenderer.methods[0]=function(data,x,y,dir,frame)
 		{
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
@@ -205,7 +206,8 @@ const characterRenderer=
 //detail
 			characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],data.detailColour);
 			characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.skin[data.detailStyle%1],[data.skin[0],data.skin[1]*0.9,data.skin[2]*0.9]);
-		}
+		};
+//demon
 		characterRenderer.methods[1]=function(data,x,y,dir,frame)
 		{
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
@@ -236,7 +238,222 @@ const characterRenderer=
 			characterRenderer.drawPart(characterRenderer.graphics.ears[2],data.skin);
 //detail
 			characterRenderer.drawPart(characterRenderer.graphics.detail.demon.horns[data.detailStyle%1],data.detailColour);
-		}
+		};
+//dwarf
+		characterRenderer.methods[2]=function(data,x,y,dir,frame)
+		{
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
+			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
+			game.gl.vertexAttribPointer(characterRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterRenderer.posLoc,x,y);
+			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+//body
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin);
+//hair_under
+			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
+//shoes
+			characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
+//pants
+			characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
+//shirt
+			characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
+//eye
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
+//iris
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
+//eyebrows
+			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[1],data.hairColour);
+//hair over
+			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
+//ears
+			characterRenderer.drawPart(characterRenderer.graphics.ears[0],data.skin);
+		};
+//elf
+		characterRenderer.methods[3]=function(data,x,y,dir,frame)
+		{
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
+			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
+			game.gl.vertexAttribPointer(characterRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterRenderer.posLoc,x,y);
+			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+//body
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin);
+//hair_under
+			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
+//shoes
+			characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
+//pants
+			characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
+//shirt
+			characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
+//eye
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
+//iris
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
+//eyebrows
+			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
+//hair over
+			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
+//ears
+			characterRenderer.drawPart(characterRenderer.graphics.ears[2],data.skin);
+		};
+//fisfolk
+		characterRenderer.methods[4]=function(data,x,y,dir,frame)
+		{
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
+			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
+			game.gl.vertexAttribPointer(characterRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterRenderer.posLoc,x,y);
+			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+//body
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],[(data.skin[0]*0.5)+0.5,(data.skin[1]*0.5)+0.5,(data.skin[2]*0.5)+0.5]);
+			characterRenderer.drawPart(characterRenderer.graphics.detail.fishfolk.back[data.bodyType],[data.skin[0]*0.5,data.skin[1]*0.5,data.skin[2]*0.5]);
+//hair_under
+			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
+//shoes
+			characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
+//pants
+			characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
+//shirt
+			characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
+//eye
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
+//iris
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
+//eyebrows
+			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
+//hair over
+			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
+//ears
+			characterRenderer.drawPart(characterRenderer.graphics.ears[0],data.skin);
+		};
+//goblin
+		characterRenderer.methods[3]=function(data,x,y,dir,frame)
+		{
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
+			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
+			game.gl.vertexAttribPointer(characterRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterRenderer.posLoc,x,y);
+			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+//body
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],[data.skin[0]*0.5,data.skin[1],data.skin[2]*0.5]);
+//hair_under
+			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
+//shoes
+			characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
+//pants
+			characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
+//shirt
+			characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
+//eye
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
+//iris
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
+//eyebrows
+			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
+//hair over
+			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
+//ears
+			characterRenderer.drawPart(characterRenderer.graphics.ears[2],data.skin);
+		};
+//human
+		characterRenderer.methods[3]=function(data,x,y,dir,frame)
+		{
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
+			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
+			game.gl.vertexAttribPointer(characterRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterRenderer.posLoc,x,y);
+			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+//body
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin);
+//hair_under
+			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
+//shoes
+			characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
+//pants
+			characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
+//shirt
+			characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
+//eye
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
+//iris
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
+//eyebrows
+			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
+//hair over
+			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
+//ears
+			characterRenderer.drawPart(characterRenderer.graphics.ears[0],data.skin);
+		};
+//nephilim
+		characterRenderer.methods[3]=function(data,x,y,dir,frame)
+		{
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
+			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
+			game.gl.vertexAttribPointer(characterRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterRenderer.posLoc,x,y);
+			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+//body
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin);
+//hair_under
+			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
+//details
+			characterRenderer.drawPart(characterRenderer.graphics.detail.nephilim.halo[0],data.detailColour);
+//shoes
+			characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
+//pants
+			characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
+//shirt
+			characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
+//eye
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
+//iris
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
+//eyebrows
+			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
+//hair over
+			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
+//ears
+			characterRenderer.drawPart(characterRenderer.graphics.ears[0],data.skin);
+		};
+//vampire
+		characterRenderer.methods[3]=function(data,x,y,dir,frame)
+		{
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
+			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
+			game.gl.vertexAttribPointer(characterRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterRenderer.posLoc,x,y);
+			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+//body
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin);
+//hair_under
+			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
+//shoes
+			characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
+//pants
+			characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
+//shirt
+			characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
+//eye
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
+//iris
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
+//eyebrows
+			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
+//hair over
+			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
+//ears
+			characterRenderer.drawPart(characterRenderer.graphics.ears[2],data.skin);
+//details
+			characterRenderer.drawPart(characterRenderer.graphics.detail.vapire.fangs[data.detailStyle%2],[255,255,255]);
+		};
 	},
 	draw(data,x,y,dir,frame)
 	{
@@ -249,15 +466,15 @@ const characterRenderer=
 			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 	}
 };
-//beastfolk
-//demon
-//dwarf
-//elf
-//fishfolk
-//goblin
-//human
-//nephilim
-//vampire
+//beastfolk✓
+//demon✓
+//dwarf✓
+//elf✓
+//fishfolk✓
+//goblin✓
+//human✓
+//nephilim✓
+//vampire✓
 
 
 //skin
@@ -277,3 +494,5 @@ const characterRenderer=
 //shirt type
 //pants type
 //shoe type
+
+//Todo big dwarf ears
