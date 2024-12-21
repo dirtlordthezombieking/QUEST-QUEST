@@ -182,9 +182,17 @@ const characterScreen=
 			},
 			plus(){},
 			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.detailStyle=Math.floor(utils.properMod((characterScreen.char.detailStyle+a),2));
+			},
+			plus(){},
+			minus(){}
 		}
 	],
-	settingVars:[0,1,2,3,4,5,6,7,8,9],
+	settingVars:[0,1,2,3,4,5,6,7,8,9,10],
 	settingsOpts:
 	[
 		{
@@ -230,16 +238,16 @@ const characterScreen=
 			hex:[0]
 		},
 		{
-			settings:[0,1,2,3,4,5],
-			texts:[0,1,3,4,5,6,7,8,9],
-			elements:[0,1,2,3,4],
-			hex:[0]
-		},
-		{
 			settings:[0,1,2,3,4,5,6,7,8,9],
-			texts:[0,2,3,4,5,6,7,8,9],
+			texts:[0,1,3,4,5,6,7,8,9],
 			elements:[0,1,2,3,4,5,6,7,8],
 			hex:[0,1]
+		},
+		{
+			settings:[0,1,2,3,4,5,10],
+			texts:[0,2,3,4,5,6,7,8,9],
+			elements:[0,1,2,3,4,9],
+			hex:[0]
 		}
 	],
 	keys:
@@ -628,7 +636,7 @@ const characterScreen=
 		characterScreen.arrows=
 		{
 			back:characterScreen.createRegionElement(-320,192,64,64,0,0,0.5,1,loader.items["UI/arrows_big.png"].texture.value),
-			forward:characterScreen.createRegionElement(288,192,64,64,0.5,0,1,1,loader.items["UI/arrows_big.png"].texture.value),
+			forward:characterScreen.createRegionElement(288,192,64,64,0.5,0,1,0.5,loader.items["UI/arrows_big.png"].texture.value),
 			draw()
 			{
 				characterScreen.arrows.back.draw(0,0);
@@ -703,6 +711,29 @@ const characterScreen=
 		characterScreen.selectors[9].draw=function()
 		{
 			characterScreen.slider.drawSel(-384,-152,characterScreen.char.detailColour[2]/255);
+		};
+//style
+		characterScreen.style={};
+		characterScreen.style.back=characterScreen.createRegionElement(-320,192,64,64,0,0,0.5,1,loader.items["UI/arrows_small.png"].texture.value),
+		characterScreen.style.forward=characterScreen.createRegionElement(288,192,64,64,0.5,0,1,0.5,loader.items["UI/arrows_small.png"].texture.value),
+		characterScreen.style.sel=characterScreen.createElement(0,0,64,64,loader.items["UI/sellect_text.png"].texture.value);
+		characterScreen.style.draw=function(x,y)
+		{
+			characterScreen.style.back.draw(x,y+16);
+			characterScreen.style.forward.draw(x+96,y+16);
+		};
+		characterScreen.style.drawSel=function(x,y)
+		{
+			characterScreen.style.sel.draw(x+32,y);
+		};
+		characterScreen.selectors[10]={};
+		characterScreen.selectors[10].draw=function()
+		{
+			characterScreen.style.drawSel(0,-204);
+		};
+		characterScreen.elementDraws[9]=function()
+		{
+			characterScreen.style.draw(0,-204);
 		};
 	},
 	keyDown(k)
