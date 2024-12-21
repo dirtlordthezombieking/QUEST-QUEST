@@ -227,7 +227,7 @@ const characterScreen=
 		let st=characterScreen.skinTone;
 		if(characterScreen.race==4)
 		{
-			let st2=st*0.5
+			let st2=st*0.5;
 			let s2=st2-30;
 			if(s2<10.0)
 			{
@@ -278,7 +278,7 @@ const characterScreen=
 				];
 			}
 			st=st2+65;
-			s=st-30
+			s=st-30;
 		}
 		if(s<10.0)
 		{
