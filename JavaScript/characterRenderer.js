@@ -102,7 +102,7 @@ const characterRenderer=
 				{
 					halo:
 					[
-						loader.items["sprite/detail/nephilim/halo/001.png" ].texture.value
+						loader.items["sprite/detail/nephilim/halo/001.png"].texture.value
 					]
 				},
 				vampire:
