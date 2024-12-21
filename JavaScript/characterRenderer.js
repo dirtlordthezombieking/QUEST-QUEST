@@ -51,7 +51,7 @@ const characterRenderer=
 	},
 	retrieve()
 	{
-		characterRenderer.shader=loader.items["character"].shader.vale;
+		characterRenderer.shader=loader.items.character.shader.vale;
                 characterRenderer.dataLoc=game.gl.getAttribLocation(characterRenderer.shader,"a_data");
                 characterRenderer.texLoc=game.gl.getUniformLocation(characterRenderer.shader,"u_tex");
                 characterRenderer.posLoc=game.gl.getUniformLocation(characterRenderer.shader,"u_pos");
