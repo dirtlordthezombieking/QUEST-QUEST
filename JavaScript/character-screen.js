@@ -1305,6 +1305,9 @@ const characterScreen=
 				case "NumpadSubtract":
 						characterScreen.settings[characterScreen.settingVars[characterScreen.settingsOpts[characterScreen.race].settings[characterScreen.choice]]].minus();
 					break;
+				case "KeyE":
+					navigator.clipboard.writeText(text);
+					break;
 			}
 		}
 	},
