@@ -1,6 +1,7 @@
 //const loader={};
 //const game={};
 //const utils={};
+//const characterRenderer={};
 //function Float32Array(){}
 const characterScreen=
 {
@@ -193,6 +194,7 @@ const characterScreen=
 			["UI/text/character creation/race/nephilim.png","texture"],
 			["UI/text/character creation/race/vampire.png","texture"]
 		]);
+		characterRenderer.load();
 	},
 	draw(d,t)
 	{
@@ -207,7 +209,7 @@ const characterScreen=
 				characterScreen.skinTone*0.9
 			];
 		}
-    else if(s<90.0)
+		else if(s<90.0)
 		{
 			let s2=s*s;
 			let s3=s2*s;
@@ -237,7 +239,7 @@ const characterScreen=
 				)
 			];
 		}
-    else
+		else
 		{
 			characterScreen.char.skin=
 			[
@@ -298,10 +300,16 @@ const characterScreen=
 			characterScreen.drawHex[n]();
 		}
 		characterScreen.races[characterScreen.race].draw();
+		game.gl.useProgram(characterRenderer.shader);
+		characterRenderer.draw(characterScreen.char,-70,  8,0,Math.floor((t%1000)/250));
+		characterRenderer.draw(characterScreen.char,  8,  8,1,Math.floor((t%1000)/250));
+		characterRenderer.draw(characterScreen.char,-70,-70,2,Math.floor((t%1000)/250));
+		characterRenderer.draw(characterScreen.char,  8,-70,3,Math.floor((t%1000)/250));
 	},
 	retrieve()
 	{
 		//BACKGROUND
+		characterRenderer.retrive();
 		characterScreen.backShade=loader.items.slide.shader.value;
 		characterScreen.backPosLoc=game.gl.getAttribLocation(characterScreen.backShade,"a_pos");
 		characterScreen.backTexLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_tex");
@@ -437,6 +445,14 @@ const characterScreen=
 		};
 		characterScreen.char={};
 		characterScreen.char.hairColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.detailColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.shirtColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.pantsColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.shoeColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.eyeColour=[Math.random()*255,Math.random()*255,Math.random()*255];
+		characterScreen.char.hairStyle=Math.floor(Math.random()*2);
+		characterScreen.char.detailStyle=Math.floor(Math.random()*2);
+		characterScreen.char.bodyType=Math.floor(Math.random()*4);
 		characterScreen.selectors[2]={};
 		characterScreen.selectors[2].draw=function()
 		{
