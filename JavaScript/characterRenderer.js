@@ -155,10 +155,12 @@ const characterRenderer=
 			],
 			shirt:
 			[
-				loader.items["sprite/shirt/001/00.png"].texture.value;
-				loader.items["sprite/shirt/001/01.png"].texture.value;
-				loader.items["sprite/shirt/001/10.png"].texture.value;
-				loader.items["sprite/shirt/001/11.png"].texture.value;
+				[
+					loader.items["sprite/shirt/001/00.png"].texture.value;
+					loader.items["sprite/shirt/001/01.png"].texture.value;
+					loader.items["sprite/shirt/001/10.png"].texture.value;
+					loader.items["sprite/shirt/001/11.png"].texture.value;
+				]
 			],
 			shoes:
 			[
@@ -181,7 +183,26 @@ const characterRenderer=
 			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 //body
-			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin[0])
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin);
+//hair_under
+			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
+//shoes
+				characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
+//pants
+				characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
+//shirt
+				characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
+//eye
+				characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
+//iris
+				characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
+//eyebrows
+				characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
+//hair over
+				characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
+//detail
+				characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],data.detailColour);
+				characterRenderer.drawPart(6characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],[data.skin[0],data.skin[1]*0.9,data.skin[2]*0.9]);
 		}
 	},
 	draw(data,x,y,dir,frame)
@@ -204,3 +225,22 @@ const characterRenderer=
 //human
 //nephilim
 //vampire
+
+
+//skin
+//hairColour
+//detailColour
+//shirtColour
+//pantsColour
+//shoeColour
+//eyeColour
+
+//hairStyle
+//detailStyle
+//bodyType
+
+
+
+//shirt type
+//pants type
+//shoe type
