@@ -80,6 +80,30 @@ const characterScreen=
 						break;
 				}
 			}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.hairColour[0]=utils.clamp((characterScreen.char.hairColour[0]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.hairColour[1]=utils.clamp((characterScreen.char.hairColour[1]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.hairColour[2]=utils.clamp((characterScreen.char.hairColour[2]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
 		}
 	],
 	settingVars:[0,1,2],
@@ -532,6 +556,31 @@ const characterScreen=
 				characterScreen.arrows.back.draw(0,0);
 				characterScreen.arrows.forward.draw(0,0);
 			}
+		};
+//hair sliders
+		characterScreen.elementDraws[2]=function()
+		{
+			characterScreen.slider.draw(0,48characterScreen.char.hairColour[0]/255);
+		};
+		characterScreen.selectors[3].draw=function()
+		{
+			characterScreen.slider.drawSel(0,48,characterScreen.char.hairColour[0]/255);
+		};
+		characterScreen.elementDraws[3]=function()
+		{
+			characterScreen.slider.draw(0,16,characterScreen.char.hairColour[1]/255);
+		};
+		characterScreen.selectors[4].draw=function()
+		{
+			characterScreen.slider.drawSel(0,16,characterScreen.char.hairColour[1]/255);
+		};
+		characterScreen.elementDraws[4]=function()
+		{
+			characterScreen.slider.draw(0,-16,characterScreen.char.hairColour[2]/255);
+		};
+		characterScreen.selectors[5].draw=function()
+		{
+			characterScreen.slider.drawSel(0,-16,characterScreen.char.hairColour[2]/255);
 		};
 	},
 	keyDown(k)
