@@ -199,9 +199,9 @@ const characterRenderer=
 //eyebrows
 			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
 //hair over
+			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
 //ears
 			characterRenderer.drawPart(characterRenderer.graphics.ears[1],data.skin);
-			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
 //detail
 			characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],data.detailColour);
 			characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.skin[data.detailStyle%1],[data.skin[0],data.skin[1]*0.9,data.skin[2]*0.9]);
