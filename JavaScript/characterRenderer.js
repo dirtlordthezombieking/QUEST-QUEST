@@ -202,7 +202,7 @@ const characterRenderer=
 			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
 //detail
 			characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],data.detailColour);
-			characterRenderer.drawPart(6characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],[data.skin[0],data.skin[1]*0.9,data.skin[2]*0.9]);
+			characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.skin[data.detailStyle%1],[data.skin[0],data.skin[1]*0.9,data.skin[2]*0.9]);
 		}
 	},
 	draw(data,x,y,dir,frame)
