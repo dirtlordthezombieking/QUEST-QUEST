@@ -1,3 +1,6 @@
+//const loader={};
+//const game={};
+//function Float32Array(){}
 const characterRenderer=
 {
 	methods:[],
@@ -462,7 +465,7 @@ const characterRenderer=
 	drawPart(texture,colour)
 	{
 			game.setTexture(characterRenderer.texLoc,texture,0);
-			game.gl.uniform3f(characterRenderer.colLoc,colour[0],colour,[1]colour[2]);
+			game.gl.uniform3f(characterRenderer.colLoc,colour[0],colour,[1],colour[2]);
 			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 	}
 };
