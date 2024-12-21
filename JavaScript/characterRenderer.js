@@ -1,7 +1,7 @@
 const characterRenderer=
 {
-	methods=[],
-	dirs=[0,0.25,0,0.5,0.75],
+	methods'[],
+	dirs:[0,0.25,0,0.5,0.75],
 	load()
 	{
 		loader.loadMulti(
@@ -102,7 +102,7 @@ const characterRenderer=
 				{
 					halo:
 					[
-						loader.items.["sprite/detail/nephilim/halo/001.png" ].texture.value
+						loader.items["sprite/detail/nephilim/halo/001.png" ].texture.value
 					]
 				},
 				vampire:
@@ -129,49 +129,49 @@ const characterRenderer=
 			{
 				base:
 				[
-					loader.items["sprite/eyes/base/001.png"].texture.value;
+					loader.items["sprite/eyes/base/001.png"].texture.value
 				],
 				iris:
 				[
-					loader.items["sprite/eyes/iris/001.png"].texture.value;
+					loader.items["sprite/eyes/iris/001.png"].texture.value
 				]
 			},
 			hair:
 			{
 				back:
 				[
-					loader.items["sprite/hair/001.png"].texture.value;
-					loader.items["sprite/hair/002.png"].texture.value;
+					loader.items["sprite/hair/001.png"].texture.value,
+					loader.items["sprite/hair/002.png"].texture.value
 				],
 				front:
 				[
-					loader.items["sprite/hair/front/001.png"].texture.value;
-					loader.items["sprite/hair/front/002.png"].texture.value;
+					loader.items["sprite/hair/front/001.png"].texture.value,
+					loader.items["sprite/hair/front/002.png"].texture.value
 				]
 			},
 			pants:
 			[
-				loader.items["sprite/pants/basic.png"].texture.value;
+				loader.items["sprite/pants/basic.png"].texture.value
 			],
 			shirt:
 			[
 				[
-					loader.items["sprite/shirt/001/00.png"].texture.value;
-					loader.items["sprite/shirt/001/01.png"].texture.value;
-					loader.items["sprite/shirt/001/10.png"].texture.value;
-					loader.items["sprite/shirt/001/11.png"].texture.value;
+					loader.items["sprite/shirt/001/00.png"].texture.value,
+					loader.items["sprite/shirt/001/01.png"].texture.value,
+					loader.items["sprite/shirt/001/10.png"].texture.value,
+					loader.items["sprite/shirt/001/11.png"].texture.value
 				]
 			],
 			shoes:
 			[
-				loader.items["sprite/shoes/basic"].texture.value;
+				loader.items["sprite/shoes/basic"].texture.value
 			],
 			body:
 			[
-				loader.items["sprite/00.png"].texture.value;
-				loader.items["sprite/01.png"].texture.value;
-				loader.items["sprite/10.png"].texture.value;
-				loader.items["sprite/11.png"].texture.value;
+				loader.items["sprite/00.png"].texture.value,
+				loader.items["sprite/01.png"].texture.value,
+				loader.items["sprite/10.png"].texture.value,
+				loader.items["sprite/11.png"].texture.value
 			]
 		}
 //beastfolk
@@ -462,7 +462,7 @@ const characterRenderer=
 	drawPart(texture,colour)
 	{
 			game.setTexture(characterRenderer.texLoc,texture,0);
-			game.gl.uniform3f(characterRenderer.colLoc,colour[0],colour[1]colour[2]);
+			game.gl.uniform3f(characterRenderer.colLoc,colour[0],colour,[1]colour[2]);
 			game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 	}
 };
