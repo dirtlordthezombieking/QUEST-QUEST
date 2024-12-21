@@ -309,7 +309,7 @@ const characterScreen=
 	retrieve()
 	{
 		//BACKGROUND
-		characterRenderer.retrive();
+		characterRenderer.retrieve();
 		characterScreen.backShade=loader.items.slide.shader.value;
 		characterScreen.backPosLoc=game.gl.getAttribLocation(characterScreen.backShade,"a_pos");
 		characterScreen.backTexLoc=game.gl.getUniformLocation(characterScreen.backShade,"u_tex");
