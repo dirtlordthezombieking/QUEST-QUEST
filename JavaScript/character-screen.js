@@ -200,13 +200,69 @@ const characterScreen=
 	{
 		characterScreen.char.race=characterScreen.race;
 		let s=characterScreen.skinTone-30;
+		let st=characterScreen.skinTone;
+		if(characterScreen.race==4)
+		{
+			st2=st*0.5
+			s2=st2-30;
+			if(s2<10.0)
+			{
+				characterScreen.char.skin2=
+				[
+					st2*3.2,
+					st2*2.125,
+					st2*0.9
+				];
+			}
+			else if(s2<90.0)
+			{
+				let s22=s2*s2;
+				let s32=s22*s2;
+				let s42=s32*s2;
+				characterScreen.char.skin2=
+				[
+					(
+						(-0.00000963541666666*s42)+
+						(0.0233333*s32)+
+						(-0.211615*s22)+
+						(9.36667*s2)+
+						53.2578
+					),
+					(
+						(0.00000625*s42)+
+						(-0.00110417*s32)+
+						(0.049375*s22)+
+						(1.66042*s2)+
+						64.5
+					),
+					(
+						(0.0000192708*s42)+
+						(-0.00366667*s32)+
+						(0.229479*s22)+
+						(-3.68333*s2)+
+						53.3594
+					)
+				];
+			}
+			else
+			{
+				characterScreen.char.skin2=
+				[
+					255,
+					(s2*3.6)-105,
+					(s2*8.3)-575
+				];
+			}
+			st=st2+65;
+			s=st-30
+		}
 		if(s<10.0)
 		{
 			characterScreen.char.skin=
 			[
-				characterScreen.skinTone*3.2,
-				characterScreen.skinTone*2.125,
-				characterScreen.skinTone*0.9
+				st*3.2,
+				st*2.125,
+				st*0.9
 			];
 		}
 		else if(s<90.0)

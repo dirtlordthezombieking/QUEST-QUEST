@@ -312,8 +312,8 @@ const characterRenderer=
 			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 //body
-			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],[(data.skin[0]*0.5)+0.5,(data.skin[1]*0.5)+0.5,(data.skin[2]*0.5)+0.5]);
-			characterRenderer.drawPart(characterRenderer.graphics.detail.fishfolk.back[data.bodyType],[data.skin[0]*0.5,data.skin[1]*0.5,data.skin[2]*0.5]);
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin);
+			characterRenderer.drawPart(characterRenderer.graphics.detail.fishfolk.back[data.bodyType],data.skin2);
 //hair_under
 			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
 //shoes
@@ -407,6 +407,7 @@ const characterRenderer=
 //hair_under
 			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
 //details
+			characterRenderer.drawPart(characterRenderer.graphics.detail.nephilim.halo[0],data.detailColour);
 			characterRenderer.drawPart(characterRenderer.graphics.detail.nephilim.halo[0],data.detailColour);
 //shoes
 			characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
