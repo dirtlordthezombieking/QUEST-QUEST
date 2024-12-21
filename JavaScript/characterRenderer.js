@@ -199,10 +199,43 @@ const characterRenderer=
 //eyebrows
 			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
 //hair over
+//ears
+			characterRenderer.drawPart(characterRenderer.graphics.ears[1],data.skin);
 			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
 //detail
 			characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.fur[data.detailStyle%1],data.detailColour);
 			characterRenderer.drawPart(characterRenderer.graphics.detail.beastfolk.skin[data.detailStyle%1],[data.skin[0],data.skin[1]*0.9,data.skin[2]*0.9]);
+		}
+		characterRenderer.methods[1]=function(data,x,y,dir,frame)
+		{
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,characterRenderer.buff);
+			game.gl.enableVertexAttribArray(characterRenderer.dataLoc);
+			game.gl.vertexAttribPointer(characterRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
+			game.gl.uniform2f(characterRenderer.posLoc,x,y);
+			game.gl.uniform2f(characterRenderer.offLoc,dir,frame);
+			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+//body
+			characterRenderer.drawPart(characterRenderer.graphics.body[data.bodyType],data.skin);
+//hair_under
+			characterRenderer.drawPart(characterRenderer.graphics.hair.back[data.hairStyle],data.hairColour);
+//shoes
+			characterRenderer.drawPart(characterRenderer.graphics.shoes[0],data.shoeColour);
+//pants
+			characterRenderer.drawPart(characterRenderer.graphics.pants[0],data.pantsColour);
+//shirt
+			characterRenderer.drawPart(characterRenderer.graphics.shirt[0][data.bodyType],data.shirtColour);
+//eye
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.base[0],[255,255,255]);
+//iris
+			characterRenderer.drawPart(characterRenderer.graphics.eyes.iris[0],data.eyeColour);
+//eyebrows
+			characterRenderer.drawPart(characterRenderer.graphics.eyebrows[0],data.hairColour);
+//hair over
+			characterRenderer.drawPart(characterRenderer.graphics.hair.front[data.hairStyle],data.hairColour);
+//ears
+			characterRenderer.drawPart(characterRenderer.graphics.ears[2],data.skin);
+//detail
+			characterRenderer.drawPart(characterRenderer.graphics.detail.demon.horns[data.detailStyle%1],data.detailColour);
 		}
 	},
 	draw(data,x,y,dir,frame)
