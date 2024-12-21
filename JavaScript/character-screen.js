@@ -80,6 +80,30 @@ const characterScreen=
 						break;
 				}
 			}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.hairColour[0]=utils.clamp((characterScreen.char.hairColour[0]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.hairColour[1]=utils.clamp((characterScreen.char.hairColour[1]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
+		},
+		{
+			change(a)
+			{
+				characterScreen.char.hairColour[2]=utils.clamp((characterScreen.char.hairColour[2]+(a*10)),0,255);
+			},
+			plus(){},
+			minus(){}
 		}
 	],
 	settingVars:[0,1,2],
