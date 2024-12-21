@@ -4,7 +4,7 @@
 const characterRenderer=
 {
 	methods:[],
-	dirs:[0,0.25,0,0.5,0.75],
+	frames:[0,0.25,0,0.5,0.75],
 	load()
 	{
 		loader.loadMulti(
@@ -461,7 +461,7 @@ const characterRenderer=
 	},
 	draw(data,x,y,dir,frame)
 	{
-		characterRenderer.methods[data.race](data,x,y,frame/4,characterRenderer.dirs[dir]);
+		characterRenderer.methods[data.race],dir/4(data,x,y,characterRenderer.frames[frame]);
 	},
 	drawPart(texture,colour)
 	{
