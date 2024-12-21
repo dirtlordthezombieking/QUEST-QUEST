@@ -746,11 +746,11 @@ const characterScreen=
 		characterScreen.selectors[11]={};
 		characterScreen.selectors[11].draw=function()
 		{
-			characterScreen.style.drawSel(-384,-256);
+			characterScreen.style.drawSel(-384,-244);
 		};
 		characterScreen.elementDraws[10]=function()
 		{
-			characterScreen.style.draw(-384,-256);
+			characterScreen.style.draw(-384,-244);
 		};
 	},
 	keyDown(k)
