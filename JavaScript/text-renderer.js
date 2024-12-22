@@ -1,6 +1,5 @@
 const textRenderer=
 {
-	pos
 	createBlock(x,y,scale,src)
 	{
 		let ret=
