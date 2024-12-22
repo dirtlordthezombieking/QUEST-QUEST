@@ -1,3 +1,4 @@
+//const loader={};
 const textRenderer=
 {
 	createBlock(x,y,scale,src)
@@ -163,4 +164,4 @@ const textRenderer=
 		//"a":[0.8750,0.875],
 		//"a":[0.9375,0.875]
 	}
-}
+};
