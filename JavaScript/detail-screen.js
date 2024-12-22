@@ -8,12 +8,15 @@ const detailScreen=
 		[
 			["misc/font_v2.png","texture"]
 		]);
+		textRenderer.load();
 	},
 	draw(d,t)
 	{
+		textRenderer.draw();
 	},
 	retrieve()
 	{
+		textRenderer.retrieve();
 	},
 	keyDown(k)
 	{
