@@ -40,7 +40,17 @@ const textRenderer=
 			textRenderer.dataLoc=game.gl.getAttribLocation(textRenderer.shader,"a_data");
 			textRenderer.charLoc=game.gl.getAttribLocation(textRenderer.shader,"a_char");
 			textRenderer.texLoc=game.gl.getUniformLocation(textRenderer.shader,"u_tex");
-		}
+			textRenderer.dataBuff=game.gl.createBuffer();
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,textRenderer.dataBuff);
+			game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
+			[
+				0,0,0.0000,0.000,
+				0,0,0.0000,0.000,
+				0,0,0.0000,0.000,
+				0,0,0.0000,0.000,
+			]
+			),game.gl.STATIC_DRAW);
+			textRenderer.charBuff=game.gl.createBuffer();
 	},
 	draw(colour)
 	{
@@ -53,7 +63,8 @@ const textRenderer=
 	{
 		if(b)
 		{
-			
+			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,textRenderer.charBuff);
+			game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(b),game.gl.STATIC_DRAW);
 			textRenderer.doDraw=true;
 		}
 		else
