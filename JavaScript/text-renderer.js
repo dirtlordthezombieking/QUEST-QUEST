@@ -68,7 +68,7 @@ const textRenderer=
 			game.gl.vertexAttribDivisor(textRenderer.charLoc,1);
 			game.gl.uniform3f(textRenderer.colLoc,colour[0],colour[1]colour[2]);
 game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
-game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+game.gl.ddrawElementsInstanced(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0,textRenderer.charCount);
 		}
 	},
 	setBlock(b)
@@ -77,6 +77,7 @@ game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 		{
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,textRenderer.charBuff);
 			game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(b),game.gl.STATIC_DRAW);
+			textRenderer.charCount=Math.floor(b.length/4);
 			textRenderer.doDraw=true;
 		}
 		else
