@@ -16,10 +16,14 @@ const inputTimer=
 		{
 			inputTimer.keys[k][0];
 		}
-		inputTimer.keys[k]={true,inputTimer.time}
+		inputTimer.keys[k]={true,inputTimer.time};
 	}
 	keyUp(k)
 	{
+		if(!inputTimer.keys[k])
+		{
+			inputTimer.keys[k]={true,0};
+		}
 		inputTimer.keys[k][0]=false;
 		return (inputTimer.time-inputTimer.keys[k][0])<1000;
 	}
