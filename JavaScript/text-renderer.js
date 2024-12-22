@@ -36,7 +36,7 @@ const textRenderer=
 		{
 			textRenderer.loaded=true;
 			textRenderer.shader=loader.items.font.shader.value;
-			textRenderer.texture=loader.items["misc/font_v2.png"]. texture.value;
+			textRenderer.texture=loader.items["misc/font_v2.png"].texture.value;
 			textRenderer.dataLoc=game.gl.getAttribLocation(textRenderer.shader,"a_data");
 			textRenderer.charLoc=game.gl.getAttribLocation(textRenderer.shader,"a_char");
 			textRenderer.texLoc=game.gl.getUniformLocation(textRenderer.shader,"u_tex");
