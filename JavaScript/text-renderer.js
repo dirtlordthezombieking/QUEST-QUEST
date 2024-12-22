@@ -1,14 +1,24 @@
 //const loader={};
 const textRenderer=
 {
-	createBlock(x,y,scale,src)
+	doDraw:false,
+	loaded:false,
+	createBlock(x,y,src)
 	{
 		let ret=[];
+		let x2=x;
+		let y2=y-16;
 		for(let i=0;i<src.length;i++)
 		{
 			if(textRenderer.offsets[str[i]])
 			{
-				ret.push;
+				ret.push(textRenderer.offsets[str[i]][0],textRenderer.offsets[str[i]][1],x2,y2);
+				x2+=8;
+			}
+			else if(str[i]=="\n"
+			{
+				x2=x;
+				y2-=16;
 			}
 		}
 	},
@@ -22,12 +32,27 @@ const textRenderer=
 	},
 	retrieve()
 	{
+		if(!textRenderer.loaded)
+		{
+			textRenderer.loaded=true;
+			textRenderer.shader=loader.items.font.shader.value;
+			textRenderer.texture=loader.items["misc/font_v2.png"]. texture.value;
+		}
 	},
-	draw()
+	draw(colour)
 	{
+		if(textRenderer.doDraw
 	},
 	setBlock(b)
 	{
+		if(b)
+		{
+			textRenderer.doDraw=true;
+		}
+		else
+		{
+			textRenderer.doDraw=false;
+		}
 	},
 	offsets:
 	{
