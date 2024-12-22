@@ -4,9 +4,12 @@ const textRenderer=
 	createBlock(x,y,scale,src)
 	{
 		let ret=[];
-		for(
+		for(let i=0;i<src.length;i++)
 		{
-			//----
+			if(textRenderer.offsets[str[i]])
+			{
+				ret.push;
+			}
 		}
 	},
 	load()
