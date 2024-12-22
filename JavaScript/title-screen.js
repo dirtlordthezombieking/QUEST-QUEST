@@ -21,6 +21,7 @@ const titleScreen=
 		titleScreen.title.draw();
 		titleScreen.pressSpac.draw();
 		titleScreen.eToStart.draw();
+		inputTimer.tick(t);
 	},
 	retrieve()
 	{
@@ -28,6 +29,7 @@ const titleScreen=
 		game.pressF=loader.items["misc/press f.json"].sprite.value;
 		titleScreen.pressSpac=loader.items["misc/PRESS SPAC.json"].sprite.value;
 		titleScreen.eToStart=loader.items["misc/E TO START.json"].sprite.value;
+		inputTimer.reset();
 	},
 	keyDown(k)
 	{
@@ -35,12 +37,17 @@ const titleScreen=
 		{
 			titleScreen.spaceTime=0;
 		}
+		inputTimer.keyDown(k);
 	},
 	keyUp(k)
 	{
 		if(k=="Space"&&titleScreen.spaceTime<=1000.0)
 		{
 			game.setScreen(characterScreen);
+		}
+		if(inputTimer.keyUp(k))
+		{
+			
 		}
 	}
 };
