@@ -4,10 +4,6 @@ const detailScreen=
 {
 	load()
 	{
-		loader.loadMulti(
-		[
-			["misc/font_v2.png","texture"]
-		]);
 		textRenderer.load();
 	},
 	draw(d,t)
