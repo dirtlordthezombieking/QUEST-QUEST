@@ -13,6 +13,11 @@ const textRenderer=
 	},
 	load()
 	{
+		loader.loadMulti(
+		[
+			["font","shader"],
+			["misc/font_v2.png","texture"]
+		]);
 	},
 	retrieve()
 	{
