@@ -2,14 +2,11 @@ const textRenderer=
 {
 	createBlock(x,y,scale,src)
 	{
-		let ret=
+		let ret=[];
+		for(
 		{
-			px:[],
-			py:[],
-			tx:[],
-			tx:[]
+			//----
 		}
-		
 	},
 	load()
 	{
@@ -27,5 +24,9 @@ const textRenderer=
 	},
 	setBlock(b)
 	{
+	},
+	offsets:
+	{
+		"a":[0,0],
 	}
 }
