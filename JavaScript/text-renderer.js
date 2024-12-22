@@ -40,7 +40,7 @@ const textRenderer=
 			textRenderer.dataLoc=game.gl.getAttribLocation(textRenderer.shader,"a_data");
 			textRenderer.charLoc=game.gl.getAttribLocation(textRenderer.shader,"a_char");
 			textRenderer.texLoc=game.gl.getUniformLocation(textRenderer.shader,"u_tex");
-			textRenderer.colLoc=game.gl.getUniformLocation(textRenderer.shader,"u_col");
+			textRenderer.colLoc=game.gl.getUniformLocation(textRenderer.shader,"u_colour");
 			textRenderer.dataBuff=game.gl.createBuffer();
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,textRenderer.dataBuff);
 			game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
