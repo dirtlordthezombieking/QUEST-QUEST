@@ -15,7 +15,7 @@ const textRenderer=
 				ret.push(textRenderer.offsets[str[i]][0],textRenderer.offsets[str[i]][1],x2,y2);
 				x2+=8;
 			}
-			else if(str[i]=="\n"
+			else if(str[i]=="\n")
 			{
 				x2=x;
 				y2-=16;
@@ -41,12 +41,16 @@ const textRenderer=
 	},
 	draw(colour)
 	{
-		if(textRenderer.doDraw
+		if(textRenderer.doDraw)
+		{
+			
+		}
 	},
 	setBlock(b)
 	{
 		if(b)
 		{
+			
 			textRenderer.doDraw=true;
 		}
 		else
