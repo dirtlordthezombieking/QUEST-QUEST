@@ -1,4 +1,4 @@
-//_____'(s|re) going to eat the food. oh _____, _____ got it _____self so it's _____s.
+//________'(s|re) going to eat ________ food. oh ________, ________ got it ________self so it's ________.
 //blank
 const detailScreen=
 {
