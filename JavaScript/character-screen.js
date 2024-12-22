@@ -1308,6 +1308,9 @@ const characterScreen=
 				case "KeyE":
 					navigator.clipboard.writeText(JSON.stringify(characterScreen.char,null,"\t"));
 					break;
+				case "Enter":
+					game.setScreen(detailScreen);
+					break;
 			}
 		}
 	},
