@@ -14,17 +14,30 @@ const inputTimer=
 	{
 		if(inputTimer.keys[k])
 		{
-			inputTimer.keys[k][0];
+			if(inputTimer.keys[k][0])
+			{
+				return;
+			}
 		}
-		inputTimer.keys[k]={true,inputTimer.time};
-	}
+		inputTimer.keys[k]=[true,inputTimer.time];
+	},
 	keyUp(k)
 	{
 		if(!inputTimer.keys[k])
 		{
-			inputTimer.keys[k]={true,0};
+			inputTimer.keys[k]=[false,0];
+			return false;
 		}
 		inputTimer.keys[k][0]=false;
-		return (inputTimer.time-inputTimer.keys[k][0])<1000;
+		return (inputTimer.time-inputTimer.keys[k][1])<1000;
+	},
+	get(k)
+	{
+		if(!inputTimer.keys[k])
+		{
+			inputTimer.keys[k]=[false,0];
+			return false;
+		}
+		return inputTimer.keys[k][0];
 	}
-}
+};
