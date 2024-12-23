@@ -272,7 +272,7 @@ const detailScreen=
 	[
 		" ",
 		""
-	]
+	],
 	keys:
 	[
 		"KeyA":["A","a"],
@@ -300,7 +300,7 @@ const detailScreen=
 		"KeyW":["W","w"],
 		"KeyX":["X","x"],
 		"KeyY":["Y","y"],
-		"KeyZ":["Z","z"],
+		"KeyZ":["Z","z"]
 	],
 	tail:
 	[
