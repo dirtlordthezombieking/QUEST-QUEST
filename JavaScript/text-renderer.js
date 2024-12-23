@@ -48,15 +48,15 @@ const textRenderer=
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,textRenderer.dataBuff);
 			game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
 			[
-				0, 0,0.0000,0.000,
-				0,16,0.0000,0.125,
-				8, 0,0.0625,0.000,
-				8,16,0.0625,0.125
+				0, 0,0.0000,0.125,
+				0,16,0.0000,0.000,
+				8, 0,0.0625,0.125,
+				8,16,0.0625,0.000
 			]),game.gl.STATIC_DRAW);
 			textRenderer.charBuff=game.gl.createBuffer();
 		}
 	},
-	draw(colour)
+	draw(colour,scale)
 	{
 		if(textRenderer.doDraw)
 		{
