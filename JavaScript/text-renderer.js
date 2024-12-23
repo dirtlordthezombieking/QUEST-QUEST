@@ -10,12 +10,12 @@ const textRenderer=
 		let y2=y-16;
 		for(let i=0;i<src.length;i++)
 		{
-			if(textRenderer.offsets[str[i]])
+			if(textRenderer.offsets[src[i]])
 			{
-				ret.push(textRenderer.offsets[str[i]][0],textRenderer.offsets[str[i]][1],x2,y2);
+				ret.push(textRenderer.offsets[src[i]][0],textRenderer.offsets[src[i]][1],x2,y2);
 				x2+=8;
 			}
-			else if(str[i]=="\n")
+			else if(src[i]=="\n")
 			{
 				x2=x;
 				y2-=16;
@@ -66,7 +66,7 @@ const textRenderer=
 			//game.gl.enableVertexAttribArray(textRenderer.charLoc);
 			game.gl.vertexAttribPointer(textRenderer.charLoc,4,game.gl.FLOAT,false,0,0);
 			game.gl.vertexAttribDivisorANGLE(textRenderer.charLoc,1);
-			game.gl.uniform3f(textRenderer.colLoc,colour[0],colour[1]colour[2]);
+			game.gl.uniform3f(textRenderer.colLoc,colour[0],colour[1],colour[2]);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 			game.gl.ddrawElementsInstancedANGLE(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0,textRenderer.charCount);
 		}
