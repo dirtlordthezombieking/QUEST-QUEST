@@ -138,7 +138,7 @@ const detailScreen=
 				detailScreen.list[4][0]+
 				"self so it's "+
 				detailScreen.list[5][0]+
-				"."+,
+				".",
 				2));
 				detailScreen.selectX=0;
 				detailScreen.selectY=0;
@@ -158,7 +158,7 @@ const detailScreen=
 				detailScreen.list[4][0]+
 				"self so it's "+
 				detailScreen.list[5][0]+
-				"."+,
+				".",
 				2));
 				detailScreen.selectX=204+((list[0][1]+tail[list[0][2]]).length*16);
 				detailScreen.selectY=0;
@@ -178,7 +178,7 @@ const detailScreen=
 				detailScreen.list[4][0]+
 				"self so it's "+
 				detailScreen.list[5][0]+
-				"."+,
+				".",
 				2));
 				detailScreen.selectX=64;
 				detailScreen.selectY=-32;
@@ -198,7 +198,7 @@ const detailScreen=
 				detailScreen.list[4][0]+
 				"self so it's "+
 				detailScreen.list[5][0]+
-				"."+,
+				".",
 				2));
 				detailScreen.selectX=96+((list[2][1].length)*16);
 				detailScreen.selectY=-32;
@@ -218,7 +218,7 @@ const detailScreen=
 				detailScreen.add[detailScreen.list[4][0].length]+
 				"self so it's "+
 				detailScreen.list[5][0]+
-				"."+,
+				".",
 				2));
 				detailScreen.selectX=224+((list[2][1].length+list[3][0].length)*16);
 				detailScreen.selectY=-32;
@@ -238,7 +238,7 @@ const detailScreen=
 				"self so it's "+
 				detailScreen.list[5][0]+
 				detailScreen.add[detailScreen.list[5][0].length]+
-				"."+,
+				".",
 				2));
 				detailScreen.selectX=432+((list[2][1].length+list[3][0].length+list[4][0].length)*16);
 				detailScreen.selectY=-32;
@@ -261,7 +261,7 @@ const detailScreen=
 				detailScreen.list[4][0]+
 				"self so it's "+
 				detailScreen.list[5][0]+
-				"."+,
+				".",
 				2));
 				detailScreen.selectX=1000;
 				detailScreen.selectY=1000;
