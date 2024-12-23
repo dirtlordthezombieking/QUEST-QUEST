@@ -130,7 +130,7 @@ const detailScreen=
 		switch(detailScreen.choice)
 		{
 			case 0:
-				textRenderer.setBlock(textRenderer.createBlock(-256,32,
+				textRenderer.setBlock(textRenderer.createBlock(-256,16,
 				detailScreen.list[0][1]+
 				detailScreen.add[detailScreen.list[0][1].length]+
 				detailScreen.tail[detailScreen.list[0][2]]+
@@ -150,7 +150,7 @@ const detailScreen=
 				detailScreen.selectY=0;
 				break;
 			case 1:
-				textRenderer.setBlock(textRenderer.createBlock(-256,32,
+				textRenderer.setBlock(textRenderer.createBlock(-256,16,
 				detailScreen.list[0][1]+
 				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
@@ -166,11 +166,11 @@ const detailScreen=
 				detailScreen.list[5][0]+
 				".",
 				1));
-				detailScreen.selectX=204+((detailScreen.list[0][1]+detailScreen.tail[detailScreen.list[0][2]]).length*16);
+				detailScreen.selectX=102+((detailScreen.list[0][1]+detailScreen.tail[detailScreen.list[0][2]]).length*8);
 				detailScreen.selectY=0;
 				break;
 			case 2:
-				textRenderer.setBlock(textRenderer.createBlock(-256,32,
+				textRenderer.setBlock(textRenderer.createBlock(-256,16,
 				detailScreen.list[0][1]+
 				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
@@ -187,10 +187,10 @@ const detailScreen=
 				".",
 				1));
 				detailScreen.selectX=64;
-				detailScreen.selectY=-32;
+				detailScreen.selectY=-16;
 				break;
 			case 3:
-				textRenderer.setBlock(textRenderer.createBlock(-256,32,
+				textRenderer.setBlock(textRenderer.createBlock(-256,16,
 				detailScreen.list[0][1]+
 				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
@@ -206,11 +206,11 @@ const detailScreen=
 				detailScreen.list[5][0]+
 				".",
 				1));
-				detailScreen.selectX=96+((detailScreen.list[2][1].length)*16);
-				detailScreen.selectY=-32;
+				detailScreen.selectX=48+((detailScreen.list[2][1].length)*8);
+				detailScreen.selectY=-16;
 				break;
 			case 4:
-				textRenderer.setBlock(textRenderer.createBlock(-256,32,
+				textRenderer.setBlock(textRenderer.createBlock(-256,16,
 				detailScreen.list[0][1]+
 				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
@@ -226,11 +226,11 @@ const detailScreen=
 				detailScreen.list[5][0]+
 				".",
 				1));
-				detailScreen.selectX=224+((detailScreen.list[2][1].length+detailScreen.list[3][0].length)*16);
-				detailScreen.selectY=-32;
+				detailScreen.selectX=112+((detailScreen.list[2][1].length+detailScreen.list[3][0].length)*8);
+				detailScreen.selectY=-16;
 				break;
 			case 5:
-				textRenderer.setBlock(textRenderer.createBlock(-256,32,
+				textRenderer.setBlock(textRenderer.createBlock(-256,16,
 				detailScreen.list[0][1]+
 				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
@@ -246,11 +246,11 @@ const detailScreen=
 				detailScreen.add[detailScreen.list[5][0].length]+
 				".",
 				1));
-				detailScreen.selectX=432+((detailScreen.list[2][1].length+detailScreen.list[3][0].length+detailScreen.list[4][0].length)*16);
-				detailScreen.selectY=-32;
+				detailScreen.selectX=216+((detailScreen.list[2][1].length+detailScreen.list[3][0].length+detailScreen.list[4][0].length)*8);
+				detailScreen.selectY=-16;
 				break;
 			case 6:
-				textRenderer.setBlock(textRenderer.createBlock(-256,64,
+				textRenderer.setBlock(textRenderer.createBlock(-256,32,
 				detailScreen.gap[detailScreen.list[0][1].length]+
 				detailScreen.tail[1-detailScreen.list[0][2]]+
 				"\n"+
