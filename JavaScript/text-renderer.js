@@ -63,10 +63,10 @@ const textRenderer=
 			game.gl.useProgram(textRenderer.shader);
 			game.setTexture(textRenderer.texLoc,textRenderer.texture,0);
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,textRenderer.dataBuff);
-			//game.gl.enableVertexAttribArray(textRenderer.dataLoc);
+			game.gl.enableVertexAttribArray(textRenderer.dataLoc);
 			game.gl.vertexAttribPointer(textRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,textRenderer.charBuff);
-			//game.gl.enableVertexAttribArray(textRenderer.charLoc);
+			game.gl.enableVertexAttribArray(textRenderer.charLoc);
 			game.gl.vertexAttribPointer(textRenderer.charLoc,4,game.gl.FLOAT,false,0,0);
 			game.ext.vertexAttribDivisorANGLE(textRenderer.charLoc,1);
 			game.gl.uniform3f(textRenderer.colLoc,colour[0],colour[1],colour[2]);
