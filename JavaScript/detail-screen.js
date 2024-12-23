@@ -24,7 +24,7 @@ const detailScreen=
 		game.gl.uniform2f(detailScreen.posLoc,detailScreen.selectX,detailScreen.selectY);
 		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 		game.gk.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
-		textRenderer.draw([255,255,255]);
+		textRenderer.draw([255,255,255,255]);
 		inputTimer.tick(t);
 	},
 	retrieve()
