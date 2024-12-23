@@ -8,11 +8,12 @@ const detailScreen=
 	},
 	draw(d,t)
 	{
-		textRenderer.draw();
+		textRenderer.draw([255,255,255]);
 	},
 	retrieve()
 	{
 		textRenderer.retrieve();
+		textRenderer.(textRenderer.(0,0,"test"));
 	},
 	keyDown(k)
 	{
