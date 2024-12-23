@@ -304,7 +304,7 @@ const detailScreen=
 	},
 	tail:
 	[
-		"'s"
+		"'s",
 		"'re"
 	],
 	list:
