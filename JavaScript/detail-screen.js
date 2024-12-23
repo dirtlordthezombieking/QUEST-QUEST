@@ -118,7 +118,7 @@ const detailScreen=
 		[2,2],
 		[5,3],
 		[5,4],
-	]
+	],
 	set()
 	{
 		switch(detailScreen.choice)
