@@ -10,6 +10,7 @@ const detailScreen=
 	draw(d,t)
 	{
 		textRenderer.draw([255,255,255]);
+		inputTimer.tick(t);
 	},
 	retrieve()
 	{
@@ -18,9 +19,14 @@ const detailScreen=
 	},
 	keyDown(k)
 	{
+		inputTimer.keyDown(k);
 	},
 	keyUp(k)
 	{
+		if(inputTimer.keyUp(k))
+		{
+			
+		}
 	},
 	add:
 	[
