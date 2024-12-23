@@ -35,7 +35,7 @@ const detailScreen=
 	retrieve()
 	{
 		textRenderer.retrieve();
-		textRenderer.setBlock(textRenderer.createBlock(0,0,"test",2));
+		//textRenderer.setBlock(textRenderer.createBlock(0,0,"test",2));
 //draw
 		detailScreen.shader=loader.items.basic.shader.value;
 		detailScreen.dataLoc=game.gl.getAttribLocation(detailScreen.shader,"a_data");
@@ -51,7 +51,7 @@ const detailScreen=
 			64, 0,1,1,
 			64,16,1,0
 		]),game.gl.STATIC_DRAW);
-		//detailScreen.set();
+		detailScreen.set();
 	},
 	keyDown(k)
 	{
@@ -73,13 +73,13 @@ const detailScreen=
 			{
 				if(detailScreen.keys[k])
 				{
-					if(detailScreen.list[0][0].length<8)
+					if(detailScreen.list[detailScreen.choice][0].length<8)
 					{
-						detailScreen.list[0][0]+=detailScreen.keys[k][1];
-						detailScreen.list[0][1]+=detailScreen.keys[k][1];
+						detailScreen.list[detailScreen.choice][0]+=detailScreen.keys[k][1];
+						detailScreen.list[detailScreen.choice][1]+=detailScreen.keys[k][1];
 						if(detailScreen.list[0][0].length==1)
 						{
-							detailScreen.list[0][1]=detailScreen.keys[k][0];
+							detailScreen.list[detailScreen.choice][1]=detailScreen.keys[k][0];
 						}
 					}
 				}
@@ -105,6 +105,7 @@ const detailScreen=
 	],
 	gap:
 	[
+		"",
 		" ",
 		"  ",
 		"   ",
@@ -112,8 +113,7 @@ const detailScreen=
 		"     ",
 		"      ",
 		"       ",
-		"        ",
-		"         "
+		"        "
 	],
 	move:
 	[
@@ -145,7 +145,7 @@ const detailScreen=
 				"self so it's "+
 				detailScreen.list[5][0]+
 				".",
-				2));
+				1));
 				detailScreen.selectX=0;
 				detailScreen.selectY=0;
 				break;
