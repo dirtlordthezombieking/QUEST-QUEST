@@ -55,7 +55,33 @@ const detailScreen=
 	{
 		if(inputTimer.keyUp(k))
 		{
-			
+			if(k==ArrowRight)
+			{
+				detailScreen.choice=detailScreen.move[detailScreen.choice][0];
+			}
+			else if(k==ArrowLeft)
+			{
+				detailScreen.choice=detailScreen.move[detailScreen.choice][1];
+			}
+			else if(detailScreen.choice<6)
+			{
+				if(detailScreen.keys[keyUp(k)])
+				{
+					if(detailScreen.list[0][0].length<8)
+					{
+						detailScreen.list[0][0]=detailScreen.list[0][0]+detailScreen[k][1]
+						detailScreen.list[0][1]=detailScreen.list[0][1]+detailScreen[k][1]
+						if(detailScreen.list[0][0].length==1)
+						{
+							detailScreen.list[0][1]=detailScreen[k][0]
+						}
+					}
+				}
+			}
+			else
+			{
+				detailScreen.list[0][2]=1-detailScreen.list[0][2];
+			}
 		}
 	},
 	add:
@@ -70,23 +96,47 @@ const detailScreen=
 		"_",
 		""
 	],
+	gap:
+	[
+		" ",
+		"  ",
+		"   ",
+		"    ",
+		"     ",
+		"      ",
+		"       ",
+		"        ",
+		"         "
+	],
+	move:
+	[
+		[6,0],
+		[1,0],
+		[2,6],
+		[3,1],
+		[2,2],
+		[5,3],
+		[5,4],
+	]
 	set()
 	{
 		switch(detailScreen.choice)
 		{
 			case 0:
 				textRenderer.setBlock(textRenderer.createBlock(-256,32,
-				list[0][1]+add[list[0][1].length]+tail[list[0][2]]+
+				detailScreen.list[0][1]+
+				detailScreen.add[detailScreen.list[0][1].length]+
+				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
-				list[1][0]+
+				detailScreen.list[1][0]+
 				" food.\noh, "+
-				list[2][1]+
+				detailScreen.list[2][1]+
 				", "+
-				list[3][0]+
+				detailScreen.list[3][0]+
 				" got it "+
-				list[4][0]+
+				detailScreen.list[4][0]+
 				"self so it's "+
-				list[5][0]+
+				detailScreen.list[5][0]+
 				"."+,
 				2));
 				detailScreen.selectX=0;
@@ -94,17 +144,19 @@ const detailScreen=
 				break;
 			case 1:
 				textRenderer.setBlock(textRenderer.createBlock(-256,32,
-				list[0][1]+tail[list[0][2]]+
+				detailScreen.list[0][1]+
+				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
-				list[1][0]+add[list[][0].length]+
+				detailScreen.list[1][0]+
+				detailScreen.add[detailScreen.list[][0].length]+
 				" food.\noh, "+
-				list[2][1]+
+				detailScreen.list[2][1]+
 				", "+
-				list[3][0]+
+				detailScreen.list[3][0]+
 				" got it "+
-				list[4][0]+
+				detailScreen.list[4][0]+
 				"self so it's "+
-				list[5][0]+
+				detailScreen.list[5][0]+
 				"."+,
 				2));
 				detailScreen.selectX=204+((list[0][1]+tail[list[0][2]]).length*16);
@@ -112,17 +164,19 @@ const detailScreen=
 				break;
 			case 2:
 				textRenderer.setBlock(textRenderer.createBlock(-256,32,
-				list[0][1]+tail[list[0][2]]+
+				detailScreen.list[0][1]+
+				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
-				list[1][0]+
+				detailScreen.list[1][0]+
 				" food.\noh, "+
-				list[2][1]+add[list[2][1].length]+
+				detailScreen.list[2][1]+
+				detailScreen.add[detailScreen.list[2][1].length]+
 				", "+
-				list[3][0]+
+				detailScreen.list[3][0]+
 				" got it "+
-				list[4][0]+
+				detailScreen.list[4][0]+
 				"self so it's "+
-				list[5][0]+
+				detailScreen.list[5][0]+
 				"."+,
 				2));
 				detailScreen.selectX=64;
@@ -130,17 +184,19 @@ const detailScreen=
 				break;
 			case 3:
 				textRenderer.setBlock(textRenderer.createBlock(-256,32,
-				list[0][1]+tail[list[0][2]]+
+				detailScreen.list[0][1]+
+				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
-				list[1][0]+
+				detailScreen.list[1][0]+
 				" food.\noh, "+
-				list[2][1]+
+				detailScreen.list[2][1]+
 				", "+
-				list[3][0]+add[list[3][0].length]+
+				detailScreen.list[3][0]+
+				detailScreen.add[detailScreen.list[3][0].length]+
 				" got it "+
-				list[4][0]+
+				detailScreen.list[4][0]+
 				"self so it's "+
-				list[5][0]+
+				detailScreen.list[5][0]+
 				"."+,
 				2));
 				detailScreen.selectX=96+((list[2][1].length)*16);
@@ -148,17 +204,19 @@ const detailScreen=
 				break;
 			case 4:
 				textRenderer.setBlock(textRenderer.createBlock(-256,32,
-				list[0][1]+tail[list[0][2]]+
+				detailScreen.list[0][1]+
+				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
-				list[1][0]+
+				detailScreen.list[1][0]+
 				" food.\noh, "+
-				list[2][1]+
+				detailScreen.list[2][1]+
 				", "+
-				list[3][0]+
+				detailScreen.list[3][0]+
 				" got it "+
-				list[4][0]+add[list[4][0].length]+
+				detailScreen.list[4][0]+
+				detailScreen.add[detailScreen.list[4][0].length]+
 				"self so it's "+
-				list[5][0]+
+				detailScreen.list[5][0]+
 				"."+,
 				2));
 				detailScreen.selectX=224+((list[2][1].length+list[3][0].length)*16);
@@ -166,24 +224,54 @@ const detailScreen=
 				break;
 			case 5:
 				textRenderer.setBlock(textRenderer.createBlock(-256,32,
-				list[0][1]+tail[list[0][2]]+
+				detailScreen.list[0][1]+
+				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
-				list[1][0]+
+				detailScreen.list[1][0]+
 				" food.\noh, "+
-				list[2][1]+
+				detailScreen.list[2][1]+
 				", "+
-				list[3][0]+
+				detailScreen.list[3][0]+
 				" got it "+
-				list[4][0]+
+				detailScreen.list[4][0]+
 				"self so it's "+
-				list[5][0]+add[list[5][0].length]+
+				detailScreen.list[5][0]+
+				detailScreen.add[detailScreen.list[5][0].length]+
 				"."+,
 				2));
 				detailScreen.selectX=432+((list[2][1].length+list[3][0].length+list[4][0].length)*16);
 				detailScreen.selectY=-32;
 				break;
+			case:6
+				textRenderer.setBlock(textRenderer.createBlock(-256,64,
+				detailScreen.gap[detailScreen.list[0][1].length]+
+				detailScreen.tail[1-detailScreen.list[0][2]]+
+				"\n"+
+				detailScreen.list[0][1]+
+				detailScreen.tail[detailScreen.list[0][2]]+
+				detailScreen.tailAdd[detailScreen.list[0][2]]+
+				" going to eat "+
+				detailScreen.list[1][0]+
+				" food.\noh, "+
+				detailScreen.list[2][1]+
+				", "+
+				detailScreen.list[3][0]+
+				" got it "+
+				detailScreen.list[4][0]+
+				"self so it's "+
+				detailScreen.list[5][0]+
+				"."+,
+				2));
+				detailScreen.selectX=1000;
+				detailScreen.selectY=1000;
+				break;
 		}
 	},
+	tailAdd:
+	[
+		" ",
+		""
+	]
 	keys:
 	[
 		"KeyA":["A","a"],
@@ -220,11 +308,11 @@ const detailScreen=
 	],
 	list:
 	[
-		["________","________",0],
-		["________","________"],
-		["________","________"],
-		["________","________"],
-		["________","________"],
-		["________","________"]
+		["","",0],
+		["",""],
+		["",""],
+		["",""],
+		["",""],
+		["",""]
 	]
 };
