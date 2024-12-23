@@ -69,7 +69,7 @@ const textRenderer=
 			game.gl.enableVertexAttribArray(textRenderer.charLoc);
 			game.gl.vertexAttribPointer(textRenderer.charLoc,4,game.gl.FLOAT,false,0,0);
 			game.ext.vertexAttribDivisorANGLE(textRenderer.charLoc,1);
-			game.gl.uniform4f(textRenderer.colLoc,colour[0],colour[1],colour[2],colour[4]);
+			game.gl.uniform4f(textRenderer.colLoc,colour[0],colour[1],colour[2],colour[3]);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 			game.ext.drawElementsInstancedANGLE(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0,textRenderer.charCount);
 		}
