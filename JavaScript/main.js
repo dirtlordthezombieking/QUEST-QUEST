@@ -17,7 +17,7 @@ const game=
 			game.started=true;
 			game.canvas=document.querySelector("#canvas");
 			game.gl=game.canvas.getContext("webgl",{premultipliedAlpha:false});
-			game.gl.getExtension("ANGLE_instanced_arrays");
+			game.ext=game.gl.getExtension("ANGLE_instanced_arrays");
 			game.indS=game.gl.createBuffer();
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
 			game.gl.bufferData(game.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(
