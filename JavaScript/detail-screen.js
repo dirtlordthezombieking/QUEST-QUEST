@@ -13,11 +13,11 @@ const detailScreen=
 	selectY:0,
 	load()
 	{
+		textRenderer.load();
 		loader.loadMulti(
 		[
 			["misc/select_8.png","texture"]
 		]);
-		textRenderer.load();
 	},
 	draw(d,t)
 	{
