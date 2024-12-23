@@ -16,6 +16,14 @@ const detailScreen=
 	},
 	draw(d,t)
 	{
+		game.gl.useProgram(detailScreen.shader);
+		game.setTexture(detailScreen.texLoc,detailScreen.tex,0);
+		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,detailScreen.buff);
+		game.gl.enableVertexAttribArray(detailScreen.dataLoc);
+		game.gl.vertexAttribPointer(detailScreen.dataLoc,4,game.gl.FLOAT,false,0,0);
+		game.gl.uniform2f(detailScreen.posLoc,detailScreen.selectX,detailScreen.selectY);
+		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
+		game.gk.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 		textRenderer.draw([255,255,255]);
 		inputTimer.tick(t);
 	},
@@ -25,9 +33,10 @@ const detailScreen=
 		//textRenderer.setBlock(textRenderer.createBlock(0,0,"test",2));
 //draw
 		detailScreen.shader=loader.items.basic.shader.value;
-		detailScreen.daaLoc=game.gl.getAttribLocation(detailScreen.shader,"a_data");
+		detailScreen.dataLoc=game.gl.getAttribLocation(detailScreen.shader,"a_data");
 		detailScreen.texLoc=game.gl.getUniformLocationdetailScreen.shader,"u_tex");
 		detailScreen.posLoc=game.gl.getUniformLocation(detailScreen.shader,"u_pos");
+		detailScreen.tex=loader.items["misc/select_8.png"].texture.value;
 		detailScreen.buff=game.gl.createBuffer();
 		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,detailScreen.buff);
 		game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
