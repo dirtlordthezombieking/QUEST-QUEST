@@ -71,7 +71,7 @@ const textRenderer=
 			game.ext.vertexAttribDivisorANGLE(textRenderer.charLoc,1);
 			game.gl.uniform3f(textRenderer.colLoc,colour[0],colour[1],colour[2]);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
-			game.ext.ddrawElementsInstancedANGLE(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0,textRenderer.charCount);
+			game.ext.drawElementsInstancedANGLE(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0,textRenderer.charCount);
 		}
 	},
 	setBlock(b)
