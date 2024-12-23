@@ -28,7 +28,7 @@ const detailScreen=
 		game.gl.vertexAttribPointer(detailScreen.dataLoc,4,game.gl.FLOAT,false,0,0);
 		game.gl.uniform2f(detailScreen.posLoc,detailScreen.selectX,detailScreen.selectY);
 		game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
-		game.gk.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
+		game.gl.drawElements(game.gl.TRIANGLES,6,game.gl.UNSIGNED_SHORT,0);
 		textRenderer.draw([255,255,255,255]);
 		inputTimer.tick(t);
 	},
