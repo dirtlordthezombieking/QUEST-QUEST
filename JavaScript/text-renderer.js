@@ -5,7 +5,7 @@ const textRenderer=
 {
 	doDraw:false,
 	loaded:false,
-	createBlock(x,y,src,scale)
+	createBlock(x,y,src,scale=1)
 	{
 		let ret=[];
 		let x2=0;
