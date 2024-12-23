@@ -28,6 +28,15 @@ const detailScreen=
 		detailScreen.daaLoc=game.gl.getAttribLocation(detailScreen.shader,"a_data");
 		detailScreen.texLoc=game.gl.getUniformLocationdetailScreen.shader,"u_tex");
 		detailScreen.posLoc=game.gl.getUniformLocation(detailScreen.shader,"u_pos");
+		detailScreen.buff=game.gl.createBuffer();
+		game.gl.bindBuffer(game.gl.ARRAY_BUFFER,detailScreen.buff);
+		game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(
+		[
+			 0, 0,0,1,
+			 0,16,0,0,
+			64, 0,1,1,
+			64,16,1,0
+		]),game.gl.STATIC_DRAW);
 	},
 	keyDown(k)
 	{
