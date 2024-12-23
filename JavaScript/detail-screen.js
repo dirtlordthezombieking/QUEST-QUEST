@@ -35,7 +35,7 @@ const detailScreen=
 	retrieve()
 	{
 		textRenderer.retrieve();
-		textRenderer.setBlock(textRenderer.createBlock(0,0,"test\ntest",2));
+		textRenderer.setBlock(textRenderer.createBlock(0,0,"test",2));
 //draw
 		detailScreen.shader=loader.items.basic.shader.value;
 		detailScreen.dataLoc=game.gl.getAttribLocation(detailScreen.shader,"a_data");
