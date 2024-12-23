@@ -34,7 +34,7 @@ const detailScreen=
 //draw
 		detailScreen.shader=loader.items.basic.shader.value;
 		detailScreen.dataLoc=game.gl.getAttribLocation(detailScreen.shader,"a_data");
-		detailScreen.texLoc=game.gl.getUniformLocationdetailScreen.shader,"u_tex");
+		detailScreen.texLoc=game.gl.getUniformLocation(detailScreen.shader,"u_tex");
 		detailScreen.posLoc=game.gl.getUniformLocation(detailScreen.shader,"u_pos");
 		detailScreen.tex=loader.items["misc/select_8.png"].texture.value;
 		detailScreen.buff=game.gl.createBuffer();
@@ -82,6 +82,7 @@ const detailScreen=
 			{
 				detailScreen.list[0][2]=1-detailScreen.list[0][2];
 			}
+			detailScreen.set();
 		}
 	},
 	add:
