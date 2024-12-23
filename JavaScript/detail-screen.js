@@ -13,7 +13,7 @@ const detailScreen=
 	retrieve()
 	{
 		textRenderer.retrieve();
-		textRenderer.(textRenderer.(0,0,"test"));
+		textRenderer.setBlock(textRenderer.createBlock(0,0,"test"));
 	},
 	keyDown(k)
 	{
