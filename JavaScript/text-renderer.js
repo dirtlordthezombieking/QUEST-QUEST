@@ -49,9 +49,9 @@ const textRenderer=
 				0,16,0.0000,0.125,
 				8, 0,0.0625,0.000,
 				8,16,0.0625,0.125,
-			]
-			),game.gl.STATIC_DRAW);
+			]),game.gl.STATIC_DRAW);
 			textRenderer.charBuff=game.gl.createBuffer();
+		}
 	},
 	draw(colour)
 	{
