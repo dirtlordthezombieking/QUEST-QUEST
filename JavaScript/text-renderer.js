@@ -1,4 +1,6 @@
 //const loader={};
+//const game={};
+//function Float32Array(){}
 const textRenderer=
 {
 	doDraw:false,
@@ -57,7 +59,7 @@ const textRenderer=
 	{
 		if(textRenderer.doDraw)
 		{
-			game.gl.useProgram(characterScreen.backShade);
+			game.gl.useProgram(textRenderer.shader);
 			game.setTexture(textRenderer.texLoc,textRenderer.texture,0);
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,textRenderer.dataBuff);
 			//game.gl.enableVertexAttribArray(textRenderer.dataLoc);
