@@ -6,6 +6,10 @@ const detailScreen=
 	choice:0,
 	load()
 	{
+		loader.loadMulti(
+		[
+			["misc/select_8.png","texture"]
+		]);
 		textRenderer.load();
 	},
 	draw(d,t)
