@@ -14,7 +14,7 @@ const textRenderer=
 		{
 			if(textRenderer.offsets[src[i]])
 			{
-				ret.push(textRenderer.offsets[src[i]][0],textRenderer.offsets[src[i]][1],x2,y2);
+				ret.push(x2,y2,textRenderer.offsets[src[i]][0],textRenderer.offsets[src[i]][1]);
 				x2+=8;
 			}
 			else if(src[i]=="\n")
@@ -67,7 +67,7 @@ const textRenderer=
 			game.gl.vertexAttribPointer(textRenderer.dataLoc,4,game.gl.FLOAT,false,0,0);
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,textRenderer.charBuff);
 			//game.gl.enableVertexAttribArray(textRenderer.charLoc);
-			game.gl.vertexAttribPointer(textRenderer.charLoc,3,game.gl.FLOAT,false,0,0);
+			game.gl.vertexAttribPointer(textRenderer.charLoc,4,game.gl.FLOAT,false,0,0);
 			game.ext.vertexAttribDivisorANGLE(textRenderer.charLoc,1);
 			game.gl.uniform3f(textRenderer.colLoc,colour[0],colour[1],colour[2]);
 			game.gl.bindBuffer(game.gl.ELEMENT_ARRAY_BUFFER,game.indS);
@@ -80,8 +80,9 @@ const textRenderer=
 		{
 			game.gl.bindBuffer(game.gl.ARRAY_BUFFER,textRenderer.charBuff);
 			game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(b),game.gl.STATIC_DRAW);
-			textRenderer.charCount=Math.floor(b.length/3);
+			textRenderer.charCount=Math.floor(b.length/4);
 			textRenderer.doDraw=true;
+			game.log.inform(textRenderer.charCount);
 		}
 		else
 		{
