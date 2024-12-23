@@ -5,21 +5,21 @@ const textRenderer=
 {
 	doDraw:false,
 	loaded:false,
-	createBlock(x,y,src)
+	createBlock(x,y,src,scale)
 	{
 		let ret=[];
-		let x2=x;
-		let y2=y-16;
+		let x2=0;
+		let y2=-16;
 		for(let i=0;i<src.length;i++)
 		{
 			if(textRenderer.offsets[src[i]])
 			{
-				ret.push(x2,y2,textRenderer.offsets[src[i]][0],textRenderer.offsets[src[i]][1]);
+				ret.push(x+(x2*scale),y+(y2*scale),textRenderer.offsets[src[i]][0],textRenderer.offsets[src[i]][1]);
 				x2+=8;
 			}
 			else if(src[i]=="\n")
 			{
-				x2=x;
+				x2=0;
 				y2-=16;
 			}
 		}
@@ -56,7 +56,7 @@ const textRenderer=
 			textRenderer.charBuff=game.gl.createBuffer();
 		}
 	},
-	draw(colour,scale)
+	draw(colour)
 	{
 		if(textRenderer.doDraw)
 		{
