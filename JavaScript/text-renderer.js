@@ -23,6 +23,7 @@ const textRenderer=
 				y2-=16;
 			}
 		}
+		return ret;
 	},
 	load()
 	{
