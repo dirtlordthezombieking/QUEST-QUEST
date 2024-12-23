@@ -1,6 +1,11 @@
 //________'(s|re) going to eat ________ food.
 //oh ________, ________ got it ________self so it's ________.
 //0123456701234567012345670123456701234567012345670123456701234567
+const loader={};
+const textRenderer={};
+const game={};
+const inputTimer={};
+function Float32Array(){}
 const detailScreen=
 {
 	choice:0,
@@ -55,25 +60,25 @@ const detailScreen=
 	{
 		if(inputTimer.keyUp(k))
 		{
-			if(k==ArrowRight)
+			if(k=="ArrowRight")
 			{
 				detailScreen.choice=detailScreen.move[detailScreen.choice][0];
 			}
-			else if(k==ArrowLeft)
+			else if(k=="ArrowLeft")
 			{
 				detailScreen.choice=detailScreen.move[detailScreen.choice][1];
 			}
 			else if(detailScreen.choice<6)
 			{
-				if(detailScreen.keys[keyUp(k)])
+				if(detailScreen.keys[k])
 				{
 					if(detailScreen.list[0][0].length<8)
 					{
-						detailScreen.list[0][0]=detailScreen.list[0][0]+detailScreen[k][1]
-						detailScreen.list[0][1]=detailScreen.list[0][1]+detailScreen[k][1]
+						detailScreen.list[0][0]=detailScreen.list[0][0]+detailScreen.keys[k][1]
+						detailScreen.list[0][1]=detailScreen.list[0][1]+detailScreen.keys[k][1]
 						if(detailScreen.list[0][0].length==1)
 						{
-							detailScreen.list[0][1]=detailScreen[k][0]
+							detailScreen.list[0][1]=detailScreen.keys[k][0]
 						}
 					}
 				}
