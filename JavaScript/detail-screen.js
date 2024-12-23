@@ -74,11 +74,11 @@ const detailScreen=
 				{
 					if(detailScreen.list[0][0].length<8)
 					{
-						detailScreen.list[0][0]+=detailScreen.keys[k][1]
-						detailScreen.list[0][1]+=detailScreen.keys[k][1]
+						detailScreen.list[0][0]+=detailScreen.keys[k][1]:
+						detailScreen.list[0][1]+=detailScreen.keys[k][1];
 						if(detailScreen.list[0][0].length==1)
 						{
-							detailScreen.list[0][1]=detailScreen.keys[k][0]
+							detailScreen.list[0][1]=detailScreen.keys[k][0];
 						}
 					}
 				}
