@@ -1,11 +1,11 @@
 //________'(s|re) going to eat ________ food.
 //oh ________, ________ got it ________self so it's ________.
 //0123456701234567012345670123456701234567012345670123456701234567
-const loader={};
-const textRenderer={};
-const game={};
-const inputTimer={};
-function Float32Array(){}
+//const loader={};
+//const textRenderer={};
+//const game={};
+//const inputTimer={};
+//function Float32Array(){}
 const detailScreen=
 {
 	choice:0,
