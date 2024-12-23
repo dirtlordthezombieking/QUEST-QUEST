@@ -243,7 +243,7 @@ const detailScreen=
 				detailScreen.selectX=432+((list[2][1].length+list[3][0].length+list[4][0].length)*16);
 				detailScreen.selectY=-32;
 				break;
-			case:6
+			case 6:
 				textRenderer.setBlock(textRenderer.createBlock(-256,64,
 				detailScreen.gap[detailScreen.list[0][1].length]+
 				detailScreen.tail[1-detailScreen.list[0][2]]+
