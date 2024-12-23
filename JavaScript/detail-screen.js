@@ -149,7 +149,7 @@ const detailScreen=
 				detailScreen.tail[detailScreen.list[0][2]]+
 				" going to eat "+
 				detailScreen.list[1][0]+
-				detailScreen.add[detailScreen.list[][0].length]+
+				detailScreen.add[detailScreen.list[1][0].length]+
 				" food.\noh, "+
 				detailScreen.list[2][1]+
 				", "+
