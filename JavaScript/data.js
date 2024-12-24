@@ -28,6 +28,11 @@ const data=
 		//game.log.inform(JSON.stringify(data[obj]));
 		//game.log.inform(window.localStorage.getItem(obj));
 	},
+	set(obj,value)
+	{
+		data[obj]=value;
+		window.localStorage.setItem(obj,JSON.stringify(data[obj]));
+	},
 	get(obj,path)
 	{
 		if(!data[obj])
@@ -48,6 +53,8 @@ const data=
 	load()
 	{
 		data.devOptions=JSON.parse(window.localStorage.getItem("devOptions"));
+		data.playerSprite=JSON.parse(window.localStorage.getItem("playerSprite"));
+		data.playerData=JSON.parse(window.localStorage.getItem("playerData"));
 		if(data.get("devOptions",["devmode"]))
 		{
 			game.log.inform("loaded in Dev mode");
