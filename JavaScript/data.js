@@ -26,6 +26,7 @@ const data=
 		hold[path[path.length-1]]=value;
 		window.localStorage.setItem(obj,JSON.stringify(data[obj]));
 		game.log.inform(JSON.stringify(data[obj]));
+		game.log.inform(window.localStorage.getItem(obj));
 	},
 	get(obj,path)
 	{
