@@ -51,7 +51,7 @@ const detailScreen=
 			64, 0,1,1,
 			64,16,1,0
 		]),game.gl.STATIC_DRAW);
-		detailScreen.nameIs=textRenderer.createBlock(-288,32,"And your name is...",2);
+		detailScreen.nameIs=textRenderer.createBlock(-144,32,"And your name is...",2);
 		detailScreen.set();
 	},
 	keyDown(k)
@@ -128,7 +128,7 @@ const detailScreen=
 			{
 				if(detailScreen.keys[k])
 				{
-					if(detailScreen.list[detailScreen.choice][0].length<8)
+					if(detailScreen.name[0].length<32)
 					{
 						detailScreen.name[0]+=detailScreen.keys[k][1];
 						detailScreen.name[1]+=detailScreen.keys[k][1];
@@ -341,7 +341,7 @@ const detailScreen=
 				break;
 			case 7://9*32,96*3,300-12,288
 				textRenderer.setBlock(
-				detailScreen.nameIs.concat(textRenderer.createBlock((detailScreen.name[1].length+1)*-16,0,detailScreen.name[1]+".",2)));
+				detailScreen.nameIs.concat(textRenderer.createBlock((detailScreen.name[1].length+1)*-8,0,detailScreen.name[1]+".",2)));
 				detailScreen.selectX=1000;
 				detailScreen.selectY=1000;
 				break;
