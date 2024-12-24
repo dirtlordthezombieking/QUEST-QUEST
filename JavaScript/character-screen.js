@@ -642,6 +642,7 @@ const characterScreen=
 	draw(d,t)
 	{
 		characterScreen.char.race=characterScreen.race;
+		characterScreen.char.skinNum=characterScreen.skinTone;
 		let s=characterScreen.skinTone-30;
 		let st=characterScreen.skinTone;
 		if(characterScreen.race==4)
@@ -1257,6 +1258,12 @@ const characterScreen=
 		{
 			characterScreen.style.draw(256,-268);
 		};
+		if(data.playerSprite)
+		{
+			characterscreen.char=data.playerSprite;
+			characterscreen.skinTone=data.playerSprite.skinNum;
+			characterscreen.race=data.playerSprite.race;
+		}
 	},
 	keyDown(k)
 	{
