@@ -1,5 +1,6 @@
 //const loader={};
 //const game={};
+//const data={};
 //const inputTimer={};
 //const characterScreen={};
 const titleScreen=
