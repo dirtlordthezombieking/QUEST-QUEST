@@ -12,6 +12,7 @@ const game=
 			{
 				return;
 			}
+			data.load();
 			document.getElementById("start").style.display="none";
 			game.logVis=document.getElementById("log").style.display;
 			game.started=true;

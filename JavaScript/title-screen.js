@@ -1,5 +1,6 @@
 //const loader={};
 //const game={};
+//const data={};
 //const inputTimer={};
 //const characterScreen={};
 const titleScreen=
@@ -59,7 +60,9 @@ const titleScreen=
 				{
 					titleScreen.oneOver2Point6538461538461538=0;
 					game.log.inform("Dev mode... activated!!!");
-					game.devMode=true;
+					data.update("devOptions",["devmode"],true);
+					//data.devOptions.devMode=true;
+					//data.save("dev options","devOptions");
 				}
 			}
 			else
