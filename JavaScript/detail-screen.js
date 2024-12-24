@@ -166,7 +166,7 @@ const detailScreen=
 				detailScreen.list[5][0]+
 				".",
 				1));
-				detailScreen.selectX=102+((detailScreen.list[0][1]+detailScreen.tail[detailScreen.list[0][2]]).length*8);
+				detailScreen.selectX=120+((detailScreen.list[0][1]+detailScreen.tail[detailScreen.list[0][2]]).length*8);
 				detailScreen.selectY=0;
 				break;
 			case 2:
@@ -186,7 +186,7 @@ const detailScreen=
 				detailScreen.list[5][0]+
 				".",
 				1));
-				detailScreen.selectX=64;
+				detailScreen.selectX=32;
 				detailScreen.selectY=-16;
 				break;
 			case 3:
