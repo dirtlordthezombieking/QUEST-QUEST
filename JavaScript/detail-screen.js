@@ -87,6 +87,11 @@ const detailScreen=
 				{
 					if(detailScreen.list[detailScreen.choice][0].length>0)
 					{
+						detailScreen.list[detailScreen.choice][0]=detailScreen.list[detailScreen.choice][0].substring(0,detailScreen.list[detailScreen.choice][0].length-1);
+					}
+					if(detailScreen.list[detailScreen.choice][1].length>0)
+					{
+						detailScreen.list[detailScreen.choice][1]=detailScreen.list[detailScreen.choice][1].substring(0,detailScreen.list[detailScreen.choice][1].length-1);
 					}
 				}
 			}
