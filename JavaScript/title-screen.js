@@ -59,9 +59,9 @@ const titleScreen=
 				{
 					titleScreen.oneOver2Point6538461538461538=0;
 					game.log.inform("Dev mode... activated!!!");
-					data.devOptions={};
-					data.devOptions.devMode=true;
-					data.save("dev options","devOptions");
+					data.update("devOptions",["devmode"],true);
+					//data.devOptions.devMode=true;
+					//data.save("dev options","devOptions");
 				}
 			}
 			else
