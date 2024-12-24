@@ -112,7 +112,7 @@ const detailScreen=
 						}
 					}
 				}
-				else if(k="Backspace")
+				else if(k=="Backspace")
 				{
 					if(detailScreen.list[detailScreen.choice][0].length>0)
 					{
@@ -138,7 +138,7 @@ const detailScreen=
 						}
 					}
 				}
-				else if(k="Backspace")
+				else if(k=="Backspace")
 				{
 					if(detailScreen.name[0].length>0)
 					{
