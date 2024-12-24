@@ -341,7 +341,7 @@ const detailScreen=
 				break;
 			case 7://9*32,96*3,300-12,288
 				textRenderer.setBlock(
-				detailScreen.nameIs.concat(textRenderer.createBlock((detailScreen.name[1].length+1)*-16,0,detailScreen.name[1]+".",2));
+				detailScreen.nameIs.concat(textRenderer.createBlock((detailScreen.name[1].length+1)*-16,0,detailScreen.name[1]+".",2)));
 				detailScreen.selectX=1000;
 				detailScreen.selectY=1000;
 				break;
