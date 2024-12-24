@@ -1315,6 +1315,7 @@ const characterScreen=
 					navigator.clipboard.writeText(JSON.stringify(characterScreen.char,null,"\t"));
 					break;
 				case "Enter":
+					data.set("playerSprite",characterScreen.char);
 					game.setScreen(detailScreen);
 					break;
 			}
