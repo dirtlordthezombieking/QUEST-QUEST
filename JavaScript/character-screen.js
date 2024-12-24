@@ -952,6 +952,12 @@ const characterScreen=
 		characterScreen.char.hairStyle=Math.floor(Math.random()*2);
 		characterScreen.char.detailStyle=Math.floor(Math.random()*2);
 		characterScreen.char.bodyType=Math.floor(Math.random()*4);
+		characterScreen.char.shirtType=0;
+		characterScreen.char.eyeType=0;
+		characterScreen.char.eyebrowType=0;
+		characterScreen.char.pantsType=0;
+		characterScreen.char.shoeType=0;
+		characterScreen.char.earType=0;
 		characterScreen.selectors[2]={};
 		characterScreen.selectors[2].draw=function()
 		{
