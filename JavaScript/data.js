@@ -47,7 +47,7 @@ const data=
 	load()
 	{
 		data.devOptions=window.localStorage.setItem("devOptions","devOptions");
-		if(data.get("devOptions",["devMode"]))
+		if(data.get("devOptions",["devmode"]))
 		{
 			game.log.inform("loaded in Dev mode");
 		}
