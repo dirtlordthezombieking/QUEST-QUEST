@@ -3,7 +3,7 @@ const data=
 {
 	update(obj,path,value)
 	{
-		if(!data[obj])
+		if((!data[obj])||((typeof data[obj])!="object"))
 		{
 			data[obj]={};
 		}
