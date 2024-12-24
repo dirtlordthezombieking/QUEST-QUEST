@@ -70,6 +70,24 @@ const detailScreen=
 			{
 				detailScreen.choice=detailScreen.move[detailScreen.choice][1];
 			}
+			else if(k=="Enter")
+			{
+				if(detailScreen.choice<7)
+				{
+					if(
+
+					)
+					{
+						detailScreen.name=["",""];
+						detailScreen.choice=7;
+					}
+					if(detailScreen.name.length>0)
+					{
+						//------
+					}
+				}
+				else
+			}
 			else if(detailScreen.choice<6)
 			{
 				if(detailScreen.keys[k])
@@ -78,7 +96,7 @@ const detailScreen=
 					{
 						detailScreen.list[detailScreen.choice][0]+=detailScreen.keys[k][1];
 						detailScreen.list[detailScreen.choice][1]+=detailScreen.keys[k][1];
-						if(detailScreen.list[detailScreen.choice][0].length==1)
+						if(detailScreen.list[detailScreen.choice][1].length==1)
 						{
 							detailScreen.list[detailScreen.choice][1]=detailScreen.keys[k][0];
 						}
@@ -93,6 +111,32 @@ const detailScreen=
 					if(detailScreen.list[detailScreen.choice][1].length>0)
 					{
 						detailScreen.list[detailScreen.choice][1]=detailScreen.list[detailScreen.choice][1].substring(0,detailScreen.list[detailScreen.choice][1].length-1);
+					}
+				}
+			}
+			else if(detailScreen.choice==7)
+			{
+				if(detailScreen.keys[k])
+				{
+					if(detailScreen.list[detailScreen.choice][0].length<8)
+					{
+						detailScreen.name[0]+=detailScreen.keys[k][1];
+						detailScreen.name[1]+=detailScreen.keys[k][1];
+						if(detailScreen.name[1].length==1)
+						{
+							detailScreen.name[1]=detailScreen.keys[k][0];
+						}
+					}
+				}
+				else if(k="Backspace")
+				{
+					if(detailScreen.name[0].length>0)
+					{
+						detailScreen.name[0]=detailScreen.name[0].substring(0,detailScreen.name[0].length-1);
+					}
+					if(detailScreen.name[1].length>0)
+					{
+						detailScreen.name[1]=detailScreen.name[1].substring(0,detailScreen.name[1].length-1);
 					}
 				}
 			}
@@ -287,7 +331,7 @@ const detailScreen=
 				break;
 			case 7://9*32,96*3,300-12,288
 				textRenderer.setBlock(
-				detailScreen.nameIs.concat(textRenderer.createBlock(detailScreen.name.length*-16,0,detailScreen.name,2));
+				detailScreen.nameIs.concat(textRenderer.createBlock((detailScreen.name[1].length+1)*-16,0,detailScreen.name[1]+".",2));
 				detailScreen.selectX=1000;
 				detailScreen.selectY=1000;
 				break;
