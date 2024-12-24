@@ -75,18 +75,28 @@ const detailScreen=
 				if(detailScreen.choice<7)
 				{
 					if(
-
+						detailScreen.list[0][0].length>0&&
+						detailScreen.list[0][1].length>0&&
+						detailScreen.list[1][0].length>0&&
+						detailScreen.list[1][1].length>0&&
+						detailScreen.list[2][0].length>0&&
+						detailScreen.list[2][1].length>0&&
+						detailScreen.list[3][0].length>0&&
+						detailScreen.list[3][1].length>0&&
+						detailScreen.list[4][0].length>0&&
+						detailScreen.list[4][1].length>0&&
+						detailScreen.list[5][0].length>0&&
+						detailScreen.list[5][1].length>0
 					)
 					{
 						detailScreen.name=["",""];
 						detailScreen.choice=7;
 					}
-					if(detailScreen.name.length>0)
-					{
-						//------
-					}
 				}
-				else
+				else if(detailScreen.name.length>0)
+				{
+					//------
+				}
 			}
 			else if(detailScreen.choice<6)
 			{
@@ -102,7 +112,7 @@ const detailScreen=
 						}
 					}
 				}
-				else if(k="Backspace")
+				else if(k=="Backspace")
 				{
 					if(detailScreen.list[detailScreen.choice][0].length>0)
 					{
@@ -128,7 +138,7 @@ const detailScreen=
 						}
 					}
 				}
-				else if(k="Backspace")
+				else if(k=="Backspace")
 				{
 					if(detailScreen.name[0].length>0)
 					{
@@ -331,7 +341,7 @@ const detailScreen=
 				break;
 			case 7://9*32,96*3,300-12,288
 				textRenderer.setBlock(
-				detailScreen.nameIs.concat(textRenderer.createBlock((detailScreen.name[1].length+1)*-16,0,detailScreen.name[1]+".",2));
+				detailScreen.nameIs.concat(textRenderer.createBlock((detailScreen.name[1].length+1)*-16,0,detailScreen.name[1]+".",2)));
 				detailScreen.selectX=1000;
 				detailScreen.selectY=1000;
 				break;
