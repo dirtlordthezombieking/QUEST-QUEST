@@ -95,7 +95,11 @@ const detailScreen=
 				}
 				else if(detailScreen.name.length>0)
 				{
-					//------
+					data set("playerData",
+					{
+						pronouns:detailScreen.list,
+						name:detailScreen.name
+					});
 				}
 			}
 			else if(detailScreen.choice<6)
