@@ -2,6 +2,7 @@
 //oh ________, ________ got it ________self so it's ________.
 //0123456701234567012345670123456701234567012345670123456701234567
 //const loader={};
+//const data={};
 //const textRenderer={};
 //const game={};
 //const inputTimer={};
@@ -11,6 +12,7 @@ const detailScreen=
 	choice:0,
 	selectX:-256,
 	selectY:0,
+	name:["",""],
 	load()
 	{
 		textRenderer.load();
@@ -89,13 +91,12 @@ const detailScreen=
 						detailScreen.list[5][1].length>0
 					)
 					{
-						detailScreen.name=["",""];
 						detailScreen.choice=7;
 					}
 				}
 				else if(detailScreen.name.length>0)
 				{
-					data set("playerData",
+					data.set("playerData",
 					{
 						pronouns:detailScreen.list,
 						name:detailScreen.name
