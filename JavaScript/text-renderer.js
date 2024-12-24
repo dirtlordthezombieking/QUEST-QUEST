@@ -82,7 +82,7 @@ const textRenderer=
 			game.gl.bufferData(game.gl.ARRAY_BUFFER,new Float32Array(b),game.gl.STATIC_DRAW);
 			textRenderer.charCount=Math.floor(b.length/4);
 			textRenderer.doDraw=true;
-			game.log.inform(textRenderer.charCount);
+			//game.log.inform(textRenderer.charCount);
 		}
 		else
 		{

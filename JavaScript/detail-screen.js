@@ -77,10 +77,21 @@ const detailScreen=
 					{
 						detailScreen.list[detailScreen.choice][0]+=detailScreen.keys[k][1];
 						detailScreen.list[detailScreen.choice][1]+=detailScreen.keys[k][1];
-						if(detailScreen.list[0][0].length==1)
+						if(detailScreen.list[detailScreen.choice][0].length==1)
 						{
 							detailScreen.list[detailScreen.choice][1]=detailScreen.keys[k][0];
 						}
+					}
+				}
+				else if(k="Backspace")
+				{
+					if(detailScreen.list[detailScreen.choice][0].length>0)
+					{
+						detailScreen.list[detailScreen.choice][0]=detailScreen.list[detailScreen.choice][0].substring(0,detailScreen.list[detailScreen.choice][0].length-1);
+					}
+					if(detailScreen.list[detailScreen.choice][1].length>0)
+					{
+						detailScreen.list[detailScreen.choice][1]=detailScreen.list[detailScreen.choice][1].substring(0,detailScreen.list[detailScreen.choice][1].length-1);
 					}
 				}
 			}
@@ -166,7 +177,7 @@ const detailScreen=
 				detailScreen.list[5][0]+
 				".",
 				1));
-				detailScreen.selectX=102+((detailScreen.list[0][1]+detailScreen.tail[detailScreen.list[0][2]]).length*8);
+				detailScreen.selectX=120+((detailScreen.list[0][1]+detailScreen.tail[detailScreen.list[0][2]]).length*8);
 				detailScreen.selectY=0;
 				break;
 			case 2:
@@ -186,7 +197,7 @@ const detailScreen=
 				detailScreen.list[5][0]+
 				".",
 				1));
-				detailScreen.selectX=64;
+				detailScreen.selectX=32;
 				detailScreen.selectY=-16;
 				break;
 			case 3:
