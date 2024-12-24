@@ -2,6 +2,8 @@
 //const game={};
 //const utils={};
 //const characterRenderer={};
+//const data={};
+//const detailScreen={};
 //function Float32Array(){}
 const characterScreen=
 {
@@ -1260,9 +1262,9 @@ const characterScreen=
 		};
 		if(data.playerSprite)
 		{
-			characterscreen.char=data.playerSprite;
-			characterscreen.skinTone=data.playerSprite.skinNum;
-			characterscreen.race=data.playerSprite.race;
+			characterScreen.char=data.playerSprite;
+			characterScreen.skinTone=data.playerSprite.skinNum;
+			characterScreen.race=data.playerSprite.race;
 		}
 	},
 	keyDown(k)
