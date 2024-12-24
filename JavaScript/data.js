@@ -51,5 +51,6 @@ const data=
 		{
 			game.log.inform("loaded in Dev mode");
 		}
+		game.log.inform(window.localStorage.getItem("devOptions"));
 	}
 };
