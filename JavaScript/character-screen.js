@@ -1263,7 +1263,7 @@ const characterScreen=
 		if(data.playerSprite)
 		{
 			characterScreen.char=data.playerSprite;
-			characterScreen.skinTone=data.playerSprite.skinNum;
+			//characterScreen.skinTone=data.playerSprite.skinNum;
 			characterScreen.race=data.playerSprite.race;
 		}
 	},
