@@ -32,7 +32,7 @@ const data=
 	{
 		data[obj]=value;
 		window.localStorage.setItem(obj,JSON.stringify(data[obj]));
-	}
+	},
 	get(obj,path)
 	{
 		if(!data[obj])
