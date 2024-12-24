@@ -128,7 +128,7 @@ const detailScreen=
 			{
 				if(detailScreen.keys[k])
 				{
-					if(detailScreen.name[0].length<32)
+					if(detailScreen.name[0].length<16)
 					{
 						detailScreen.name[0]+=detailScreen.keys[k][1];
 						detailScreen.name[1]+=detailScreen.keys[k][1];
