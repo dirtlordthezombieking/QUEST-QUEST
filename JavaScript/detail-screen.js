@@ -54,6 +54,14 @@ const detailScreen=
 			64,16,1,0
 		]),game.gl.STATIC_DRAW);
 		detailScreen.nameIs=textRenderer.createBlock(-144,32,"And your name is...",2);
+		if(data.get("playerData",["pronouns"])
+		{
+			detailScreen.list=data.get("playerData",["pronouns"]);
+		}
+		if(data.get("playerData",["name"])
+		{
+			detailScreen.name=data.get("playerData",["name"]);
+		}
 		detailScreen.set();
 	},
 	keyDown(k)
