@@ -42,6 +42,10 @@ const game=
 			document.onkeydown=game.keyDown;
 			document.onkeyup=game.keyUp;
 			game.canvas.requestFullscreen();
+			if(data.get("devOptions",["devmode"]))
+			{
+				game.log.inform(""+game.canvas.getBoundingClientRect().height);
+			}
 		}
 		catch(e)
 		{
