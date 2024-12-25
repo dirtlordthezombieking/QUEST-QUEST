@@ -41,10 +41,14 @@ const game=
 			requestAnimationFrame(function(ts){tis.draw(ts);});
 			document.onkeydown=game.keyDown;
 			document.onkeyup=game.keyUp;
+			if(data.get("devOptions",["devmode"]))
+			{
+				game.log.inform(""+window.innerHeight));
+			}
 			game.canvas.requestFullscreen();
 			if(data.get("devOptions",["devmode"]))
 			{
-				game.log.inform(""+game.canvas.getBoundingClientRect().height);
+				game.log.inform(""+window.innerHeight));
 			}
 		}
 		catch(e)
