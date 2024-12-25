@@ -48,7 +48,7 @@ const game=
 			game.canvas.requestFullscreen();
 			if(data.get("devOptions",["devmode"]))
 			{
-				//game.log.inform(""+window.innerHeight);
+				game.log.inform(""+window.innerHeight);
 			}
 		}
 		catch(e)
