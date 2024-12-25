@@ -38,6 +38,11 @@ const game=
 			game.setScreen(titleScreen);
 			game.frameTime=performance.now();
 			let tis=game;
+			if(data.get("devOptions",["devmode"]))
+			{
+				game.testbool=true;
+				game.testfloat=0;
+			}
 			requestAnimationFrame(function(ts){tis.draw(ts);});
 			document.onkeydown=game.keyDown;
 			document.onkeyup=game.keyUp;
@@ -113,6 +118,18 @@ const game=
 		game.frameTime=performance.now();
 		try
 		{
+			if(data.get("devOptions",["devmode"]))
+			{
+				if(game.testbool)
+				{
+					game.testfloat+=d;
+					if(game.testfloat>5000)
+					{
+						game.log.inform(""+window.innerHeight);
+						game.testbool=false;
+					}
+				}
+			}
 			if((document.fullscreenElement!=game.canvas)&&(!game.logSet))
 			{
 				document.getElementById("log").style.display=game.logVis;
