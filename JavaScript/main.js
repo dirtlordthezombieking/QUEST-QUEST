@@ -43,12 +43,12 @@ const game=
 			document.onkeyup=game.keyUp;
 			if(data.get("devOptions",["devmode"]))
 			{
-				game.log.inform(""+window.innerHeight));
+				game.log.inform(""+window.innerHeight);
 			}
 			game.canvas.requestFullscreen();
 			if(data.get("devOptions",["devmode"]))
 			{
-				game.log.inform(""+window.innerHeight));
+				//game.log.inform(""+window.innerHeight);
 			}
 		}
 		catch(e)
