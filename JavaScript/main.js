@@ -48,12 +48,12 @@ const game=
 			document.onkeyup=game.keyUp;
 			if(data.get("devOptions",["devmode"]))
 			{
-				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight);
+				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 			}
 			game.canvas.requestFullscreen();
 			if(data.get("devOptions",["devmode"]))
 			{
-				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight);
+				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 			}
 		}
 		catch(e)
@@ -125,7 +125,7 @@ const game=
 					game.testfloat+=d;
 					if(game.testfloat>5000)
 					{
-						game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight);
+						game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 						game.testbool=false;
 					}
 				}
