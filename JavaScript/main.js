@@ -52,21 +52,7 @@ const game=
 			document.onkeydown=game.keyDown;
 			document.onkeyup=game.keyUp;
 			new ResizeObserver(game.resizeCanvas).observe(game.canvas);
-			if(data.get("devOptions",["devmode"]))
-			{
-				//game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
-			}
-			game.canvas.requestFullscreen().then(() =>
-			{
-				if(data.get("devOptions",["devmode"]))
-				{
-				//game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
-				}
-			});
-			if(data.get("devOptions",["devmode"]))
-			{
-				//game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
-			}
+			game.canvas.requestFullscreen();
 		}
 		catch(e)
 		{
@@ -77,6 +63,7 @@ const game=
 	{
 		if(data.get("devOptions",["devmode"]))
 		{
+			game.sizeSet=false;
 			//game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 		}
 	},
@@ -85,12 +72,14 @@ const game=
 		if(document.fullscreenElement!=game.canvas)
 		{
 			//game.canvas.requestFullscreen();
-			return;
+			//return;
 		}
 		try
 		{
 			let t=ev.touches[0];
-			game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
+			game.log.inform(""+t.identifier);
+			
+			//game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
 		}
 		catch(e)
 		{
@@ -154,18 +143,6 @@ const game=
 		game.frameTime=performance.now();
 		try
 		{
-			if(data.get("devOptions",["devmode"]))
-			{
-				if(game.testbool)
-				{
-					game.testfloat+=d;
-					if(game.testfloat>5000)
-					{
-						//game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
-						game.testbool=false;
-					}
-				}
-			}
 			if((document.fullscreenElement!=game.canvas)&&(!game.logSet))
 			{
 				document.getElementById("log").style.display=game.logVis;
