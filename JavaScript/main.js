@@ -49,18 +49,18 @@ const game=
 			new ResizeObserver(game.resizeCanvas).observe(game.canvas);
 			if(data.get("devOptions",["devmode"]))
 			{
-				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
+				//game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 			}
 			game.canvas.requestFullscreen().then(() =>
 			{
 				if(data.get("devOptions",["devmode"]))
 				{
-				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
+				//game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 				}
 			});
 			if(data.get("devOptions",["devmode"]))
 			{
-				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
+				//game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 			}
 		}
 		catch(e)
@@ -72,7 +72,7 @@ const game=
 	{
 		if(data.get("devOptions",["devmode"]))
 		{
-			game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
+			//game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 		}
 	},
 	touchStart(ev)
@@ -84,6 +84,8 @@ const game=
 		}
 		try
 		{
+			let t=ev.touches[0];
+			game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
 		}
 		catch(e)
 		{
@@ -154,7 +156,7 @@ const game=
 					game.testfloat+=d;
 					if(game.testfloat>5000)
 					{
-						game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
+						//game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 						game.testbool=false;
 					}
 				}
