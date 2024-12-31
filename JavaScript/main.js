@@ -81,8 +81,8 @@ const game=
 			{
 				game.log.inform("t: "+t.identifier);
 			}
-			game.log.inform("c: "+ev.changedTouches.[0].identifier);
-			if(ev.changedTouches.[0].identifier==0)
+			game.log.inform("c: "+ev.changedTouches[0].identifier);
+			if(ev.changedTouches[0].identifier==0)
 			{
 				//----
 			}
