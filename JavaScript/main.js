@@ -1,3 +1,8 @@
+//const data={};
+//const titleScreen={};
+//const loader={};
+//function Float32Array(){}
+//function Uint16Array(){}
 const game=
 {
 	started:false,
