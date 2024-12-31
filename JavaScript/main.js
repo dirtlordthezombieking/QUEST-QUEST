@@ -46,6 +46,7 @@ const game=
 			requestAnimationFrame(function(ts){tis.draw(ts);});
 			document.onkeydown=game.keyDown;
 			document.onkeyup=game.keyUp;
+			new ResizeObserver(game.resizeCanvas).observe(game.canvas);
 			if(data.get("devOptions",["devmode"]))
 			{
 				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
@@ -65,6 +66,13 @@ const game=
 		catch(e)
 		{
 			game.log.error(e.message);
+		}
+	},
+	resizeCanvas()
+	{
+		if(data.get("devOptions",["devmode"]))
+		{
+			game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 		}
 	},
 	setScreen(s)
