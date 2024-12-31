@@ -67,28 +67,68 @@ const game=
 		game.canvasDrawY=canvas.clientHeight/2;
 		game.canvasScale=Math.min(canvas.clientWidth/768,canvas.clientHeight/512);
 		game.sizeSet=true;
-		//game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
+		game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight);//+","+window.devicePixelRatio);
 	},
 	touchStart(ev)
 	{
 		if(document.fullscreenElement!=game.canvas)
 		{
 			//game.canvas.requestFullscreen();
-			//return;
+			return;
 		}
 		try
 		{
 			let t=ev.touches[0];
-			if(game.down)
-			{
-				game.log.inform("t: "+t.identifier);
-			}
-			game.log.inform("c: "+ev.changedTouches[0].identifier);
+			//game.log.inform(": "+ev.changedTouches[0].identifier);
 			if(ev.changedTouches[0].identifier==0)
 			{
-				//----
+				//game.log.inform();
+			}
+			game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
+		}
+		catch(e)
+		{
+			game.log.error("error:\n"+e.message);
+		}
+	},
+	touchMove(ev)
+	{
+		if(document.fullscreenElement!=game.canvas)
+		{
+			//game.canvas.requestFullscreen();
+			return;
+		}
+		try
+		{
+			let t=ev.touches[0];
+			//game.log.inform(": "+ev.changedTouches[0].identifier);
+			if(ev.changedTouches[0].identifier==0)
+			{
+				//game.log.inform();
 			}
 			//game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
+		}
+		catch(e)
+		{
+			game.log.error("error:\n"+e.message);
+		}
+	},
+	touchEnd(ev)
+	{
+		if(document.fullscreenElement!=game.canvas)
+		{
+			//game.canvas.requestFullscreen();
+			return;
+		}
+		try
+		{
+			let t=ev.touches[0];
+			//game.log.inform(": "+ev.changedTouches[0].identifier);
+			if(ev.changedTouches[0].identifier==0)
+			{
+				//game.log.inform();
+			}
+			game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
 		}
 		catch(e)
 		{
