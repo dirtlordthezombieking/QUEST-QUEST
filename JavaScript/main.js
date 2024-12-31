@@ -77,8 +77,15 @@ const game=
 		try
 		{
 			let t=ev.touches[0];
-			game.log.inform(""+t.identifier);
-			
+			if(game.down)
+			{
+				game.log.inform("t: "+t.identifier);
+			}
+			game.log.inform("c: "+ev.changedTouches.[0].identifier);
+			if(ev.changedTouches.[0].identifier==0)
+			{
+				//----
+			}
 			//game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
 		}
 		catch(e)
@@ -91,7 +98,8 @@ const game=
 		game.loaded=false;
 		game.screen=s;
 		game.screen.load();
-	},
+	
+},
 	keyDown(ev)
 	{
 		if(document.fullscreenElement!=game.canvas)
