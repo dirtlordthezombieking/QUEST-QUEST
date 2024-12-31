@@ -50,7 +50,13 @@ const game=
 			{
 				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 			}
-			game.canvas.requestFullscreen();
+			game.canvas.requestFullscreen().then(() =>
+			{
+				if(data.get("devOptions",["devmode"]))
+				{
+				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
+				}
+			});
 			if(data.get("devOptions",["devmode"]))
 			{
 				game.log.inform(""+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
