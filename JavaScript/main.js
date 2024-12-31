@@ -75,6 +75,21 @@ const game=
 			game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 		}
 	},
+	touchStart(ev)
+	{
+		if(document.fullscreenElement!=game.canvas)
+		{
+			//game.canvas.requestFullscreen();
+			return;
+		}
+		try
+		{
+		}
+		catch(e)
+		{
+			game.log.error("error:\n"+e.message);
+		}
+	},
 	setScreen(s)
 	{
 		game.loaded=false;
