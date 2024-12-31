@@ -18,6 +18,7 @@ const game=
 				return;
 			}
 			data.load();
+			game.resizeCanvas();
 			document.getElementById("start").style.display="none";
 			game.logVis=document.getElementById("log").style.display;
 			game.started=true;
@@ -61,11 +62,12 @@ const game=
 	},
 	resizeCanvas()
 	{
-		if(data.get("devOptions",["devmode"]))
-		{
-			game.sizeSet=false;
-			//game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
-		}
+		game.sizeSet=false;
+		game.canvasDrawX=canvas.clientWidth/2;
+		game.canvasDrawY=canvas.clientHeight/2;
+		game.canvasScale=Math.min(canvas.clientWidth/768,canvas.clientHeight/512);
+		game.sizeSet=true;
+		//game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight+","+window.devicePixelRatio);
 	},
 	touchStart(ev)
 	{
@@ -98,8 +100,7 @@ const game=
 		game.loaded=false;
 		game.screen=s;
 		game.screen.load();
-	
-},
+	},
 	keyDown(ev)
 	{
 		if(document.fullscreenElement!=game.canvas)
