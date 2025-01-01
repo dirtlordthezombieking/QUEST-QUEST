@@ -74,5 +74,14 @@ const titleScreen=
 		{
 			titleScreen.oneOver2Point6538461538461538=0;
 		}
+	},
+	touchMouseStart(x,y)
+	{
+	},
+	touchMouseMove(x,y)
+	{
+	},
+	touchMouseEnd(x,y)
+	{
 	}
 };
