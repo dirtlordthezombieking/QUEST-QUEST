@@ -38,7 +38,7 @@ const characterMouseTouchController=
 			{
 				if(y>192)
 				{
-					if(x<-320)
+					if(x<-288&&x>=-352)
 					{
 						characterScreen.race=utils.properMod(characterScreen.race-1,9);
 					}
@@ -85,7 +85,7 @@ const characterMouseTouchController=
 			{
 				if(y>192)
 				{
-					if(x<-320)
+					if(x>=288&&x<352)
 					{
 						characterScreen.race=utils.properMod(characterScreen.race+1,9);
 					}
