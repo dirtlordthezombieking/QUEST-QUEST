@@ -13,12 +13,15 @@ const characterScreen=
 	hexPart:0,
 	touchMouseStart(x,y)
 	{
+			characterMouseTouchController.touchMouseStart(x,y);
 	},
 	touchMouseMove(x,y)
 	{
+			characterMouseTouchController.touchMouseMove(x,y);
 	},
 	touchMouseEnd(x,y)
 	{
+			characterMouseTouchController.touchMouseEnd(x,y);
 	},
 	settings:
 	[
@@ -1275,6 +1278,7 @@ const characterScreen=
 			characterScreen.skinTone=data.playerSprite.skinNum;
 			characterScreen.race=data.playerSprite.race;
 		}
+		characterScreen.doneLoad=true;
 	},
 	keyDown(k)
 	{
