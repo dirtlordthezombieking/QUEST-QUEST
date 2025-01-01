@@ -13,6 +13,15 @@ const detailScreen=
 	selectX:-256,
 	selectY:0,
 	name:["",""],
+	touchMouseStart(x,y)
+	{
+	},
+	touchMouseMove(x,y)
+	{
+	},
+	touchMouseEnd(x,y)
+	{
+	},
 	load()
 	{
 		textRenderer.load();

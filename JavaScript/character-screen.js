@@ -11,6 +11,15 @@ const characterScreen=
 	time:0,
 	choice:0,
 	hexPart:0,
+	touchMouseStart(x,y)
+	{
+	},
+	touchMouseMove(x,y)
+	{
+	},
+	touchMouseEnd(x,y)
+	{
+	},
 	settings:
 	[
 		{
