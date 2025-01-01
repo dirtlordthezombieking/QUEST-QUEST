@@ -25,10 +25,10 @@ const characterMouseTouchController=
 		{
 			return;
 		}
-		if((characterScreen.time-characterMouseTouchController.lastClick)<=500)
+		if((characterScreen.time-characterMouseTouchController.lastClick)<=50)
 		{
-			//characterScreen.keyDown("Enter");
-			//characterScreen.keyUp("Enter");
+			characterScreen.keyDown("Enter");
+			characterScreen.keyUp("Enter");
 			//game.log.inform(""+characterScreen.time+"|"+characterMouseTouchController.lastClick+"|"+(characterScreen.time-characterMouseTouchController.lastClick));
 		}
 		game.log.inform(""+characterScreen.time+"|"+characterMouseTouchController.lastClick+"|"+(characterScreen.time-characterMouseTouchController.lastClick));
