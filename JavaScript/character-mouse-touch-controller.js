@@ -1,6 +1,6 @@
 const characterMouseTouchController=
 {
-	last click:0,
+	lastClick:0,
 	touchMouseStart(x,y)
 	{
 		if(!characterScreen.doneLoad)
