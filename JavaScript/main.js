@@ -8,6 +8,7 @@ const game=
 	started:false,
 	loaded:false,
 	logSet:true,
+	canvas:"canvas",
 	start()
 	{
 		game.startTime=performance.now();
