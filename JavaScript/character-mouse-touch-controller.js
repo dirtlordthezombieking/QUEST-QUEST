@@ -40,37 +40,39 @@ const characterMouseTouchController=
 						characterScreen.race=utils.clamp(characterScreen.race-1,0,9)
 					}
 				}
-				else if(y>=116)
-				{
-					//----
-				}
+				else if(y>=116){}
 				else if(y>=84)
 				{
 					//hair hex
 				}
-				else if(y>=-2)
-				{
-					//----
-				}
+				else if(y>=-20){}
 				else if(y>=-52)
 				{
 					//detail hex
 				}
-				else if(y>=-156)
-				{
-					//----
-				}
+				else if(y>=-156){}
 				else if(y>=-188)
 				{
-					//hair style
+					if(x<-352&&x>384)
+					{
+						characterScreen.char.hairStyle=utils.clamp(characterScreen.char.hairStyle-1,0,2)
+					}
+					else if(x<-288)
+					{
+						characterScreen.char.hairStyle=utils.clamp(characterScreen.char.hairStyle+1,0,2)
+					}
 				}
-				else if(y>=-196)
-				{
-					//----
-				}
+				else if(y>=-196){}
 				else if(y>=-228)
 				{
-					//detail style
+					if(x<-352&&x>384)
+					{
+						characterScreen.char.detailStyle=utils.clamp(characterScreen.char.detailStyle-1,0,2)
+					}
+					else if(x<-288)
+					{
+						characterScreen.char.detailStyle=utils.clamp(characterScreen.char.detailStyle+1,0,2)
+					}
 				}
 			}
 		}
@@ -85,34 +87,22 @@ const characterMouseTouchController=
 						characterScreen.race=utils.clamp(characterScreen.race+1,0,9)
 					}
 				}
-				else if(y>=188)
-				{
-					//----
-				}
+				else if(y>=188){}
 				else if(y>=156)
 				{
 					//shirt hex
 				}
-				else if(y>=52)
-				{
-					//----
-				}
+				else if(y>=52){}
 				else if(y>=20)
 				{
 					//pants hex
 				}
-				else if(y>=-84)
-				{
-					//----
-				}
+				else if(y>=-84){}
 				else if(y>=-116)
 				{
 					//shoe hex
 				}
-				else if(y>=-220)
-				{
-					//----
-				}
+				else if(y>=-220){}
 				else if(y>=-252)
 				{
 					//body type
@@ -134,10 +124,7 @@ const characterMouseTouchController=
 				{
 					//skin slider
 				}
-				else if(y>=80)
-				{
-					//----
-				}
+				else if(y>=80){}
 				else if(y>=48)
 				{
 					//hair red
@@ -150,10 +137,7 @@ const characterMouseTouchController=
 				{
 					//hair blue
 				}
-				else if(y>=-56)
-				{
-					//----
-				}
+				else if(y>=-56){}
 				else if(y>=-88)
 				{
 					//detail red
@@ -184,10 +168,7 @@ const characterMouseTouchController=
 				{
 					//shirt blue
 				}
-				else if(y>=16)
-				{
-					//----
-				}
+				else if(y>=16){}
 				else if(y>=-16)
 				{
 					//pants red
@@ -200,10 +181,7 @@ const characterMouseTouchController=
 				{
 					//pants blue
 				}
-				else if(y>=-120)
-				{
-					//----
-				}
+				else if(y>=-120){}
 				else if(y>=-152)
 				{
 					//shoe red
