@@ -25,12 +25,12 @@ const characterMouseTouchController=
 		{
 			return;
 		}
-		if((characterScreen.time-characterMouseTouchController.click)<=500)
+		if((characterScreen.time-characterMouseTouchController.lastClick)<=500)
 		{
 			characterScreen.keyDown("Enter");
 			characterScreen.keyUp("Enter");
 		}
-		characterMouseTouchController.click=characterScreen.time;
+		characterMouseTouchController.lastClick=characterScreen.time;
 		if(x<-256)
 		{
 			if(y<256)
