@@ -1,5 +1,5 @@
-const characterScreen={};
-const utils={};
+//const characterScreen={};
+//const utils={};
 const characterMouseTouchController=
 {
 	lastClick:0,
@@ -211,4 +211,4 @@ const characterMouseTouchController=
 			//eye slider
 		}
 	}
-}
+};
