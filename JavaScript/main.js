@@ -9,6 +9,7 @@ const game=
 	loaded:false,
 	logSet:true,
 	canvas:"canvas",
+	touchTime:0,
 	start()
 	{
 		game.startTime=performance.now();
@@ -179,8 +180,8 @@ const game=
 		try
 		{
 			let p=game.calculate(ev.clientX,ev.clientY);
-			game.log.inform("click");
-			game.screen.touchMouseEnd(Math.round(p[0]),Math.round(p[1]*-1));
+			//game.log.inform("click");
+			//game.screen.touchMouseEnd(Math.round(p[0]),Math.round(p[1]*-1));
 		}
 		catch(e)
 		{
@@ -244,6 +245,7 @@ const game=
 		game.frameTime=performance.now();
 		try
 		{
+			game.touchTime-=d;
 			if((document.fullscreenElement!=game.canvas)&&(!game.logSet))
 			{
 				document.getElementById("log").style.display=game.logVis;
