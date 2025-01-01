@@ -7,6 +7,7 @@ const titleScreen=
 {
 	devQuest:[1,4,1,5,2,2,2,2,1,7,2,2,1,1,5,2,1,9,2,2,0],
 	spaceTime:0,
+	spaceTime2:0,
 	oneOver2Point6538461538461538:0,
 	load()
 	{
@@ -24,6 +25,7 @@ const titleScreen=
 	draw(d,t)
 	{
 		titleScreen.spaceTime+=d;
+		titleScreen.spaceTime2+=d;
 		titleScreen.title.draw();
 		titleScreen.pressSpac.draw();
 		titleScreen.eToStart.draw();
@@ -77,11 +79,16 @@ const titleScreen=
 	},
 	touchMouseStart(x,y)
 	{
+		titleScreen.spaceTime2=0;
 	},
 	touchMouseMove(x,y)
 	{
 	},
 	touchMouseEnd(x,y)
 	{
+		if(titleScreen.spaceTime2<=1000.0)
+		{
+			game.setScreen(characterScreen);
+		}
 	}
 };
