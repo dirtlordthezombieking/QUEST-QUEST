@@ -11,7 +11,11 @@ const characterMouseTouchController=
 	},
 	touchMouseEnd(x,y)
 	{
-		characterMouseTouchController.click=
+		if((characterScreen.time-characterMouseTouchController.click)<=1000)
+		{
+			
+		}
+		characterMouseTouchController.click=characterScreen.time;
 		if(x<-256)
 		{
 			if(y<256)
