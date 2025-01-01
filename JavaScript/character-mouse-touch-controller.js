@@ -3,17 +3,30 @@ const characterMouseTouchController=
 	last click:0,
 	touchMouseStart(x,y)
 	{
+		if(!characterScreen.doneLoad)
+		{
+			return;
+		}
 		characterMouseTouchController.slider(x,y);
 	},
 	touchMouseMove(x,y)
 	{
+		if(!characterScreen.doneLoad)
+		{
+			return;
+		}
 		characterMouseTouchController.slider(x,y);
 	},
 	touchMouseEnd(x,y)
 	{
+		if(!characterScreen.doneLoad)
+		{
+			return;
+		}
 		if((characterScreen.time-characterMouseTouchController.click)<=1000)
 		{
-			
+			characterScreen.keyDown("Enter");
+			characterScreen.keyUp("Enter");
 		}
 		characterMouseTouchController.click=characterScreen.time;
 		if(x<-256)
