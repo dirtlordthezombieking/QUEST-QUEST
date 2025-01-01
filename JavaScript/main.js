@@ -174,12 +174,12 @@ const game=
 		if(document.fullscreenElement!=game.canvas)
 		{
 			game.canvas.requestFullscreen();
-			game.log.inform("click");
 			return;
 		}
 		try
 		{
 			let p=game.calculate(ev.clientX,ev.clientY);
+			game.log.inform("click");
 			game.screen.touchMouseEnd(Math.round(p[0]),Math.round(p[1]*-1));
 		}
 		catch(e)
