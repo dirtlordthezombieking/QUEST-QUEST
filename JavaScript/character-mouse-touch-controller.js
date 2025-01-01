@@ -1,5 +1,9 @@
 const characterMouseTouchController=
 {
+	hexParts:
+	[
+		//----
+	]
 	touchMouseStart(x,y)
 	{
 	},
