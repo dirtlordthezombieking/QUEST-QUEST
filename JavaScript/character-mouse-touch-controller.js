@@ -55,11 +55,11 @@ const characterMouseTouchController=
 				{
 					if(x<-352&&x>384)
 					{
-						characterScreen.char.hairStyle=utils.clamp(characterScreen.char.hairStyle-1,0,2)
+						characterScreen.char.hairStyle=utils.clamp(characterScreen.char.hairStyle-1,2)
 					}
 					else if(x<-288)
 					{
-						characterScreen.char.hairStyle=utils.clamp(characterScreen.char.hairStyle+1,0,2)
+						characterScreen.char.hairStyle=utils.clamp(characterScreen.char.hairStyle+1,2)
 					}
 				}
 				else if(y>=-196){}
@@ -67,11 +67,11 @@ const characterMouseTouchController=
 				{
 					if(x<-352&&x>384)
 					{
-						characterScreen.char.detailStyle=utils.clamp(characterScreen.char.detailStyle-1,0,2)
+						characterScreen.char.detailStyle=utils.clamp(characterScreen.char.detailStyle-1,2)
 					}
 					else if(x<-288)
 					{
-						characterScreen.char.detailStyle=utils.clamp(characterScreen.char.detailStyle+1,0,2)
+						characterScreen.char.detailStyle=utils.clamp(characterScreen.char.detailStyle+1,2)
 					}
 				}
 			}
@@ -106,6 +106,14 @@ const characterMouseTouchController=
 				else if(y>=-252)
 				{
 					//body type
+					if(x<-352&&x>384)
+					{
+						characterScreen.char.bodyType=utils.clamp(characterScreen.char.bodyType-1,4)
+					}
+					else if(x<-288)
+					{
+						characterScreen.char.bodyType=utils.clamp(characterScreen.char.bodyType+1,4)
+					}
 				}
 			}
 		}
