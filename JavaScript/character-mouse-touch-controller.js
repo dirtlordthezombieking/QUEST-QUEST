@@ -1,9 +1,5 @@
 const characterMouseTouchController=
 {
-	hexParts:
-	[
-		//----
-	]
 	touchMouseStart(x,y)
 	{
 	},
@@ -12,5 +8,14 @@ const characterMouseTouchController=
 	},
 	touchMouseEnd(x,y)
 	{
+		if(x<-256)
+		{
+			if(y<__)
+			{
+				if(y>__)
+				{
+				}
+			}
+		}
 	}
 }
