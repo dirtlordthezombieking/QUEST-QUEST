@@ -63,9 +63,9 @@ const game=
 	resizeCanvas()
 	{
 		game.sizeSet=false;
-		game.canvasDrawX=canvas.clientWidth/2;
-		game.canvasDrawY=canvas.clientHeight/2;
-		game.canvasScale=Math.min(canvas.clientWidth/768,canvas.clientHeight/512);
+		game.canvasDrawX=game.canvas.clientWidth/2;
+		game.canvasDrawY=game.canvas.clientHeight/2;
+		game.canvasScale=Math.min(game.canvas.clientWidth/768,game.canvas.clientHeight/512);
 		game.sizeSet=true;
 		game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight);//+","+window.devicePixelRatio);
 	},
