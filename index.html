@@ -8,7 +8,7 @@
 	<body>
 		<div class="cover">
 			<br/>
-			<canvas class="canvas" id="canvas" ontouchstart="game.touchStart(event)" ontouchmove="game.touchMove(event)" ontouchend="game.touchEnd(event)" width="768" height="512"></canvas>
+			<canvas class="canvas" id="canvas" ontouchstart="game.touchStart(event)" ontouchmove="game.touchMove(event)" ontouchend="game.touchEnd(event)" onmousedown="game.mouseStart(event)" onmousemove="game.mouseMove(event)" onmouseup="game.mouseEnd(event)" width="768" height="512"></canvas>
 			<br/>
 			<button id="start" class="start" onclick="game.start()"><b>--START--</b></button>
 			<br/>
