@@ -37,7 +37,7 @@ const characterMouseTouchController=
 				{
 					if(x<-320)
 					{
-						characterScreen.race=utils.clamp(characterScreen.race-1,0,9)
+						characterScreen.race=utils.properMod(characterScreen.race-1,9)
 					}
 				}
 				else if(y>=116){}
@@ -55,11 +55,11 @@ const characterMouseTouchController=
 				{
 					if(x<-352&&x>384)
 					{
-						characterScreen.char.hairStyle=utils.clamp(characterScreen.char.hairStyle-1,2)
+						characterScreen.char.hairStyle=utils.properMod(characterScreen.char.hairStyle-1,2)
 					}
 					else if(x<-288)
 					{
-						characterScreen.char.hairStyle=utils.clamp(characterScreen.char.hairStyle+1,2)
+						characterScreen.char.hairStyle=utils.properMod(characterScreen.char.hairStyle+1,2)
 					}
 				}
 				else if(y>=-196){}
@@ -67,11 +67,11 @@ const characterMouseTouchController=
 				{
 					if(x<-352&&x>384)
 					{
-						characterScreen.char.detailStyle=utils.clamp(characterScreen.char.detailStyle-1,2)
+						characterScreen.char.detailStyle=utils.properMod(characterScreen.char.detailStyle-1,2)
 					}
 					else if(x<-288)
 					{
-						characterScreen.char.detailStyle=utils.clamp(characterScreen.char.detailStyle+1,2)
+						characterScreen.char.detailStyle=utils.properMod(characterScreen.char.detailStyle+1,2)
 					}
 				}
 			}
@@ -84,7 +84,7 @@ const characterMouseTouchController=
 				{
 					if(x<-320)
 					{
-						characterScreen.race=utils.clamp(characterScreen.race+1,0,9)
+						characterScreen.race=utils.properMod(characterScreen.race+1,9)
 					}
 				}
 				else if(y>=188){}
@@ -108,11 +108,11 @@ const characterMouseTouchController=
 					//body type
 					if(x<-352&&x>384)
 					{
-						characterScreen.char.bodyType=utils.clamp(characterScreen.char.bodyType-1,4)
+						characterScreen.char.bodyType=utils.properMod(characterScreen.char.bodyType-1,4)
 					}
 					else if(x<-288)
 					{
-						characterScreen.char.bodyType=utils.clamp(characterScreen.char.bodyType+1,4)
+						characterScreen.char.bodyType=utils.properMod(characterScreen.char.bodyType+1,4)
 					}
 				}
 			}
