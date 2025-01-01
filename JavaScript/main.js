@@ -79,6 +79,7 @@ const game=
 	},
 	touchStart(ev)
 	{
+		game.touchTime=2000;
 		if(document.fullscreenElement!=game.canvas)
 		{
 			return;
@@ -99,6 +100,7 @@ const game=
 	},
 	touchMove(ev)
 	{
+		game.touchTime=2000;
 		if(document.fullscreenElement!=game.canvas)
 		{
 			return;
@@ -119,6 +121,7 @@ const game=
 	},
 	touchEnd(ev)
 	{
+		game.touchTime=2000;
 		if(document.fullscreenElement!=game.canvas)
 		{
 			game.canvas.requestFullscreen();
@@ -140,6 +143,10 @@ const game=
 	},
 	mouseStart(ev)
 	{
+		if(game.touchTime>0)
+		{
+			return;
+		}
 		if(document.fullscreenElement!=game.canvas)
 		{
 			return;
@@ -156,6 +163,10 @@ const game=
 	},
 	mouseMove(ev)
 	{
+		if(game.touchTime>0)
+		{
+			return;
+		}
 		if(document.fullscreenElement!=game.canvas)
 		{
 			return;
@@ -172,6 +183,10 @@ const game=
 	},
 	mouseEnd(ev)
 	{
+		if(game.touchTime>0)
+		{
+			return;
+		}
 		if(document.fullscreenElement!=game.canvas)
 		{
 			game.canvas.requestFullscreen();
