@@ -1,5 +1,6 @@
 const characterMouseTouchController=
 {
+	last click:0,
 	touchMouseStart(x,y)
 	{
 		characterMouseTouchController.slider(x,y);
@@ -10,6 +11,7 @@ const characterMouseTouchController=
 	},
 	touchMouseEnd(x,y)
 	{
+		characterMouseTouchController.click=
 		if(x<-256)
 		{
 			if(y<256)
@@ -104,7 +106,7 @@ const characterMouseTouchController=
 		{
 			//eye hex
 		}
-	}
+	},
 	slider(x,y)
 	{
 		if(x<-256)
@@ -153,47 +155,47 @@ const characterMouseTouchController=
 		{
 			if(y<152)
 			{
-				if(y>=152)
+				if(y>=120)
 				{
 					//shirt red
 				}
-				else if(y>=120)
+				else if(y>=88)
 				{
 					//shirt green
 				}
-				else if(y>=88)
+				else if(y>=56)
 				{
 					//shirt blue
 				}
-				else if(y>=56)
-				{
-					//----
-				}
 				else if(y>=16)
 				{
-					//pants red
+					//----
 				}
 				else if(y>=-16)
 				{
+					//pants red
+				}
+				else if(y>=-48)
+				{
 					//pants green
 				}
-				else if(y>=48)
+				else if(y>=-80)
 				{
 					//pants blue
 				}
-				else if(y>=80)
+				else if(y>=-120)
 				{
 					//----
 				}
-				else if(y>=)
+				else if(y>=-152)
 				{
 					//shoe red
 				}
-				else if(y>=)
+				else if(y>=-184)
 				{
 					//shoe green
 				}
-				else if(y>=)
+				else if(y>=-216)
 				{
 					//shoe blue
 				}
