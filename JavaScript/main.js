@@ -18,11 +18,11 @@ const game=
 				return;
 			}
 			data.load();
-			game.resizeCanvas();
 			document.getElementById("start").style.display="none";
 			game.logVis=document.getElementById("log").style.display;
 			game.started=true;
 			game.canvas=document.querySelector("#canvas");
+			game.resizeCanvas();
 			game.gl=game.canvas.getContext("webgl",{premultipliedAlpha:false});
 			game.ext=game.gl.getExtension("ANGLE_instanced_arrays");
 			game.indS=game.gl.createBuffer();
