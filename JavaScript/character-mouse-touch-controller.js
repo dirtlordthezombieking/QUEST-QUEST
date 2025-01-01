@@ -29,7 +29,7 @@ const characterMouseTouchController=
 		{
 			//characterScreen.keyDown("Enter");
 			//characterScreen.keyUp("Enter");
-			game.log.inform(""+characterScreen.time+"|"characterMouseTouchController.lastClick+"|"+(characterScreen.time-characterMouseTouchController.lastClick));
+			game.log.inform(""+characterScreen.time+"|"+characterMouseTouchController.lastClick+"|"+(characterScreen.time-characterMouseTouchController.lastClick));
 		}
 		//game.log.inform(""+x+","+y)
 		characterMouseTouchController.lastClick=characterScreen.time;
