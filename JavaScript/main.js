@@ -87,6 +87,7 @@ const game=
 			if(t.identifier==0)
 			{
 				let p=game.calculate(t.clientX,t.clientY);
+				game.screen.touchMouseStart(p[0],p[1]);
 			}
 		}
 		catch(e)
@@ -106,6 +107,7 @@ const game=
 			if(t.identifier==0)
 			{
 				let p=game.calculate(t.clientX,t.clientY);
+				game.screen.touchMouseMove(p[0],p[1]);
 			}
 		}
 		catch(e)
@@ -126,6 +128,7 @@ const game=
 			if(t.identifier==0)
 			{
 				let p=game.calculate(t.clientX,t.clientY);
+				game.screen.touchMouseEnd(p[0],p[1]);
 			}
 		}
 		catch(e)
@@ -142,6 +145,7 @@ const game=
 		try
 		{
 			let p=game.calculate(ev.clientX,ev.clientY);
+			game.screen.touchMouseStart(p[0],p[1]);
 		}
 		catch(e)
 		{
@@ -157,6 +161,7 @@ const game=
 		try
 		{
 			let p=game.calculate(ev.clientX,ev.clientY);
+			game.screen.touchMouseMove(p[0],p[1]);
 		}
 		catch(e)
 		{
@@ -173,6 +178,7 @@ const game=
 		try
 		{
 			let p=game.calculate(ev.clientX,ev.clientY);
+			game.screen.touchMouseEnd(p[0],p[1]);
 		}
 		catch(e)
 		{
