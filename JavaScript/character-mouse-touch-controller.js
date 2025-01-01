@@ -25,7 +25,7 @@ const characterMouseTouchController=
 		{
 			return;
 		}
-		if((characterScreen.time-characterMouseTouchController.click)<=1000)
+		if((characterScreen.time-characterMouseTouchController.click)<=500)
 		{
 			characterScreen.keyDown("Enter");
 			characterScreen.keyUp("Enter");
