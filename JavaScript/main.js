@@ -137,7 +137,7 @@ const game=
 			if(t.identifier==0)
 			{
 				let p=game.calculate(t.clientX,t.clientY);
-				game.log.inform(""+(Math.round(p[0]))+","+(Math.round(p[1])));
+				//game.log.inform(""+(Math.round(p[0]))+","+(Math.round(p[1])));
 			}
 			//game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
 		}
