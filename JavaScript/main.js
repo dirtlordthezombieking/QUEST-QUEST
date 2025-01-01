@@ -174,6 +174,7 @@ const game=
 		if(document.fullscreenElement!=game.canvas)
 		{
 			game.canvas.requestFullscreen();
+			game.log.inform("click");
 			return;
 		}
 		try
