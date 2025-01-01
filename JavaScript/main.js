@@ -73,7 +73,7 @@ const game=
 	{
 		return 
 		[
-			(x-game.canvasDrawX)/game.canvasScale
+			(x-game.canvasDrawX)/game.canvasScale,
 			(y-game.canvasDrawY)/game.canvasScale
 		];
 	},
