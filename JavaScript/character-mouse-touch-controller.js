@@ -29,8 +29,9 @@ const characterMouseTouchController=
 		{
 			//characterScreen.keyDown("Enter");
 			//characterScreen.keyUp("Enter");
+			game.log.inform(""+characterScreen.time+"|"characterMouseTouchController.lastClick+"|"+(characterScreen.time-characterMouseTouchController.lastClick));
 		}
-		game.log.inform(""+x+","+y)
+		//game.log.inform(""+x+","+y)
 		characterMouseTouchController.lastClick=characterScreen.time;
 		if(x<-256)
 		{
@@ -38,7 +39,7 @@ const characterMouseTouchController=
 			{
 				if(y>192)
 				{
-					if(x<-320)
+					if(x<-288&&x>=-352)
 					{
 						characterScreen.race=utils.properMod(characterScreen.race-1,9);
 					}
@@ -85,7 +86,7 @@ const characterMouseTouchController=
 			{
 				if(y>192)
 				{
-					if(x<-320)
+					if(x>=288&&x<352)
 					{
 						characterScreen.race=utils.properMod(characterScreen.race+1,9);
 					}
