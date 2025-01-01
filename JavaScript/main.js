@@ -69,6 +69,14 @@ const game=
 		game.sizeSet=true;
 		game.log.inform("resize: "+canvas.clientWidth+","+canvas.clientHeight);//+","+window.devicePixelRatio);
 	},
+	calculate(x,y)
+	{
+		return 
+		[
+			(x-game.canvasDrawX)/game.canvasScale
+			(y-game.canvasDrawY)/game.canvasScale
+		];
+	},
 	touchStart(ev)
 	{
 		if(document.fullscreenElement!=game.canvas)
@@ -78,13 +86,14 @@ const game=
 		}
 		try
 		{
-			let t=ev.touches[0];
+			let t=ev.changedTouches[0];
 			//game.log.inform(": "+ev.changedTouches[0].identifier);
-			if(ev.changedTouches[0].identifier==0)
+			if(t.identifier==0)
 			{
+				let p=game.calculate(t.clientX,t.clientY);
 				//game.log.inform();
 			}
-			game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
+			//game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
 		}
 		catch(e)
 		{
@@ -100,10 +109,11 @@ const game=
 		}
 		try
 		{
-			let t=ev.touches[0];
+			let t=ev.changedTouches[0];
 			//game.log.inform(": "+ev.changedTouches[0].identifier);
-			if(ev.changedTouches[0].identifier==0)
+			if(t.identifier==0)
 			{
+				let p=game.calculate(t.clientX,t.clientY);
 				//game.log.inform();
 			}
 			//game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
@@ -122,13 +132,14 @@ const game=
 		}
 		try
 		{
-			let t=ev.touches[0];
+			let t=ev.changedTouches[0];
 			//game.log.inform(": "+ev.changedTouches[0].identifier);
-			if(ev.changedTouches[0].identifier==0)
+			if(t.identifier==0)
 			{
-				//game.log.inform();
+				let p=game.calculate(t.clientX,t.clientY);
+				game.log.inform(""+(Math.round(p[0]))+","+(Math.round(p[1])));
 			}
-			game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
+			//game.log.inform(""+t.screenX+","+t.screenY+"|"+t.clientX+","+t.clientY+"|"+t.pageX+","+t.pageY);
 		}
 		catch(e)
 		{
