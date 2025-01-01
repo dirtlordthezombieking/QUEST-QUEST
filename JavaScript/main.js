@@ -88,7 +88,7 @@ const game=
 			if(t.identifier==0)
 			{
 				let p=game.calculate(t.clientX,t.clientY);
-				game.screen.touchMouseStart(p[0],p[1]);
+				game.screen.touchMouseStart(Math.round(p[0]),Math.round(p[1]*-1));
 			}
 		}
 		catch(e)
@@ -108,7 +108,7 @@ const game=
 			if(t.identifier==0)
 			{
 				let p=game.calculate(t.clientX,t.clientY);
-				game.screen.touchMouseMove(p[0],p[1]);
+				game.screen.touchMouseMove(Math.round(p[0]),Math.round(p[1]*-1));
 			}
 		}
 		catch(e)
@@ -129,7 +129,7 @@ const game=
 			if(t.identifier==0)
 			{
 				let p=game.calculate(t.clientX,t.clientY);
-				game.screen.touchMouseEnd(p[0],p[1]);
+				game.screen.touchMouseEnd(Math.round(p[0]),Math.round(p[1]*-1));
 			}
 		}
 		catch(e)
@@ -146,7 +146,7 @@ const game=
 		try
 		{
 			let p=game.calculate(ev.clientX,ev.clientY);
-			game.screen.touchMouseStart(p[0],p[1]);
+			game.screen.touchMouseStart(Math.round(p[0]),Math.round(p[1]*-1));
 		}
 		catch(e)
 		{
@@ -162,7 +162,7 @@ const game=
 		try
 		{
 			let p=game.calculate(ev.clientX,ev.clientY);
-			game.screen.touchMouseMove(p[0],p[1]);
+			game.screen.touchMouseMove(Math.round(p[0]),Math.round(p[1]*-1));
 		}
 		catch(e)
 		{
@@ -179,7 +179,7 @@ const game=
 		try
 		{
 			let p=game.calculate(ev.clientX,ev.clientY);
-			game.screen.touchMouseEnd(p[0],p[1]);
+			game.screen.touchMouseEnd(Math.round(p[0]),Math.round(p[1]*-1));
 		}
 		catch(e)
 		{
