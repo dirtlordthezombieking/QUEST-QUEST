@@ -15,12 +15,15 @@ const detailScreen=
 	name:["",""],
 	touchMouseStart(x,y)
 	{
+		detailMouseTouchController.touchMouseStart(x,y);
 	},
 	touchMouseMove(x,y)
 	{
+		detailMouseTouchController.touchMouseMove(x,y);
 	},
 	touchMouseEnd(x,y)
 	{
+		detailMouseTouchController.touchMouseEnd(x,y);
 	},
 	load()
 	{
