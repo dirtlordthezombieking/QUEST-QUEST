@@ -53,6 +53,13 @@ const titleScreen=
 				titleScreen.musicStep=2;
 			}
 		}
+		else if(titleScreen.musicStep==2)
+		{
+			if(titleScreen.music[2].currentTime>=9.0)
+			{
+				titleScreen.music[2].currentTime=0.1;
+			}
+		}
 		titleScreen.spaceTime+=d;
 		titleScreen.spaceTime2+=d;
 		titleScreen.titleBack.draw();
