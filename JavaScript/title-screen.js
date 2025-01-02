@@ -57,7 +57,7 @@ const titleScreen=
 		}
 		else if(titleScreen.musicStep==2)
 		{
-			if(titleScreen.music[2].currentTime>=9.4)
+			if(titleScreen.music[2].currentTime>=9.0)
 			{
 				titleScreen.music[2].currentTime=0.1;
 			}
