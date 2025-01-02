@@ -196,7 +196,7 @@ const game=
 		{
 			let p=game.calculate(ev.clientX,ev.clientY);
 			//game.log.inform("click");
-			//game.screen.touchMouseEnd(Math.round(p[0]),Math.round(p[1]*-1));
+			game.screen.touchMouseEnd(Math.round(p[0]),Math.round(p[1]*-1));
 		}
 		catch(e)
 		{
