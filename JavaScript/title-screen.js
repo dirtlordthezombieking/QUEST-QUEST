@@ -20,7 +20,10 @@ const titleScreen=
 			["basic","shader"],
 			["loading","shader"],
 			["misc/load.png","texture"],
-			["misc/title_back.json","sprite"]
+			["misc/title_back.json","sprite"],
+			["level1-step1.ogg","music"],
+			["level1-step2.ogg","music"],
+			["level1-step3.ogg","music"]
 		]);
 	},
 	draw(d,t)
@@ -35,6 +38,13 @@ const titleScreen=
 	},
 	retrieve()
 	{
+		titleScreen.music=
+		[
+			loader.items["level1-step1.ogg"].music.value,
+			loader.items["level1-step2.ogg"].music.value,
+			loader.items["level1-step3.ogg"].music.value,
+		];
+		titleScreen.music[2].loop=true;
 		titleScreen.title=loader.items["misc/title.json"].sprite.value;
 		titleScreen.titleBack=loader.items["misc/title_back.json"].sprite.value;
 		game.pressF=loader.items["misc/press f.json"].sprite.value;
