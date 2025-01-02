@@ -312,8 +312,8 @@ const loader=
 		{
 			let loaded=false;
 			//let ret={};
-			let ret=new Audio(//document.createElement("audio");
-			ret.src="assets/sounds/music/"+src);
+			let ret=new Audio();//document.createElement("audio");
+			ret.src="assets/sounds/music/"+src;
 			ret.type="audio/ogg";
 			ret.setAttribute("preload","auto");
 			ret.setAttribute("controls","none");
