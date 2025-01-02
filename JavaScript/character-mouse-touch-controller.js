@@ -38,7 +38,7 @@ const characterMouseTouchController=
 		{
 			if(y<256)
 			{
-				if(y>192)
+				if(y>=192)
 				{
 					if(x<-288&&x>=-352)
 					{
@@ -53,29 +53,29 @@ const characterMouseTouchController=
 					{
 						add=-1;
 					}
-					if(y>=312)
+					if(x>=312)
 					{
-						if(y<-304)
+						if(x<-304)
 						{
 							characterScreen.char.hairColour[0]=utils.clamp(characterScreen.char.hairColour[0]+(16*add),0,255);
 						}
-						else if(y<-296)
+						else if(x<-296)
 						{
 							characterScreen.char.hairColour[0]=utils.clamp(characterScreen.char.hairColour[0]+add,0,255);
 						}
-						else if(y<-288)
+						else if(x<-288)
 						{
 							characterScreen.char.hairColour[1]=utils.clamp(characterScreen.char.hairColour[1]+(16*add),0,255);
 						}
-						else if(y<-280)
+						else if(x<-280)
 						{
 							characterScreen.char.hairColour[1]=utils.clamp(characterScreen.char.hairColour[1]+add,0,255);
 						}
-						else if(y<-272)
+						else if(x<-272)
 						{
 							characterScreen.char.hairColour[2]=utils.clamp(characterScreen.char.hairColour[2]+(16*add),0,255);
 						}
-						else if(y<-264)
+						else if(x<-264)
 						{
 							characterScreen.char.hairColour[2]=utils.clamp(characterScreen.char.hairColour[2]+add,0,255);
 						}
