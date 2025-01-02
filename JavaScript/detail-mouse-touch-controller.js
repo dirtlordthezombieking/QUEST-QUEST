@@ -2,7 +2,9 @@
 //const utils={};
 const detailMouseTouchController=
 {
-	letter:0,	chars:["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+	letter:0,
+	t:0,
+	chars:["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
 	touchMouseStart(x,y)
 	{
 	},
@@ -11,6 +13,7 @@ const detailMouseTouchController=
 	},
 	touchMouseEnd(x,y)
 	{
+		detailMouseTouchController.t=inputTimer.
 		if(x<-256)
 		{
 			detailScreen.keyDown("Backspace");
