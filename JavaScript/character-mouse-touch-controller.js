@@ -49,7 +49,37 @@ const characterMouseTouchController=
 				else if(y>=84)
 				{
 					let add=1;
-					if(
+					if(y<100)
+					{
+						add=-1
+					}
+					if(y>=&312)
+					{
+						if(y<304)
+						{
+							
+						}
+						else if(y<296)
+						{
+							
+						}
+						else if(y<288)
+						{
+							
+						}
+						else if(y<280)
+						{
+							
+						}
+						else if(y<272)
+						{
+							
+						}
+						else if(y<284)
+						{
+							
+						}
+					}
 				}
 				else if(y>=-20){}
 				else if(y>=-52)
