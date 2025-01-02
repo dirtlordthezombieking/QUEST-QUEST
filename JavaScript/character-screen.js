@@ -1275,8 +1275,32 @@ const characterScreen=
 		if(data.playerSprite)
 		{
 			characterScreen.char=data.playerSprite;
-			characterScreen.skinTone=data.playerSprite.skinNum;
-			characterScreen.race=data.playerSprite.race;
+//----
+			characterScreen.char.hairColour[0]=utils.clamp(characterScreen.char.hairColour[0],0,255);
+			characterScreen.char.hairColour[1]=utils.clamp(characterScreen.char.hairColour[1],0,255);
+			characterScreen.char.hairColour[2]=utils.clamp(characterScreen.char.hairColour[2],0,255);
+//----
+			characterScreen.char.detailColour[0]=utils.clamp(characterScreen.char.detailColour[0],0,255);
+			characterScreen.char.detailColour[1]=utils.clamp(characterScreen.char.detailColour[1],0,255);
+			characterScreen.char.detailColour[2]=utils.clamp(characterScreen.char.detailColour[2],0,255);
+//----
+			characterScreen.char.shirtColour[0]=utils.clamp(characterScreen.char.shirtColour[0],0,255);
+			characterScreen.char.shirtColour[1]=utils.clamp(characterScreen.char.shirtColour[1],0,255);
+			characterScreen.char.shirtColour[2]=utils.clamp(characterScreen.char.shirtColour[2],0,255);
+//----
+			characterScreen.char.pantsColour[0]=utils.clamp(characterScreen.char.pantsColour[0],0,255);
+			characterScreen.char.pantsColour[1]=utils.clamp(characterScreen.char.pantsColour[1],0,255);
+			characterScreen.char.pantsColour[2]=utils.clamp(characterScreen.char.pantsColour[2],0,255);
+//----
+			characterScreen.char.shoeColour[0]=utils.clamp(characterScreen.char.shoeColour[0],0,255);
+			characterScreen.char.shoeColour[1]=utils.clamp(characterScreen.char.shoeColour[1],0,255);
+			characterScreen.char.shoeColour[2]=utils.clamp(characterScreen.char.shoeColour[2],0,255);
+//----
+			characterScreen.char.eyeColour[0]=utils.clamp(characterScreen.char.eyeColour[0],0,255);
+			characterScreen.char.eyeColour[1]=utils.clamp(characterScreen.char.eyeColour[1],0,255);
+			characterScreen.char.eyeColour[2]=utils.clamp(characterScreen.char.eyeColour[2],0,255);
+			characterScreen.skinTone=utils.clamp(data.playerSprite.skinNum,0,130);
+			characterScreen.race=utils.clamp(data.playerSprite.race,0,8);
 		}
 		characterScreen.doneLoad=true;
 	},
