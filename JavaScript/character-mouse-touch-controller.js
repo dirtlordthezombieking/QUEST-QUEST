@@ -292,40 +292,50 @@ const characterMouseTouchController=
 				characterScreen.skinTone=utils.clamp((x+368)*(130/96),0,130);
 				break;
 			case 1:
+				characterScreen.char.hairColour[0]=utils.clamp((x+368)*2.65625)0,255);
 				break;
 			case 2:
+				characterScreen.char.hairColour[1]=utils.clamp((x+368)*2.65625)0,255);
 				break;
 			case 3:
+				characterScreen.char.hairColour[2]=utils.clamp((x+368)*2.65625)0,255);
 				break;
 			case 4:
+				characterScreen.char.detailColour[0]=utils.clamp((x+368)*2.65625)0,255);
 				break;
 			case 5:
 				break;
 			case 6:
 				break;
 			case 7:
+				characterScreen.char.shirtColour[0]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 8:
 				break;
 			case 9:
 				break;
 			case 10:
+				characterScreen.char.pantsColour[0]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 11:
 				break;
 			case 12:
 				break;
 			case 13:
+				characterScreen.char.shoeColour[0]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 14:
 				break;
 			case 15:
 				break;
 			case 16:
+				characterScreen.char.eyeColour[0]=utils.clamp((x+208)*2.65625)0,255);
 				break;
 			case 17:
+				characterScreen.char.eyeColour[1]=utils.clamp((x+48)*2.65625)0,255);
 				break;
 			case 18:
+				characterScreen.char.eyeColour[2]=utils.clamp((x-80)*2.65625)0,255);
 				break;
 		}
 	}
