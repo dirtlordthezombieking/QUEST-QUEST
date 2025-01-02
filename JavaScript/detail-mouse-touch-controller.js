@@ -13,7 +13,13 @@ const detailMouseTouchController=
 	{
 		if(x<-256)
 		{
-			
+			const detailScreen.keyDown("Backspace");
+			const detailScreen.keyUp("Backspace");
+		}
+		else if(x<0)
+		{
+			const detailScreen.keyDown("ArrowLeft");
+			const detailScreen.keyUp("ArrowLeft");
 		}
 	},
 };
