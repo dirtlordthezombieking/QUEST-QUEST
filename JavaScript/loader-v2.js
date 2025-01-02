@@ -1,3 +1,7 @@
+//const utils={};
+//const game={};
+//const glItems={};
+//function Float32Array(){}
 const loop1=Math.PI*5000;
 const loader=
 {
@@ -336,7 +340,7 @@ const loader=
 				}
 				loaded=true;
 			};
-			image.onerror=function()
+			ret.onerror=function()
 			{
 				game.log.error("failed to load music: "+src);
 			};
