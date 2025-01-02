@@ -9,6 +9,8 @@ const titleScreen=
 	spaceTime:0,
 	spaceTime2:0,
 	oneOver2Point6538461538461538:0,
+	musicStep:-1,
+	musicTime:0,
 	load()
 	{
 		loader.loadMulti(
@@ -28,6 +30,30 @@ const titleScreen=
 	},
 	draw(d,t)
 	{
+		titleScreen.musicTime+=d;
+		if(titleScreen.musicStep==-1)
+		{
+			titleScreen.musicTime=0;
+			titleScreen.music[0].play;
+			titleScreen.musicStep=0;
+		}
+		else if(titleScreen.musicStep==0)
+		{
+			if(titleScreen.musicTime>=10000)
+			{
+				titleScreen.music[1].play;
+				titleScreen.musicStep=1;
+			}
+		}
+		else if(titleScreen.musicStep==1)
+		{
+			if(titleScreen.musicTime>=20000)
+			{
+				titleScreen.music[2].play;
+				titleScreen.musicStep=2;
+			}
+		}
+		else 
 		titleScreen.spaceTime+=d;
 		titleScreen.spaceTime2+=d;
 		titleScreen.titleBack.draw();
