@@ -48,7 +48,38 @@ const characterMouseTouchController=
 				else if(y>=116){}
 				else if(y>=84)
 				{
-					//hair hex
+					let add=1;
+					if(y<100)
+					{
+						add=-1
+					}
+					if(y>=&312)
+					{
+						if(y<-304)
+						{
+							characterScreen.char.hairColour[0]=utils.clamp(characterScreen.char.hairColour[0]+16*add,0,255);
+						}
+						else if(y<-296)
+						{
+							characterScreen.char.hairColour[0]=utils.clamp(characterScreen.char.hairColour[0]+add,0,255);
+						}
+						else if(y<-288)
+						{
+							characterScreen.char.hairColour[1]=utils.clamp(characterScreen.char.hairColour[1]+16*add,0,255);
+						}
+						else if(y<-280)
+						{
+							characterScreen.char.hairColour[1]=utils.clamp(characterScreen.char.hairColour[1]+add,0,255);
+						}
+						else if(y<-272)
+						{
+							characterScreen.char.hairColour[2]=utils.clamp(characterScreen.char.hairColour[2]+16*add,0,255);
+						}
+						else if(y<-264)
+						{
+							characterScreen.char.hairColour[2]=utils.clamp(characterScreen.char.hairColour[2]+add,0,255);
+						}
+					}
 				}
 				else if(y>=-20){}
 				else if(y>=-52)
