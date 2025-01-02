@@ -42,7 +42,7 @@ const titleScreen=
 		[
 			loader.items["level1-step1.ogg"].music.value,
 			loader.items["level1-step2.ogg"].music.value,
-			loader.items["level1-step3.ogg"].music.value,
+			loader.items["level1-step3.ogg"].music.value
 		];
 		titleScreen.music[2].loop=true;
 		titleScreen.title=loader.items["misc/title.json"].sprite.value;
