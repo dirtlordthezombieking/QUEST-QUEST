@@ -24,13 +24,13 @@ const detailMouseTouchController=
 					break;
 				case 3:
 					detailMouseTouchController.letter=utils.properMod(detailMouseTouchController.letter+1,26);
-				detailScreen.keyDown("Backspace");
-				detailScreen.keyUp("Backspace");
-			detailScreen.keyDown("Key"+detailMouseTouchController.chars[detailMouseTouchController.letter]);
-			detailScreen.keyUp("Key"+detailMouseTouchController.chars[detailMouseTouchController.letter]);
+					detailScreen.keyDown("Backspace");
+					detailScreen.keyUp("Backspace");
+					detailScreen.keyDown("Key"+detailMouseTouchController.chars[detailMouseTouchController.letter]);
+					detailScreen.keyUp("Key"+detailMouseTouchController.chars[detailMouseTouchController.letter]);
 					break;
 				case 4:
-				detailMouseTouchController.letter=utils.properMod(detailMouseTouchController.letter-1,26);
+					detailMouseTouchController.letter=utils.properMod(detailMouseTouchController.letter-1,26);
 					detailScreen.keyDown("Backspace");
 					detailScreen.keyUp("Backspace");
 					detailScreen.keyDown("Key"+detailMouseTouchController.chars[detailMouseTouchController.letter]);
