@@ -289,7 +289,7 @@ const characterMouseTouchController=
 		switch()
 		{
 			case 0:
-				characterScreen.skinTone=utils.clamp((x+368)*(130/
+				characterScreen.skinTone=utils.clamp((x+368)*(130/96),0,130);
 				break;
 			case 1:
 				break;
