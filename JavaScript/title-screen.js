@@ -34,14 +34,14 @@ const titleScreen=
 		if(titleScreen.musicStep==-1)
 		{
 			titleScreen.musicTime=0;
-			titleScreen.music[0].play;
+			titleScreen.music[0].play();
 			titleScreen.musicStep=0;
 		}
 		else if(titleScreen.musicStep==0)
 		{
 			if(titleScreen.musicTime>=10000)
 			{
-				titleScreen.music[1].play;
+				titleScreen.music[1].play();
 				titleScreen.musicStep=1;
 			}
 		}
@@ -49,11 +49,10 @@ const titleScreen=
 		{
 			if(titleScreen.musicTime>=20000)
 			{
-				titleScreen.music[2].play;
+				titleScreen.music[2].play();
 				titleScreen.musicStep=2;
 			}
 		}
-		else 
 		titleScreen.spaceTime+=d;
 		titleScreen.spaceTime2+=d;
 		titleScreen.titleBack.draw();
