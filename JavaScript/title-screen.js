@@ -77,6 +77,12 @@ const titleScreen=
 			loader.items["level1-step3.ogg"].music.value
 		];
 		titleScreen.music[2].loop=true;
+		titleScreen.music[0].play();
+		titleScreen.music[0].pause();
+		titleScreen.music[1].play();
+		titleScreen.music[1].pause();
+		titleScreen.music[2].play();
+		titleScreen.music[2].pause();
 		titleScreen.title=loader.items["misc/title.json"].sprite.value;
 		titleScreen.titleBack=loader.items["misc/title_back.json"].sprite.value;
 		game.pressF=loader.items["misc/press f.json"].sprite.value;
