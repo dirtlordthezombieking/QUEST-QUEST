@@ -1,0 +1,6 @@
+{
+	"image":"misc/misc/title_back_v1.png",
+	"shader":"basic",
+	"box":[[[-512.0,0.0],[-256.0,0.0]],[[512.0,1.0],[256.0,1.0]]],
+	"uniforms":[]
+}

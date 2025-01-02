@@ -20,12 +20,14 @@ const titleScreen=
 			["basic","shader"],
 			["loading","shader"],
 			["misc/load.png","texture"]
+			["misc/title_back.json","sprite"],
 		]);
 	},
 	draw(d,t)
 	{
 		titleScreen.spaceTime+=d;
 		titleScreen.spaceTime2+=d;
+		titleScreen.titleBack.draw();
 		titleScreen.title.draw();
 		titleScreen.pressSpac.draw();
 		titleScreen.eToStart.draw();
@@ -34,6 +36,7 @@ const titleScreen=
 	retrieve()
 	{
 		titleScreen.title=loader.items["misc/title.json"].sprite.value;
+		titleScreen.titleBack=loader.items["misc/title_back.json"].sprite.value;
 		game.pressF=loader.items["misc/press f.json"].sprite.value;
 		titleScreen.pressSpac=loader.items["misc/PRESS SPAC.json"].sprite.value;
 		titleScreen.eToStart=loader.items["misc/E TO START.json"].sprite.value;
