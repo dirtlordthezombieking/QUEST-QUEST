@@ -58,7 +58,7 @@ const characterMouseTouchController=
 				else if(y>=-156){}
 				else if(y>=-188)
 				{
-					if(x<-352&&x>=384)
+					if(x<-352&&x>=-384)
 					{
 						characterScreen.char.hairStyle=utils.properMod(characterScreen.char.hairStyle-1,2);
 					}
@@ -70,7 +70,7 @@ const characterMouseTouchController=
 				else if(y>=-196){}
 				else if(y>=-228)
 				{
-					if(x<-352&&x>=384)
+					if(x<-352&&x>=-384)
 					{
 						characterScreen.char.detailStyle=utils.properMod(characterScreen.char.detailStyle-1,2);
 					}
