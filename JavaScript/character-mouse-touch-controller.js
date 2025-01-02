@@ -265,7 +265,7 @@ const characterMouseTouchController=
 				}
 			}
 		}
-		else if(y<-192&&x>-224)
+		else if(y<-224&&y>=-256&&x>=-192)
 		{
 			if(x<-64)
 			{
@@ -304,32 +304,40 @@ const characterMouseTouchController=
 				characterScreen.char.detailColour[0]=utils.clamp((x+368)*2.65625)0,255);
 				break;
 			case 5:
+				characterScreen.char.detailColour[1]=utils.clamp((x+368)*2.65625)0,255);
 				break;
 			case 6:
+				characterScreen.char.detailColour[2]=utils.clamp((x+368)*2.65625)0,255);
 				break;
 			case 7:
 				characterScreen.char.shirtColour[0]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 8:
+				characterScreen.char.shirtColour[1]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 9:
+				characterScreen.char.shirtColour[2]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 10:
 				characterScreen.char.pantsColour[0]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 11:
+				characterScreen.char.pantsColour[1]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 12:
+				characterScreen.char.pantsColour[2]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 13:
 				characterScreen.char.shoeColour[0]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 14:
+				characterScreen.char.shoeColour[1]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 15:
+				characterScreen.char.shoeColour[2]=utils.clamp((x-272)*2.65625)0,255);
 				break;
 			case 16:
-				characterScreen.char.eyeColour[0]=utils.clamp((x+208)*2.65625)0,255);
+				characterScreen.char.eyeColour[0]=utils.clamp((x+176)*2.65625)0,255);
 				break;
 			case 17:
 				characterScreen.char.eyeColour[1]=utils.clamp((x+48)*2.65625)0,255);
