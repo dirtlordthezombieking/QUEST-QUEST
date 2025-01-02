@@ -3,7 +3,7 @@
 const characterMouseTouchController=
 {
 	lastClick:0,
-	sliderID:-1;
+	sliderID:-1,
 	touchMouseStart(x,y)
 	{
 		if(!characterScreen.doneLoad)
@@ -39,7 +39,7 @@ const characterMouseTouchController=
 			//game.log.inform(""+characterScreen.time+"|"+characterMouseTouchController.lastClick+"|"+(characterScreen.time-characterMouseTouchController.lastClick));
 		}
 		//game.log.inform(""+characterScreen.time+"|"+characterMouseTouchController.lastClick+"|"+(characterScreen.time-characterMouseTouchController.lastClick));
-		game.log.inform(""+x+","+y)
+		game.log.inform(""+x+","+y);
 		characterMouseTouchController.lastClick=characterScreen.time;
 		if(x<-256)
 		{
@@ -198,7 +198,7 @@ const characterMouseTouchController=
 				else if(y>=-88)
 				{
 					//detail red
-					characterMouseTouchController.sliderID=4:
+					characterMouseTouchController.sliderID=4;
 				}
 				else if(y>=-120)
 				{
@@ -245,7 +245,7 @@ const characterMouseTouchController=
 				else if(y>=-80)
 				{
 					//pants blue
-					characterMouseTouchController.sliderID=12
+					characterMouseTouchController.sliderID=12;
 				}
 				else if(y>=-120){}
 				else if(y>=-152)
@@ -265,7 +265,7 @@ const characterMouseTouchController=
 				}
 			}
 		}
-		else if(y<-192&&x>-224
+		else if(y<-192&&x>-224)
 		{
 			if(x<-64)
 			{
@@ -277,7 +277,7 @@ const characterMouseTouchController=
 				//eye green
 					characterMouseTouchController.sliderID=17;
 			}
-			else if(z<192)
+			else if(x<192)
 			{
 				//eye blue
 					characterMouseTouchController.sliderID=18;
@@ -286,7 +286,7 @@ const characterMouseTouchController=
 	},
 	slider(x)
 	{
-		switch()
+		switch(characterMouseTouchController.sliderID)
 		{
 			case 0:
 				characterScreen.skinTone=utils.clamp((x+368)*(130/96),0,130);
