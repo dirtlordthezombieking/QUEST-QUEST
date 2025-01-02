@@ -15,7 +15,7 @@ const detailMouseTouchController=
 	},
 	touchMouseEnd(x,y)
 	{
-		if((inputTimer.time-detailMouseTouchController.t)<50)
+		if((inputTimer.time-detailMouseTouchController.t)<200)
 		{
 			switch(detailMouseTouchController.lastAction)
 			{
