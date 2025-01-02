@@ -58,11 +58,11 @@ const characterMouseTouchController=
 				else if(y>=-156){}
 				else if(y>=-188)
 				{
-					if(x<-352&&x>384)
+					if(x<-352&&x>=384)
 					{
 						characterScreen.char.hairStyle=utils.properMod(characterScreen.char.hairStyle-1,2);
 					}
-					else if(x<-288)
+					else if(x>-288)
 					{
 						characterScreen.char.hairStyle=utils.properMod(characterScreen.char.hairStyle+1,2);
 					}
@@ -70,11 +70,11 @@ const characterMouseTouchController=
 				else if(y>=-196){}
 				else if(y>=-228)
 				{
-					if(x<-352&&x>384)
+					if(x<-352&&x>=384)
 					{
 						characterScreen.char.detailStyle=utils.properMod(characterScreen.char.detailStyle-1,2);
 					}
-					else if(x<-288)
+					else if(x>-288)
 					{
 						characterScreen.char.detailStyle=utils.properMod(characterScreen.char.detailStyle+1,2);
 					}
@@ -111,11 +111,11 @@ const characterMouseTouchController=
 				else if(y>=-252)
 				{
 					//body type
-					if(x<-352&&x>384)
+					if(x>=352&&x<384)
 					{
 						characterScreen.char.bodyType=utils.properMod(characterScreen.char.bodyType-1,4);
 					}
-					else if(x<-288)
+					else if(x<288)
 					{
 						characterScreen.char.bodyType=utils.properMod(characterScreen.char.bodyType+1,4);
 					}
