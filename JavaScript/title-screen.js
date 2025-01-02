@@ -41,6 +41,7 @@ const titleScreen=
 		{
 			if(titleScreen.musicTime>=8500)
 			{
+				titleScreen.music[0].pause();
 				titleScreen.music[1].play();
 				titleScreen.musicStep=1;
 			}
@@ -49,6 +50,7 @@ const titleScreen=
 		{
 			if(titleScreen.musicTime>=17000)
 			{
+				titleScreen.music[1].pause();
 				titleScreen.music[2].play();
 				titleScreen.musicStep=2;
 			}
@@ -76,6 +78,8 @@ const titleScreen=
 			loader.items["level1-step2.ogg"].music.value,
 			loader.items["level1-step3.ogg"].music.value
 		];
+		titleScreen.music[0].loop=true;
+		titleScreen.music[1].loop=true;
 		titleScreen.music[2].loop=true;
 		titleScreen.music[0].play();
 		titleScreen.music[0].pause();
