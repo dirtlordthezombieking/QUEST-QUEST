@@ -1,5 +1,6 @@
 //const detailScreen={};
 //const utils={};
+//const inputTimer={};
 const detailMouseTouchController=
 {
 	letter:0,
