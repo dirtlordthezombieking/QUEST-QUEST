@@ -3,13 +3,15 @@
 const characterMouseTouchController=
 {
 	lastClick:0,
+	sliderID:-1;
 	touchMouseStart(x,y)
 	{
 		if(!characterScreen.doneLoad)
 		{
 			return;
 		}
-		characterMouseTouchController.slider(x,y);
+		characterMouseTouchController.setSlider(x,y);
+		characterMouseTouchController.slider(x);
 	},
 	touchMouseMove(x,y)
 	{
@@ -17,10 +19,15 @@ const characterMouseTouchController=
 		{
 			return;
 		}
-		characterMouseTouchController.slider(x,y);
+		characterMouseTouchController.slider(x);
 	},
 	touchMouseEnd(x,y)
 	{
+		if(characterMouseTouchController.sliderID>-1)
+		{
+			characterMouseTouchController.sliderID=-1;
+			return;
+		}
 		if(!characterScreen.doneLoad)
 		{
 			return;
@@ -161,7 +168,7 @@ const characterMouseTouchController=
 			//eye hex
 		}
 	},
-	slider(x,y)
+	setSlider(x,y)
 	{
 		if(x<-256)
 		{
@@ -169,33 +176,39 @@ const characterMouseTouchController=
 			{
 				if(y>=120)
 				{
-					//skin slider
+					characterMouseTouchController.sliderID=0;
 				}
 				else if(y>=80){}
 				else if(y>=48)
 				{
 					//hair red
+					characterMouseTouchController.sliderID=1;
 				}
 				else if(y>=16)
 				{
 					//hair green
+					characterMouseTouchController.sliderID=2;
 				}
 				else if(y>=-16)
 				{
 					//hair blue
+					characterMouseTouchController.sliderID=3;
 				}
 				else if(y>=-56){}
 				else if(y>=-88)
 				{
 					//detail red
+					characterMouseTouchController.sliderID=4:
 				}
 				else if(y>=-120)
 				{
 					//detail green
+					characterMouseTouchController.sliderID=5;
 				}
 				else if(y>=-152)
 				{
 					//detail blue
+					characterMouseTouchController.sliderID=6;
 				}
 			}
 		}
@@ -206,46 +219,114 @@ const characterMouseTouchController=
 				if(y>=120)
 				{
 					//shirt red
+					characterMouseTouchController.sliderID=7;
 				}
 				else if(y>=88)
 				{
 					//shirt green
+					characterMouseTouchController.sliderID=8;
 				}
 				else if(y>=56)
 				{
 					//shirt blue
+					characterMouseTouchController.sliderID=9;
 				}
 				else if(y>=16){}
 				else if(y>=-16)
 				{
 					//pants red
+					characterMouseTouchController.sliderID=10;
 				}
 				else if(y>=-48)
 				{
 					//pants green
+					characterMouseTouchController.sliderID=11;
 				}
 				else if(y>=-80)
 				{
 					//pants blue
+					characterMouseTouchController.sliderID=12
 				}
 				else if(y>=-120){}
 				else if(y>=-152)
 				{
 					//shoe red
+					characterMouseTouchController.sliderID=13;
 				}
 				else if(y>=-184)
 				{
 					//shoe green
+					characterMouseTouchController.sliderID=14;
 				}
 				else if(y>=-216)
 				{
 					//shoe blue
+					characterMouseTouchController.sliderID=15;
 				}
 			}
 		}
-		else
+		else if(y<-192&&x>-224
 		{
-			//eye slider
+			if(x<-64)
+			{
+				//eye red
+					characterMouseTouchController.sliderID=16;
+			}
+			else if(x<64)
+			{
+				//eye green
+					characterMouseTouchController.sliderID=17;
+			}
+			else if(z<192)
+			{
+				//eye blue
+					characterMouseTouchController.sliderID=18;
+			}
+		}
+	},
+	slider(x)
+	{
+		switch()
+		{
+			case 0:
+				characterScreen.skinTone=utils.clamp((x+368)*(130/
+				break;
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				break;
+			case 8:
+				break;
+			case 9:
+				break;
+			case 10:
+				break;
+			case 11:
+				break;
+			case 12:
+				break;
+			case 13:
+				break;
+			case 14:
+				break;
+			case 15:
+				break;
+			case 16:
+				break;
+			case 17:
+				break;
+			case 18:
+				break;
 		}
 	}
 };
