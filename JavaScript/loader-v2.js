@@ -130,8 +130,8 @@ const loader=
 		try
 		{
 			await loader.subLoad(src,"image");
-			image=loader.items[src].image.value;
-			ret=game.gl.createTexture();
+			let image=loader.items[src].image.value;
+			let ret=game.gl.createTexture();
 			game.gl.bindTexture(game.gl.TEXTURE_2D,ret);
 			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
 			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
@@ -309,7 +309,7 @@ const loader=
 			let loaded=false;
 			//let ret={};
 			let ret=new Audio();//document.createElement("audio");
-			ret.src=assets/sounds/music"+src;
+			ret.src="assets/sounds/music"+src;
 			ret.type="audio/ogg";
 			ret.setAttribute("preload","auto");
 			ret.setAttribute("controls","none");
