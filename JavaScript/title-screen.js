@@ -19,8 +19,8 @@ const titleScreen=
 			["misc/E TO START.json","sprite"],
 			["basic","shader"],
 			["loading","shader"],
-			["misc/load.png","texture"]
-			["misc/title_back.json","sprite"],
+			["misc/load.png","texture"],
+			["misc/title_back.json","sprite"]
 		]);
 	},
 	draw(d,t)
