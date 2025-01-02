@@ -1,3 +1,7 @@
+//const utils={};
+//const game={};
+//const glItems={};
+//function Float32Array(){}
 const loop1=Math.PI*5000;
 const loader=
 {
@@ -64,6 +68,10 @@ const loader=
 		{
 			loader.loadTexture(src);
 		}
+		else if(type=="music")
+		{
+			loader.loadMusic(src);
+		}
 		else
 		{
 			loader.queue--;
@@ -107,6 +115,10 @@ const loader=
 			{
 				await loader.loadTexture(src);
 			}
+			else if(type=="music")
+			{
+				await loader.loadMusic(src);
+			}
 			else
 			{
 				loader.queue--;
@@ -122,8 +134,8 @@ const loader=
 		try
 		{
 			await loader.subLoad(src,"image");
-			image=loader.items[src].image.value;
-			ret=game.gl.createTexture();
+			let image=loader.items[src].image.value;
+			let ret=game.gl.createTexture();
 			game.gl.bindTexture(game.gl.TEXTURE_2D,ret);
 			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_S,game.gl.CLAMP_TO_EDGE);
 			game.gl.texParameteri(game.gl.TEXTURE_2D,game.gl.TEXTURE_WRAP_T,game.gl.CLAMP_TO_EDGE);
@@ -296,6 +308,48 @@ const loader=
 	},
 	async loadMusic(src)
 	{
-		//----
+		try
+		{
+			let loaded=false;
+			//let ret={};
+			let ret=new Audio();//document.createElement("audio");
+			ret.src="assets/sounds/music"+src;
+			ret.type="audio/ogg";
+			ret.setAttribute("preload","auto");
+			ret.setAttribute("controls","none");
+			//ret.loop=loop;
+			//ret.core.style.display="none";
+			//document.body.appendChild(ret.core);
+			//ret.play=function()
+			//{
+				//ret.core.play();
+			//};
+			//ret.stop=function()
+			//{
+				//ret.core.pause();
+			//};
+			ret.onload=function()
+			{
+				try
+				{
+					loader.items[src].music.value=ret;
+				}
+				catch(e)
+				{
+					game.log.error("error loading music \""+src+"\": "+e.message);
+				}
+				loaded=true;
+			};
+			ret.onerror=function()
+			{
+				game.log.error("failed to load music: "+src);
+			};
+			await utils.untilCondition(_ => loaded==true);
+		}
+		catch (e)
+		{
+			game.log.error("Error loading music \""+src+"\": "+e.message);
+		}
+		loader.queue--;
 	}
 };

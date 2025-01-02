@@ -11,6 +11,16 @@
 			<canvas class="canvas" id="canvas" ontouchstart="game.touchStart(event)" ontouchmove="game.touchMove(event)" ontouchend="game.touchEnd(event)" onmousedown="game.mouseStart(event)" onmousemove="game.mouseMove(event)" onmouseup="game.mouseEnd(event)" width="768" height="512"></canvas>
 			<br/>
 			<button id="start" class="start" onclick="game.start()"><b>--START--</b></button>
+			<button onclick="credits.click()"><b>--CREDITS--</b></button>
+			<br/>
+			<div id="credits" style="display:none">
+				<b>MUSIC</b>
+				<br/>
+				title screen: <a href="https://opengameart.org/content/music-loop-variations">Music loop variations</a> by <a href="https://opengameart.org/users/obscure-music">obscure music</a>
+				<br/>
+				<br/>
+				<a href="https://dirtlordthezombieking.github.io/"><b>EVERYTHING ELSE</b></a>
+			</div>
 			<br/>
 			<div id="log">
 				<p style="color:#FFFFFF">⚠️<b><u>seizure warning</u></b>⚠️</p>
@@ -30,5 +40,6 @@
 		<script src="JavaScript/data.js"></script>
 		<script src="JavaScript/character-mouse-touch-controller.js"></script>
 		<script src="JavaScript/detail-mouse-touch-controller.js"></script>
+		<script src="JavaScript/credits.js"></script>
 	</body>
 </html>

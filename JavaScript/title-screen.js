@@ -9,6 +9,8 @@ const titleScreen=
 	spaceTime:0,
 	spaceTime2:0,
 	oneOver2Point6538461538461538:0,
+	musicStep:-1,
+	musicTime:0,
 	load()
 	{
 		loader.loadMulti(
@@ -20,11 +22,37 @@ const titleScreen=
 			["basic","shader"],
 			["loading","shader"],
 			["misc/load.png","texture"],
-			["misc/title_back.json","sprite"]
+			["misc/title_back.json","sprite"],
+			["level1-step1.ogg","music"],
+			["level1-step2.ogg","music"],
+			["level1-step3.ogg","music"]
 		]);
 	},
 	draw(d,t)
 	{
+		titleScreen.musicTime+=d;
+		if(titleScreen.musicStep==-1)
+		{
+			titleScreen.musicTime=0;
+			titleScreen.music[0].play();
+			titleScreen.musicStep=0;
+		}
+		else if(titleScreen.musicStep==0)
+		{
+			if(titleScreen.musicTime>=10000)
+			{
+				titleScreen.music[1].play();
+				titleScreen.musicStep=1;
+			}
+		}
+		else if(titleScreen.musicStep==1)
+		{
+			if(titleScreen.musicTime>=20000)
+			{
+				titleScreen.music[2].play();
+				titleScreen.musicStep=2;
+			}
+		}
 		titleScreen.spaceTime+=d;
 		titleScreen.spaceTime2+=d;
 		titleScreen.titleBack.draw();
@@ -35,6 +63,13 @@ const titleScreen=
 	},
 	retrieve()
 	{
+		titleScreen.music=
+		[
+			loader.items["level1-step1.ogg"].music.value,
+			loader.items["level1-step2.ogg"].music.value,
+			loader.items["level1-step3.ogg"].music.value
+		];
+		titleScreen.music[2].loop=true;
 		titleScreen.title=loader.items["misc/title.json"].sprite.value;
 		titleScreen.titleBack=loader.items["misc/title_back.json"].sprite.value;
 		game.pressF=loader.items["misc/press f.json"].sprite.value;
