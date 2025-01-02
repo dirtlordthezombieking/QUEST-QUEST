@@ -39,7 +39,7 @@ const titleScreen=
 		}
 		else if(titleScreen.musicStep==0)
 		{
-			if(titleScreen.musicTime>=9000)
+			if(titleScreen.music[0].currentTime>=9.0)
 			{
 				titleScreen.music[0].pause();
 				titleScreen.music[1].play();
@@ -48,7 +48,7 @@ const titleScreen=
 		}
 		else if(titleScreen.musicStep==1)
 		{
-			if(titleScreen.musicTime>=18000)
+			if(titleScreen.music[1].currentTime>=9.0)
 			{
 				titleScreen.music[1].pause();
 				titleScreen.music[2].play();
