@@ -48,7 +48,8 @@ const characterMouseTouchController=
 				else if(y>=116){}
 				else if(y>=84)
 				{
-					//hair hex
+					let add=1;
+					if(
 				}
 				else if(y>=-20){}
 				else if(y>=-52)
