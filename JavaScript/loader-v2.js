@@ -64,6 +64,10 @@ const loader=
 		{
 			loader.loadTexture(src);
 		}
+		else if(type=="music")
+		{
+			loader.loadMusic(src);
+		}
 		else
 		{
 			loader.queue--;
@@ -106,6 +110,10 @@ const loader=
 			else if(type=="texture")
 			{
 				await loader.loadTexture(src);
+			}
+			else if(type=="music")
+			{
+				await loader.loadMusic(src);
 			}
 			else
 			{
@@ -296,6 +304,48 @@ const loader=
 	},
 	async loadMusic(src)
 	{
-		//----
+		try
+		{
+			let loaded=false;
+			//let ret={};
+			let ret=document.createElement("audio");
+			ret.src=assets/sounds/music"+src;
+			ret.type="audio/ogg";
+			ret.setAttribute("preload","auto");
+			ret.setAttribute("controls","none");
+			//ret.loop=loop;
+			//ret.core.style.display="none";
+			//document.body.appendChild(ret.core);
+			//ret.play=function()
+			//{
+				//ret.core.play();
+			//};
+			//ret.stop=function()
+			//{
+				//ret.core.pause();
+			//};
+			ret.onload=function()
+			{
+				try
+				{
+					loader.items[src].music.value=ret;
+				}
+				catch(e)
+				{
+					game.log.error("error loading music \""+src+"\": "+e.message);
+				}
+				loaded=true;
+			};
+			image.onerror=function()
+			{
+				game.log.error("failed to load music: "+src);
+			};
+			await utils.untilCondition(_ => loaded==true);
+		}
+		catch (e)
+		{
+			game.log.error("Error loading music \""+src+"\": "+e.message);
+		}
+		loader.queue--;
 	}
 };
