@@ -36,8 +36,10 @@ const characterMouseTouchController=
 		characterMouseTouchController.lastClick=characterScreen.time;
 		if(x<-256)
 		{
+			//game.log.inform("x<-256");
 			if(y<256)
 			{
+				//game.log.inform("y<256");
 				if(y>=192)
 				{
 					if(x<-288&&x>=-352)
@@ -48,12 +50,13 @@ const characterMouseTouchController=
 				else if(y>=116){}
 				else if(y>=84)
 				{
+					//game.log.inform("y>=84");
 					let add=1;
 					if(y<100)
 					{
 						add=-1;
 					}
-					if(x>=312)
+					if(x>=-312)
 					{
 						if(x<-304)
 						{
