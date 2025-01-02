@@ -24,20 +24,22 @@ const detailMouseTouchController=
 		else if(x<256)
 		{
 			detailScreen.keyDown("ArrowRight");
-			detailScreen.keyUp("Arrowright");
+			detailScreen.keyUp("ArrowRight");
 		}
 		else
 		{
-			if(y>=0)
+			if(y>=128)
 			{
 				detailMouseTouchController.letter=utils.properMod(detailMouseTouchController.letter-1,26);
+				detailScreen.keyDown("Backspace");
+				detailScreen.keyUp("Backspace");
 			}
-			else 
+			else if(y<-128)
 			{
 				detailMouseTouchController.letter=utils.properMod(detailMouseTouchController.letter+1,26);
+				detailScreen.keyDown("Backspace");
+				detailScreen.keyUp("Backspace");
 			}
-			detailScreen.keyDown("Backspace");
-			detailScreen.keyUp("Backspace");
 			detailScreen.keyDown("Key"+detailMouseTouchController.chars[detailMouseTouchController.letter]);
 			detailScreen.keyUp("Key"+detailMouseTouchController.chars[detailMouseTouchController.letter]);
 		}
