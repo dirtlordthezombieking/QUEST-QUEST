@@ -163,7 +163,7 @@ const characterMouseTouchController=
 				{
 					//shirt hex
 					let add=1;
-					if(y<72)
+					if(y<172)
 					{
 						add=-1;
 					}
@@ -287,7 +287,7 @@ const characterMouseTouchController=
 		else if(y>=-224&&y<-192)
 		{
 			let add=1;
-			if(y<208)
+			if(y<-208)
 			{
 				add=-1;
 			}
