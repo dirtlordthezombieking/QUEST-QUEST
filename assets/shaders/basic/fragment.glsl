@@ -5,6 +5,6 @@ in vec2 v_uv;
 uniform sampler2D u_tex;
 void main()
 {
-	vec4 tex=texture2D(u_tex,v_uv);
+	vec4 tex=texture(u_tex,v_uv);
 	fragColor=tex;
 }
