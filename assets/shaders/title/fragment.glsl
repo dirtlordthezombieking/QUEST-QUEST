@@ -6,7 +6,7 @@ uniform float u_time;
 uniform sampler2D u_tex;
 void main()
 {
-	vec4 tex=texture2D(u_tex,v_uv);
+	vec4 tex=texture(u_tex,v_uv);
 	float pos=((v_uv.x*4.0)+v_uv.y);
 	tex.x+=0.05*sin((pos*3.0)+(u_time*0.0008));
 	tex.y+=0.1*sin((pos*5.0)+(u_time*0.0012));
