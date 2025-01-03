@@ -14,8 +14,9 @@ let layers=[];
 function generate()
 {
 	layers=[];
+	addLayer();
 }
-addLayer()
+function addLayer()
 {
 	for(let i=0;i<height*height)
 	{
