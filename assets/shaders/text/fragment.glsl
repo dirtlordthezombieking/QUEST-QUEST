@@ -1,7 +1,7 @@
 #version 300 es
 precision mediump float;
 out vec4 fragColor;
-varying vec2 v_uv;
+in vec2 v_uv;
 uniform vec3 u_colour;
 uniform sampler2D u_tex;
 void main()
