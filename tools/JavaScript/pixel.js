@@ -30,6 +30,8 @@ touchEnd(e)
 }
 function draw(t)
 {
-	
+	game.gl.clearColor(0,0,0,1);
+	game.gl.clear(game.gl.COLOR_BUFFER_BIT);
+	requestAnimationFrame(function(t){draw(t);});
 }
 requestAnimationFrame(function(t){draw(t);});
