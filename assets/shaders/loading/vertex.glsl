@@ -1,4 +1,5 @@
-attribute vec2 a_pos;
+#version 300 es
+in vec2 a_pos;
 uniform float u_per;
 void main()
 {

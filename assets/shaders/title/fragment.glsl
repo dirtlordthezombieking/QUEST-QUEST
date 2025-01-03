@@ -1,5 +1,7 @@
+#version 300 es
 precision mediump float;
-varying vec2 v_uv;
+out vec4 fragColor;
+in vec2 v_uv;
 uniform float u_time;
 uniform sampler2D u_tex;
 void main()
@@ -10,5 +12,5 @@ void main()
 	tex.y+=0.1*sin((pos*5.0)+(u_time*0.0012));
 	tex.z+=0.1*sin((pos*2.0)+(u_time*0.002));
 	tex.w=min(tex.w,(u_time*0.01)+(pos*2.0)-12.0);
-	gl_FragColor=tex;
+	fragColor=tex;
 }
