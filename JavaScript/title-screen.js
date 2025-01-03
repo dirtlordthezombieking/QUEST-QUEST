@@ -148,6 +148,10 @@ const titleScreen=
 		if(titleScreen.spaceTime2<=1000.0&&Math.abs(x)<=384&&Math.abs(y)<=256)
 		{
 			game.setScreen(characterScreen);
+			if(titleScreen.musicStep>-1)
+			{
+				titleScreen.music[titleScreen.musicStep].pause();
+			}
 		}
 	}
 };
