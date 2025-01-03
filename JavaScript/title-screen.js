@@ -99,6 +99,10 @@ const titleScreen=
 		if(k=="Space")
 		{
 			titleScreen.spaceTime=0;
+			if(titleScreen.musicStep>-1)
+			{
+				titleScreen.music[titleScreen.musicStep].pause();
+			}
 		}
 		inputTimer.keyDown(k);
 	},
