@@ -1,5 +1,6 @@
-attribute vec2 a_pos;
-varying vec2 v_uv;
+#version 300 es
+in vec2 a_pos;
+out vec2 v_uv;
 void main()
 {
 	v_uv=a_pos*vec2(3.0,2.0);
