@@ -28,3 +28,8 @@ touchEnd(e)
 		return;
 	}
 }
+function draw(t)
+{
+	
+}
+requestAnimationFrame(function(t){draw(t);});
