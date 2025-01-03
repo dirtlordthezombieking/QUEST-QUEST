@@ -22,5 +22,9 @@ touchMove(e)
 }
 touchEnd(e)
 {
-	
+	if(document.fullscreenElement!=canvas)
+	{
+		canvas.requestFullscreen();
+		return;
+	}
 }
