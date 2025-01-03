@@ -1,6 +1,7 @@
-attribute vec4 a_data;
-varying vec2 v_uv;
-attribute vec4 a_char;
+#version 300 es
+in vec4 a_data;
+out vec2 v_uv;
+in vec4 a_char;
 void main()
 {
 	v_uv=a_data.zw+a_char.zw;
