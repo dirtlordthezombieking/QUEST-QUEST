@@ -12,3 +12,15 @@ function resizeCanvas()
 	canvas.height=canvas.clientHeight;
 }
 new ResizeObserver(resizeCanvas).observe(canvas);
+touchStart(e)
+{
+	//----
+}
+touchMove(e)
+{
+	//----
+}
+touchEnd(e)
+{
+	
+}
