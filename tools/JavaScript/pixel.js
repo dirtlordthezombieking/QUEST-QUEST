@@ -1,7 +1,12 @@
+//FOR DEBUG PURPOSES-----------------------------------------------
+//function Float32Array(){}
+//function Int16Array
 //INPUT RESPONSE---------------------------------------------------
 function touchStart(e)
 {
-	//----
+	pointers[e.changedTouches[0]]=
+	{
+	}
 }
 function touchMove(e)
 {
