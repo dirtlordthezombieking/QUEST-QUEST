@@ -1,5 +1,5 @@
 let canvas=document.querySelector("#canvas");
-let gl=canvas.getContext("webgl2",{premultipliedAlpha:false});
+let gl=canvas.getContext("webgl2",{premultipliedAlpha:false,preserveDrawingBuffer:true});
 gl.enable(gl.CULL_FACE);
 gl.enable(gl.BLEND);
 gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
@@ -27,10 +27,16 @@ function touchEnd(e)
 		canvas.requestFullscreen();
 		//return;
 	}
+	const url=canvas.toDataURL();
+	const a=document.createElement("a");
+	a.download="save test.png";
+	a.href=url;
+	a.textContent="Download PNG";
+	document.body.append(a);
 }
 function draw(t)
 {
-	gl.clearColor(0,0,0,1);
+	gl.clearColor(0,0.5,0,1);
 	gl.clear(gl.COLOR_BUFFER_BIT);
 	requestAnimationFrame(function(ts){draw(ts);});
 }
