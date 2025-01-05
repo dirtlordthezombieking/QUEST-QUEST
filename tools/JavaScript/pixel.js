@@ -116,5 +116,27 @@ saveGL.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
 saveGL.viewport(0,0,gl.canvas.width,gl.canvas.height);
 saveGL.clearColor(0,0,0,1);
 saveGL.clear(gl.COLOR_BUFFER_BIT);
+//SHADERS----------------------------------------------------------
+'#version 300 es
+in vec4 a_data;
+out vec2 v_uv;
+uniform vec2 u_pos;
+uniform float u_scale:
+uniform vec2 u_size
+void main()
+{
+	v_uv=a_data.zw;
+	gl_Position=vec4(((a_data.xy*u_scale)+u_pos)/u_size,0.0,1.0);
+}'
+'#version 300 es
+precision mediump float;
+out vec4 fragColor;
+in vec2 v_uv;
+uniform sampler2D u_tex;
+void main()
+{
+	vec4 tex=texture(u_tex,v_uv);
+	fragColor=tex;
+}'
 //FINISH-----------------------------------------------------------
 requestAnimationFrame(function(ts){draw(ts);});
