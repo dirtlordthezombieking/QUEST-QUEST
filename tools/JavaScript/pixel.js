@@ -27,6 +27,12 @@ function touchEnd(e)
 		canvas.requestFullscreen();
 		//return;
 	}
+	const url=canvas.toDataURL();
+	const a=document.createElement("a");
+	a.download="save test.png";
+	a.href=url;
+	a.textContent="Download PNG";
+	document.body.append(a);
 }
 function draw(t)
 {
