@@ -1,17 +1,4 @@
-let canvas=document.querySelector("#canvas");
-let gl=canvas.getContext("webgl2",{premultipliedAlpha:false,preserveDrawingBuffer:true});
-gl.enable(gl.CULL_FACE);
-gl.enable(gl.BLEND);
-gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
-gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
-gl.clearColor(0,0,0,1);
-gl.clear(gl.COLOR_BUFFER_BIT);
-function resizeCanvas()
-{
-	canvas.width=canvas.clientWidth;
-	canvas.height=canvas.clientHeight;
-}
-new ResizeObserver(resizeCanvas).observe(canvas);
+//INPUT RESPONSE---------------------------------------------------
 function touchStart(e)
 {
 	//----
@@ -27,17 +14,72 @@ function touchEnd(e)
 		canvas.requestFullscreen();
 		//return;
 	}
-	const url=canvas.toDataURL();
-	const a=document.createElement("a");
-	a.download="save test.png";
-	a.href=url;
-	a.textContent="Download PNG";
-	document.body.append(a);
+}
+//BASIC FUNCTIONS--------------------------------------------------
+function resizeCanvas()
+{
+	canvas.width=canvas.clientWidth;
+	canvas.height=canvas.clientHeight;
 }
 function draw(t)
 {
-	gl.clearColor(0,0.5,0,1);
+	//main canvas
+	gl.clearColor(0.5,0.5,0.5,1);
 	gl.clear(gl.COLOR_BUFFER_BIT);
+	//save canvas
+	saveGL.clearColor(0,0,0,/);
+	saveGL.clear(gl.COLOR_BUFFER_BIT);
 	requestAnimationFrame(function(ts){draw(ts);});
 }
+function save(name)
+{
+	url=saveCanvas.toDataURL();
+	a.download=name+".png";
+	a.href=url;
+	a click();
+	//a.textContent="Download PNG";
+	//document.body.append(a);
+}
+//TOOLS------------------------------------------------------------
+const tools=
+[
+	{
+		name:"PixelPen"
+		touchDown(x,y,id)
+		{
+			//----
+		},
+		touchMove(x,y,id,oldX,oldY)
+		{
+			//----
+		},
+		touchUp(x,y,id,life)
+		{
+			//----
+		}
+	}
+]
+//BASIC VARS-------------------------------------------------------
+let zoom=1.0;
+let tool=0;
+let posX=0.0;
+let posY=0.0;
+//POINTERS=[]
+//PRIMARY CANVAS SETUP---------------------------------------------
+const canvas=document.querySelector("#canvas");
+const gl=canvas.getContext("webgl2",{premultipliedAlpha:false});
+gl.enable(gl.CULL_FACE);
+gl.enable(gl.BLEND);
+gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
+gl.clearColor(0,0,0,1);
+gl.clear(gl.COLOR_BUFFER_BIT);
+new ResizeObserver(resizeCanvas).observe(canvas);
+//IMAGE------------------------------------------------------------
+let image=[]
+//OTHER ITEMS------------------------------------------------------ 
+const a=document.createElement("a");
+const saveCanvas=new canvas;
+const saveGL=saveCanvas.getContext("webgl2",{premultipliedAlpha:false,preserveDrawingBuffer:true});
+//FINISH-----------------------------------------------------------
 requestAnimationFrame(function(ts){draw(ts);});
