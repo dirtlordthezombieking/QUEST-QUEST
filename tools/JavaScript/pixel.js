@@ -117,6 +117,8 @@ saveGL.viewport(0,0,gl.canvas.width,gl.canvas.height);
 saveGL.clearColor(0,0,0,1);
 saveGL.clear(gl.COLOR_BUFFER_BIT);
 //SHADERS----------------------------------------------------------
+		let vertShader=game.gl.createShader(type);
+		game.gl.shaderSource(vertShader,
 '#version 300 es
 in vec4 a_data;
 out vec2 v_uv;
@@ -127,7 +129,10 @@ void main()
 {
 	v_uv=a_data.zw;
 	gl_Position=vec4(((a_data.xy*u_scale)+u_pos)/u_size,0.0,1.0);
-}'
+}');
+		game.gl.compileShader(verrShader);
+		let fragShader=game.gl.createShader(type);
+		game.gl.shaderSource(fragShader,
 '#version 300 es
 precision mediump float;
 out vec4 fragColor;
@@ -137,6 +142,7 @@ void main()
 {
 	vec4 tex=texture(u_tex,v_uv);
 	fragColor=tex;
-}'
+}');
+		game.gl.compileShader(fragShader);
 //FINISH-----------------------------------------------------------
 requestAnimationFrame(function(ts){draw(ts);});
