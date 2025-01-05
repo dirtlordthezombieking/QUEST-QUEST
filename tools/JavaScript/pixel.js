@@ -18,8 +18,20 @@ function touchEnd(e)
 //IMAGE FUNCTIONS--------------------------------------------------
 function addLayer()
 {
-	let size=width*height;
-	for
+	layers.push(Array(width*height*4).fill(0));
+	updateLayer(layers);
+	layers++;
+}
+function updateLayer(layerID)
+{
+	if(layerID>layers)
+	{
+		layers(layerId=
+		{
+			texture:
+			SaveTexture:
+		}
+	}
 }
 //BASIC FUNCTIONS--------------------------------------------------
 function resizeCanvas()
@@ -71,11 +83,13 @@ let tool=0;
 let posX=0.0;
 let posY=0.0;
 let currentLayer=0;
-let replace colour=false;
+let replaceColour=false;
 let width=64;
 let heght=64;
 let pointers=[];
-let layers=[]:
+let layers=[];
+let layerDraws=[];
+let layers=0;
 //PRIMARY CANVAS SETUP---------------------------------------------
 const canvas=document.querySelector("#canvas");
 const gl=canvas.getContext("webgl2",{premultipliedAlpha:false});
