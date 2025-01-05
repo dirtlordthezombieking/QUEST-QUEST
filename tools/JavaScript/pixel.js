@@ -15,6 +15,12 @@ function touchEnd(e)
 		//return;
 	}
 }
+//IMAGE FUNCTIONS--------------------------------------------------
+function addLayer()
+{
+	let size=width*height;
+	for
+}
 //BASIC FUNCTIONS--------------------------------------------------
 function resizeCanvas()
 {
@@ -27,7 +33,7 @@ function draw(t)
 	gl.clearColor(0.5,0.5,0.5,1);
 	gl.clear(gl.COLOR_BUFFER_BIT);
 	//save canvas
-	saveGL.clearColor(0,0,0,/);
+	saveGL.clearColor(0,0,0,0);
 	saveGL.clear(gl.COLOR_BUFFER_BIT);
 	requestAnimationFrame(function(ts){draw(ts);});
 }
@@ -64,7 +70,12 @@ let zoom=1.0;
 let tool=0;
 let posX=0.0;
 let posY=0.0;
-//POINTERS=[]
+let currentLayer=0;
+let replace colour=false;
+let width=64;
+let heght=64;
+let pointers=[];
+let layers=[]:
 //PRIMARY CANVAS SETUP---------------------------------------------
 const canvas=document.querySelector("#canvas");
 const gl=canvas.getContext("webgl2",{premultipliedAlpha:false});
@@ -76,10 +87,15 @@ gl.clearColor(0,0,0,1);
 gl.clear(gl.COLOR_BUFFER_BIT);
 new ResizeObserver(resizeCanvas).observe(canvas);
 //IMAGE------------------------------------------------------------
-let image=[]
 //OTHER ITEMS------------------------------------------------------ 
 const a=document.createElement("a");
 const saveCanvas=new canvas;
 const saveGL=saveCanvas.getContext("webgl2",{premultipliedAlpha:false,preserveDrawingBuffer:true});
+saveGL.enable(gl.CULL_FACE);
+saveGL.enable(gl.BLEND);
+saveGL.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+saveGL.viewport(0,0,gl.canvas.width,gl.canvas.height);
+saveGL.clearColor(0,0,0,1);
+saveGL.clear(gl.COLOR_BUFFER_BIT);
 //FINISH-----------------------------------------------------------
 requestAnimationFrame(function(ts){draw(ts);});
