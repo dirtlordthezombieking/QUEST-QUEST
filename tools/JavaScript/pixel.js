@@ -41,15 +41,34 @@ function updateLayer(layerID)
 function setPixel(x,y,layerID)
 {
 	let colour=currentColour;
+	pos=((y*width)+x)*4;
 	if(!replaceColour)
 	{
-		//TODO:blending
+		let a1=currentColour[3]/255.0
+		let r=currentColour[0]*a1;
+		let g=currentColour[1]*a1;
+		let b=currentColour[2]*a1;
+		let a=currentColour[3];
+		let a2=(1-a1)*(layers[layerID][pos+3]/255.0);
+		r+=layers[layerID][pos  ]*a2;
+		g+=layers[layerID][pos+1]*a2;
+		b+=layers[layerID][pos+2]*a2;
+		a+=layers[layerID][pos+3];
+		r=correct(r);
+		g=correct(g);
+		b=correct(b);
+		a=correct(a);
+		colour=(r,g,b,a)
 	}
-	pos=((y*width)+x)*4
 	layers[layerID][pos  ]=colour[0];
 	layers[layerID][pos+1]=colour[1];
 	layers[layerID][pos+2]=colour[2];
 	layers[layerID][pos+3]=colour[3];
+}
+//-------------------------------------------------------MATH UTILS
+function correct(i)
+{
+	return Math.min(Math.max(Math.round(i),255),0);
 }
 //--------------------------------------------------BASIC FUNCTIONS
 function resizeCanvas()
