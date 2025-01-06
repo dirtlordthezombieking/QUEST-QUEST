@@ -24,12 +24,12 @@ function touchEnd(e)
 function addLayer()
 {
 	layers.push(Array(width*height*4).fill(0));
-	updateLayer(layers);
+	updateLayer(layers.length);
 	layers++;
 }
 function updateLayer(layerID)
 {
-	if(layerID>layers)
+	if(layerID>layers.length)
 	{
 		layers(layerId=
 		{
@@ -37,6 +37,19 @@ function updateLayer(layerID)
 			SaveTexture:
 		}
 	}
+}
+function setPixel(x,y,layerID)
+{
+	let colour=currentColour;
+	if(!replaceColour)
+	{
+		//TODO:blending
+	}
+	pos=((y*width)+x)*4
+	layers[layerID  ][pos]=colour[0];
+	layers[layerID+1][pos]=colour[1];
+	layers[layerID+2][pos]=colour[2];
+	layers[layerID+3][pos]=colour[3];
 }
 //--------------------------------------------------BASIC FUNCTIONS
 function resizeCanvas()
