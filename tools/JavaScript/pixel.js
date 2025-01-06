@@ -117,7 +117,7 @@ saveGL.clear(gl.COLOR_BUFFER_BIT);
 //------------------------------------------------------------IMAGE
 //------------------------------------------------------OTHER ITEMS 
 const a=document.createElement("a");
-/----------------------------------------------------------/SHADERS
+//----------------------------------------------------------SHADERS
 //--MAIN--
 //vertex
 let vertShader=gl.createShader(gl.VERTEX_SHADER);
