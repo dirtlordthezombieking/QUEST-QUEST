@@ -41,7 +41,7 @@ function updateLayer(layerID)
 function setPixel(x,y,layerID)
 {
 	let colour=currentColour;
-	pos=((y*width)+x)*4;
+	let pos=((y*width)+x)*4;
 	if(!replaceColour)
 	{
 		let a1=currentColour[3]/255.0
