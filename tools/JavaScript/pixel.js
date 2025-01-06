@@ -46,10 +46,10 @@ function setPixel(x,y,layerID)
 		//TODO:blending
 	}
 	pos=((y*width)+x)*4
-	layers[layerID  ][pos]=colour[0];
-	layers[layerID+1][pos]=colour[1];
-	layers[layerID+2][pos]=colour[2];
-	layers[layerID+3][pos]=colour[3];
+	layers[layerID][pos  ]=colour[0];
+	layers[layerID][pos+1]=colour[1];
+	layers[layerID][pos+2]=colour[2];
+	layers[layerID][pos+3]=colour[3];
 }
 //--------------------------------------------------BASIC FUNCTIONS
 function resizeCanvas()
