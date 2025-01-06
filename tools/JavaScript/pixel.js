@@ -1,7 +1,7 @@
-//FOR DEBUG PURPOSES-----------------------------------------------
+//-----------------------------------------------FOR DEBUG PURPOSES
 //function Float32Array(){}
 //function Int16Array(){}
-//INPUT RESPONSE---------------------------------------------------
+//---------------------------------------------------INPUT RESPONSE
 function touchStart(e)
 {
 	pointers[e.changedTouches[0]]=
@@ -20,7 +20,7 @@ function touchEnd(e)
 		//return;
 	}
 }
-//IMAGE FUNCTIONS--------------------------------------------------
+//--------------------------------------------------IMAGE FUNCTIONS
 function addLayer()
 {
 	layers.push(Array(width*height*4).fill(0));
@@ -38,7 +38,7 @@ function updateLayer(layerID)
 		}
 	}
 }
-//BASIC FUNCTIONS--------------------------------------------------
+//--------------------------------------------------BASIC FUNCTIONS
 function resizeCanvas()
 {
 	canvas.width=canvas.clientWidth;
@@ -63,7 +63,7 @@ function save(name)
 	//a.textContent="Download PNG";
 	//document.body.append(a);
 }
-//TOOLS------------------------------------------------------------
+//------------------------------------------------------------TOOLS
 const tools=
 [
 	{
@@ -82,7 +82,7 @@ const tools=
 		}
 	}
 ]
-//BASIC VARS-------------------------------------------------------
+//-------------------------------------------------------BASIC VARS
 let zoom=1.0;
 let tool=0;
 let posX=0.0;
@@ -95,7 +95,7 @@ let pointers=[];
 let layers=[];
 let layerDraws=[];
 let layers=0;
-//PRIMARY CANVAS SETUP---------------------------------------------
+//---------------------------------------------PRIMARY CANVAS SETUP
 const canvas=document.querySelector("#canvas");
 const gl=canvas.getContext("webgl2",{premultipliedAlpha:false});
 gl.enable(gl.CULL_FACE);
@@ -105,7 +105,7 @@ gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
 gl.clearColor(0,0,0,1);
 gl.clear(gl.COLOR_BUFFER_BIT);
 new ResizeObserver(resizeCanvas).observe(canvas);
-//SAVE CANVAS SETUP
+//------------------------------------------------SAVE CANVAS SETUP
 const saveCanvas=new Canvas();
 const saveGL=saveCanvas.getContext("webgl2",{premultipliedAlpha:false,preserveDrawingBuffer:true});
 saveGL.enable(gl.CULL_FACE);
@@ -114,10 +114,10 @@ saveGL.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
 saveGL.viewport(0,0,gl.canvas.width,gl.canvas.height);
 saveGL.clearColor(0,0,0,1);
 saveGL.clear(gl.COLOR_BUFFER_BIT);
-//IMAGE------------------------------------------------------------
-//OTHER ITEMS------------------------------------------------------ 
+//------------------------------------------------------------IMAGE
+//------------------------------------------------------OTHER ITEMS 
 const a=document.createElement("a");
-//SHADERS----------------------------------------------------------
+/----------------------------------------------------------/SHADERS
 //--MAIN--
 //vertex
 let vertShader=gl.createShader(gl.VERTEX_SHADER);
@@ -188,5 +188,5 @@ let saveShader=saveGL.createProgram();
 saveGL.attachShader(saveShader,saveVertShader);
 saveGL.attachShader(saveShader,saveFragShader);
 saveGL.linkProgram(saveShader);
-//FINISH-----------------------------------------------------------
+//-----------------------------------------------------------FINISH
 requestAnimationFrame(function(ts){draw(ts);});
