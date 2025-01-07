@@ -119,7 +119,7 @@ function save(name)
 const tools=
 [
 	{
-		name:"PixelPen"
+		name:"PixelPen",
 		touchDown(x,y,id)
 		{
 			//----
@@ -147,7 +147,6 @@ let pointers=[];
 let layers=[];
 let LayersCount=0;
 let layerDraws=[];
-let layers=0;
 //---------------------------------------------PRIMARY CANVAS SETUP
 const canvas=document.querySelector("#canvas");
 const gl=canvas.getContext("webgl2",{premultipliedAlpha:false});
