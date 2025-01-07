@@ -174,7 +174,7 @@ const a=document.createElement("a");
 //vertex
 let vertShader=gl.createShader(gl.VERTEX_SHADER);
 gl.shaderSource(vertShader,
-'#version 300 es
+`#version 300 es
 in vec4 a_data;
 out vec2 v_uv;
 uniform vec2 u_pos;
@@ -184,12 +184,12 @@ void main()
 {
 	v_uv=a_data.zw;
 	gl_Position=vec4(((a_data.xy*u_scale)+u_pos)/u_size,0.0,1.0);
-}');
+}`);
 gl.compileShader(vertShader);
 //fragment
 let fragShader=gl.createShader(gl.FRAGMENT_SHADER);
 gl.shaderSource(fragShader,
-'#version 300 es
+`#version 300 es
 precision mediump float;
 out vec4 fragColor;
 in vec2 v_uv;
@@ -198,7 +198,7 @@ void main()
 {
 	vec4 tex=texture(u_tex,v_uv);
 	fragColor=tex;
-}');
+}`);
 gl.compileShader(fragShader);
 //program
 let shader=gl.createProgram();
@@ -209,7 +209,7 @@ gl.linkProgram(shader);
 //vertex
 let saveVertShader=saveGL.createShader(saveGL.VERTEX_SHADER);
 saveGL.shaderSource(saveVertShader,
-'#version 300 es
+`#version 300 es
 in vec4 a_data;
 out vec2 v_uv;
 uniform vec2 u_pos;
@@ -219,12 +219,12 @@ void main()
 {
 	v_uv=a_data.zw;
 	gl_Position=vec4(((a_data.xy*u_scale)+u_pos)/u_size,0.0,1.0);
-}');
+}`);
 saveGL.compileShader(saveVertShader);
 //fragment
 let saveFragShader=saveGL.createShader(saveGL.FRAGMENT_SHADER);
 saveGL.shaderSource(saveFragShader,
-'#version 300 es
+`#version 300 es
 precision mediump float;
 out vec4 fragColor;
 in vec2 v_uv;
@@ -233,7 +233,7 @@ void main()
 {
 	vec4 tex=texture(u_tex,v_uv);
 	fragColor=tex;
-}');
+}`);
 saveGL.compileShader(saveFragShader);
 //program
 let saveShader=saveGL.createProgram();
