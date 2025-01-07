@@ -58,7 +58,7 @@ function setPixel(x,y,layerID)
 		g=correct(g);
 		b=correct(b);
 		a=correct(a);
-		colour=(r,g,b,a)
+		colour=[r,g,b,a]:
 	}
 	layers[layerID][pos  ]=colour[0];
 	layers[layerID][pos+1]=colour[1];
@@ -68,7 +68,7 @@ function setPixel(x,y,layerID)
 //-------------------------------------------------------MATH UTILS
 function correct(i)
 {
-	return Math.min(Math.max(Math.round(i),255),0);
+	return Math.min(Math.max(Math.round(i),0),255);
 }
 //--------------------------------------------------BASIC FUNCTIONS
 function resizeCanvas()
