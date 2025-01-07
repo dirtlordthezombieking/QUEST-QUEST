@@ -2,138 +2,7 @@
 //function Float32Array(){}
 //function UInt16Array(){}
 //function UInt8Array(){}
-//---------------------------------------------------INPUT RESPONSE
-function touchStart(e)
-{
-	pointers[e.changedTouches[0]]=
-	{
-	}
-}
-function touchMove(e)
-{
-	//----
-}
-function touchEnd(e)
-{
-	if(document.fullscreenElement!=canvas)
-	{
-		canvas.requestFullscreen();
-		//return;
-	}
-}
-//--------------------------------------------------IMAGE FUNCTIONS
-function addLayer()
-{
-	if(LayersCount>=layers.length);
-	{
-		layers.push({});
-	}
-	layers[LayersCount].arr=Array(width*height*4).fill(0);
-	updateLayer(LayersCount);
-	LayersCount++;
-}
-function updateLayer(layerID)
-{
-	if(layers[layerId].texture!==undefined)
-	{
-		layers[layerId].texture=gl.createTexture();
-	}
-	if(layers[layerId].SaveTexture!==undefined)
-	{
-		layers[layerId].SaveTexture=saveGl.createTexture();
-	}
-	
-//----
-	gl.bindTexture(gl.TEXTURE_2D,layers[layerId].texture);
-	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
-	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
-	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);
-	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);
-	gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,width,height,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(layers[layerId].texture));
-//----
-	saveGl.bindTexture(saveGl.TEXTURE_2D,layers[layerId].texture);
-	saveGl.texParameteri(saveGl.TEXTURE_2D,saveGl.TEXTURE_WRAP_S,saveGl.CLAMP_TO_EDGE);
-	saveGl.texParameteri(saveGl.TEXTURE_2D,saveGl.TEXTURE_WRAP_T,saveGl.CLAMP_TO_EDGE);
-	saveGl.texParameteri(saveGl.TEXTURE_2D,saveGl.TEXTURE_MIN_FILTER,saveGl.NEAREST);
-	saveGl.texParameteri(saveGl.TEXTURE_2D,saveGl.TEXTURE_MAG_FILTER,saveGl.NEAREST);
-	saveGl.texImage2D(saveGl.TEXTURE_2D,0,saveGl.RGBA,width,height,0,saveGl.RGBA,saveGl.UNSIGNED_BYTE,new Uint8Array(layers[layerId].SaveTexture));
-}
-function setPixel(x,y,layerID)
-{
-	let colour=currentColour;
-	let pos=((y*width)+x)*4;
-	if(!replaceColour)
-	{
-		let a1=currentColour[3]/255.0
-		let r=currentColour[0]*a1;
-		let g=currentColour[1]*a1;
-		let b=currentColour[2]*a1;
-		let a=currentColour[3];
-		let a2=(1-a1)*(layers[layerID][pos+3]/255.0);
-		r+=layers[layerID][pos  ]*a2;
-		g+=layers[layerID][pos+1]*a2;
-		b+=layers[layerID][pos+2]*a2;
-		a+=layers[layerID][pos+3];
-		r=correct(r);
-		g=correct(g);
-		b=correct(b);
-		a=correct(a);
-		colour=[r,g,b,a];
-	}
-	layers[layerID][pos  ]=colour[0];
-	layers[layerID][pos+1]=colour[1];
-	layers[layerID][pos+2]=colour[2];
-	layers[layerID][pos+3]=colour[3];
-}
-//-------------------------------------------------------MATH UTILS
-function correct(i)
-{
-	return Math.min(Math.max(Math.round(i),0),255);
-}
-//--------------------------------------------------BASIC FUNCTIONS
-function resizeCanvas()
-{
-	canvas.width=canvas.clientWidth;
-	canvas.height=canvas.clientHeight;
-}
-function draw(t)
-{
-	//main canvas
-	gl.clearColor(0.5,0.5,0.5,1);
-	gl.clear(gl.COLOR_BUFFER_BIT);
-	//save canvas
-	saveGL.clearColor(0,0,0,0);
-	saveGL.clear(gl.COLOR_BUFFER_BIT);
-	requestAnimationFrame(function(ts){draw(ts);});
-}
-function save(name)
-{
-	url=saveCanvas.toDataURL();
-	a.download=name+".png";
-	a.href=url;
-	a.click();
-	//a.textContent="Download PNG";
-	//document.body.append(a);
-}
-//------------------------------------------------------------TOOLS
-const tools=
-[
-	{
-		name:"PixelPen",
-		touchDown(x,y,id)
-		{
-			//----
-		},
-		touchMove(x,y,id,oldX,oldY)
-		{
-			//----
-		},
-		touchUp(x,y,id,life)
-		{
-			//----
-		}
-	}
-]
+//function Canvas(){}
 //-------------------------------------------------------BASIC VARS
 let zoom=1.0;
 let tool=0;
@@ -142,8 +11,9 @@ let posY=0.0;
 let currentLayer=0;
 let replaceColour=false;
 let width=64;
-let heght=64;
+let height=64;
 let pointers=[];
+let currentColour=[0,0,0,255];
 let layers=[];
 let LayersCount=0;
 let layerDraws=[];
@@ -171,7 +41,7 @@ saveGL.clear(gl.COLOR_BUFFER_BIT);
 const a=document.createElement("a");
 //----------------------------------------------------------SHADERS
 //--MAIN--
-//vertex
+//Vertex
 let vertShader=gl.createShader(gl.VERTEX_SHADER);
 gl.shaderSource(vertShader,
 `#version 300 es
@@ -240,5 +110,137 @@ let saveShader=saveGL.createProgram();
 saveGL.attachShader(saveShader,saveVertShader);
 saveGL.attachShader(saveShader,saveFragShader);
 saveGL.linkProgram(saveShader);
+//---------------------------------------------------INPUT RESPONSE
+function touchStart(e)
+{
+	pointers[e.changedTouches[0]]=
+	{
+	};
+}
+function touchMove(e)
+{
+	//----
+}
+function touchEnd(e)
+{
+	if(document.fullscreenElement!=canvas)
+	{
+		canvas.requestFullscreen();
+		//return;
+	}
+}
+//--------------------------------------------------IMAGE FUNCTIONS
+function addLayer()
+{
+	if(LayersCount>=layers.length)
+	{
+		layers.push({});
+	}
+	layers[LayersCount].arr=Array(width*height*4).fill(0);
+	updateLayer(LayersCount);
+	LayersCount++;
+}
+function updateLayer(layerID)
+{
+	if(layers[layerID].texture!==undefined)
+	{
+		layers[layerID].texture=gl.createTexture();
+	}
+	if(layers[layerID].SaveTexture!==undefined)
+	{
+		layers[layerID].SaveTexture=saveGL.createTexture();
+	}
+	
+//----
+	gl.bindTexture(gl.TEXTURE_2D,layers[layerID].texture);
+	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);
+	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);
+	gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,width,height,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(layers[layerID].texture));
+//----
+	saveGL.bindTexture(saveGL.TEXTURE_2D,layers[layerID].texture);
+	saveGL.texParameteri(saveGL.TEXTURE_2D,saveGL.TEXTURE_WRAP_S,saveGL.CLAMP_TO_EDGE);
+	saveGL.texParameteri(saveGL.TEXTURE_2D,saveGL.TEXTURE_WRAP_T,saveGL.CLAMP_TO_EDGE);
+	saveGL.texParameteri(saveGL.TEXTURE_2D,saveGL.TEXTURE_MIN_FILTER,saveGL.NEAREST);
+	saveGL.texParameteri(saveGL.TEXTURE_2D,saveGL.TEXTURE_MAG_FILTER,saveGL.NEAREST);
+	saveGL.texImage2D(saveGL.TEXTURE_2D,0,saveGL.RGBA,width,height,0,saveGL.RGBA,saveGL.UNSIGNED_BYTE,new Uint8Array(layers[layerID].SaveTexture));
+}
+function setPixel(x,y,layerID)
+{
+	let colour=currentColour;
+	let pos=((y*width)+x)*4;
+	if(!replaceColour)
+	{
+		let a1=currentColour[3]/255.0;
+		let r=currentColour[0]*a1;
+		let g=currentColour[1]*a1;
+		let b=currentColour[2]*a1;
+		let la=currentColour[3];
+		let a2=(1-a1)*(layers[layerID][pos+3]/255.0);
+		r+=layers[layerID][pos  ]*a2;
+		g+=layers[layerID][pos+1]*a2;
+		b+=layers[layerID][pos+2]*a2;
+		al+=layers[layerID][pos+3];
+		r=correct(r);
+		g=correct(g);
+		b=correct(b);
+		al=correct(al);
+		colour=[r,g,b,al];
+	}
+	layers[layerID][pos  ]=colour[0];
+	layers[layerID][pos+1]=colour[1];
+	layers[layerID][pos+2]=colour[2];
+	layers[layerID][pos+3]=colour[3];
+}
+//-------------------------------------------------------MATH UTILS
+function correct(i)
+{
+	return Math.min(Math.max(Math.round(i),0),255);
+}
+//--------------------------------------------------BASIC FUNCTIONS
+function resizeCanvas()
+{
+	canvas.width=canvas.clientWidth;
+	canvas.height=canvas.clientHeight;
+}
+function draw(t)
+{
+	//main canvas
+	gl.clearColor(0.5,0.5,0.5,1);
+	gl.clear(gl.COLOR_BUFFER_BIT);
+	//save canvas
+	saveGL.clearColor(0,0,0,0);
+	saveGL.clear(gl.COLOR_BUFFER_BIT);
+	requestAnimationFrame(function(ts){draw(ts);});
+}
+function save(name)
+{
+	let url=saveCanvas.toDataURL();
+	a.download=name+".png";
+	a.href=url;
+	a.click();
+	//a.textContent="Download PNG";
+	//document.body.append(a);
+}
+//------------------------------------------------------------TOOLS
+const tools=
+[
+	{
+		name:"PixelPen",
+		touchDown(x,y,id)
+		{
+			//----
+		},
+		touchMove(x,y,id,oldX,oldY)
+		{
+			//----
+		},
+		touchUp(x,y,id,life)
+		{
+			//----
+		}
+	}
+];
 //-----------------------------------------------------------FINISH
 requestAnimationFrame(function(ts){draw(ts);});
