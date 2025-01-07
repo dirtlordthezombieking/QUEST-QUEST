@@ -34,11 +34,11 @@ function addLayer()
 }
 function updateLayer(layerID)
 {
-	if(layers[layerId].texture!===undefined)
+	if(layers[layerId].texture!==undefined)
 	{
 		layers[layerId].texture=gl.createTexture();
 	}
-	if(layers[layerId].SaveTexture!===undefined)
+	if(layers[layerId].SaveTexture!==undefined)
 	{
 		layers[layerId].SaveTexture=saveGl.createTexture();
 	}
