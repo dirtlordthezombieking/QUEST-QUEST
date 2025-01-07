@@ -142,6 +142,7 @@ let width=64;
 let heght=64;
 let pointers=[];
 let layers=[];
+let Layers count=0;
 let layerDraws=[];
 let layers=0;
 //---------------------------------------------PRIMARY CANVAS SETUP
