@@ -1,7 +1,7 @@
 //-----------------------------------------------FOR DEBUG PURPOSES
 //function Float32Array(){}
 //function UInt16Array(){}
-//function UInt8Array(){}
+//function Uint8Array(){}
 //function Canvas(){}
 //-------------------------------------------------------BASIC VARS
 let zoom=1.0;
@@ -176,7 +176,7 @@ function setPixel(x,y,layerID)
 		let r=currentColour[0]*a1;
 		let g=currentColour[1]*a1;
 		let b=currentColour[2]*a1;
-		let la=currentColour[3];
+		let al=currentColour[3];
 		let a2=(1-a1)*(layers[layerID][pos+3]/255.0);
 		r+=layers[layerID][pos  ]*a2;
 		g+=layers[layerID][pos+1]*a2;
