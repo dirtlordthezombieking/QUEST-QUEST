@@ -14,7 +14,7 @@ let height=64;
 let pointers=[];
 let currentColour=[0,0,0,255];
 let layers=[];
-let LayersCount=0;
+let layersCount=0;
 let layerDraws=[];
 //---------------------------------------------PRIMARY CANVAS SETUP
 const canvas=document.querySelector("#canvas");
@@ -131,13 +131,13 @@ function touchEnd(e)
 //--------------------------------------------------IMAGE FUNCTIONS
 function addLayer()
 {
-	if(LayersCount>=layers.length)
+	if(layersCount>=layers.length)
 	{
 		layers.push({});
 	}
-	layers[LayersCount].arr=Array(width*height*4).fill(0);
-	updateLayer(LayersCount);
-	LayersCount++;
+	layers[layersCount].arr=Array(width*height*4).fill(0);
+	updateLayer(layersCount);
+	layersCount++;
 }
 function updateLayer(layerID)
 {
