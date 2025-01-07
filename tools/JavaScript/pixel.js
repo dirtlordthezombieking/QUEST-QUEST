@@ -47,8 +47,8 @@ gl.shaderSource(vertShader,
 in vec4 a_data;
 out vec2 v_uv;
 uniform vec2 u_pos;
-uniform float u_scale:
-uniform vec2 u_size
+uniform float u_scale;
+uniform vec2 u_size;
 void main()
 {
 	v_uv=a_data.zw;
@@ -81,13 +81,10 @@ saveGL.shaderSource(saveVertShader,
 `#version 300 es
 in vec4 a_data;
 out vec2 v_uv;
-uniform vec2 u_pos;
-uniform float u_scale:
-uniform vec2 u_size
 void main()
 {
 	v_uv=a_data.zw;
-	gl_Position=vec4(((a_data.xy*u_scale)+u_pos)/u_size,0.0,1.0);
+	gl_Position=vec4(a_data.xy,0.0,1.0);
 }`);
 saveGL.compileShader(saveVertShader);
 //fragment
@@ -208,6 +205,17 @@ function draw(t)
 	//main canvas
 	gl.clearColor(0.5,0.5,0.5,1);
 	gl.clear(gl.COLOR_BUFFER_BIT);
+	gl.useProgram(shader);
+	gl.uniform1i(//----texLoc----,0);
+	gl.activeTexture(gl.TEXTURE0);
+	gl.bindTexture(gl.TEXTURE_2D,layers[layerID].texture);
+	gl.bindBuffer(gl.ARRAY_BUFFER,//----vertBuff----);
+	gl.enableVertexAttribArray(//----vertLoc----);
+	gl.vertexAttribPointer(//----vertLoc----,4,game.gl.FLOAT,false,0,0);
+	gl.uniform2f(//----posLoc----,posX,posY);
+	gl.uniform1f(//----zoomLoc----,zoom);
+	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,//----indexArray----);
+	gl.drawElements(gl.TRIANGLES,6,gl.UNSIGNED_SHORT,0);
 	//save canvas
 	saveGL.clearColor(0,0,0,0);
 	saveGL.clear(gl.COLOR_BUFFER_BIT);
