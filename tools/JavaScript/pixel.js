@@ -111,7 +111,7 @@ function save(name)
 	url=saveCanvas.toDataURL();
 	a.download=name+".png";
 	a.href=url;
-	a click();
+	a.click();
 	//a.textContent="Download PNG";
 	//document.body.append(a);
 }
