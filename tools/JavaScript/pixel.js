@@ -1,6 +1,7 @@
 //-----------------------------------------------FOR DEBUG PURPOSES
 //function Float32Array(){}
-//function Int16Array(){}
+//function UInt16Array(){}
+//function UInt8Array(){}
 //---------------------------------------------------INPUT RESPONSE
 function touchStart(e)
 {
@@ -23,27 +24,29 @@ function touchEnd(e)
 //--------------------------------------------------IMAGE FUNCTIONS
 function addLayer()
 {
-	layers.push(Array(width*height*4).fill(0));
+	layers.push({});
+	layers.arr=Array(width*height*4).fill(0);
 	updateLayer(layers.length);
 	layers++;
 }
 function updateLayer(layerID)
 {
-	if(layerID>layers.length)
+	if(layers[layerId].texture!===undefined)
 	{
-		layers[layerId]=
-		{
-			texture:gl.createTexture();
-			SaveTexture:saveGl.createTexture();
-		}
+		layers[layerId].texture=gl.createTexture();
 	}
+	if(layers[layerId].SaveTexture!===undefined)
+	{
+		layers[layerId].SaveTexture=saveGl.createTexture();
+	}
+	
 //----
 	gl.bindTexture(gl.TEXTURE_2D,layers[layerId].texture);
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);
-	gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE);
+	gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,width,height,0,gl.RGBA,gl.UNSIGNED_BYTE,new ()Uint8Array);
 //----
 	saveGl.bindTexture(saveGl.TEXTURE_2D,layers[layerId].texture);
 	saveGl.texParameteri(saveGl.TEXTURE_2D,saveGl.TEXTURE_WRAP_S,saveGl.CLAMP_TO_EDGE);
