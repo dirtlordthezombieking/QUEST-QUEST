@@ -2,7 +2,6 @@
 //function Float32Array(){}
 //function UInt16Array(){}
 //function Uint8Array(){}
-//function Canvas(){}
 //-------------------------------------------------------BASIC VARS
 let zoom=1.0;
 let tool=0;
@@ -28,7 +27,7 @@ gl.clearColor(0,0,0,1);
 gl.clear(gl.COLOR_BUFFER_BIT);
 new ResizeObserver(resizeCanvas).observe(canvas);
 //------------------------------------------------SAVE CANVAS SETUP
-const saveCanvas=new Canvas();
+const saveCanvas=document.createElement("canvas");
 const saveGL=saveCanvas.getContext("webgl2",{premultipliedAlpha:false,preserveDrawingBuffer:true});
 saveGL.enable(gl.CULL_FACE);
 saveGL.enable(gl.BLEND);
