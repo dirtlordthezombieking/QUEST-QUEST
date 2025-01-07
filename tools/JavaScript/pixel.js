@@ -78,7 +78,7 @@ function setPixel(x,y,layerID)
 		g=correct(g);
 		b=correct(b);
 		a=correct(a);
-		colour=[r,g,b,a]:
+		colour=[r,g,b,a];
 	}
 	layers[layerID][pos  ]=colour[0];
 	layers[layerID][pos+1]=colour[1];
