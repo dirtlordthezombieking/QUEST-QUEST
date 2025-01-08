@@ -110,30 +110,85 @@ saveGL.linkProgram(saveShader);
 function touchStart(e)
 {
 	let t=e.changedTouches[0];
-	pointers[]=
+	pointers[t.identifier]=
 	{
-		cx:e.clientX,
-		cy:,
-		sx:,
-		sy:,
-		px:,
-		py:,
+		cx:t.clientX,
+		cy:t.clientY,
+		sx:t.clientX,
+		sy:t.clientY,
+		px:t.clientX,
+		py:t.clientY,
 		down:true,
 		enabled:true,
-		moved:enabled,
+		moved:false
 	};
+	//down
 }
 function touchMove(e)
 {
-	//----
+	let t=e.changedTouches[0];
+	if(!pointers[t.identifier])
+	{
+		pointers[t.identifier]=
+		{
+			cx:t.clientX,
+			cy:t.clientY,
+			sx:t.clientX,
+			sy:t.clientY,
+			px:t.clientX,
+			py:t.clientY,
+			down:false,
+			enabled:false,
+			moved:false
+		};
+	}
+	pointers[t.identifier].enabled=pointers[t.identifier].down;
+	if(!pointers[t.identifier].enabled)
+	{
+		return;
+	}
+	pointers[t.identifier].px=pointers[t.identifier].cx;
+	pointers[t.identifier].py=pointers[t.identifier].cy;
+	pointers[t.identifier].cx
+	pointers[t.identifier].cy
+	let firstMove=false;
+	if(!moved)
+	{
+		if(Math.max(Math.abs(pointers[t.identifier].cx-pointers[t.identifier].sx),Math.abs(pointers[t.identifier].cy-pointers[t.identifier].sy))>=5);
+		firstMove=true;
+	}
+	//move
 }
 function touchEnd(e)
 {
 	if(document.fullscreenElement!=canvas)
 	{
 		canvas.requestFullscreen();
-		//return;
+		return;
 	}
+	let t=e.changedTouches[0];
+	if(!pointers[t.identifier])
+	{
+		pointers[t.identifier]=
+		{
+			cx:t.clientX,
+			cy:r.clientY,
+			sx:t.clientX,
+			sy:t.clientY,
+			px:t.clientX,
+			py:t.clientY,
+			down:false,
+			enabled:false,
+			moved:false
+		};
+	}
+	pointers[t.identifier].enabled=pointers[t.identifier].down;
+	if(!pointers[t.identifier].enabled)
+	{
+		return;
+	}
+	pointers[t.identifier].down=false;
+	//up
 }
 //--------------------------------------------------IMAGE FUNCTIONS
 function addLayer()
