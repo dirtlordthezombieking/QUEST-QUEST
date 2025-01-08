@@ -109,8 +109,18 @@ saveGL.linkProgram(saveShader);
 //---------------------------------------------------INPUT RESPONSE
 function touchStart(e)
 {
-	pointers[e.changedTouches[0]]=
+	let t=e.changedTouches[0];
+	pointers[]=
 	{
+		cx:e.clientX,
+		cy:,
+		sx:,
+		sy:,
+		px:,
+		py:,
+		down:true,
+		enabled:true,
+		moved:enabled,
 	};
 }
 function touchMove(e)
