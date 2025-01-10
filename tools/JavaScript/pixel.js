@@ -154,8 +154,11 @@ function touchMove(e)
 	let firstMove=false;
 	if(!moved)
 	{
-		if(Math.max(Math.abs(pointers[t.identifier].cx-pointers[t.identifier].sx),Math.abs(pointers[t.identifier].cy-pointers[t.identifier].sy))>=5);
-		firstMove=true;
+		pointers[t.identifier].moved=(Math.max(Math.abs(pointers[t.identifier].cx-pointers[t.identifier].sx),Math.abs(pointers[t.identifier].cy-pointers[t.identifier].sy))>=5);
+		if(pointers[t.identifier].moved)
+		{
+			firstMove=true;
+		}
 	}
 	//move
 }
@@ -259,6 +262,16 @@ function correct(i)
 {
 	return Math.min(Math.max(Math.round(i),0),255);
 }
+isInXanvas(x,y)
+{
+	//let canRect=[posX-(width/2),posY-(height/2),width,height]
+	let cx=x/zoom;
+	let cy=y/zoom;
+	let ret=[];
+	ret[0]=cx-(posX-(width/2));//canRect[0];
+	ret[1]=cy-(posY-(height/2));//canRect[1];
+	ret[2]=((ret[0]>=0)&&(ret[0]<width)&&(ret[1]>=0)&&(ret[1]<height));
+}
 //--------------------------------------------------BASIC FUNCTIONS
 function resizeCanvas()
 {
@@ -277,7 +290,7 @@ function draw(t)
 	gl.bindBuffer(gl.ARRAY_BUFFER,//----vertBuff----);
 	gl.enableVertexAttribArray(//----vertLoc----);
 	gl.vertexAttribPointer(//----vertLoc----,4,game.gl.FLOAT,false,0,0);
-	gl.uniform2f(//----posLoc----,posX,posY);
+	gl.uniform2f(//----posLoc----,posX-(width/2),posY-(height/2));
 	gl.uniform1f(//----zoomLoc----,zoom);
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,//----indexArray----);
 	gl.drawElements(gl.TRIANGLES,6,gl.UNSIGNED_SHORT,0);
@@ -302,11 +315,11 @@ const tools=
 		name:"PixelPen",
 		touchDown(x,y,id)
 		{
-			//----
+			setPixel(x,y,currentLayer);
 		},
-		touchMove(x,y,id,oldX,oldY)
+		touchMove(x,y,id,oldX,oldY,trueMove)
 		{
-			//----
+			setPixel(x,y,currentLayer);
 		},
 		touchUp(x,y,id,life)
 		{
