@@ -25,6 +25,12 @@ gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
 gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
 gl.clearColor(0,0,0,1);
 gl.clear(gl.COLOR_BUFFER_BIT);
+let texLoc=gl.
+let vertBuff=
+let vertLoc=
+let posLoc=
+let zoomLoc=
+let indexArray=
 new ResizeObserver(resizeCanvas).observe(canvas);
 //------------------------------------------------SAVE CANVAS SETUP
 const saveCanvas=document.createElement("canvas");
@@ -262,7 +268,7 @@ function correct(i)
 {
 	return Math.min(Math.max(Math.round(i),0),255);
 }
-isInXanvas(x,y)
+function isInXanvas(x,y)
 {
 	//let canRect=[posX-(width/2),posY-(height/2),width,height]
 	let cx=x/zoom;
