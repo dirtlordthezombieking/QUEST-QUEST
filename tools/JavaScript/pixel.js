@@ -232,6 +232,7 @@ function draw(t)
 	gl.useProgram(shader);
 	gl.uniform1i(texLoc,0);
 	gl.activeTexture(gl.TEXTURE0);
+	gl.bindTexture(game.gl.TEXTURE_2D,tex);
 	gl.bindBuffer(gl.ARRAY_BUFFER,vertBuff);
 	gl.enableVertexAttribArray(vertLoc);
 	gl.vertexAttribPointer(vertLoc,4,gl.FLOAT,false,0,0);
