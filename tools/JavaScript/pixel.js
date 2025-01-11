@@ -198,21 +198,21 @@ function setPixel(x,y,layerID)
 		let g=currentColour[1]*a1;
 		let b=currentColour[2]*a1;
 		let al=currentColour[3];
-		let a2=(1-a1)*(layers[layerID][pos+3]/255.0);
-		r+=layers[layerID][pos  ]*a2;
-		g+=layers[layerID][pos+1]*a2;
-		b+=layers[layerID][pos+2]*a2;
-		al+=layers[layerID][pos+3];
+		let a2=(1-a1)*(layers[layerID].arr[pos+3]/255.0);
+		r+=layers[layerID].arr[pos  ]*a2;
+		g+=layers[layerID].arr[pos+1]*a2;
+		b+=layers[layerID].arr[pos+2]*a2;
+		al+=layers[layerID].arr[pos+3];
 		r=correct(r);
 		g=correct(g);
 		b=correct(b);
 		al=correct(al);
 		colour=[r,g,b,al];
 	}
-	layers[layerID][pos  ]=colour[0];
-	layers[layerID][pos+1]=colour[1];
-	layers[layerID][pos+2]=colour[2];
-	layers[layerID][pos+3]=colour[3];
+	layers[layerID].arr[pos  ]=colour[0];
+	layers[layerID].arr[pos+1]=colour[1];
+	layers[layerID].arr[pos+2]=colour[2];
+	layers[layerID].arr[pos+3]=colour[3];
 	updateLayer(layerID);
 }
 //--------------------------------------------------BASIC FUNCTIONS
