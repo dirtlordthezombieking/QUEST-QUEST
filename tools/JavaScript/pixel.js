@@ -128,11 +128,11 @@ function correct(i)
 function isInCanvas(x,y)
 {
 	//let canRect=[posX-(width/2),posY-(height/2),width,height]
-	let cx=(x-(canvas.width/2))/zoom;
-	let cy=(y-(canvas.height/2))/zoom;
+	let cx=(x-(canvas.width/2));///zoom;
+	let cy=(y-(canvas.height/2));///zoom;
 	let ret=[];
-	ret[0]=Math.floor(cx-(posX-(width/2)));//canRect[0];
-	ret[1]=Math.floor(cy-(posY-(height/2)));//canRect[1];
+	ret[0]=Math.floor((cx-(posX-(width/2)))/zoom);//canRect[0];
+	ret[1]=Math.floor((cy-(posY-(height/2)))/zoom);//canRect[1];
 	ret[2]=((ret[0]>=0)&&(ret[0]<width)&&(ret[1]>=0)&&(ret[1]<height));
 	return ret;
 }
