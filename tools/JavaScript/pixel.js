@@ -9,6 +9,7 @@ let posX=0.0;
 let posY=0.0;
 let currentLayer=0;
 let replaceColour=false;
+let currentTool=0;
 let width=64;
 let height=64;
 let pointers=[];
@@ -124,7 +125,7 @@ function correct(i)
 {
 	return Math.min(Math.max(Math.round(i),0),255);
 }
-function isInXanvas(x,y)
+function isInCanvas(x,y)
 {
 	//let canRect=[posX-(width/2),posY-(height/2),width,height]
 	let cx=x/zoom;
@@ -151,6 +152,11 @@ function touchStart(e)
 		moved:false
 	};
 	//down
+	let inCan=isInCanvas(t.clientX,t.clientY);
+	if(inCan[2])
+	{
+		tools[currentTool].touchDown(inCan[0],inCan[1],t.identifier);
+	}
 }
 function touchMove(e)
 {
@@ -188,6 +194,12 @@ function touchMove(e)
 			firstMove=true;
 		}
 	}
+	let inCan=isInCanvas(t.clientX,t.clientY);
+	let inCan2=
+	if(inCan[2])
+	{
+		tools[currentTool].touchMove(inCan[0],inCan[1],t.identifier,pointers[t.identifier].px,pointers[t.identifier].py,pointers[t.identifier].moved);
+	}
 	//move
 }
 function touchEnd(e)
@@ -220,6 +232,11 @@ function touchEnd(e)
 	}
 	pointers[t.identifier].down=false;
 	//up
+	let inCan=isInCanvas(t.clientX,t.clientY);
+	if(inCan[2])
+	{
+		tools[currentTool].touchUp(inCan[0],inCan[1],t.identifier);
+	}
 }
 //--------------------------------------------------IMAGE FUNCTIONS
 function creatImage(w,h)
