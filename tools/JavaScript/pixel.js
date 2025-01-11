@@ -145,7 +145,7 @@ function createImage(w,h)
 		0,h,0,0,
 		w,0,1,1,
 		w,h,1,0
-	]),vertBuff);
+	]),gl.STATIC_DRAW);
 	width=w;
 	height=h;
 	layersCount=0;
