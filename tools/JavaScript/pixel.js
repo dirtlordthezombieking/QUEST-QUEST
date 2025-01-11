@@ -3,7 +3,7 @@
 //function Uint16Array(){}
 //function Uint8Array(){}
 //-------------------------------------------------------BASIC VARS
-let zoom=1.0;
+let zoom=5.0;
 let tool=0;
 let posX=0.0;
 let posY=0.0;
