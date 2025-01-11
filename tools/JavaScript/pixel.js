@@ -34,7 +34,6 @@ gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(
 	0,2,1,
 	2,3,1
 ]),gl.STATIC_DRAW);
-new ResizeObserver(resizeCanvas).observe(canvas);
 //------------------------------------------------SAVE CANVAS SETUP
 const saveCanvas=document.createElement("canvas");
 const saveGL=saveCanvas.getContext("webgl2",{premultipliedAlpha:false,preserveDrawingBuffer:true});
@@ -120,6 +119,21 @@ let saveShader=saveGL.createProgram();
 saveGL.attachShader(saveShader,saveVertShader);
 saveGL.attachShader(saveShader,saveFragShader);
 saveGL.linkProgram(saveShader);
+//-------------------------------------------------------MATH UTILS
+function correct(i)
+{
+	return Math.min(Math.max(Math.round(i),0),255);
+}
+function isInXanvas(x,y)
+{
+	//let canRect=[posX-(width/2),posY-(height/2),width,height]
+	let cx=x/zoom;
+	let cy=y/zoom;
+	let ret=[];
+	ret[0]=cx-(posX-(width/2));//canRect[0];
+	ret[1]=cy-(posY-(height/2));//canRect[1];
+	ret[2]=((ret[0]>=0)&&(ret[0]<width)&&(ret[1]>=0)&&(ret[1]<height));
+}
 //---------------------------------------------------INPUT RESPONSE
 function touchStart(e)
 {
@@ -163,10 +177,10 @@ function touchMove(e)
 	}
 	pointers[t.identifier].px=pointers[t.identifier].cx;
 	pointers[t.identifier].py=pointers[t.identifier].cy;
-	pointers[t.identifier].cx
-	pointers[t.identifier].cy
+	pointers[t.identifier].cx=t.clientX;
+	pointers[t.identifier].cy=t.clientY;
 	let firstMove=false;
-	if(!moved)
+	if(!pointers[t.identifier].moved)
 	{
 		pointers[t.identifier].moved=(Math.max(Math.abs(pointers[t.identifier].cx-pointers[t.identifier].sx),Math.abs(pointers[t.identifier].cy-pointers[t.identifier].sy))>=5);
 		if(pointers[t.identifier].moved)
@@ -189,7 +203,7 @@ function touchEnd(e)
 		pointers[t.identifier]=
 		{
 			cx:t.clientX,
-			cy:r.clientY,
+			cy:t.clientY,
 			sx:t.clientX,
 			sy:t.clientY,
 			px:t.clientX,
@@ -219,16 +233,6 @@ function creatImage(w,h)
 		w,h,1,0
 	]),vertBuff);
 }
-function addLayer()
-{
-	if(layersCount>=layers.length)
-	{
-		layers.push({});
-	}
-	layers[layersCount].arr=Array(width*height*4).fill(0);
-	updateLayer(layersCount);
-	layersCount++;
-}
 function updateLayer(layerID)
 {
 	if(layers[layerID].texture!==undefined)
@@ -254,6 +258,16 @@ function updateLayer(layerID)
 	saveGL.texParameteri(saveGL.TEXTURE_2D,saveGL.TEXTURE_MIN_FILTER,saveGL.NEAREST);
 	saveGL.texParameteri(saveGL.TEXTURE_2D,saveGL.TEXTURE_MAG_FILTER,saveGL.NEAREST);
 	saveGL.texImage2D(saveGL.TEXTURE_2D,0,saveGL.RGBA,width,height,0,saveGL.RGBA,saveGL.UNSIGNED_BYTE,new Uint8Array(layers[layerID].SaveTexture));
+}
+function addLayer()
+{
+	if(layersCount>=layers.length)
+	{
+		layers.push({});
+	}
+	layers[layersCount].arr=Array(width*height*4).fill(0);
+	updateLayer(layersCount);
+	layersCount++;
 }
 function setPixel(x,y,layerID)
 {
@@ -282,21 +296,6 @@ function setPixel(x,y,layerID)
 	layers[layerID][pos+2]=colour[2];
 	layers[layerID][pos+3]=colour[3];
 }
-//-------------------------------------------------------MATH UTILS
-function correct(i)
-{
-	return Math.min(Math.max(Math.round(i),0),255);
-}
-function isInXanvas(x,y)
-{
-	//let canRect=[posX-(width/2),posY-(height/2),width,height]
-	let cx=x/zoom;
-	let cy=y/zoom;
-	let ret=[];
-	ret[0]=cx-(posX-(width/2));//canRect[0];
-	ret[1]=cy-(posY-(height/2));//canRect[1];
-	ret[2]=((ret[0]>=0)&&(ret[0]<width)&&(ret[1]>=0)&&(ret[1]<height));
-}
 //--------------------------------------------------BASIC FUNCTIONS
 function resizeCanvas()
 {
@@ -304,6 +303,7 @@ function resizeCanvas()
 	canvas.height=canvas.clientHeight;
 	gl.uniform2f(canSize,canvas.width,canvas.height);
 }
+new ResizeObserver(resizeCanvas).observe(canvas);
 function draw(t)
 {
 	//main canvas
@@ -312,14 +312,22 @@ function draw(t)
 	gl.useProgram(shader);
 	gl.uniform1i(texLoc,0);
 	gl.activeTexture(gl.TEXTURE0);
-	gl.bindTexture(gl.TEXTURE_2D,layers[layerID].texture);
 	gl.bindBuffer(gl.ARRAY_BUFFER,vertBuff);
 	gl.enableVertexAttribArray(vertLoc);
-	gl.vertexAttribPointer(vertLoc,4,game.gl.FLOAT,false,0,0);
+	gl.vertexAttribPointer(vertLoc,4,gl.FLOAT,false,0,0);
 	gl.uniform2f(posLoc,posX-(width/2),posY-(height/2));
 	gl.uniform1f(zoomLoc,zoom);
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,indexArray);
-	gl.drawElements(gl.TRIANGLES,6,gl.UNSIGNED_SHORT,0);
+	for(let i=0;i<currentLayer;i++)
+	{
+		gl.bindTexture(gl.TEXTURE_2D,layers[i].texture);
+		gl.drawElements(gl.TRIANGLES,6,gl.UNSIGNED_SHORT,0);
+	}
+	for(let i=currentLayer;i<layersCount;i++)
+	{
+		gl.bindTexture(gl.TEXTURE_2D,layers[i].texture);
+		gl.drawElements(gl.TRIANGLES,6,gl.UNSIGNED_SHORT,0);
+	}
 	//save canvas
 	saveGL.clearColor(0,0,0,0);
 	saveGL.clear(gl.COLOR_BUFFER_BIT);
