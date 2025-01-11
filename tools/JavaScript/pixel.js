@@ -219,6 +219,7 @@ function resizeCanvas()
 {
 	canvas.width=canvas.clientWidth;
 	canvas.height=canvas.clientHeight;
+	gl.viewport(0,0,canvas.width,canvas.height);
 	gl.uniform2f(canSize,canvas.width,canvas.height);
 }
 new ResizeObserver(resizeCanvas).observe(canvas);
