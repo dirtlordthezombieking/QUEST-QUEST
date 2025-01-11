@@ -5,8 +5,8 @@
 //-------------------------------------------------------BASIC VARS
 let zoom=5.0;
 let tool=0;
-let posX=16.0;
-let posY=16.0;
+let posX=0.0;
+let posY=0.0;
 let currentLayer=0;
 let replaceColour=true;
 let currentTool=0;
@@ -295,13 +295,13 @@ function touchStart(e)
 {
 	try
 	{
-	document.getElementById("log").innerHTML="start";
+	//document.getElementById("log").innerHTML="start";
 	if(document.fullscreenElement!=canvas)
 	{
 		//canvas.requestFullscreen();
 		return;
 	}
-	document.getElementById("log").innerHTML="full screen";
+	//document.getElementById("log").innerHTML="full screen";
 	let t=e.changedTouches[0];
 	pointers[t.identifier]=
 	{
@@ -317,7 +317,7 @@ function touchStart(e)
 	};
 	//down
 	let inCan=isInCanvas(t.clientX,t.clientY);
-	document.getElementById("log").innerHTML=""+inCan[0]+","+inCan[1];
+	//document.getElementById("log").innerHTML=""+inCan[0]+","+inCan[1];
 	if(inCan[2])
 	{
 		//document.getElementById("log").innerHTML="in canvas";
