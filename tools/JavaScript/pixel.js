@@ -61,7 +61,7 @@ uniform vec2 u_size;
 void main()
 {
 	v_uv=a_data.zw;
-	gl_Position=vec4(((a_data.xy*u_scale)+u_pos)/u_size,0.0,1.0);
+	gl_Position=vec4(((a_data.xy+u_pos)*u_scale)/u_size,0.0,1.0);
 }`);
 gl.compileShader(vertShader);
 //fragment
