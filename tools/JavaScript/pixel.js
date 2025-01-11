@@ -87,7 +87,7 @@ let canSize=gl.getUniformLocation(shader,"u_size");
 let texLoc=gl.getUniformLocation(shader,"u_tex");
 let vertLoc=gl.getAttribLocation(shader,"a_data");
 let posLoc=gl.getUniformLocation(shader,"u_pos");
-let zoomLoc=gl.getUniformLocation(shader,"u_size");
+let zoomLoc=gl.getUniformLocation(shader,"u_scale");
 //--------SAVE--------
 //vertex
 let saveVertShader=saveGL.createShader(saveGL.VERTEX_SHADER);
@@ -232,6 +232,7 @@ function draw(t)
 	gl.useProgram(shader);
 	gl.uniform1i(texLoc,0);
 	gl.activeTexture(gl.TEXTURE0);
+	//gl.bindTexture(game.gl.TEXTURE_2D,tex);
 	gl.bindBuffer(gl.ARRAY_BUFFER,vertBuff);
 	gl.enableVertexAttribArray(vertLoc);
 	gl.vertexAttribPointer(vertLoc,4,gl.FLOAT,false,0,0);
@@ -289,6 +290,11 @@ const tools=
 //---------------------------------------------------INPUT RESPONSE
 function touchStart(e)
 {
+	if(document.fullscreenElement!=canvas)
+	{
+		//canvas.requestFullscreen();
+		return;
+	}
 	let t=e.changedTouches[0];
 	pointers[t.identifier]=
 	{
@@ -311,6 +317,11 @@ function touchStart(e)
 }
 function touchMove(e)
 {
+	if(document.fullscreenElement!=canvas)
+	{
+		//canvas.requestFullscreen();
+		return;
+	}
 	let t=e.changedTouches[0];
 	if(!pointers[t.identifier])
 	{
