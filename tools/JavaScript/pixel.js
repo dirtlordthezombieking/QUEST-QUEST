@@ -369,7 +369,7 @@ function touchMove(e)
 }
 function touchEnd(e)
 {
-	document.getElementById("log").innerHTML="end";
+	//document.getElementById("log").innerHTML="end";
 	if(document.fullscreenElement!=canvas)
 	{
 		canvas.requestFullscreen();
