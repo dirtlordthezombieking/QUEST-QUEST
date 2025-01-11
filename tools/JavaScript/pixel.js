@@ -26,9 +26,11 @@ gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
 gl.clearColor(0,0,0,1);
 gl.clear(gl.COLOR_BUFFER_BIT);
 //getUniformLocation|getAttribLocation
-let vertBuff=
-let indexArray=
-
+let vertBuff=gl.createBuffer();
+let indexArray=gl.createBuffer();
+gl.bindBuffer(
+gl.bufferData(
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,indexArray);
 gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(
 [
 	0,2,1,
