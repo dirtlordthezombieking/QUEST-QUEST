@@ -135,109 +135,6 @@ function isInCanvas(x,y)
 	ret[1]=cy-(posY-(height/2));//canRect[1];
 	ret[2]=((ret[0]>=0)&&(ret[0]<width)&&(ret[1]>=0)&&(ret[1]<height));
 }
-//---------------------------------------------------INPUT RESPONSE
-function touchStart(e)
-{
-	let t=e.changedTouches[0];
-	pointers[t.identifier]=
-	{
-		cx:t.clientX,
-		cy:t.clientY,
-		sx:t.clientX,
-		sy:t.clientY,
-		px:t.clientX,
-		py:t.clientY,
-		down:true,
-		enabled:true,
-		moved:false
-	};
-	//down
-	let inCan=isInCanvas(t.clientX,t.clientY);
-	if(inCan[2])
-	{
-		tools[currentTool].touchDown(inCan[0],inCan[1],t.identifier);
-	}
-}
-function touchMove(e)
-{
-	let t=e.changedTouches[0];
-	if(!pointers[t.identifier])
-	{
-		pointers[t.identifier]=
-		{
-			cx:t.clientX,
-			cy:t.clientY,
-			sx:t.clientX,
-			sy:t.clientY,
-			px:t.clientX,
-			py:t.clientY,
-			down:false,
-			enabled:false,
-			moved:false
-		};
-	}
-	pointers[t.identifier].enabled=pointers[t.identifier].down;
-	if(!pointers[t.identifier].enabled)
-	{
-		return;
-	}
-	pointers[t.identifier].px=pointers[t.identifier].cx;
-	pointers[t.identifier].py=pointers[t.identifier].cy;
-	pointers[t.identifier].cx=t.clientX;
-	pointers[t.identifier].cy=t.clientY;
-	let firstMove=false;
-	if(!pointers[t.identifier].moved)
-	{
-		pointers[t.identifier].moved=(Math.max(Math.abs(pointers[t.identifier].cx-pointers[t.identifier].sx),Math.abs(pointers[t.identifier].cy-pointers[t.identifier].sy))>=5);
-		if(pointers[t.identifier].moved)
-		{
-			firstMove=true;
-		}
-	}
-	let inCan=isInCanvas(t.clientX,t.clientY);
-	let inCan2=
-	if(inCan[2])
-	{
-		tools[currentTool].touchMove(inCan[0],inCan[1],t.identifier,pointers[t.identifier].px,pointers[t.identifier].py,pointers[t.identifier].moved);
-	}
-	//move
-}
-function touchEnd(e)
-{
-	if(document.fullscreenElement!=canvas)
-	{
-		canvas.requestFullscreen();
-		return;
-	}
-	let t=e.changedTouches[0];
-	if(!pointers[t.identifier])
-	{
-		pointers[t.identifier]=
-		{
-			cx:t.clientX,
-			cy:t.clientY,
-			sx:t.clientX,
-			sy:t.clientY,
-			px:t.clientX,
-			py:t.clientY,
-			down:false,
-			enabled:false,
-			moved:false
-		};
-	}
-	pointers[t.identifier].enabled=pointers[t.identifier].down;
-	if(!pointers[t.identifier].enabled)
-	{
-		return;
-	}
-	pointers[t.identifier].down=false;
-	//up
-	let inCan=isInCanvas(t.clientX,t.clientY);
-	if(inCan[2])
-	{
-		tools[currentTool].touchUp(inCan[0],inCan[1],t.identifier);
-	}
-}
 //--------------------------------------------------IMAGE FUNCTIONS
 function creatImage(w,h)
 {
@@ -378,5 +275,108 @@ const tools=
 		}
 	}
 ];
+//---------------------------------------------------INPUT RESPONSE
+function touchStart(e)
+{
+	let t=e.changedTouches[0];
+	pointers[t.identifier]=
+	{
+		cx:t.clientX,
+		cy:t.clientY,
+		sx:t.clientX,
+		sy:t.clientY,
+		px:t.clientX,
+		py:t.clientY,
+		down:true,
+		enabled:true,
+		moved:false
+	};
+	//down
+	let inCan=isInCanvas(t.clientX,t.clientY);
+	if(inCan[2])
+	{
+		tools[currentTool].touchDown(inCan[0],inCan[1],t.identifier);
+	}
+}
+function touchMove(e)
+{
+	let t=e.changedTouches[0];
+	if(!pointers[t.identifier])
+	{
+		pointers[t.identifier]=
+		{
+			cx:t.clientX,
+			cy:t.clientY,
+			sx:t.clientX,
+			sy:t.clientY,
+			px:t.clientX,
+			py:t.clientY,
+			down:false,
+			enabled:false,
+			moved:false
+		};
+	}
+	pointers[t.identifier].enabled=pointers[t.identifier].down;
+	if(!pointers[t.identifier].enabled)
+	{
+		return;
+	}
+	pointers[t.identifier].px=pointers[t.identifier].cx;
+	pointers[t.identifier].py=pointers[t.identifier].cy;
+	pointers[t.identifier].cx=t.clientX;
+	pointers[t.identifier].cy=t.clientY;
+	let firstMove=false;
+	if(!pointers[t.identifier].moved)
+	{
+		pointers[t.identifier].moved=(Math.max(Math.abs(pointers[t.identifier].cx-pointers[t.identifier].sx),Math.abs(pointers[t.identifier].cy-pointers[t.identifier].sy))>=5);
+		if(pointers[t.identifier].moved)
+		{
+			firstMove=true;
+		}
+	}
+	let inCan=isInCanvas(t.clientX,t.clientY);
+	let inCan2=isInCanvas(pointers[t.identifier].px,pointers[t.identifier].py);
+	if(inCan[2])
+	{
+		tools[currentTool].touchMove(inCan[0],inCan[1],t.identifier,inCan2[0],inCan2[1],pointers[t.identifier].moved);
+	}
+	//move
+}
+function touchEnd(e)
+{
+	if(document.fullscreenElement!=canvas)
+	{
+		canvas.requestFullscreen();
+		return;
+	}
+	let t=e.changedTouches[0];
+	if(!pointers[t.identifier])
+	{
+		pointers[t.identifier]=
+		{
+			cx:t.clientX,
+			cy:t.clientY,
+			sx:t.clientX,
+			sy:t.clientY,
+			px:t.clientX,
+			py:t.clientY,
+			down:false,
+			enabled:false,
+			moved:false
+		};
+	}
+	pointers[t.identifier].enabled=pointers[t.identifier].down;
+	if(!pointers[t.identifier].enabled)
+	{
+		return;
+	}
+	pointers[t.identifier].down=false;
+	//up
+	let inCan=isInCanvas(t.clientX,t.clientY);
+	if(inCan[2])
+	{
+		tools[currentTool].touchUp(inCan[0],inCan[1],t.identifier);
+	}
+}
 //-----------------------------------------------------------FINISH
 requestAnimationFrame(function(ts){draw(ts);});
