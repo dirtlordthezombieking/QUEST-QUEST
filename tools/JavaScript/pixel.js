@@ -28,6 +28,12 @@ gl.clear(gl.COLOR_BUFFER_BIT);
 //getUniformLocation|getAttribLocation
 let vertBuff=
 let indexArray=
+
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(
+[
+	0,2,1,
+	2,3,1
+]),gl.STATIC_DRAW);
 new ResizeObserver(resizeCanvas).observe(canvas);
 //------------------------------------------------SAVE CANVAS SETUP
 const saveCanvas=document.createElement("canvas");
