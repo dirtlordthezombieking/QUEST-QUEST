@@ -292,12 +292,15 @@ const tools=
 //---------------------------------------------------INPUT RESPONSE
 function touchStart(e)
 {
+	try
+	{
 	document.getElementById("log").innerHTML="start";
 	if(document.fullscreenElement!=canvas)
 	{
 		//canvas.requestFullscreen();
 		return;
 	}
+	document.getElementById("log").innerHTML="full screen";
 	let t=e.changedTouches[0];
 	pointers[t.identifier]=
 	{
@@ -313,9 +316,16 @@ function touchStart(e)
 	};
 	//down
 	let inCan=isInCanvas(t.clientX,t.clientY);
+	document.getElementById("log").innerHTML=""+inCan[0]+","+inCan[1];
 	if(inCan[2])
 	{
+		document.getElementById("log").innerHTML="in canvas";
 		tools[currentTool].touchDown(inCan[0],inCan[1],t.identifier);
+	}
+	}
+	catch(e)
+	{
+		document.getElementById("log").innerHTML=e.message;
 	}
 }
 function touchMove(e)
