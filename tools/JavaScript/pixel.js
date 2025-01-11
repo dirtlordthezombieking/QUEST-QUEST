@@ -136,7 +136,7 @@ function isInCanvas(x,y)
 	ret[2]=((ret[0]>=0)&&(ret[0]<width)&&(ret[1]>=0)&&(ret[1]<height));
 }
 //--------------------------------------------------IMAGE FUNCTIONS
-function creatImage(w,h)
+function createImage(w,h)
 {
 	gl.bindBuffer(gl.ARRAY_BUFFER,vertBuff);
 	gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(
@@ -146,6 +146,8 @@ function creatImage(w,h)
 		w,0,1,1,
 		w,h,1,0
 	]),vertBuff);
+	width=w;
+	height=h;
 	layersCount=0;
 	addLayer();
 }
@@ -253,7 +255,7 @@ function draw(t)
 	}
 	catch(e)
 	{
-		document. get element by id
+		document.getElementById("log").innerHTML=e.message;
 	}
 }
 function save(name)
@@ -388,4 +390,5 @@ function touchEnd(e)
 	}
 }
 //-----------------------------------------------------------FINISH
+createImage(64,64);
 requestAnimationFrame(function(ts){draw(ts);});
