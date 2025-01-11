@@ -164,18 +164,18 @@ function updateLayer(layerID)
 	
 //----
 	gl.bindTexture(gl.TEXTURE_2D,layers[layerID].texture);
+	gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,width,height,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(layers[layerID].arr));
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);
-	gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,width,height,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(layers[layerID].texture));
 //----
 	saveGL.bindTexture(saveGL.TEXTURE_2D,layers[layerID].texture);
+	saveGL.texImage2D(saveGL.TEXTURE_2D,0,saveGL.RGBA,width,height,0,saveGL.RGBA,saveGL.UNSIGNED_BYTE,new Uint8Array(layers[layerID].arr));
 	saveGL.texParameteri(saveGL.TEXTURE_2D,saveGL.TEXTURE_WRAP_S,saveGL.CLAMP_TO_EDGE);
 	saveGL.texParameteri(saveGL.TEXTURE_2D,saveGL.TEXTURE_WRAP_T,saveGL.CLAMP_TO_EDGE);
 	saveGL.texParameteri(saveGL.TEXTURE_2D,saveGL.TEXTURE_MIN_FILTER,saveGL.NEAREST);
 	saveGL.texParameteri(saveGL.TEXTURE_2D,saveGL.TEXTURE_MAG_FILTER,saveGL.NEAREST);
-	saveGL.texImage2D(saveGL.TEXTURE_2D,0,saveGL.RGBA,width,height,0,saveGL.RGBA,saveGL.UNSIGNED_BYTE,new Uint8Array(layers[layerID].SaveTexture));
 }
 function addLayer()
 {
