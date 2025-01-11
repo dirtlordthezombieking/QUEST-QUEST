@@ -291,6 +291,7 @@ const tools=
 //---------------------------------------------------INPUT RESPONSE
 function touchStart(e)
 {
+	document.getElementById("log").innerHTML="start";
 	if(document.fullscreenElement!=canvas)
 	{
 		//canvas.requestFullscreen();
@@ -318,6 +319,7 @@ function touchStart(e)
 }
 function touchMove(e)
 {
+	document.getElementById("log").innerHTML="move";
 	if(document.fullscreenElement!=canvas)
 	{
 		//canvas.requestFullscreen();
@@ -367,6 +369,7 @@ function touchMove(e)
 }
 function touchEnd(e)
 {
+	document.getElementById("log").innerHTML="end";
 	if(document.fullscreenElement!=canvas)
 	{
 		canvas.requestFullscreen();
