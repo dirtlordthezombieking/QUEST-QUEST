@@ -153,11 +153,11 @@ function createImage(w,h)
 }
 function updateLayer(layerID)
 {
-	if(layers[layerID].texture!==undefined)
+	if(layers[layerID].texture===undefined)
 	{
 		layers[layerID].texture=gl.createTexture();
 	}
-	if(layers[layerID].SaveTexture!==undefined)
+	if(layers[layerID].SaveTexture===undefined)
 	{
 		layers[layerID].SaveTexture=saveGL.createTexture();
 	}
