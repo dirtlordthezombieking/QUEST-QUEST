@@ -213,6 +213,7 @@ function setPixel(x,y,layerID)
 	layers[layerID][pos+1]=colour[1];
 	layers[layerID][pos+2]=colour[2];
 	layers[layerID][pos+3]=colour[3];
+	updateLayer(layerID);
 }
 //--------------------------------------------------BASIC FUNCTIONS
 function resizeCanvas()
@@ -319,7 +320,7 @@ function touchStart(e)
 }
 function touchMove(e)
 {
-	document.getElementById("log").innerHTML="move";
+	//document.getElementById("log").innerHTML="move";
 	if(document.fullscreenElement!=canvas)
 	{
 		//canvas.requestFullscreen();
