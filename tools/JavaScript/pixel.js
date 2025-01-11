@@ -87,7 +87,7 @@ let canSize=gl.getUniformLocation(shader,"u_size");
 let texLoc=gl.getUniformLocation(shader,"u_tex");
 let vertLoc=gl.getAttribLocation(shader,"a_data");
 let posLoc=gl.getUniformLocation(shader,"u_pos");
-let zoomLoc=gl.getUniformLocation(shader,"u_size");
+let zoomLoc=gl.getUniformLocation(shader,"u_scale");
 //--------SAVE--------
 //vertex
 let saveVertShader=saveGL.createShader(saveGL.VERTEX_SHADER);
