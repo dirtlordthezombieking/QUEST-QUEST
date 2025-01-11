@@ -183,7 +183,7 @@ function addLayer()
 	{
 		layers.push({});
 	}
-	layers[layersCount].arr=Array(width*height*4).fill(1);
+	layers[layersCount].arr=Array(width*height*4).fill(255);
 	updateLayer(layersCount);
 	layersCount++;
 }
