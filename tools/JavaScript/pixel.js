@@ -131,8 +131,8 @@ function isInCanvas(x,y)
 	let cx=(x-(canvas.width/2));///zoom;
 	let cy=(y-(canvas.height/2));///zoom;
 	let ret=[];
-	ret[0]=Math.floor((cx-posX)/zoom);//canRect[0];
-	ret[1]=Math.floor((cy-posY)/zoom);//canRect[1];
+	ret[0]=Math.floor(((cx-posX)/zoom)+(width/2));//canRect[0];
+	ret[1]=Math.floor(((cy-posY)/zoom)+(height/2));//canRect[1];
 	ret[2]=((ret[0]>=0)&&(ret[0]<width)&&(ret[1]>=0)&&(ret[1]<height));
 	return ret;
 }
