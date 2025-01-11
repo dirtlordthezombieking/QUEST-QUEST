@@ -8,7 +8,7 @@ let tool=0;
 let posX=0.0;
 let posY=0.0;
 let currentLayer=0;
-let replaceColour=false;
+let replaceColour=true;
 let currentTool=0;
 let width=64;
 let height=64;
@@ -131,8 +131,8 @@ function isInCanvas(x,y)
 	let cx=(x-(canvas.width/2))/zoom;
 	let cy=(y-(canvas.height/2))/zoom;
 	let ret=[];
-	ret[0]=cx-(posX-(width/2));//canRect[0];
-	ret[1]=cy-(posY-(height/2));//canRect[1];
+	ret[0]=Math.floor(cx-(posX-(width/2)));//canRect[0];
+	ret[1]=Math.floor(cy-(posY-(height/2)));//canRect[1];
 	ret[2]=((ret[0]>=0)&&(ret[0]<width)&&(ret[1]>=0)&&(ret[1]<height));
 	return ret;
 }
