@@ -134,6 +134,7 @@ function isInCanvas(x,y)
 	ret[0]=cx-(posX-(width/2));//canRect[0];
 	ret[1]=cy-(posY-(height/2));//canRect[1];
 	ret[2]=((ret[0]>=0)&&(ret[0]<width)&&(ret[1]>=0)&&(ret[1]<height));
+	return ret;
 }
 //--------------------------------------------------IMAGE FUNCTIONS
 function createImage(w,h)
