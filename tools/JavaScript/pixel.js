@@ -5,8 +5,8 @@
 //-------------------------------------------------------BASIC VARS
 let zoom=5.0;
 let tool=0;
-let posX=16.0;
-let posY=16.0;
+let posX=0.0;
+let posY=0.0;
 let currentLayer=0;
 let replaceColour=true;
 let currentTool=0;
