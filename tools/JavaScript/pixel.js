@@ -1,6 +1,6 @@
 //-----------------------------------------------FOR DEBUG PURPOSES
 //function Float32Array(){}
-//function UInt16Array(){}
+//function Uint16Array(){}
 //function Uint8Array(){}
 //-------------------------------------------------------BASIC VARS
 let zoom=1.0;
@@ -28,8 +28,6 @@ gl.clear(gl.COLOR_BUFFER_BIT);
 //getUniformLocation|getAttribLocation
 let vertBuff=gl.createBuffer();
 let indexArray=gl.createBuffer();
-gl.bindBuffer(
-gl.bufferData(
 gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,indexArray);
 gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(
 [
@@ -85,6 +83,7 @@ let shader=gl.createProgram();
 gl.attachShader(shader,vertShader);
 gl.attachShader(shader,fragShader);
 gl.linkProgram(shader);
+let canSize=gl.getUniformLocation(shader,"u_size");
 let texLoc=gl.getUniformLocation(shader,"u_tex");
 let vertLoc=gl.getAttribLocation(shader,"a_data");
 let posLoc=gl.getUniformLocation(shader,"u_pos");
@@ -209,6 +208,17 @@ function touchEnd(e)
 	//up
 }
 //--------------------------------------------------IMAGE FUNCTIONS
+function creatImage(w,h)
+{
+	gl.bindBuffer(gl.ARRAY_BUFFER,vertBuff);
+	gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(
+	[
+		0,0,0,1,
+		0,h,0,0,
+		w,0,1,1,
+		w,h,1,0
+	]),vertBuff);
+}
 function addLayer()
 {
 	if(layersCount>=layers.length)
@@ -292,6 +302,7 @@ function resizeCanvas()
 {
 	canvas.width=canvas.clientWidth;
 	canvas.height=canvas.clientHeight;
+	gl.uniform2f(canSize,canvas.width,canvas.height);
 }
 function draw(t)
 {
@@ -304,7 +315,7 @@ function draw(t)
 	gl.bindTexture(gl.TEXTURE_2D,layers[layerID].texture);
 	gl.bindBuffer(gl.ARRAY_BUFFER,vertBuff);
 	gl.enableVertexAttribArray(vertLoc);
-	gl.vertexAttribPointer(//----vertLoc----,4,game.gl.FLOAT,false,0,0);
+	gl.vertexAttribPointer(vertLoc,4,game.gl.FLOAT,false,0,0);
 	gl.uniform2f(posLoc,posX-(width/2),posY-(height/2));
 	gl.uniform1f(zoomLoc,zoom);
 	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,indexArray);
