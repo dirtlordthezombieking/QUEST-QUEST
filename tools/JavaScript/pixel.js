@@ -320,7 +320,7 @@ function touchStart(e)
 	document.getElementById("log").innerHTML=""+inCan[0]+","+inCan[1];
 	if(inCan[2])
 	{
-		document.getElementById("log").innerHTML="in canvas";
+		//document.getElementById("log").innerHTML="in canvas";
 		tools[currentTool].touchDown(inCan[0],inCan[1],t.identifier);
 	}
 	}
