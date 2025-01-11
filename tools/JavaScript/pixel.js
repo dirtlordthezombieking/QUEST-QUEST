@@ -25,11 +25,8 @@ gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
 gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
 gl.clearColor(0,0,0,1);
 gl.clear(gl.COLOR_BUFFER_BIT);
-let texLoc=gl.
+//getUniformLocation|getAttribLocation
 let vertBuff=
-let vertLoc=
-let posLoc=
-let zoomLoc=
 let indexArray=
 new ResizeObserver(resizeCanvas).observe(canvas);
 //------------------------------------------------SAVE CANVAS SETUP
@@ -45,7 +42,7 @@ saveGL.clear(gl.COLOR_BUFFER_BIT);
 //------------------------------------------------------OTHER ITEMS 
 const a=document.createElement("a");
 //----------------------------------------------------------SHADERS
-//--MAIN--
+//--------MAIN--------
 //Vertex
 let vertShader=gl.createShader(gl.VERTEX_SHADER);
 gl.shaderSource(vertShader,
@@ -80,7 +77,11 @@ let shader=gl.createProgram();
 gl.attachShader(shader,vertShader);
 gl.attachShader(shader,fragShader);
 gl.linkProgram(shader);
-//--SAVE--
+let texLoc=gl.getUniformLocation(shader,"u_tex");
+let vertLoc=gl.getAttribLocation(shader,"a_data");
+let posLoc=gl.getUniformLocation(shader,"u_pos");
+let zoomLoc=gl.getUniformLocation(shader,"u_size");
+//--------SAVE--------
 //vertex
 let saveVertShader=saveGL.createShader(saveGL.VERTEX_SHADER);
 saveGL.shaderSource(saveVertShader,
@@ -290,15 +291,15 @@ function draw(t)
 	gl.clearColor(0.5,0.5,0.5,1);
 	gl.clear(gl.COLOR_BUFFER_BIT);
 	gl.useProgram(shader);
-	gl.uniform1i(//----texLoc----,0);
+	gl.uniform1i(texLoc,0);
 	gl.activeTexture(gl.TEXTURE0);
 	gl.bindTexture(gl.TEXTURE_2D,layers[layerID].texture);
-	gl.bindBuffer(gl.ARRAY_BUFFER,//----vertBuff----);
-	gl.enableVertexAttribArray(//----vertLoc----);
+	gl.bindBuffer(gl.ARRAY_BUFFER,vertBuff);
+	gl.enableVertexAttribArray(vertLoc);
 	gl.vertexAttribPointer(//----vertLoc----,4,game.gl.FLOAT,false,0,0);
-	gl.uniform2f(//----posLoc----,posX-(width/2),posY-(height/2));
-	gl.uniform1f(//----zoomLoc----,zoom);
-	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,//----indexArray----);
+	gl.uniform2f(posLoc,posX-(width/2),posY-(height/2));
+	gl.uniform1f(zoomLoc,zoom);
+	gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,indexArray);
 	gl.drawElements(gl.TRIANGLES,6,gl.UNSIGNED_SHORT,0);
 	//save canvas
 	saveGL.clearColor(0,0,0,0);
