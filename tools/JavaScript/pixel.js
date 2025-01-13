@@ -120,6 +120,42 @@ let saveShader=saveGL.createProgram();
 saveGL.attachShader(saveShader,saveVertShader);
 saveGL.attachShader(saveShader,saveFragShader);
 saveGL.linkProgram(saveShader);
+//---------------------------------------------------------TEXTURES
+function createTexture(tw,th,data,x,y,w,h)
+{
+	let ret={}
+	ret.tex=gl.createTexture();
+	gl.bindTexture(gl.TEXTURE_2D,ret.tex);
+	gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,tw,th,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(layers[layerID].arr));
+	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);
+	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);
+	ret.vertBuff=
+	gl.bindBuffer(gl.ARRAY_BUFFER,vertBuff);
+	gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(
+	[
+		0,0,0,1,
+		0,h,0,0,
+		w,0,1,1,
+		w,h,1,0
+	]),gl.STATIC_DRAW);
+	return ret;
+}
+const blendTex=createTexture(4,4,
+[
+	  0,  0,  0,  0,   0,255,  0,255,   0,255, 0,255,   0,255,  0,255,
+	255,  0,  0,255, 255,255,  0,255, 255,255, 0,255,   0,255,  0,255,
+	255,  0,  0,255, 255,255,  0,255, 255,255, 0,255,   0,255,  0,255,
+	255,  0,  0,255, 255,  0,  0,255, 255,  0, 0,255,   0,  0,  0,  0
+];
+const dontBlendTex=createTexture(4,4,
+[
+	  0,  0,  0,  0,   0,255,  0,255,   0,255, 0,255,   0,255,  0,255,
+	255,  0,  0,255,   0,255,  0,255,   0,255, 0,255,   0,255,  0,255,
+	255,  0,  0,255,   0,255,  0,255,   0,255, 0,255,   0,255,  0,255,
+	255,  0,  0,255, 255,  0,  0,255, 255,  0, 0,255,   0,  0,  0,  0
+];
 //-------------------------------------------------------MATH UTILS
 function correct(i)
 {
