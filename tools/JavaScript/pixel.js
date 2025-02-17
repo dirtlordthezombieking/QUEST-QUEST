@@ -123,10 +123,10 @@ saveGL.linkProgram(saveShader);
 //---------------------------------------------------------TEXTURES
 function createTexture(tw,th,data,x,y,w,h)
 {
-	let ret={}
+	let ret={};
 	ret.tex=gl.createTexture();
 	gl.bindTexture(gl.TEXTURE_2D,ret.tex);
-	gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,tw,th,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(layers[layerID].arr));
+	gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,tw,th,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array(data));
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
 	gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);
@@ -148,14 +148,14 @@ const blendTex=createTexture(4,4,
 	255,  0,  0,255, 255,255,  0,255, 255,255, 0,255,   0,255,  0,255,
 	255,  0,  0,255, 255,255,  0,255, 255,255, 0,255,   0,255,  0,255,
 	255,  0,  0,255, 255,  0,  0,255, 255,  0, 0,255,   0,  0,  0,  0
-];
+],0,0,64,64);
 const dontBlendTex=createTexture(4,4,
 [
 	  0,  0,  0,  0,   0,255,  0,255,   0,255, 0,255,   0,255,  0,255,
 	255,  0,  0,255,   0,255,  0,255,   0,255, 0,255,   0,255,  0,255,
 	255,  0,  0,255,   0,255,  0,255,   0,255, 0,255,   0,255,  0,255,
 	255,  0,  0,255, 255,  0,  0,255, 255,  0, 0,255,   0,  0,  0,  0
-];
+],0,0,64,64);
 //-------------------------------------------------------MATH UTILS
 function correct(i)
 {
@@ -173,21 +173,6 @@ function isInCanvas(x,y)
 	return ret;
 }
 //--------------------------------------------------IMAGE FUNCTIONS
-function createImage(w,h)
-{
-	gl.bindBuffer(gl.ARRAY_BUFFER,vertBuff);
-	gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(
-	[
-		0,0,0,1,
-		0,h,0,0,
-		w,0,1,1,
-		w,h,1,0
-	]),gl.STATIC_DRAW);
-	width=w;
-	height=h;
-	layersCount=0;
-	addLayer();
-}
 function updateLayer(layerID)
 {
 	if(layers[layerID].texture===undefined)
@@ -223,6 +208,21 @@ function addLayer()
 	layers[layersCount].arr=Array(width*height*4).fill(255);
 	updateLayer(layersCount);
 	layersCount++;
+}
+function createImage(w,h)
+{
+	gl.bindBuffer(gl.ARRAY_BUFFER,vertBuff);
+	gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(
+	[
+		0,0,0,1,
+		0,h,0,0,
+		w,0,1,1,
+		w,h,1,0
+	]),gl.STATIC_DRAW);
+	width=w;
+	height=h;
+	layersCount=0;
+	addLayer();
 }
 function setPixel(x,y,layerID)
 {
@@ -360,9 +360,9 @@ function touchStart(e)
 		tools[currentTool].touchDown(inCan[0],inCan[1],t.identifier);
 	}
 	}
-	catch(e)
+	catch(er)
 	{
-		document.getElementById("log").innerHTML=e.message;
+		document.getElementById("log").innerHTML=er.message;
 	}
 }
 function touchMove(e)
