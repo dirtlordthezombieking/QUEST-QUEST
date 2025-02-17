@@ -288,6 +288,8 @@ function draw(t)
 		gl.bindTexture(gl.TEXTURE_2D,layers[i].texture);
 		gl.drawElements(gl.TRIANGLES,6,gl.UNSIGNED_SHORT,0);
 	}
+	//draw UI
+	
 	//save canvas
 	saveGL.clearColor(0,0,0,0);
 	saveGL.clear(gl.COLOR_BUFFER_BIT);
